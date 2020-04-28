@@ -1,3 +1,7 @@
 .bg-primary{
     background-color: #282c34 !important;
 }
+
+.text-secondary{
+    color: #61dafb !important;
+}

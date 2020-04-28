@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/Header';
 import Learn from './components/Learn';
 import Footer from './components/Footer';
 import CustomNav from './components/CustomNav';
@@ -12,7 +11,6 @@ function App() {
   return (
     <div className="bg-primary text-white">
       <CustomNav />
-      <Header />
       <Learn />
       <Footer />
     </div>

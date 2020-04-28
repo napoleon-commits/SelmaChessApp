@@ -1,7 +1,28 @@
 import React from 'react';
 
+import startingPosition from '../images/StartingPosition.png';
+
 const Learn = () => (
   <div>
+    <h1 className="mt-4 text-center">Become the master of an army!</h1>
+    <hr />
+    <div className="mb-3">
+      <div className="h2 text-secondary">What is the goal of a chess game?</div>
+      <div>
+        The goal in chess is to checkmate your opponent&apos;s King.
+        When a king cannot avoid capture then it is checkmated and the game is over.
+      </div>
+    </div>
+    <div className="mb-3">
+      <div className="h2 text-secondary">Starting position</div>
+      <div className="mb-3">The chessboard is placed with the light square at the right-hand corner nearest to each player.</div>
+      <div>
+        <img src={startingPosition} alt="starting chess position" style={{ width: '100vw' }} />
+      </div>
+    </div>
+    <div className="mb-3">
+      <div className="h2 text-secondary">Moving the chess pieces</div>
+    </div>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non bibendum est.
       Praesent laoreet mauris non porttitor scelerisque. Integer vel quam et nisl suscipit

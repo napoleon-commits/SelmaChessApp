@@ -17,7 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "es:init": "eslint --init",
-    "es:lint": "eslint --fix src/index.jsx src/components/*.jsx"
+    "es:lint": "eslint --fix src/*.jsx src/components/*.jsx"
   },
   "eslintConfig": {
     "extends": "react-app"

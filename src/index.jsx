@@ -17,6 +17,7 @@ import Learn from './components/Learn';
 import PlayEngine from './components/PlayEngine';
 import PlayOffline from './components/PlayOffline';
 import PlayOnline from './components/PlayOnline';
+import Videos from './components/Videos';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -42,6 +43,9 @@ ReactDOM.render(
         </Route>
         <Route path="/online">
           <PlayOnline />
+        </Route>
+        <Route path="/videos">
+          <Videos />
         </Route>
         <Route path="/">
           <App />

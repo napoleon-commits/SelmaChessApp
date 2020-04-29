@@ -12,7 +12,9 @@ function App() {
     <div className="bg-primary text-white">
       <CustomNav />
       <Learn />
-      <Footer />
+      <div className="px-3">
+        <Footer />
+      </div>
     </div>
   );
 }

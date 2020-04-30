@@ -20,7 +20,7 @@ import PlayOnline from './components/PlayOnline';
 import Videos from './components/Videos';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Router>
       <Switch>
         <Route path="/about">
@@ -51,8 +51,8 @@ ReactDOM.render(
           <App />
         </Route>
       </Switch>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
+  // </React.StrictMode>,
   document.getElementById('root'),
 );
 

@@ -2268,8 +2268,8 @@ function InitBoardSquares() {
 		for(fileIter = FILES.FILE_A; fileIter <= FILES.FILE_H; fileIter++) {
 			fileName = "file" + (fileIter+1);
 			
-			if(light===0) lightString="Light";
-			else lightString = "Dark";
+			if(light===0) lightString="Dark";
+			else lightString = "Light";
 			divString = "<div class=\"Square " + rankName + " " + fileName + " " + lightString + "\"/>";
 			light^=1;
 			$("#Board").append(divString);

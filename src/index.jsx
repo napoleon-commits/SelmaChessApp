@@ -20,39 +20,39 @@ import PlayOnline from './components/PlayOnline';
 import Videos from './components/Videos';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/enroll">
-          <Enroll />
-        </Route>
-        <Route path="/learn">
-          <Learn />
-        </Route>
-        <Route path="/engine">
-          <PlayEngine />
-        </Route>
-        <Route path="/offline">
-          <PlayOffline />
-        </Route>
-        <Route path="/online">
-          <PlayOnline />
-        </Route>
-        <Route path="/videos">
-          <Videos />
-        </Route>
-        <Route path="/">
-          <App />
-        </Route>
-      </Switch>
-    </Router>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Router>
+    <Switch>
+      <Route path="/about">
+        <About />
+      </Route>
+      <Route path="/contact">
+        <Contact />
+      </Route>
+      <Route path="/enroll">
+        <Enroll />
+      </Route>
+      <Route path="/learn">
+        <Learn />
+      </Route>
+      <Route path="/engine">
+        <PlayEngine />
+      </Route>
+      <Route path="/offline">
+        <PlayOffline />
+      </Route>
+      <Route path="/online">
+        <PlayOnline />
+      </Route>
+      <Route path="/videos">
+        <Videos />
+      </Route>
+      <Route path="/">
+        <App />
+      </Route>
+    </Switch>
+  </Router>,
+  // </React.StrictMode>,
   document.getElementById('root'),
 );
 

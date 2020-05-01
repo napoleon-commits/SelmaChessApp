@@ -22,12 +22,17 @@ import whiteRook from '../images/wR.png';
 
 import { startBoard } from '../constants';
 
+import '../utils/engine';
+
 const adjustBoardDimensions = () => {
   const squareHeight = $('#BoardJSX').height() / 8;
   const squareWidth = $('#BoardJSX').width() / 8;
 
   $('.Square').height(squareHeight);
   $('.Square').width(squareWidth);
+
+  $('.PieceJSX').height(squareHeight);
+  $('.PieceJSX').width(squareWidth);
 
   $('.rank1').css('margin-top', squareHeight * 7);
   $('.rank2').css('margin-top', squareHeight * 6);
@@ -48,37 +53,52 @@ const adjustBoardDimensions = () => {
   $('.file1').css('margin-left', squareWidth * 0);
 };
 
-const imagesStyleObject = { display: 'block', maxWidth: '100%', maxHeight: '100%' };
+const imagesStyleObject = {
+  display: 'block', maxWidth: '100%', maxHeight: '100%', margin: 'auto',
+};
 
-const getHTMLChessPiece = (letter) => {
+const getHTMLChessPiece = (letter, rank, file) => {
+  const className = `PieceJSX position-absolute rank${
+    rank} file${file} ${((rank + file) % 2 === 0) ? 'darkSquare' : 'bg-white'}`;
+  let imageSrc = null;
   switch (letter) {
     case 'r':
-      return <><img alt={letter} style={imagesStyleObject} src={blackRook} /></>;
+      imageSrc = blackRook; break;
     case 'n':
-      return <><img alt={letter} style={imagesStyleObject} src={blackKnight} /></>;
+      imageSrc = blackKnight; break;
     case 'b':
-      return <><img alt={letter} style={imagesStyleObject} src={blackBishop} /></>;
+      imageSrc = blackBishop; break;
     case 'q':
-      return <><img alt={letter} style={imagesStyleObject} src={blackQueen} /></>;
+      imageSrc = blackQueen; break;
     case 'k':
-      return <><img alt={letter} style={imagesStyleObject} src={blackKing} /></>;
+      imageSrc = blackKing; break;
     case 'p':
-      return <><img alt={letter} style={imagesStyleObject} src={blackPawn} /></>;
+      imageSrc = blackPawn; break;
     case 'R':
-      return <><img alt={letter} style={imagesStyleObject} src={whiteRook} /></>;
+      imageSrc = whiteRook; break;
     case 'N':
-      return <><img alt={letter} style={imagesStyleObject} src={whiteKnight} /></>;
+      imageSrc = whiteKnight; break;
     case 'B':
-      return <><img alt={letter} style={imagesStyleObject} src={whiteBishop} /></>;
+      imageSrc = whiteBishop; break;
     case 'Q':
-      return <><img alt={letter} style={imagesStyleObject} src={whiteQueen} /></>;
+      imageSrc = whiteQueen; break;
     case 'K':
-      return <><img alt={letter} style={imagesStyleObject} src={whiteKing} /></>;
+      imageSrc = whiteKing; break;
     case 'P':
-      return <><img alt={letter} style={imagesStyleObject} src={whitePawn} /></>;
+      imageSrc = whitePawn; break;
     default:
-      return '';
   }
+
+  return (
+    <>
+      <img
+        className={className}
+        alt={letter}
+        style={imagesStyleObject}
+        src={imageSrc}
+      />
+    </>
+  );
 };
 
 class PlayOffline extends React.Component {
@@ -99,14 +119,23 @@ class PlayOffline extends React.Component {
     const jsxTags = [];
     for (let i = 8; i >= 1; i -= 1) {
       for (let j = 1; j <= 8; j += 1) {
-        jsxTags.push(
-          <div
-            key={`${i}${j}`}
-            className={`Square position-absolute rank${i} file${j} ${((i + j) % 2 === 0) ? 'darkSquare' : 'bg-white'}`}
-          >
-            {getHTMLChessPiece(boardArray[8 - i][j - 1])}
-          </div>,
-        );
+        if (
+          boardArray[8 - i][j - 1] === '.'
+        ) {
+          jsxTags.push(
+            <div
+              key={`${i}${j}`}
+              className={`Square position-absolute rank${i} file${j} ${((i + j) % 2 === 0) ? 'darkSquare' : 'bg-white'}`}
+            >
+              {/* {getHTMLChessPiece(boardArray[8 - i][j - 1])} */}
+            </div>,
+          );
+        } else {
+          // console.log(getHTMLChessPiece(boardArray[8 - i][j - 1], i, j),)
+          jsxTags.push(
+            <>{getHTMLChessPiece(boardArray[8 - i][j - 1], i, j)}</>,
+          );
+        }
       }
     }
     return (

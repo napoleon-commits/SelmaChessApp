@@ -126,14 +126,11 @@ class PlayOffline extends React.Component {
             <div
               key={`${i}${j}`}
               className={`Square position-absolute rank${i} file${j} ${((i + j) % 2 === 0) ? 'darkSquare' : 'bg-white'}`}
-            >
-              {/* {getHTMLChessPiece(boardArray[8 - i][j - 1])} */}
-            </div>,
+            />,
           );
         } else {
-          // console.log(getHTMLChessPiece(boardArray[8 - i][j - 1], i, j),)
           jsxTags.push(
-            <>{getHTMLChessPiece(boardArray[8 - i][j - 1], i, j)}</>,
+            <div key={`${i}${j}`}>{getHTMLChessPiece(boardArray[8 - i][j - 1], i, j)}</div>,
           );
         }
       }

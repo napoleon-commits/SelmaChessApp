@@ -1931,7 +1931,7 @@ function SetSqSelected(sq) {
 function ClickedSquare(pageX, pageY) {
 	console.log("ClickedSquare");
 	console.log('ClickedSquare() at ' + pageX + ',' + pageY);
-	var position = $('#Board').position();
+	var position = $('#BoardJSX').position();
 
 	var workedX = Math.floor(position.left);
 	var workedY = Math.floor(position.top);

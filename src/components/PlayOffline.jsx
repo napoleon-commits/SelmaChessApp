@@ -3,6 +3,8 @@ import React from 'react';
 // import { takeBack, newGame } from '../utils/engine';
 // import '../styles/engine.css';
 import '../styles/common.css';
+import '../styles/engineJSX.css';
+
 import $ from 'jquery';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
@@ -139,7 +141,7 @@ class PlayOffline extends React.Component {
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
           <CustomNav />
-          <div id="BoardJSX" style={{ height: '60vh' }} className="mx-3 mt-2 text-dark">
+          <div id="BoardJSX" style={{ height: '60vh' }} className="mx-4 mt-2 text-dark">
             {jsxTags}
           </div>
           <div className="px-3">

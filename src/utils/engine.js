@@ -1928,21 +1928,11 @@ function SetSqSelected(sq) {
 	});
 }
 
-function ClickedSquare(pageX, pageY) {
+function ClickedSquare(file, rank) {
 	console.log("ClickedSquare");
-	console.log('ClickedSquare() at ' + pageX + ',' + pageY);
-	var position = $('#BoardJSX').position();
+	console.log('ClickedSquare() at ' + file + ',' + rank);
 
-	var workedX = Math.floor(position.left);
-	var workedY = Math.floor(position.top);
-
-	pageX = Math.floor(pageX);
-	pageY = Math.floor(pageY);
-
-	var file = Math.floor((pageX - workedX) / 60);
-	var rank = 7 - Math.floor((pageY - workedY) / 60);
-
-	var sq = FR2SQ(file, rank);
+	var sq = FR2SQ(file - 1, rank - 1);
 
 	console.log('Clicked sq:' + PrSq(sq));
 
@@ -1955,10 +1945,27 @@ $(document).on('click', '.PieceJSX', function (e) {
 	console.log("$(document).on('click','.Piece'");
 	console.log('Piece Click');
 
+	let file = null;
+	let rank = null;
+	const classesArray = $(this)[0].classList;
+	for(let i = 0; i < (classesArray).length; i+=1){
+		let attribute = String(classesArray[i]);
+		if(attribute.startsWith("rank")){
+			rank = Number(attribute[attribute.length-1]);
+		} else if(attribute.startsWith("file")){
+			file = Number(attribute[attribute.length-1]);
+		}
+	}
+
+	$('.PieceJSX').each(function () {
+		$(this).removeClass('SqSelected');
+	});
+	$(this).addClass('SqSelected');
+
 	if (UserMove.from === SQUARES.NO_SQ) {
-		UserMove.from = ClickedSquare(e.pageX, e.pageY);
+		UserMove.from = FR2SQ(file - 1, rank - 1);;
 	} else {
-		UserMove.to = ClickedSquare(e.pageX, e.pageY);
+		UserMove.to = FR2SQ(file - 1, rank - 1);
 	}
 
 	MakeUserMove();

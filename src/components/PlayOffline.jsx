@@ -130,7 +130,7 @@ class PlayOffline extends React.Component {
           );
         } else {
           jsxTags.push(
-            <>{getHTMLChessPiece(boardArray[8 - i][j - 1], i, j)}</>,
+            <div key={`${i}${j}`}>{getHTMLChessPiece(boardArray[8 - i][j - 1], i, j)}</div>,
           );
         }
       }

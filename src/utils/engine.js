@@ -1965,6 +1965,20 @@ export const clickedSquareJSX = (file, rank) => {
 	}
 }
 
+export const getJSXBoard = () => {
+	let JSXBoard = [];
+	for(let rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank--) {
+		const row = [];
+		for(let file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
+			let sq = FR2SQ(file,rank);
+			let piece = GameBoard.pieces[sq];
+			row.push(PceChar[piece])
+		}
+		JSXBoard.push(row);
+	}
+	return(JSXBoard);
+};
+
 function MakeUserMove() {
 
 	console.log("MakeUserMove");

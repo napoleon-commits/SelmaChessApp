@@ -5,7 +5,7 @@ import React from 'react';
 import '../styles/common.css';
 import '../styles/engineJSX.css';
 
-import $ from 'jquery';
+// import $ from 'jquery';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
@@ -24,45 +24,48 @@ import whiteRook from '../images/wR.png';
 
 import { startBoard } from '../constants';
 
-import { clickedPieceJSX, clickedSquareJSX } from '../utils/engine';
+import {
+  clickedPieceJSX,
+  clickedSquareJSX,
+  getJSXBoard,
+} from '../utils/engine';
 
 
-const adjustBoardDimensions = () => {
-  const squareHeight = $('#BoardJSX').height() / 8;
-  const squareWidth = $('#BoardJSX').width() / 8;
+// const adjustBoardDimensions = () => {
+//   const squareHeight = $('#BoardJSX').height() / 8;
+//   const squareWidth = $('#BoardJSX').width() / 8;
 
-  $('.Square').height(squareHeight);
-  $('.Square').width(squareWidth);
+//   $('.Square').height(squareHeight);
+//   $('.Square').width(squareWidth);
 
-  $('.PieceJSX').height(squareHeight);
-  $('.PieceJSX').width(squareWidth);
+//   $('.PieceJSX').height(squareHeight);
+//   $('.PieceJSX').width(squareWidth);
 
-  $('.rank1').css('margin-top', squareHeight * 7);
-  $('.rank2').css('margin-top', squareHeight * 6);
-  $('.rank3').css('margin-top', squareHeight * 5);
-  $('.rank4').css('margin-top', squareHeight * 4);
-  $('.rank5').css('margin-top', squareHeight * 3);
-  $('.rank6').css('margin-top', squareHeight * 2);
-  $('.rank7').css('margin-top', squareHeight * 1);
-  $('.rank8').css('margin-top', squareHeight * 0);
+//   $('.rank1').css('margin-top', squareHeight * 7);
+//   $('.rank2').css('margin-top', squareHeight * 6);
+//   $('.rank3').css('margin-top', squareHeight * 5);
+//   $('.rank4').css('margin-top', squareHeight * 4);
+//   $('.rank5').css('margin-top', squareHeight * 3);
+//   $('.rank6').css('margin-top', squareHeight * 2);
+//   $('.rank7').css('margin-top', squareHeight * 1);
+//   $('.rank8').css('margin-top', squareHeight * 0);
 
-  $('.file8').css('margin-left', squareWidth * 7);
-  $('.file7').css('margin-left', squareWidth * 6);
-  $('.file6').css('margin-left', squareWidth * 5);
-  $('.file5').css('margin-left', squareWidth * 4);
-  $('.file4').css('margin-left', squareWidth * 3);
-  $('.file3').css('margin-left', squareWidth * 2);
-  $('.file2').css('margin-left', squareWidth * 1);
-  $('.file1').css('margin-left', squareWidth * 0);
-};
+//   $('.file8').css('margin-left', squareWidth * 7);
+//   $('.file7').css('margin-left', squareWidth * 6);
+//   $('.file6').css('margin-left', squareWidth * 5);
+//   $('.file5').css('margin-left', squareWidth * 4);
+//   $('.file4').css('margin-left', squareWidth * 3);
+//   $('.file3').css('margin-left', squareWidth * 2);
+//   $('.file2').css('margin-left', squareWidth * 1);
+//   $('.file1').css('margin-left', squareWidth * 0);
+// };
 
 const imagesStyleObject = {
   display: 'block', maxWidth: '100%', maxHeight: '100%', margin: 'auto',
 };
 
-const getHTMLChessPiece = (letter, rank, file) => {
-  const className = `PieceJSX position-absolute rank${
-    rank} file${file} ${((rank + file) % 2 === 0) ? 'darkSquare' : 'bg-white'}`;
+const getHTMLChessPiece = (letter) => {
+  const className = '';
   let imageSrc = null;
   switch (letter) {
     case 'r':
@@ -89,6 +92,8 @@ const getHTMLChessPiece = (letter, rank, file) => {
       imageSrc = whiteKing; break;
     case 'P':
       imageSrc = whitePawn; break;
+    case '.':
+      return <>&nbsp;</>;
     default:
   }
 
@@ -114,55 +119,52 @@ class PlayOffline extends React.Component {
   }
 
   componentDidMount() {
-    adjustBoardDimensions();
-    window.addEventListener('resize', adjustBoardDimensions);
+    // adjustBoardDimensions();
+    // window.addEventListener('resize', adjustBoardDimensions);
   }
 
   squareClick(rank, file, type) {
     if (type === 'Piece') {
       clickedPieceJSX(file, rank);
-      this.setState({});
     } else if (type === 'Square') {
       clickedSquareJSX(file, rank);
-      this.setState({});
     }
+    this.setState({
+      boardArray: getJSXBoard(),
+    });
   }
 
   render() {
     const { boardArray } = this.state;
     const jsxTags = [];
-    for (let i = 8; i >= 1; i -= 1) {
-      for (let j = 1; j <= 8; j += 1) {
-        if (
-          boardArray[8 - i][j - 1] === '.'
-        ) {
-          jsxTags.push(
-            <div
-              key={`${i}${j}`}
-              className={`Square position-absolute rank${i} file${j} ${((i + j) % 2 === 0) ? 'darkSquare' : 'bg-white'}`}
-              onClick={() => { this.squareClick(i, j, 'Square'); }}
-              onKeyDown={() => { this.squareClick(i, j, 'Square'); }}
-              tabIndex="0"
-              role="button"
-            >
-              &nbsp;
-            </div>,
-          );
-        } else {
-          jsxTags.push(
-            <div
-              key={`${i}${j}`}
-              onClick={() => { this.squareClick(i, j, 'Piece'); }}
-              onKeyDown={() => { this.squareClick(i, j, 'Piece'); }}
-              tabIndex="0"
-              role="button"
-            >
-              {getHTMLChessPiece(boardArray[8 - i][j - 1], i, j)}
-            </div>,
-          );
-        }
+    const rowTags = [];
+    for (let i = 0; i < 8; i += 1) {
+      const dataTags = [];
+      for (let j = 0; j < 8; j += 1) {
+        dataTags.push(
+          // eslint-disable-next-line
+          <td
+            key={`${i}${j}`}
+            className={(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'}
+            onClick={() => {
+              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
+            }}
+            onKeyDown={() => {
+              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
+            }}
+            // eslint-disable-next-line
+            role="button"
+            tabIndex="0"
+          >
+            {getHTMLChessPiece(boardArray[i][j])}
+          </td>,
+        );
       }
+      rowTags.push(
+        <tr key={i}>{dataTags}</tr>,
+      );
     }
+    jsxTags.push(<table key={0}><tbody>{rowTags}</tbody></table>);
     return (
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>

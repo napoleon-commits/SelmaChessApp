@@ -24,7 +24,8 @@ import whiteRook from '../images/wR.png';
 
 import { startBoard } from '../constants';
 
-import '../utils/engine';
+import { clickedPieceJSX, clickedSquareJSX } from '../utils/engine';
+
 
 const adjustBoardDimensions = () => {
   const squareHeight = $('#BoardJSX').height() / 8;
@@ -109,11 +110,22 @@ class PlayOffline extends React.Component {
     this.state = {
       boardArray: startBoard,
     };
+    this.squareClick = this.squareClick.bind(this);
   }
 
   componentDidMount() {
     adjustBoardDimensions();
     window.addEventListener('resize', adjustBoardDimensions);
+  }
+
+  squareClick(rank, file, type) {
+    if (type === 'Piece') {
+      clickedPieceJSX(file, rank);
+      this.setState({});
+    } else if (type === 'Square') {
+      clickedSquareJSX(file, rank);
+      this.setState({});
+    }
   }
 
   render() {
@@ -128,11 +140,25 @@ class PlayOffline extends React.Component {
             <div
               key={`${i}${j}`}
               className={`Square position-absolute rank${i} file${j} ${((i + j) % 2 === 0) ? 'darkSquare' : 'bg-white'}`}
-            />,
+              onClick={() => { this.squareClick(i, j, 'Square'); }}
+              onKeyDown={() => { this.squareClick(i, j, 'Square'); }}
+              tabIndex="0"
+              role="button"
+            >
+              &nbsp;
+            </div>,
           );
         } else {
           jsxTags.push(
-            <div key={`${i}${j}`}>{getHTMLChessPiece(boardArray[8 - i][j - 1], i, j)}</div>,
+            <div
+              key={`${i}${j}`}
+              onClick={() => { this.squareClick(i, j, 'Piece'); }}
+              onKeyDown={() => { this.squareClick(i, j, 'Piece'); }}
+              tabIndex="0"
+              role="button"
+            >
+              {getHTMLChessPiece(boardArray[8 - i][j - 1], i, j)}
+            </div>,
           );
         }
       }

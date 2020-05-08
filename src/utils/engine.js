@@ -1941,26 +1941,9 @@ function ClickedSquare(file, rank) {
 	return sq;
 }
 
-$(document).on('click', '.PieceJSX', function (e) {
+export const clickedPieceJSX = (file, rank) => {
 	console.log("$(document).on('click','.Piece'");
 	console.log('Piece Click');
-
-	let file = null;
-	let rank = null;
-	const classesArray = $(this)[0].classList;
-	for(let i = 0; i < (classesArray).length; i+=1){
-		let attribute = String(classesArray[i]);
-		if(attribute.startsWith("rank")){
-			rank = Number(attribute[attribute.length-1]);
-		} else if(attribute.startsWith("file")){
-			file = Number(attribute[attribute.length-1]);
-		}
-	}
-
-	$('.PieceJSX').each(function () {
-		$(this).removeClass('SqSelected');
-	});
-	$(this).addClass('SqSelected');
 
 	if (UserMove.from === SQUARES.NO_SQ) {
 		UserMove.from = FR2SQ(file - 1, rank - 1);;
@@ -1969,18 +1952,18 @@ $(document).on('click', '.PieceJSX', function (e) {
 	}
 
 	MakeUserMove();
+};
 
-});
-
-$(document).on('click', '.Square', function (e) {
-	console.log("$(document).on('click','.Square'");
-	console.log('Square Click');
+export const clickedSquareJSX = (file, rank) => {
+	console.log("clickedSquareJSX");
 	if (UserMove.from !== SQUARES.NO_SQ) {
-		UserMove.to = ClickedSquare(e.pageX, e.pageY);
+		UserMove.to = ClickedSquare(
+			file, 
+			rank
+		);
 		MakeUserMove();
 	}
-
-});
+}
 
 function MakeUserMove() {
 

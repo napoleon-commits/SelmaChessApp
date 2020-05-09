@@ -1,10 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Learn from './components/Learn';
+import Footer from './components/Footer';
+import CustomNav from './components/CustomNav';
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/common.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-primary text-white">
+      <CustomNav />
+      <Learn />
+      <div className="px-3">
+        <Footer />
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+/**
+ * <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,7 +38,4 @@ function App() {
         </a>
       </header>
     </div>
-  );
-}
-
-export default App;
+ */

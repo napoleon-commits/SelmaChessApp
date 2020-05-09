@@ -2,6 +2,7 @@ import React from 'react';
 
 // import { takeBack, newGame } from '../utils/engine';
 // import '../styles/engine.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/common.css';
 import '../styles/engineJSX.css';
 
@@ -21,6 +22,8 @@ import whitePawn from '../images/wP.png';
 import whiteQueen from '../images/wQ.png';
 import whiteKnight from '../images/wN.png';
 import whiteRook from '../images/wR.png';
+
+import blankSquare from '../images/blankSquare.png';
 
 import { startBoard } from '../constants';
 
@@ -93,7 +96,7 @@ const getHTMLChessPiece = (letter) => {
     case 'P':
       imageSrc = whitePawn; break;
     case '.':
-      return <>&nbsp;</>;
+      imageSrc = blankSquare; break;
     default:
   }
 
@@ -169,10 +172,10 @@ class PlayOffline extends React.Component {
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
           <CustomNav />
-          <div id="BoardJSX" style={{ height: '60vh' }} className="mx-4 mt-2 text-dark">
+          <div id="BoardJSX" className="mx-4 mt-2 text-dark">
             {jsxTags}
           </div>
-          <div className="px-3">
+          <div className="px-4">
             <Footer />
           </div>
         </div>

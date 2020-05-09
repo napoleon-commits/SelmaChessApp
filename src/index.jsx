@@ -6,7 +6,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import App from './App';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -48,7 +48,7 @@ ReactDOM.render(
         <Videos />
       </Route>
       <Route path="/">
-        <App />
+        <PlayOffline />
       </Route>
     </Switch>
   </Router>,

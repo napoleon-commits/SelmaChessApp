@@ -41,3 +41,19 @@
   .App-logo {
     pointer-events: none;
   }
+
+  .custom-button {
+    background-color: #282c34; /* Dark */
+    border: 1px solid white;
+    color: #61dafb;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .square-selected{
+    background-color: #6d7a82 !important;
+  }

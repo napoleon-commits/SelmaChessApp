@@ -1857,19 +1857,17 @@ $("#SetFen").click(function () {
 	NewGame(fenStr);
 });
 
-$('#TakeButton').click(function () {
-	console.log("$('#TakeButton').click");
+export const takeBack = () => {
 	if (GameBoard.hisPly > 0) {
 		TakeMove();
 		GameBoard.ply = 0;
 		SetInitialBoardPieces();
 	}
-});
+}
 
-$('#NewGameButton').click(function () {
-	console.log("$('#NewGameButton').click");
+export const newGame = () => {
 	NewGame(START_FEN);
-});
+}
 
 function NewGame(fenStr) {
 	console.log("NewGame");

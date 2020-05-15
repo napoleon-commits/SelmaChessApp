@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import { takeBack, newGame } from '../utils/engine';
 // import '../styles/engine.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/common.css';
@@ -31,37 +30,10 @@ import {
   clickedPieceJSX,
   clickedSquareJSX,
   getJSXBoard,
+  takeBack,
+  newGame,
 } from '../utils/engine';
 
-
-// const adjustBoardDimensions = () => {
-//   const squareHeight = $('#BoardJSX').height() / 8;
-//   const squareWidth = $('#BoardJSX').width() / 8;
-
-//   $('.Square').height(squareHeight);
-//   $('.Square').width(squareWidth);
-
-//   $('.PieceJSX').height(squareHeight);
-//   $('.PieceJSX').width(squareWidth);
-
-//   $('.rank1').css('margin-top', squareHeight * 7);
-//   $('.rank2').css('margin-top', squareHeight * 6);
-//   $('.rank3').css('margin-top', squareHeight * 5);
-//   $('.rank4').css('margin-top', squareHeight * 4);
-//   $('.rank5').css('margin-top', squareHeight * 3);
-//   $('.rank6').css('margin-top', squareHeight * 2);
-//   $('.rank7').css('margin-top', squareHeight * 1);
-//   $('.rank8').css('margin-top', squareHeight * 0);
-
-//   $('.file8').css('margin-left', squareWidth * 7);
-//   $('.file7').css('margin-left', squareWidth * 6);
-//   $('.file6').css('margin-left', squareWidth * 5);
-//   $('.file5').css('margin-left', squareWidth * 4);
-//   $('.file4').css('margin-left', squareWidth * 3);
-//   $('.file3').css('margin-left', squareWidth * 2);
-//   $('.file2').css('margin-left', squareWidth * 1);
-//   $('.file1').css('margin-left', squareWidth * 0);
-// };
 
 const imagesStyleObject = {
   display: 'block', maxWidth: '100%', maxHeight: '100%', margin: 'auto',
@@ -117,13 +89,12 @@ class PlayOffline extends React.Component {
     super(props);
     this.state = {
       boardArray: startBoard,
+      rankSelected: null,
+      fileSelected: null,
     };
     this.squareClick = this.squareClick.bind(this);
-  }
-
-  componentDidMount() {
-    // adjustBoardDimensions();
-    // window.addEventListener('resize', adjustBoardDimensions);
+    this.takeBack = this.takeBack.bind(this);
+    this.newGame = this.newGame.bind(this);
   }
 
   squareClick(rank, file, type) {
@@ -134,11 +105,31 @@ class PlayOffline extends React.Component {
     }
     this.setState({
       boardArray: getJSXBoard(),
+      rankSelected: 8 - rank,
+      fileSelected: file - 1,
+    });
+  }
+
+  takeBack() {
+    takeBack();
+    this.setState({
+      boardArray: getJSXBoard(),
+      fileSelected: null,
+      rankSelected: null,
+    });
+  }
+
+  newGame() {
+    newGame();
+    this.setState({
+      boardArray: getJSXBoard(),
+      fileSelected: null,
+      rankSelected: null,
     });
   }
 
   render() {
-    const { boardArray } = this.state;
+    const { boardArray, rankSelected, fileSelected } = this.state;
     const jsxTags = [];
     const rowTags = [];
     for (let i = 0; i < 8; i += 1) {
@@ -148,7 +139,7 @@ class PlayOffline extends React.Component {
           // eslint-disable-next-line
           <td
             key={`${i}${j}`}
-            className={(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'}
+            className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
             onClick={() => {
               this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
             }}
@@ -174,6 +165,12 @@ class PlayOffline extends React.Component {
           <CustomNav />
           <div id="BoardJSX" className="mx-4 mt-2 text-dark">
             {jsxTags}
+          </div>
+          <div className="mx-4 mt-2">
+            <div className="row mx-0">
+              <button onClick={this.takeBack} type="button" className="custom-button ml-5">Take Back</button>
+              <button onClick={this.newGame} type="button" className="custom-button ml-5">New Game</button>
+            </div>
           </div>
           <div className="px-4">
             <Footer />

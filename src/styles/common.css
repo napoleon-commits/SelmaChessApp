@@ -40,6 +40,7 @@
 
   .App-logo {
     pointer-events: none;
+    height: 30vh;
   }
 
   .custom-button {

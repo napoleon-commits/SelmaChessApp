@@ -158,7 +158,7 @@ class PlayOffline extends React.Component {
         <tr key={i}>{dataTags}</tr>,
       );
     }
-    jsxTags.push(<table key={0}><tbody>{rowTags}</tbody></table>);
+    jsxTags.push(<table className="m-auto" key={0}><tbody>{rowTags}</tbody></table>);
     return (
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
@@ -168,8 +168,8 @@ class PlayOffline extends React.Component {
           </div>
           <div className="mx-4 mt-2">
             <div className="row mx-0">
-              <button onClick={this.takeBack} type="button" className="custom-button ml-5">Take Back</button>
-              <button onClick={this.newGame} type="button" className="custom-button ml-5">New Game</button>
+              <button onClick={this.takeBack} type="button" className="custom-button col">Take Back</button>
+              <button onClick={this.newGame} type="button" className="custom-button col">New Game</button>
             </div>
           </div>
           <div className="px-4">

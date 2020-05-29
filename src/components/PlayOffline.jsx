@@ -1,11 +1,10 @@
 import React from 'react';
 
-// import '../styles/engine.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/common.css';
 import '../styles/engineJSX.css';
 
-// import $ from 'jquery';
+import $ from 'jquery';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
@@ -128,6 +127,19 @@ class PlayOffline extends React.Component {
     });
   }
 
+  componentDidMount(){
+    const equalSize = () => {
+      $("#chess-menu").width($('#chess-board').width());
+      if($("#chess-menu").width() === $("#chess-board").width()){
+        clearInterval(myInterval);
+      }
+    }
+    const myInterval = setInterval(equalSize, 1)
+    window.addEventListener('resize', function(){
+      $("#chess-menu").width($('#chess-board').width());
+    });
+  }
+
   render() {
     const { boardArray, rankSelected, fileSelected } = this.state;
     const jsxTags = [];
@@ -139,6 +151,7 @@ class PlayOffline extends React.Component {
           // eslint-disable-next-line
           <td
             key={`${i}${j}`}
+            id={`square-${i}${j}`}
             className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
             onClick={() => {
               this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
@@ -158,7 +171,7 @@ class PlayOffline extends React.Component {
         <tr key={i}>{dataTags}</tr>,
       );
     }
-    jsxTags.push(<table className="m-auto" key={0}><tbody>{rowTags}</tbody></table>);
+    jsxTags.push(<table id="chess-board" className="m-auto" key={0}><tbody>{rowTags}</tbody></table>);
     return (
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
@@ -166,10 +179,12 @@ class PlayOffline extends React.Component {
           <div id="BoardJSX" className="mx-4 mt-2 text-dark">
             {jsxTags}
           </div>
-          <div className="mx-4 mt-2">
-            <div className="row mx-0">
-              <button onClick={this.takeBack} type="button" className="custom-button col">Take Back</button>
-              <button onClick={this.newGame} type="button" className="custom-button col">New Game</button>
+          <div className="mt-2">
+            <div id="chess-menu" className="mx-auto">
+              <div className="row mx-0">
+                <button onClick={this.takeBack} type="button" className="custom-button col">Take Back</button>
+                <button onClick={this.newGame} type="button" className="custom-button col">New Game</button>
+              </div>
             </div>
           </div>
           <div className="px-4">

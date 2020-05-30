@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "es:init": "eslint --init",
-    "es:lint": "eslint --fix src/*.jsx src/components/*.jsx"
+    "es:lint": "eslint --fix src/*.jsx src/components/*.jsx src/utils/board.js src/utils/square.jsx"
   },
   "eslintConfig": {
     "extends": "react-app"

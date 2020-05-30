@@ -96,6 +96,18 @@ class PlayOffline extends React.Component {
     this.newGame = this.newGame.bind(this);
   }
 
+  componentDidMount() {
+    const myInterval = setInterval(() => {
+      $('#chess-menu').width($('#chess-board').width());
+      if ($('#chess-menu').width() === $('#chess-board').width()) {
+        clearInterval(myInterval);
+      }
+    }, 1);
+    window.addEventListener('resize', () => {
+      $('#chess-menu').width($('#chess-board').width());
+    });
+  }
+
   squareClick(rank, file, type) {
     if (type === 'Piece') {
       clickedPieceJSX(file, rank);
@@ -124,19 +136,6 @@ class PlayOffline extends React.Component {
       boardArray: getJSXBoard(),
       fileSelected: null,
       rankSelected: null,
-    });
-  }
-
-  componentDidMount(){
-    const equalSize = () => {
-      $("#chess-menu").width($('#chess-board').width());
-      if($("#chess-menu").width() === $("#chess-board").width()){
-        clearInterval(myInterval);
-      }
-    }
-    const myInterval = setInterval(equalSize, 1)
-    window.addEventListener('resize', function(){
-      $("#chess-menu").width($('#chess-board').width());
     });
   }
 

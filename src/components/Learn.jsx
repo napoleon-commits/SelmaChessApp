@@ -38,7 +38,7 @@ const Learn = () => (
           The rows are referred to as ranks. The columns are referred to as files.
         </div>
         <div>
-          <img src={startingPosition} alt="starting chess position" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={startingPosition} alt="starting chess position" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <hr />
@@ -54,7 +54,7 @@ const Learn = () => (
           or two squares along the rank and one square along the file.
         </div>
         <div>
-          <img src={knightMovements} alt="Knight Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={knightMovements} alt="Knight Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <div className="mb-3">
@@ -64,7 +64,7 @@ const Learn = () => (
           cannot leap over other pieces.
         </div>
         <div>
-          <img src={bishopMovements} alt="Bishop Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={bishopMovements} alt="Bishop Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <div className="mb-3">
@@ -75,7 +75,7 @@ const Learn = () => (
           Along with the king, a rook is involved in castling.
         </div>
         <div>
-          <img src={rookMovements} alt="Rook Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={rookMovements} alt="Rook Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <div className="mb-3">
@@ -85,7 +85,7 @@ const Learn = () => (
           a special move called castling.
         </div>
         <div>
-          <img src={kingMovements} alt="King Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={kingMovements} alt="King Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <div className="mb-3">
@@ -96,7 +96,7 @@ const Learn = () => (
           file, or diagonal, but cannot leap over other pieces.
         </div>
         <div>
-          <img src={queenMovements} alt="Queen Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={queenMovements} alt="Queen Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <div className="mb-3">
@@ -108,7 +108,7 @@ const Learn = () => (
           A pawn has two special moves: the en passant and promotion.
         </div>
         <div>
-          <img src={pawnMovements} alt="Pawn Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={pawnMovements} alt="Pawn Movements" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <hr />
@@ -126,7 +126,7 @@ const Learn = () => (
           square where it is no longer in check. The king can not castle when it is in check.
         </div>
         <div>
-          <img src={check} alt="Check" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={check} alt="Check" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <div className="mb-3">
@@ -142,7 +142,7 @@ const Learn = () => (
           or if the king will end up in check.
         </div>
         <div>
-          <img src={castling} alt="Castle Movement" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={castling} alt="Castle Movement" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <div className="mb-3">
@@ -154,7 +154,7 @@ const Learn = () => (
           promoted to a rook, bishop, or knight. This is called underpromiting.
         </div>
         <div>
-          <img src={pawnPromotion} alt="Pawn Promotion" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={pawnPromotion} alt="Pawn Promotion" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
       <div className="mb-3">
@@ -165,7 +165,7 @@ const Learn = () => (
           This can be done only on the very next turn.
         </div>
         <div>
-          <img src={enPassant} alt="En passant" className="d-block mx-auto" style={{ maxWidth: '100%', height:"60vh" }} />
+          <img src={enPassant} alt="En passant" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
         </div>
       </div>
     </div>

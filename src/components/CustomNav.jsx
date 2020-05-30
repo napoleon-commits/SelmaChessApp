@@ -15,10 +15,7 @@ const CustomNav = () => (
       <Nav className="mr-auto">
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/enroll">Login/Signup</Nav.Link>
-        <NavDropdown title="Learn" id="basic-nav-dropdown">
-          <NavDropdown.Item href="/learn">Basics</NavDropdown.Item>
-          <NavDropdown.Item href="/videos">With Videos</NavDropdown.Item>
-        </NavDropdown>
+        <Nav.Link href="/learn">How to Play</Nav.Link>
         <NavDropdown title="Play" id="basic-nav-dropdown">
           <NavDropdown.Item href="/offline">Against a Friend Offline</NavDropdown.Item>
           <NavDropdown.Item href="/online">Against a Friend Online</NavDropdown.Item>

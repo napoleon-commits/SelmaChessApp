@@ -47,7 +47,6 @@ var RankChar = "12345678";
 var FileChar = "abcdefgh";
 
 function FR2SQ(f, r) {
-	console.log("FR2SQ");
 	return ((21 + (f)) + ((r) * 10));
 }
 
@@ -85,8 +84,6 @@ var Sq120ToSq64 = new Array(BRD_SQ_NUM);
 var Sq64ToSq120 = new Array(64);
 
 function RAND_32() {
-	console.log("RAND_32");
-
 	return (Math.floor((Math.random() * 255) + 1) << 23) | (Math.floor((Math.random() * 255) + 1) << 16)
 		| (Math.floor((Math.random() * 255) + 1) << 8) | Math.floor((Math.random() * 255) + 1);
 
@@ -104,22 +101,18 @@ var Mirror64 = [
 ];
 
 function SQ64(sq120) {
-	console.log("SQ64");
 	return Sq120ToSq64[(sq120)];
 }
 
 function SQ120(sq64) {
-	console.log("SQ120");
 	return Sq64ToSq120[(sq64)];
 }
 
 function PCEINDEX(pce, pceNum) {
-	console.log("PCEINDEX");
 	return (pce * 10 + pceNum);
 }
 
 function MIRROR64(sq) {
-	console.log("MIRROR64");
 	return Mirror64[sq];
 }
 
@@ -150,10 +143,10 @@ var CastlePerm = [
 */
 
 
-function FROMSQ(m) { console.log("FROMSQ"); return (m & 0x7F); }
-function TOSQ(m) { console.log("TOSQ"); return ((m >> 7) & 0x7F); }
-function CAPTURED(m) { console.log("CAPTURED"); return ((m >> 14) & 0xF); }
-function PROMOTED(m) { console.log("PROMOTED"); return ((m >> 20) & 0xF); }
+function FROMSQ(m) { return (m & 0x7F); }
+function TOSQ(m) { return ((m >> 7) & 0x7F); }
+function CAPTURED(m) { return ((m >> 14) & 0xF); }
+function PROMOTED(m) { return ((m >> 20) & 0xF); }
 
 var MFLAGEP = 0x40000;
 var MFLAGPS = 0x80000;
@@ -165,19 +158,17 @@ var MFLAGCAP = 0x7C000;
 var NOMOVE = 0;
 
 function SQOFFBOARD(sq) {
-	console.log("SQOFFBOARD");
 	if (FilesBrd[sq] === SQUARES.OFFBOARD) return BOOL.TRUE;
 	return BOOL.FALSE;
 }
 
 function HASH_PCE(pce, sq) {
-	console.log("HASH_PCE");
 	GameBoard.posKey ^= PieceKeys[(pce * 120) + sq];
 }
 
-function HASH_CA() { console.log("HASH_CA"); GameBoard.posKey ^= CastleKeys[GameBoard.castlePerm]; }
-function HASH_SIDE() { console.log("HASH_SIDE"); GameBoard.posKey ^= SideKey; }
-function HASH_EP() { console.log("HASH_EP"); GameBoard.posKey ^= PieceKeys[GameBoard.enPas]; }
+function HASH_CA() { GameBoard.posKey ^= CastleKeys[GameBoard.castlePerm]; }
+function HASH_SIDE() { GameBoard.posKey ^= SideKey; }
+function HASH_EP() { GameBoard.posKey ^= PieceKeys[GameBoard.enPas]; }
 
 var GameController = {};
 GameController.EngineSide = COLOURS.BOTH;
@@ -189,12 +180,10 @@ UserMove.from = SQUARES.NO_SQ;
 UserMove.to = SQUARES.NO_SQ;
 
 function PrSq(sq) {
-	console.log("PrSq");
 	return (FileChar[FilesBrd[sq]] + RankChar[RanksBrd[sq]]);
 }
 
 function PrMove(move) {
-	console.log("PrMove");
 	var MvStr;
 
 	var ff = FilesBrd[FROMSQ(move)];
@@ -220,27 +209,7 @@ function PrMove(move) {
 	return MvStr;
 }
 
-// function PrintMoveList() {
-
-// 	console.log("PrintMoveList");
-
-// 	var index;
-// 	var move;
-// 	var num = 1;
-// 	console.log('MoveList:');
-
-// 	for (index = GameBoard.moveListStart[GameBoard.ply]; index < GameBoard.moveListStart[GameBoard.ply + 1]; ++index) {
-// 		move = GameBoard.moveList[index];
-// 		console.log('IMove:' + num + ':(' + index + '):' + PrMove(move) + ' Score:' + GameBoard.moveScores[index]);
-// 		num++;
-// 	}
-// 	console.log('End MoveList');
-// }
-
 function ParseMove(from, to) {
-
-	console.log("ParseMove");
-
 	GenerateMoves();
 
 	var Move = NOMOVE;
@@ -276,12 +245,6 @@ function ParseMove(from, to) {
 	return NOMOVE;
 }
 
-
-// function PCEINDEX(pce, pceNum) {
-// 	console.log("PCEINDEX");
-// 	return (pce * 10 + pceNum);
-// }
-
 var GameBoard = {};
 
 GameBoard.pieces = new Array(BRD_SQ_NUM);
@@ -305,61 +268,10 @@ GameBoard.searchHistory = new Array(14 * BRD_SQ_NUM);
 GameBoard.searchKillers = new Array(3 * MAXDEPTH);
 
 
-
-// function CheckBoard() {
-// 	console.log("CheckBoard");
-// 	var t_pceNum = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-// 	var t_material = [0, 0];
-// 	var sq64, t_piece, t_pce_num, sq120, colour, pcount;
-
-// 	for (t_piece = PIECES.wP; t_piece <= PIECES.bK; ++t_piece) {
-// 		for (t_pce_num = 0; t_pce_num < GameBoard.pceNum[t_piece]; ++t_pce_num) {
-// 			sq120 = GameBoard.pList[PCEINDEX(t_piece, t_pce_num)];
-// 			if (GameBoard.pieces[sq120] != t_piece) {
-// 				console.log('Error Pce Lists');
-// 				return BOOL.FALSE;
-// 			}
-// 		}
-// 	}
-
-// 	for (sq64 = 0; sq64 < 64; ++sq64) {
-// 		sq120 = SQ120(sq64);
-// 		t_piece = GameBoard.pieces[sq120];
-// 		t_pceNum[t_piece]++;
-// 		t_material[PieceCol[t_piece]] += PieceVal[t_piece];
-// 	}
-
-// 	for (t_piece = PIECES.wP; t_piece <= PIECES.bK; ++t_piece) {
-// 		if (t_pceNum[t_piece] != GameBoard.pceNum[t_piece]) {
-// 			console.log('Error t_pceNum');
-// 			return BOOL.FALSE;
-// 		}
-// 	}
-
-// 	if (t_material[COLOURS.WHITE] != GameBoard.material[COLOURS.WHITE] ||
-// 		t_material[COLOURS.BLACK] != GameBoard.material[COLOURS.BLACK]) {
-// 		console.log('Error t_material');
-// 		return BOOL.FALSE;
-// 	}
-
-// 	if (GameBoard.side != COLOURS.WHITE && GameBoard.side != COLOURS.BLACK) {
-// 		console.log('Error GameBoard.side');
-// 		return BOOL.FALSE;
-// 	}
-
-// 	if (GeneratePosKey() != GameBoard.posKey) {
-// 		console.log('Error GameBoard.posKey');
-// 		return BOOL.FALSE;
-// 	}
-// 	return BOOL.TRUE;
-// }
-
 function PrintBoard() {
-	console.log("PrintBoard");
 
 	var sq, file, rank, piece;
 
-	console.log("\nGame Board:\n");
 	for (rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank--) {
 		var line = (RankChar[rank] + "  ");
 		for (file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
@@ -390,7 +302,6 @@ function PrintBoard() {
 }
 
 function GeneratePosKey() {
-	console.log("GeneratePosKey");
 
 	var sq = 0;
 	var finalKey = 0;
@@ -417,21 +328,7 @@ function GeneratePosKey() {
 
 }
 
-// function PrintPieceLists() {
-// 	console.log("PrintPieceLists");
-
-// 	var piece, pceNum;
-
-// 	for (piece = PIECES.wP; piece <= PIECES.bK; ++piece) {
-// 		for (pceNum = 0; pceNum < GameBoard.pceNum[piece]; ++pceNum) {
-// 			console.log('Piece ' + PceChar[piece] + ' on ' + PrSq(GameBoard.pList[PCEINDEX(piece, pceNum)]));
-// 		}
-// 	}
-
-// }
-
 function UpdateListsMaterial() {
-	console.log("UpdateListsMaterial");
 
 	var piece, sq, index, colour;
 
@@ -464,9 +361,6 @@ function UpdateListsMaterial() {
 }
 
 function ResetBoard() {
-
-	console.log("ResetBoard");
-
 	var index = 0;
 
 	for (index = 0; index < BRD_SQ_NUM; ++index) {
@@ -491,7 +385,6 @@ function ResetBoard() {
 //rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
 function ParseFen(fen) {
-	console.log("ParseFen");
 
 	ResetBoard();
 
@@ -538,7 +431,6 @@ function ParseFen(fen) {
 				fenCnt++;
 				continue;
 			default:
-				console.log("FEN error");
 				return;
 
 		}
@@ -581,33 +473,7 @@ function ParseFen(fen) {
 	UpdateListsMaterial();
 }
 
-// function PrintSqAttacked() {
-
-// 	console.log("PrintSqAttacked");
-
-// 	var sq, file, rank, piece;
-
-// 	console.log("\nAttacked:\n");
-
-// 	for (rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank--) {
-// 		var line = ((rank + 1) + "  ");
-// 		for (file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
-// 			sq = FR2SQ(file, rank);
-// 			if (SqAttacked(sq, GameBoard.side ^ 1) == BOOL.TRUE) piece = "X";
-// 			else piece = "-";
-// 			line += (" " + piece + " ");
-// 		}
-// 		console.log(line);
-// 	}
-
-// 	console.log("");
-
-// }
-
 function SqAttacked(sq, side) {
-
-	console.log("SqAttacked");
-
 	var pce;
 	var t_sq;
 	var index;
@@ -677,9 +543,6 @@ var MvvLvaValue = [0, 100, 200, 300, 400, 500, 600, 100, 200, 300, 400, 500, 600
 var MvvLvaScores = new Array(14 * 14);
 
 function InitMvvLva() {
-
-	console.log("InitMvvLva");
-
 	var Attacker;
 	var Victim;
 
@@ -692,9 +555,6 @@ function InitMvvLva() {
 }
 
 function MoveExists(move) {
-
-	console.log("MoveExists");
-
 	GenerateMoves();
 
 	var index;
@@ -714,19 +574,16 @@ function MoveExists(move) {
 }
 
 function MOVE(from, to, captured, promoted, flag) {
-	console.log("MOVE");
 	return (from | (to << 7) | (captured << 14) | (promoted << 20) | flag);
 }
 
 function AddCaptureMove(move) {
-	console.log("AddCaptureMove");
 	GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
 	GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]++] =
 		MvvLvaScores[CAPTURED(move) * 14 + GameBoard.pieces[FROMSQ(move)]] + 1000000;
 }
 
 function AddQuietMove(move) {
-	console.log("AddQuietMove");
 	GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
 	GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] = 0;
 
@@ -743,13 +600,11 @@ function AddQuietMove(move) {
 }
 
 function AddEnPassantMove(move) {
-	console.log("AddEnPassantMove");
 	GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
 	GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]++] = 105 + 1000000;
 }
 
 function AddWhitePawnCaptureMove(from, to, cap) {
-	console.log("AddWhitePawnCaptureMove");
 	if (RanksBrd[from] === RANKS.RANK_7) {
 		AddCaptureMove(MOVE(from, to, cap, PIECES.wQ, 0));
 		AddCaptureMove(MOVE(from, to, cap, PIECES.wR, 0));
@@ -761,7 +616,6 @@ function AddWhitePawnCaptureMove(from, to, cap) {
 }
 
 function AddBlackPawnCaptureMove(from, to, cap) {
-	console.log("AddBlackPawnCaptureMove");
 	if (RanksBrd[from] === RANKS.RANK_2) {
 		AddCaptureMove(MOVE(from, to, cap, PIECES.bQ, 0));
 		AddCaptureMove(MOVE(from, to, cap, PIECES.bR, 0));
@@ -773,7 +627,6 @@ function AddBlackPawnCaptureMove(from, to, cap) {
 }
 
 function AddWhitePawnQuietMove(from, to) {
-	console.log("AddWhitePawnQuietMove");
 	if (RanksBrd[from] === RANKS.RANK_7) {
 		AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wQ, 0));
 		AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wR, 0));
@@ -785,7 +638,6 @@ function AddWhitePawnQuietMove(from, to) {
 }
 
 function AddBlackPawnQuietMove(from, to) {
-	console.log("AddBlackPawnQuietMove");
 	if (RanksBrd[from] === RANKS.RANK_2) {
 		AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bQ, 0));
 		AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bR, 0));
@@ -797,7 +649,6 @@ function AddBlackPawnQuietMove(from, to) {
 }
 
 function GenerateMoves() {
-	console.log("GenerateMoves");
 	GameBoard.moveListStart[GameBoard.ply + 1] = GameBoard.moveListStart[GameBoard.ply];
 
 	var pceType;
@@ -959,7 +810,6 @@ function GenerateMoves() {
 }
 
 function GenerateCaptures() {
-	console.log("GenerateCaptures");
 	GameBoard.moveListStart[GameBoard.ply + 1] = GameBoard.moveListStart[GameBoard.ply];
 
 	var pceType;
@@ -1075,9 +925,6 @@ function GenerateCaptures() {
 }
 
 function ClearPiece(sq) {
-
-	console.log("ClearPiece");
-
 	var pce = GameBoard.pieces[sq];
 	var col = PieceCol[pce];
 	var index;
@@ -1101,9 +948,6 @@ function ClearPiece(sq) {
 }
 
 function AddPiece(sq, pce) {
-
-	console.log("AddPiece");
-
 	var col = PieceCol[pce];
 
 	HASH_PCE(pce, sq);
@@ -1116,8 +960,6 @@ function AddPiece(sq, pce) {
 }
 
 function MovePiece(from, to) {
-
-	console.log("MovePiece");
 
 	var index = 0;
 	var pce = GameBoard.pieces[from];
@@ -1138,8 +980,6 @@ function MovePiece(from, to) {
 }
 
 function MakeMove(move) {
-
-	console.log("MakeMove");
 
 	var from = FROMSQ(move);
 	var to = TOSQ(move);
@@ -1228,9 +1068,6 @@ function MakeMove(move) {
 }
 
 function TakeMove() {
-
-	console.log("TakeMove");
-
 	GameBoard.hisPly--;
 	GameBoard.ply--;
 
@@ -1414,9 +1251,6 @@ function EvalPosition() {
 }
 
 function GetPvLine(depth) {
-
-	console.log("GetPvLine");
-
 	var move = ProbePvTable();
 	var count = 0;
 
@@ -1441,8 +1275,6 @@ function GetPvLine(depth) {
 
 function ProbePvTable() {
 
-	console.log("ProbePvTable");
-
 	var index = GameBoard.posKey % PVENTRIES;
 
 	if (GameBoard.PvTable[index].posKey === GameBoard.posKey) {
@@ -1453,7 +1285,6 @@ function ProbePvTable() {
 }
 
 function StorePvMove(move) {
-	console.log("StorePvMove");
 	var index = GameBoard.posKey % PVENTRIES;
 	GameBoard.PvTable[index].posKey = GameBoard.posKey;
 	GameBoard.PvTable[index].move = move;
@@ -1472,8 +1303,6 @@ SearchController.best = NOMOVE;
 SearchController.thinking = BOOL.FALSE;
 
 function PickNextMove(MoveNum) {
-
-	console.log("PickNextMove");
 
 	var index = 0;
 	var bestScore = -1;
@@ -1500,9 +1329,6 @@ function PickNextMove(MoveNum) {
 }
 
 function ClearPvTable() {
-
-	console.log("ClearPvTable");
-
 	for (let index = 0; index < PVENTRIES; index++) {
 		GameBoard.PvTable[index].move = NOMOVE;
 		GameBoard.PvTable[index].posKey = 0;
@@ -1510,14 +1336,12 @@ function ClearPvTable() {
 }
 
 function CheckUp() {
-	console.log("CheckUp");
 	if (($.now() - SearchController.start) > SearchController.time) {
 		SearchController.stop = BOOL.TRUE;
 	}
 }
 
 function IsRepetition() {
-	console.log("IsRepetition");
 	var index = 0;
 
 	for (index = GameBoard.hisPly - GameBoard.fiftyMove; index < GameBoard.hisPly - 1; ++index) {
@@ -1530,9 +1354,6 @@ function IsRepetition() {
 }
 
 function Quiescence(alpha, beta) {
-
-	console.log("Quiescence");
-
 	if ((SearchController.nodes & 2047) === 0) {
 		CheckUp();
 	}
@@ -1605,9 +1426,6 @@ function Quiescence(alpha, beta) {
 }
 
 function AlphaBeta(alpha, beta, depth) {
-
-	console.log("AlphaBeta");
-
 
 	if (depth <= 0) {
 		return Quiescence(alpha, beta);
@@ -1708,9 +1526,6 @@ function AlphaBeta(alpha, beta, depth) {
 }
 
 function ClearForSearch() {
-
-	console.log("ClearForSearch");
-
 	var index = 0;
 	// var index2 = 0;
 
@@ -1732,9 +1547,6 @@ function ClearForSearch() {
 }
 
 function SearchPosition() {
-
-	console.log("SearchPosition");
-
 	var bestMove = NOMOVE;
 	var bestScore = -INFINITE;
 	var Score = -INFINITE;
@@ -1776,8 +1588,6 @@ function SearchPosition() {
 
 function UpdateDOMStats(dom_score, dom_depth) {
 
-	console.log("UpdateDOMStats");
-
 	var scoreText = "Score: " + (dom_score / 100).toFixed(2);
 	if (Math.abs(dom_score) > MATE - MAXDEPTH) {
 		scoreText = "Score: Mate In " + (MATE - (Math.abs(dom_score)) - 1) + " moves";
@@ -1791,68 +1601,7 @@ function UpdateDOMStats(dom_score, dom_depth) {
 	$("#BestOut").text("BestMove: " + PrMove(SearchController.best));
 }
 
-// var perft_leafNodes;
-
-// function Perft(depth) {
-
-// 	console.log("Perft");
-
-// 	if (depth === 0) {
-// 		perft_leafNodes++;
-// 		return;
-// 	}
-
-// 	GenerateMoves();
-
-// 	var index;
-// 	var move;
-
-// 	for (index = GameBoard.moveListStart[GameBoard.ply]; index < GameBoard.moveListStart[GameBoard.ply + 1]; ++index) {
-
-// 		move = GameBoard.moveList[index];
-// 		if (MakeMove(move) === BOOL.FALSE) {
-// 			continue;
-// 		}
-// 		Perft(depth - 1);
-// 		TakeMove();
-// 	}
-
-// 	return;
-// }
-
-// function PerftTest(depth) {
-
-// 	console.log("PerftTest");
-
-// 	PrintBoard();
-// 	console.log("Starting Test To Depth:" + depth);
-// 	perft_leafNodes = 0;
-
-// 	var index;
-// 	var move;
-// 	var moveNum = 0;
-// 	for (index = GameBoard.moveListStart[GameBoard.ply]; index < GameBoard.moveListStart[GameBoard.ply + 1]; ++index) {
-
-// 		move = GameBoard.moveList[index];
-// 		if (MakeMove(move) == BOOL.FALSE) {
-// 			continue;
-// 		}
-// 		moveNum++;
-// 		var cumnodes = perft_leafNodes;
-// 		Perft(depth - 1);
-// 		TakeMove();
-// 		var oldnodes = perft_leafNodes - cumnodes;
-// 		console.log("move:" + moveNum + " " + PrMove(move) + " " + oldnodes);
-// 	}
-
-// 	console.log("Test Complete : " + perft_leafNodes + " leaf nodes visited");
-
-// 	return;
-
-// }
-
 $("#SetFen").click(function () {
-	console.log('$("#SetFen").click');
 	var fenStr = $("#fenIn").val();
 	NewGame(fenStr);
 });
@@ -1870,7 +1619,6 @@ export const newGame = () => {
 }
 
 function NewGame(fenStr) {
-	console.log("NewGame");
 	ParseFen(fenStr);
 	PrintBoard();
 	SetInitialBoardPieces();
@@ -1878,14 +1626,10 @@ function NewGame(fenStr) {
 }
 
 function ClearAllPieces() {
-	console.log("ClearAllPieces");
 	$(".Piece").remove();
 }
 
 function SetInitialBoardPieces() {
-
-	console.log("SetInitialBoardPieces");
-
 	var sq;
 	var sq120;
 	// var file, rank;
@@ -1907,9 +1651,7 @@ function SetInitialBoardPieces() {
 }
 
 function DeSelectSq(sq) {
-	console.log("DeSelectSq");
 	$('.Square').each(function (index) {
-		console.log("$('.Square').each");
 		if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
 			$(this).removeClass('SqSelected');
 		}
@@ -1917,9 +1659,7 @@ function DeSelectSq(sq) {
 }
 
 function SetSqSelected(sq) {
-	console.log("SetSqSelected");
 	$('.Square').each(function (index) {
-		console.log("$('.Square').each");
 		if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
 			$(this).addClass('SqSelected');
 		}
@@ -1927,7 +1667,6 @@ function SetSqSelected(sq) {
 }
 
 function ClickedSquare(file, rank) {
-	console.log("ClickedSquare");
 	console.log('ClickedSquare() at ' + file + ',' + rank);
 
 	var sq = FR2SQ(file - 1, rank - 1);
@@ -1940,9 +1679,6 @@ function ClickedSquare(file, rank) {
 }
 
 export const clickedPieceJSX = (file, rank) => {
-	console.log("$(document).on('click','.Piece'");
-	console.log('Piece Click');
-
 	if (UserMove.from === SQUARES.NO_SQ) {
 		UserMove.from = FR2SQ(file - 1, rank - 1);;
 	} else {
@@ -1953,7 +1689,6 @@ export const clickedPieceJSX = (file, rank) => {
 };
 
 export const clickedSquareJSX = (file, rank) => {
-	console.log("clickedSquareJSX");
 	if (UserMove.from !== SQUARES.NO_SQ) {
 		UserMove.to = ClickedSquare(
 			file, 
@@ -1978,9 +1713,6 @@ export const getJSXBoard = () => {
 };
 
 function MakeUserMove() {
-
-	console.log("MakeUserMove");
-
 	if (UserMove.from !== SQUARES.NO_SQ && UserMove.to !== SQUARES.NO_SQ) {
 
 		console.log("User Move:" + PrSq(UserMove.from) + PrSq(UserMove.to));
@@ -2005,9 +1737,6 @@ function MakeUserMove() {
 }
 
 function PieceIsOnSq(sq, top, left) {
-
-	console.log("PieceIsOnSq");
-
 	if ((RanksBrd[sq] === 7 - Math.round(top / 60)) &&
 		FilesBrd[sq] === Math.round(left / 60)) {
 		return BOOL.TRUE;
@@ -2018,11 +1747,7 @@ function PieceIsOnSq(sq, top, left) {
 }
 
 function RemoveGUIPiece(sq) {
-
-	console.log("RemoveGUIPiece");
-
 	$('.Piece').each(function (index) {
-		console.log("$('.Piece').each");
 		if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
 			$(this).remove();
 		}
@@ -2031,9 +1756,6 @@ function RemoveGUIPiece(sq) {
 }
 
 function AddGUIPiece(sq, pce) {
-
-	console.log("AddGUIPiece");
-
 	var file = FilesBrd[sq];
 	var rank = RanksBrd[sq];
 	var rankName = "rank" + (rank + 1);
@@ -2044,9 +1766,6 @@ function AddGUIPiece(sq, pce) {
 }
 
 function MoveGUIPiece(move) {
-
-	console.log("MoveGUIPiece");
-
 	var from = FROMSQ(move);
 	var to = TOSQ(move);
 
@@ -2068,7 +1787,6 @@ function MoveGUIPiece(move) {
 	var fileName = "file" + (file + 1);
 
 	$('.Piece').each(function (index) {
-		console.log("$('.Piece').each");
 		if (PieceIsOnSq(from, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
 			$(this).removeClass();
 			$(this).addClass("Piece " + rankName + " " + fileName);
@@ -2091,9 +1809,6 @@ function MoveGUIPiece(move) {
 }
 
 function DrawMaterial() {
-
-	console.log("DrawMaterial")
-
 	if (GameBoard.pceNum[PIECES.wP] !== 0 || GameBoard.pceNum[PIECES.bP] !== 0) return BOOL.FALSE;
 	if (GameBoard.pceNum[PIECES.wQ] !== 0 || GameBoard.pceNum[PIECES.bQ] !== 0 ||
 		GameBoard.pceNum[PIECES.wR] !== 0 || GameBoard.pceNum[PIECES.bR] !== 0) return BOOL.FALSE;
@@ -2107,7 +1822,6 @@ function DrawMaterial() {
 }
 
 function ThreeFoldRep() {
-	console.log("ThreeFoldRep");
 	var i = 0, r = 0;
 
 	for (i = 0; i < GameBoard.hisPly; ++i) {
@@ -2119,7 +1833,6 @@ function ThreeFoldRep() {
 }
 
 function CheckResult() {
-	console.log("CheckResult");
 	if (GameBoard.fiftyMove >= 100) {
 		$("#GameStatus").text("GAME DRAWN {fifty move rule}");
 		return BOOL.TRUE;
@@ -2170,7 +1883,6 @@ function CheckResult() {
 }
 
 function CheckAndSet() {
-	console.log("CheckAndSet");
 	if (CheckResult() === BOOL.TRUE) {
 		GameController.GameOver = BOOL.TRUE;
 	} else {
@@ -2180,22 +1892,18 @@ function CheckAndSet() {
 }
 
 function PreSearch() {
-	console.log("PreSearch");
 	if (GameController.GameOver === BOOL.FALSE) {
 		SearchController.thinking = BOOL.TRUE;
-		setTimeout(function () { console.log("setTimeout"); StartSearch(); }, 200);
+		setTimeout(function () { StartSearch(); }, 200);
 	}
 }
 
 $('#SearchButton').click(function () {
-	console.log("$('#SearchButton').click");
 	GameController.PlayerSide = GameController.side ^ 1;
 	PreSearch();
 });
 
 function StartSearch() {
-
-	console.log("StartSearch");
 
 	SearchController.depth = MAXDEPTH;
 	// var t = $.now();
@@ -2210,16 +1918,11 @@ function StartSearch() {
 }
 
 $(function () {
-	console.log("blank func: init?")
 	init();
-	console.log("Main Init Called");
 	NewGame(START_FEN);
 });
 
 function InitFilesRanksBrd() {
-
-	console.log("InitFilesRanksBrd");
-
 	var index = 0;
 	var file = FILES.FILE_A;
 	var rank = RANKS.RANK_1;
@@ -2240,9 +1943,6 @@ function InitFilesRanksBrd() {
 }
 
 function InitHashKeys() {
-
-	console.log("InitHashKeys");
-
 	var index = 0;
 
 	for (index = 0; index < 14 * 120; ++index) {
@@ -2257,9 +1957,6 @@ function InitHashKeys() {
 }
 
 function InitSq120To64() {
-
-	console.log("InitSq120To64");
-
 	var index = 0;
 	var file = FILES.FILE_A;
 	var rank = RANKS.RANK_1;
@@ -2286,9 +1983,6 @@ function InitSq120To64() {
 }
 
 function InitBoardVars() {
-
-	console.log("InitBoardVars");
-
 	var index = 0;
 	for (index = 0; index < MAXGAMEMOVES; ++index) {
 		GameBoard.history.push({
@@ -2309,9 +2003,6 @@ function InitBoardVars() {
 }
 
 function InitBoardSquares() {
-
-	console.log("InitBoardSquares");
-
 	var light = 0;
 	var rankName;
 	var fileName;
@@ -2337,36 +2028,7 @@ function InitBoardSquares() {
 	}
 }
 
-// function InitBoardSquares() {
-
-// 	console.log("InitBoardSquares");
-
-// 	var light = 1;
-// 	var rankName;
-// 	var fileName;
-// 	var divString;
-// 	var rankIter;
-// 	var fileIter;
-// 	var lightString;
-
-// 	for(rankIter = RANKS.RANK_8; rankIter >= RANKS.RANK_1; rankIter--) {
-// 		light ^= 1;
-// 		rankName = "rank" + (rankIter + 1);
-// 		for(fileIter = FILES.FILE_A; fileIter <= FILES.FILE_H; fileIter++) {
-// 			fileName = "file" + (fileIter + 1);
-// 			if(light == 0) lightString="Light";
-// 			else lightString = "Dark";
-// 			light^=1;
-// 			divString = "<div class=\"Square " + rankName + " " + fileName + " " + lightString + "\"/>";
-// 			$("#Board").append(divString);
-// 		}
-// 	}
-
-// }
-
 function init() {
-	console.log("init");
-	console.log("init() called");
 	InitFilesRanksBrd();
 	InitHashKeys();
 	InitSq120To64();

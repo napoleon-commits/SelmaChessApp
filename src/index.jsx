@@ -10,22 +10,17 @@ import {
 import * as serviceWorker from './serviceWorker';
 
 
-import About from './components/About';
 import Contact from './components/Contact';
 import Enroll from './components/Enroll';
 import Learn from './components/Learn';
 import PlayEngine from './components/PlayEngine';
 import PlayOffline from './components/PlayOffline';
 import PlayOnline from './components/PlayOnline';
-import Videos from './components/Videos';
 
 ReactDOM.render(
   // <React.StrictMode>
   <Router>
     <Switch>
-      <Route path="/about">
-        <About />
-      </Route>
       <Route path="/contact">
         <Contact />
       </Route>
@@ -43,9 +38,6 @@ ReactDOM.render(
       </Route>
       <Route path="/online">
         <PlayOnline />
-      </Route>
-      <Route path="/videos">
-        <Videos />
       </Route>
       <Route path="/">
         <PlayOffline />

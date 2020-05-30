@@ -114,11 +114,11 @@ class PlayOffline extends React.Component {
     } else if (type === 'Square') {
       clickedSquareJSX(file, rank);
     }
-    this.setState({
+    this.setState((currentState) => ({
       boardArray: getJSXBoard(),
-      rankSelected: 8 - rank,
-      fileSelected: file - 1,
-    });
+      rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+      fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+    }));
   }
 
   takeBack() {

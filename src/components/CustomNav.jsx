@@ -10,13 +10,16 @@ import {
 const CustomNav = () => (
   <Navbar bg="dark" expand="lg">
     <div>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-3"/>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-3" />
       <Navbar.Brand href="/">Selma Chess App</Navbar.Brand>
     </div>
-    <Nav.Link href="/enroll">{String("Log in").substring(0,7)}</Nav.Link>
+    {
+      (window.location.pathname === '/' || window.location.pathname === '/enroll')
+        ? null
+        : <Nav.Link href="/enroll">{String('Log in').substring(0, 7)}</Nav.Link>
+    }
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mr-auto">
-        <Nav.Link href="/">Home</Nav.Link>
+      <Nav activeKey={window.location.pathname} className="mr-auto">
         <Nav.Link href="/learn">How to Play</Nav.Link>
         <NavDropdown title="Play" id="basic-nav-dropdown">
           <NavDropdown.Item href="/offline">Against a Friend Offline</NavDropdown.Item>

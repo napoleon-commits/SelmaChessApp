@@ -6,7 +6,9 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-// import App from './App';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import * as serviceWorker from './serviceWorker';
 
 
@@ -40,7 +42,7 @@ ReactDOM.render(
         <PlayOnline />
       </Route>
       <Route path="/">
-        <PlayOffline />
+        <Enroll />
       </Route>
     </Switch>
   </Router>,

@@ -1,8 +1,6 @@
 import React from 'react';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/common.css';
-import '../styles/engineJSX.css';
 
 import $ from 'jquery';
 import CustomNav from './CustomNav';
@@ -34,10 +32,10 @@ class PlayOffline extends React.Component {
   componentDidMount() {
     const myInterval = setInterval(() => {
       $('#chess-menu').width($('#chess-board').width());
-      if ($('#chess-menu').width() === $('#chess-board').width()) {
-        clearInterval(myInterval);
-      }
     }, 1);
+    setTimeout(() => {
+      clearInterval(myInterval);
+    }, 3000);
     window.addEventListener('resize', () => {
       $('#chess-menu').width($('#chess-board').width());
     });

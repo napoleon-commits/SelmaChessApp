@@ -58,3 +58,14 @@
   .square-selected{
     background-color: #6d7a82 !important;
   }
+
+  .btn-primary {
+    color: #282c34;
+    background-color: #61dafb;
+    border-color: #61dafb;
+}
+
+.active, .dropdown-item.active{
+  background-color: #61dafb;
+  color: #282c34 !important;
+}

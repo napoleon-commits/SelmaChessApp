@@ -2,19 +2,14 @@ import React from 'react';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
-import { startBoard } from '../constants';
-
 class PlayOnline extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      matchType: 'open',
       madeConnection: false,
       foundOpponent: false,
-      board: startBoard,
-      playerID: '',
+      gameID: null,
     };
-    this.handleSelectChange = this.handleSelectChange.bind(this);
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.send = this.send.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,16 +21,9 @@ class PlayOnline extends React.Component {
     });
   }
 
-  handleSelectChange(e) {
-    this.setState({
-      matchType: e.target.value,
-    });
-  }
-
   initializeWebSocket() {
-    const { playerID } = this.state;
     this.ws = new WebSocket(
-      `ws://localhost:8999/opensearch/${playerID}`,
+      `ws://localhost:8999/opensearch/${new Date().toLocaleString()}`,
     );
 
     this.ws.onopen = () => {
@@ -51,6 +39,11 @@ class PlayOnline extends React.Component {
           obj.foundOpponent
             ? obj.foundOpponent
             : prevState.foundOpponent
+        ),
+        gameID: (
+          obj.gameID
+            ? obj.gameID
+            : prevState.gameID
         ),
       }));
     };
@@ -70,40 +63,11 @@ class PlayOnline extends React.Component {
 
   render() {
     const {
-      matchType, board, foundOpponent, madeConnection, playerID,
+      foundOpponent, madeConnection,
     } = this.state;
     return (
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
         <CustomNav />
-        <span>Match Type</span>
-        <select id="matchType" value={matchType} onChange={this.handleSelectChange}>
-          <option value="open">Open</option>
-          <option value="direct">Direct</option>
-        </select>
-        <br />
-        <label htmlFor="color">{'Play as: '}</label>
-        {
-          matchType === 'open'
-            ? (
-              <select name="" id="color">
-                <option value="Black">Random</option>
-              </select>
-            )
-            : (
-              <select name="" id="color">
-                <option value="Black">Black</option>
-                <option value="Black">White</option>
-                <option value="Black">Random</option>
-              </select>
-            )
-        }
-        <br />
-        <input type="text" placeholder="yourID" id="playerID" value={playerID} onChange={this.handleInputChange} />
-        <br />
-        <input type="text" placeholder="opponentID" disabled={matchType === 'open'} />
-        <br />
-        {board}
-        <br />
         {'Connection Made: '}
         {String(madeConnection)}
         <br />

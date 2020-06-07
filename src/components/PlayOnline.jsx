@@ -20,10 +20,10 @@ class PlayOnline extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleInputChange(e){
+  handleInputChange(e) {
     this.setState({
       [e.target.id]: e.target.value,
-    })
+    });
   }
 
   handleSelectChange(e) {
@@ -33,7 +33,10 @@ class PlayOnline extends React.Component {
   }
 
   initializeWebSocket() {
-    this.ws = new WebSocket(`ws://localhost:8999/opensearch/${this.state.playerID}`);
+    const { playerID } = this.state;
+    this.ws = new WebSocket(
+      `ws://localhost:8999/opensearch/${playerID}`,
+    );
 
     this.ws.onopen = () => {
       this.setState({
@@ -42,9 +45,14 @@ class PlayOnline extends React.Component {
     };
 
     this.ws.onmessage = (evt) => {
-      this.setState({
-        board: evt.data.board,
-      });
+      const obj = JSON.parse(evt.data);
+      this.setState((prevState) => ({
+        foundOpponent: (
+          obj.foundOpponent
+            ? obj.foundOpponent
+            : prevState.foundOpponent
+        ),
+      }));
     };
 
     this.ws.onclose = () => {
@@ -62,7 +70,7 @@ class PlayOnline extends React.Component {
 
   render() {
     const {
-      matchType, board, foundOpponent, madeConnection,
+      matchType, board, foundOpponent, madeConnection, playerID,
     } = this.state;
     return (
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
@@ -90,7 +98,7 @@ class PlayOnline extends React.Component {
             )
         }
         <br />
-        <input type="text" placeholder="yourID" id="playerID" value={this.state.playerID} onChange={this.handleInputChange}/>
+        <input type="text" placeholder="yourID" id="playerID" value={playerID} onChange={this.handleInputChange} />
         <br />
         <input type="text" placeholder="opponentID" disabled={matchType === 'open'} />
         <br />

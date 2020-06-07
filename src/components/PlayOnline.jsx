@@ -25,7 +25,7 @@ class PlayOnline extends React.Component {
   }
 
   initializeWebSocket() {
-    this.ws = new WebSocket('ws://localhost:8080');
+    this.ws = new WebSocket('ws://localhost:8999/opensearch/1');
 
     this.ws.onopen = () => {
       this.setState({

@@ -12,10 +12,18 @@ class PlayOnline extends React.Component {
       madeConnection: false,
       foundOpponent: false,
       board: startBoard,
+      playerID: '',
     };
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.send = this.send.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(e){
+    this.setState({
+      [e.target.id]: e.target.value,
+    })
   }
 
   handleSelectChange(e) {
@@ -25,7 +33,7 @@ class PlayOnline extends React.Component {
   }
 
   initializeWebSocket() {
-    this.ws = new WebSocket('ws://localhost:8999/opensearch/1');
+    this.ws = new WebSocket(`ws://localhost:8999/opensearch/${this.state.playerID}`);
 
     this.ws.onopen = () => {
       this.setState({
@@ -82,7 +90,7 @@ class PlayOnline extends React.Component {
             )
         }
         <br />
-        <input type="text" placeholder="yourID" />
+        <input type="text" placeholder="yourID" id="playerID" value={this.state.playerID} onChange={this.handleInputChange}/>
         <br />
         <input type="text" placeholder="opponentID" disabled={matchType === 'open'} />
         <br />

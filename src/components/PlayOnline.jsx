@@ -9,6 +9,7 @@ class PlayOnline extends React.Component {
       madeConnection: false,
       foundOpponent: false,
       gameID: null,
+      pairingType: null,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.send = this.send.bind(this);
@@ -21,7 +22,12 @@ class PlayOnline extends React.Component {
     });
   }
 
-  initializeWebSocket() {
+  initializeWebSocket(pairingType) {
+    // console.log(e.target.id);
+    // console.log(id);
+    this.setState({
+      pairingType,
+    });
     this.ws = new WebSocket(
       `ws://localhost:8999/opensearch/${new Date().toLocaleString()}`,
     );
@@ -63,35 +69,53 @@ class PlayOnline extends React.Component {
 
   render() {
     const {
-      foundOpponent, madeConnection,
+      foundOpponent, madeConnection, pairingType,
     } = this.state;
     return (
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
         <CustomNav />
         <div className="mx-3">
-          {'Connection Made: '}
-          {String(madeConnection)}
-          <br />
-          {'Found Opponent: '}
-          {String(foundOpponent)}
-          <br />
-          <div className="w-50 m-auto text-center h1">
-            Time Limit
+          <div className="w-75 m-auto text-center h1">
+            Choose Your Time Limit
           </div>
-          <div className="row w-50 m-auto">
-            <div 
+          <div className="row w-50 mx-auto mt-4">
+            <div
               className="col text-center game-select"
-              onClick={this.initializeWebSocket}
+              onClick={() => { this.initializeWebSocket(1); }}
+              onKeyDown={() => { this.initializeWebSocket(1); }}
+              tabIndex={0}
+              role="button"
             >
-              <div>10+0</div>
+              <div className="mt-4">10+0</div>
               <div>Rapid</div>
+              {
+                madeConnection && !foundOpponent && pairingType === 1
+                  ? (
+                    <div className="spinner-border text-secondary" role="status" />
+                  )
+                  : (
+                    <div className="spinner-border text-tertiary" role="status" />
+                  )
+              }
             </div>
-            <div 
+            <div
               className="col text-center game-select"
-              onClick={this.initializeWebSocket}
+              onClick={() => { this.initializeWebSocket(2); }}
+              onKeyDown={() => { this.initializeWebSocket(2); }}
+              tabIndex={0}
+              role="button"
             >
-              <div>30+0</div>
+              <div className="mt-4">30+0</div>
               <div>Classic</div>
+              {
+                madeConnection && !foundOpponent && pairingType === 2
+                  ? (
+                    <div className="spinner-border text-secondary" role="status" />
+                  )
+                  : (
+                    <div className="spinner-border text-tertiary" role="status" />
+                  )
+              }
             </div>
           </div>
         </div>

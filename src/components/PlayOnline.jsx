@@ -83,8 +83,6 @@ class PlayOnline extends React.Component {
               className="col text-center game-select"
               onClick={() => { this.initializeWebSocket(1); }}
               onKeyDown={() => { this.initializeWebSocket(1); }}
-              tabIndex={0}
-              role="button"
             >
               <div className="mt-4">10+0</div>
               <div>Rapid</div>
@@ -102,8 +100,6 @@ class PlayOnline extends React.Component {
               className="col text-center game-select"
               onClick={() => { this.initializeWebSocket(2); }}
               onKeyDown={() => { this.initializeWebSocket(2); }}
-              tabIndex={0}
-              role="button"
             >
               <div className="mt-4">30+0</div>
               <div>Classic</div>

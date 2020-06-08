@@ -23,5 +23,16 @@ module.exports = {
     'react',
   ],
   rules: {
+    'jsx-a11y/no-static-element-interactions': [
+      'error',
+      {
+        handlers: [
+          'onMouseDown',
+          'onMouseUp',
+          'onKeyPress',
+          'onKeyUp',
+        ],
+      },
+    ]
   },
 };

@@ -68,19 +68,33 @@ class PlayOnline extends React.Component {
     return (
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
         <CustomNav />
-        {'Connection Made: '}
-        {String(madeConnection)}
-        <br />
-        {'Found Opponent: '}
-        {String(foundOpponent)}
-        <br />
-        <button
-          disabled={madeConnection}
-          onClick={this.initializeWebSocket}
-          type="button"
-        >
-          Initialize WebSocket
-        </button>
+        <div className="mx-3">
+          {'Connection Made: '}
+          {String(madeConnection)}
+          <br />
+          {'Found Opponent: '}
+          {String(foundOpponent)}
+          <br />
+          <div className="w-50 m-auto text-center h1">
+            Time Limit
+          </div>
+          <div className="row w-50 m-auto">
+            <div 
+              className="col text-center game-select"
+              onClick={this.initializeWebSocket}
+            >
+              <div>10+0</div>
+              <div>Rapid</div>
+            </div>
+            <div 
+              className="col text-center game-select"
+              onClick={this.initializeWebSocket}
+            >
+              <div>30+0</div>
+              <div>Classic</div>
+            </div>
+          </div>
+        </div>
         <div className="px-3">
           <Footer />
         </div>

@@ -108,7 +108,7 @@ class PlayOffline extends React.Component {
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
           <CustomNav />
-          <div id="BoardJSX" className="mx-4 mt-2 text-dark">
+          <div className="mx-4 mt-2 text-dark">
             {jsxTags}
           </div>
           <div className="mt-2">

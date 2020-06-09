@@ -3,18 +3,20 @@ import CustomNav from './CustomNav';
 import Footer from './Footer';
 
 import { startBoard } from '../constants';
+import getHTMLChessPiece from '../utils/board';
 
 class PlayOnline extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      matchType: 'open',
       madeConnection: false,
       foundOpponent: false,
-      board: startBoard,
-      playerID: '',
+      gameID: null,
+      pairingType: null,
+      boardArray: startBoard,
+      rankSelected: null,
+      fileSelected: null,
     };
-    this.handleSelectChange = this.handleSelectChange.bind(this);
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.send = this.send.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,16 +28,14 @@ class PlayOnline extends React.Component {
     });
   }
 
-  handleSelectChange(e) {
+  initializeWebSocket(pairingType) {
+    // console.log(e.target.id);
+    // console.log(id);
     this.setState({
-      matchType: e.target.value,
+      pairingType,
     });
-  }
-
-  initializeWebSocket() {
-    const { playerID } = this.state;
     this.ws = new WebSocket(
-      `ws://localhost:8999/opensearch/${playerID}`,
+      `ws://localhost:8999/opensearch/${new Date().toLocaleString()}`,
     );
 
     this.ws.onopen = () => {
@@ -51,6 +51,11 @@ class PlayOnline extends React.Component {
           obj.foundOpponent
             ? obj.foundOpponent
             : prevState.foundOpponent
+        ),
+        gameID: (
+          obj.gameID
+            ? obj.gameID
+            : prevState.gameID
         ),
       }));
     };
@@ -70,53 +75,93 @@ class PlayOnline extends React.Component {
 
   render() {
     const {
-      matchType, board, foundOpponent, madeConnection, playerID,
+      foundOpponent, madeConnection, pairingType, boardArray, rankSelected, fileSelected,
     } = this.state;
+    const jsxTags = [];
+    const rowTags = [];
+    for (let i = 0; i < 8; i += 1) {
+      const dataTags = [];
+      for (let j = 0; j < 8; j += 1) {
+        dataTags.push(
+          // eslint-disable-next-line
+          <td
+            key={`${i}${j}`}
+            id={`square-${i}${j}`}
+            className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
+            onClick={() => {
+              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
+            }}
+            onKeyDown={() => {
+              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
+            }}
+            // eslint-disable-next-line
+            role="button"
+            tabIndex="0"
+          >
+            {getHTMLChessPiece(boardArray[i][j])}
+          </td>,
+        );
+      }
+      rowTags.push(
+        <tr key={i}>{dataTags}</tr>,
+      );
+    }
+    jsxTags.push(<table id="chess-board" className="m-auto" key={0}><tbody>{rowTags}</tbody></table>);
     return (
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
         <CustomNav />
-        <span>Match Type</span>
-        <select id="matchType" value={matchType} onChange={this.handleSelectChange}>
-          <option value="open">Open</option>
-          <option value="direct">Direct</option>
-        </select>
-        <br />
-        <label htmlFor="color">{'Play as: '}</label>
         {
-          matchType === 'open'
+          foundOpponent && madeConnection
             ? (
-              <select name="" id="color">
-                <option value="Black">Random</option>
-              </select>
+              <>
+                {jsxTags}
+              </>
             )
             : (
-              <select name="" id="color">
-                <option value="Black">Black</option>
-                <option value="Black">White</option>
-                <option value="Black">Random</option>
-              </select>
+              <div className="mx-3">
+                <div className="w-75 m-auto text-center h1">
+                  Choose Your Time Limit
+                </div>
+                <div className="row w-50 mx-auto mt-4">
+                  <div
+                    className="col text-center game-select"
+                    onClick={() => { this.initializeWebSocket(1); }}
+                    onKeyDown={() => { this.initializeWebSocket(1); }}
+                  >
+                    <div className="mt-4">10+0</div>
+                    <div>Rapid</div>
+                    {
+                madeConnection && !foundOpponent && pairingType === 1
+                  ? (
+                    <div className="spinner-border text-secondary" role="status" />
+                  )
+                  : (
+                    <div className="spinner-border text-tertiary" role="status" />
+                  )
+              }
+                  </div>
+                  <div
+                    className="col text-center game-select"
+                    onClick={() => { this.initializeWebSocket(2); }}
+                    onKeyDown={() => { this.initializeWebSocket(2); }}
+                  >
+                    <div className="mt-4">30+0</div>
+                    <div>Classic</div>
+                    {
+                madeConnection && !foundOpponent && pairingType === 2
+                  ? (
+                    <div className="spinner-border text-secondary" role="status" />
+                  )
+                  : (
+                    <div className="spinner-border text-tertiary" role="status" />
+                  )
+              }
+                  </div>
+                </div>
+              </div>
             )
         }
-        <br />
-        <input type="text" placeholder="yourID" id="playerID" value={playerID} onChange={this.handleInputChange} />
-        <br />
-        <input type="text" placeholder="opponentID" disabled={matchType === 'open'} />
-        <br />
-        {board}
-        <br />
-        {'Connection Made: '}
-        {String(madeConnection)}
-        <br />
-        {'Found Opponent: '}
-        {String(foundOpponent)}
-        <br />
-        <button
-          disabled={madeConnection}
-          onClick={this.initializeWebSocket}
-          type="button"
-        >
-          Initialize WebSocket
-        </button>
+
         <div className="px-3">
           <Footer />
         </div>

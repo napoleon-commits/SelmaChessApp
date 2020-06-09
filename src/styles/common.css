@@ -1,9 +1,17 @@
-.bg-primary, .bg-dark, .dropdown-menu{
-    background-color: #282c34 !important;
+.text-primary{
+  color: white;
 }
 
 .text-secondary{
-    color: #61dafb !important;
+  color: #61dafb !important;
+}
+
+.text-tertiary{
+  color: #282c34
+}
+
+.bg-primary, .bg-dark, .dropdown-menu{
+    background-color: #282c34 !important;
 }
 
 .navbar-brand, .nav-link, .dropdown-item{
@@ -68,4 +76,16 @@
 .active, .dropdown-item.active{
   background-color: #61dafb;
   color: #282c34 !important;
+}
+
+.game-select{
+  border: 4px solid #61dafb;
+  border-radius: 25px;
+  color: white;
+  background-color: #282c34;
+  cursor: pointer;
+}
+
+.game-select:hover{
+  border: 4px solid white;
 }

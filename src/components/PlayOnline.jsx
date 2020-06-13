@@ -16,6 +16,7 @@ class PlayOnline extends React.Component {
       boardArray: startBoard,
       rankSelected: null,
       fileSelected: null,
+      playerSide: null,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.send = this.send.bind(this);
@@ -57,6 +58,7 @@ class PlayOnline extends React.Component {
             ? obj.gameID
             : prevState.gameID
         ),
+        playerSide: obj.side,
       }));
     };
 
@@ -75,8 +77,16 @@ class PlayOnline extends React.Component {
 
   render() {
     const {
-      foundOpponent, madeConnection, pairingType, boardArray, rankSelected, fileSelected,
+      foundOpponent,
+      madeConnection,
+      pairingType,
+      boardArray,
+      rankSelected,
+      fileSelected,
+      playerSide,
     } = this.state;
+    // eslint-disable-next-line
+    console.log(playerSide);
     const jsxTags = [];
     const rowTags = [];
     for (let i = 0; i < 8; i += 1) {

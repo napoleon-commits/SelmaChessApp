@@ -14,7 +14,7 @@ const CustomNav = () => (
       <Navbar.Brand href="/">Selma Chess App</Navbar.Brand>
     </div>
     {
-      (window.location.pathname === '/' || window.location.pathname === '/enroll')
+      (window.location.pathname === '/enroll')
         ? null
         : <Nav.Link href="/enroll">{String('Log in').substring(0, 7)}</Nav.Link>
     }

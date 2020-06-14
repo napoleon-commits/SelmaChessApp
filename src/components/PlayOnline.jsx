@@ -5,11 +5,11 @@ import Footer from './Footer';
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
 
-// import {
-//   clickedPieceJSX,
-//   clickedSquareJSX,
-//   getJSXBoard,
-// } from '../utils/engine';
+import {
+  clickedPieceJSX,
+  clickedSquareJSX,
+  getJSXBoard,
+} from '../utils/engine';
 
 class PlayOnline extends React.Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class PlayOnline extends React.Component {
       rankSelected: null,
       fileSelected: null,
       playerSide: null,
+      firstClick: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.send = this.send.bind(this);
@@ -83,21 +84,65 @@ class PlayOnline extends React.Component {
   }
 
   squareClick(rank, file, type, piece) {
-    const { playerSide } = this.state;
+    const whitePieces = ['P','R','N','B','Q','K'];
+    const blackPieces = ['p','r','n','b','q','k'];
+    const { playerSide, firstClick } = this.state;
     // eslint-disable-next-line
     console.log(piece);
     // eslint-disable-next-line
     console.log(playerSide);
-    // if (type === 'Piece') {
-    //   clickedPieceJSX(file, rank);
-    // } else if (type === 'Square') {
-    //   clickedSquareJSX(file, rank);
-    // }
-    // this.setState((currentState) => ({
-    //   boardArray: getJSXBoard(),
-    //   rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-    //   fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
-    // }));
+
+    if(playerSide === 0){
+      if(firstClick === true){
+        if (type === 'Piece') {
+          clickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          clickedSquareJSX(file, rank);
+        }
+        this.setState((currentState) => ({
+          firstClick: false,
+          boardArray: getJSXBoard(),
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+        }));
+      } else if(whitePieces.includes(piece)){
+        if (type === 'Piece') {
+          clickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          clickedSquareJSX(file, rank);
+        }
+        this.setState((currentState) => ({
+          firstClick: true,
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+        }));
+      }
+    } else{
+      if(firstClick === true){
+        if (type === 'Piece') {
+          clickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          clickedSquareJSX(file, rank);
+        }
+        this.setState((currentState) => ({
+          firstClick: false,
+          boardArray: getJSXBoard(),
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+        }));
+      } else if(blackPieces.includes(piece)){
+        if (type === 'Piece') {
+          clickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          clickedSquareJSX(file, rank);
+        }
+        this.setState((currentState) => ({
+          firstClick: true,
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+        }));
+      }
+    }
   }
 
   render() {

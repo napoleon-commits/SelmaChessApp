@@ -5,6 +5,12 @@ import Footer from './Footer';
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
 
+// import {
+//   clickedPieceJSX,
+//   clickedSquareJSX,
+//   getJSXBoard,
+// } from '../utils/engine';
+
 class PlayOnline extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +27,7 @@ class PlayOnline extends React.Component {
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.send = this.send.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.squareClick = this.squareClick.bind(this);
   }
 
   handleInputChange(e) {
@@ -75,6 +82,24 @@ class PlayOnline extends React.Component {
     });
   }
 
+  squareClick(rank, file, type, piece) {
+    const { playerSide } = this.state;
+    // eslint-disable-next-line
+    console.log(piece);
+    // eslint-disable-next-line
+    console.log(playerSide);
+    // if (type === 'Piece') {
+    //   clickedPieceJSX(file, rank);
+    // } else if (type === 'Square') {
+    //   clickedSquareJSX(file, rank);
+    // }
+    // this.setState((currentState) => ({
+    //   boardArray: getJSXBoard(),
+    //   rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+    //   fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+    // }));
+  }
+
   render() {
     const {
       foundOpponent,
@@ -99,10 +124,10 @@ class PlayOnline extends React.Component {
             id={`square-${i}${j}`}
             className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
             onClick={() => {
-              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
+              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`, boardArray[i][j]);
             }}
             onKeyDown={() => {
-              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
+              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`, boardArray[i][j]);
             }}
             // eslint-disable-next-line
             role="button"

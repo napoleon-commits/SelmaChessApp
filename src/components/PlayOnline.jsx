@@ -196,7 +196,7 @@ class PlayOnline extends React.Component {
                     onKeyDown={() => { this.initializeWebSocket(1); }}
                   >
                     <div className="mt-4">10+0</div>
-                    <div>Rapid</div>
+                    <div>&nbsp;Rapid&nbsp;</div>
                     {
                 madeConnection && !foundOpponent && pairingType === 1
                   ? (

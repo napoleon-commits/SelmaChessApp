@@ -26,7 +26,6 @@ class PlayOnline extends React.Component {
       firstClick: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
-    this.send = this.send.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.squareClick = this.squareClick.bind(this);
   }
@@ -53,6 +52,8 @@ class PlayOnline extends React.Component {
 
     this.ws.onmessage = (evt) => {
       const obj = JSON.parse(evt.data);
+      // eslint-disable-next-line
+      console.log(obj);
       this.setState((prevState) => ({
         foundOpponent: (
           obj.foundOpponent
@@ -75,16 +76,10 @@ class PlayOnline extends React.Component {
     };
   }
 
-  send() {
-    this.ws.send({
-
-    });
-  }
-
   squareClick(rank, file, type, piece) {
     const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
     const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
-    const { playerSide, firstClick } = this.state;
+    const { playerSide, firstClick, gameID } = this.state;
     if (playerSide === 0) {
       if (firstClick === true) {
         if (type === 'Piece') {
@@ -92,6 +87,7 @@ class PlayOnline extends React.Component {
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
+        this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
         this.setState((currentState) => ({
           firstClick: false,
           boardArray: getJSXBoard(),
@@ -104,6 +100,7 @@ class PlayOnline extends React.Component {
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
+        this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
         this.setState((currentState) => ({
           firstClick: true,
           rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
@@ -116,6 +113,7 @@ class PlayOnline extends React.Component {
       } else if (type === 'Square') {
         clickedSquareJSX(file, rank);
       }
+      this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
       this.setState((currentState) => ({
         firstClick: false,
         boardArray: getJSXBoard(),
@@ -128,6 +126,7 @@ class PlayOnline extends React.Component {
       } else if (type === 'Square') {
         clickedSquareJSX(file, rank);
       }
+      this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
       this.setState((currentState) => ({
         firstClick: true,
         rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,

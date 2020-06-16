@@ -66,7 +66,20 @@ class PlayOnline extends React.Component {
             : prevState.gameID
         ),
         playerSide: obj.side,
-      }));
+      }), () => {
+        if(obj.move){
+          if (obj.move.type === 'Piece') {
+            clickedPieceJSX(obj.move.file, obj.move.rank);
+          } else if (obj.move.type === 'Square') {
+            clickedSquareJSX(obj.move.file, obj.move.rank);
+          }
+          this.setState((currentState) => ({
+            boardArray: getJSXBoard(),
+            // rankSelected: (currentState.rankSelected !== null || obj.move.type === 'Square') ? null : 8 - obj.move.rank,
+            // fileSelected: (currentState.fileSelected !== null || obj.move.type === 'Square') ? null : obj.move.file - 1,
+          }));
+        }
+      });
     };
 
     this.ws.onclose = () => {

@@ -22,6 +22,7 @@ class PlayOnline extends React.Component {
       gameID: null,
       pairingType: null,
       boardArray: startBoard,
+      reversedBoardArray: reverseBoard(startBoard),
       rankSelected: null,
       fileSelected: null,
       playerSide: null,
@@ -79,8 +80,10 @@ class PlayOnline extends React.Component {
         } else if (obj.move.type === 'Square') {
           clickedSquareJSX(obj.move.file, obj.move.rank);
         }
+        const tempBoard = getJSXBoard();
         this.setState({
-          boardArray: getJSXBoard(),
+          boardArray: tempBoard,
+          reversedBoardArray: reverseBoard(tempBoard),
         })
       }
     };
@@ -104,9 +107,11 @@ class PlayOnline extends React.Component {
           clickedSquareJSX(file, rank);
         }
         this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        const tempBoard = getJSXBoard();
         this.setState((currentState) => ({
           firstClick: false,
-          boardArray: getJSXBoard(),
+          boardArray: tempBoard,
+          reversedBoardArray: reverseBoard(tempBoard),
           rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
           fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
         }));
@@ -130,9 +135,11 @@ class PlayOnline extends React.Component {
         clickedSquareJSX(file, rank);
       }
       this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+      let tempBoard = getJSXBoard();
       this.setState((currentState) => ({
         firstClick: false,
-        boardArray: getJSXBoard(),
+        boardArray: tempBoard,
+        reversedBoardArray: reverseBoard(tempBoard),
         rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
         fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
       }));
@@ -159,9 +166,10 @@ class PlayOnline extends React.Component {
       boardArray,
       rankSelected,
       fileSelected,
-      playerSide
+      playerSide,
+      reversedBoardArray
     } = this.state;
-    let myBoard = (playerSide === 1) ? reverseBoard(boardArray): boardArray;
+    let myBoard = (playerSide === 1) ? reversedBoardArray: boardArray;
     const jsxTags = [];
     const rowTags = [];
     for (let i = 0; i < 8; i += 1) {
@@ -174,10 +182,10 @@ class PlayOnline extends React.Component {
             id={`square-${i}${j}`}
             className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
             onClick={() => {
-              this.squareClick(8 - i, j + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
+              this.squareClick(playerSide === 0 ? 8 - i : 8-(8-i)+1, playerSide === 0 ? j + 1 : 8 - (j+1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
             }}
             onKeyDown={() => {
-              this.squareClick(8 - i, j + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
+              this.squareClick(playerSide === 0 ? 8 - i : 8-(8-i)+1, playerSide === 0 ? j + 1 : 8 - (j+1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
             }}
             // eslint-disable-next-line
             role="button"

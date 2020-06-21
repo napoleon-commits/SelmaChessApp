@@ -11,7 +11,7 @@ import {
   getJSXBoard,
 } from '../utils/engine';
 
-import {reverseBoard} from '../utils/utils';
+import { reverseBoard } from '../utils/utils';
 
 class PlayOnline extends React.Component {
   constructor(props) {
@@ -56,25 +56,25 @@ class PlayOnline extends React.Component {
     this.ws.onmessage = (evt) => {
       const obj = JSON.parse(evt.data);
 
-      if(obj.foundOpponent){
+      if (obj.foundOpponent) {
         this.setState({
           foundOpponent: obj.foundOpponent,
-        })
+        });
       }
 
-      if(obj.gameID){
+      if (obj.gameID) {
         this.setState({
           gameID: obj.gameID,
-        })
+        });
       }
 
-      if(obj.side === 0 || obj.side === 1){
+      if (obj.side === 0 || obj.side === 1) {
         this.setState({
           playerSide: obj.side,
-        })
+        });
       }
 
-      if(obj.move){
+      if (obj.move) {
         if (obj.move.type === 'Piece') {
           clickedPieceJSX(obj.move.file, obj.move.rank);
         } else if (obj.move.type === 'Square') {
@@ -84,7 +84,7 @@ class PlayOnline extends React.Component {
         this.setState({
           boardArray: tempBoard,
           reversedBoardArray: reverseBoard(tempBoard),
-        })
+        });
       }
     };
 
@@ -135,7 +135,7 @@ class PlayOnline extends React.Component {
         clickedSquareJSX(file, rank);
       }
       this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
-      let tempBoard = getJSXBoard();
+      const tempBoard = getJSXBoard();
       this.setState((currentState) => ({
         firstClick: false,
         boardArray: tempBoard,
@@ -167,9 +167,9 @@ class PlayOnline extends React.Component {
       rankSelected,
       fileSelected,
       playerSide,
-      reversedBoardArray
+      reversedBoardArray,
     } = this.state;
-    let myBoard = (playerSide === 1) ? reversedBoardArray: boardArray;
+    const myBoard = (playerSide === 1) ? reversedBoardArray : boardArray;
     const jsxTags = [];
     const rowTags = [];
     for (let i = 0; i < 8; i += 1) {
@@ -182,10 +182,10 @@ class PlayOnline extends React.Component {
             id={`square-${i}${j}`}
             className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
             onClick={() => {
-              this.squareClick(playerSide === 0 ? 8 - i : 8-(8-i)+1, playerSide === 0 ? j + 1 : 8 - (j+1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
+              this.squareClick(playerSide === 0 ? 8 - i : 8 - (8 - i) + 1, playerSide === 0 ? j + 1 : 8 - (j + 1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
             }}
             onKeyDown={() => {
-              this.squareClick(playerSide === 0 ? 8 - i : 8-(8-i)+1, playerSide === 0 ? j + 1 : 8 - (j+1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
+              this.squareClick(playerSide === 0 ? 8 - i : 8 - (8 - i) + 1, playerSide === 0 ? j + 1 : 8 - (j + 1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
             }}
             // eslint-disable-next-line
             role="button"

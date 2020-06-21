@@ -54,10 +54,6 @@ class PlayOnline extends React.Component {
 
     this.ws.onmessage = (evt) => {
       const obj = JSON.parse(evt.data);
-      // eslint-disable-next-line
-      console.log("obj");
-      console.log(obj);
-      console.log("obj");
 
       if(obj.foundOpponent){
         this.setState({
@@ -107,9 +103,6 @@ class PlayOnline extends React.Component {
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
-        console.log("playerSide");
-        console.log(playerSide);
-        console.log("playerSide");
         this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
         this.setState((currentState) => ({
           firstClick: false,
@@ -123,9 +116,6 @@ class PlayOnline extends React.Component {
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
-        console.log("playerSide");
-        console.log(playerSide);
-        console.log("playerSide");
         this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
         this.setState((currentState) => ({
           firstClick: true,
@@ -139,9 +129,6 @@ class PlayOnline extends React.Component {
       } else if (type === 'Square') {
         clickedSquareJSX(file, rank);
       }
-      console.log("playerSide");
-      console.log(playerSide);
-      console.log("playerSide");
       this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
       this.setState((currentState) => ({
         firstClick: false,
@@ -155,9 +142,6 @@ class PlayOnline extends React.Component {
       } else if (type === 'Square') {
         clickedSquareJSX(file, rank);
       }
-      console.log("playerSide");
-      console.log(playerSide);
-      console.log("playerSide");
       this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
       this.setState((currentState) => ({
         firstClick: true,

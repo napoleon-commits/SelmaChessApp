@@ -140,8 +140,8 @@ class PlayOnline extends React.Component {
         firstClick: false,
         boardArray: tempBoard,
         reversedBoardArray: reverseBoard(tempBoard),
-        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
+        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
       }));
     } else if (blackPieces.includes(piece)) {
       if (type === 'Piece') {
@@ -152,8 +152,8 @@ class PlayOnline extends React.Component {
       this.ws2 = new WebSocket(`ws://localhost:8999/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
       this.setState((currentState) => ({
         firstClick: true,
-        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
+        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
       }));
     }
   }

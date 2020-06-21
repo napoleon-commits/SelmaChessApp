@@ -44,7 +44,7 @@ class PlayOnline extends React.Component {
       pairingType,
     });
     this.ws = new WebSocket(
-      `ws://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/opensearch/${new Date().toLocaleString()}`,
+      `wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/opensearch/${new Date().toLocaleString()}`,
     );
 
     this.ws.onopen = () => {
@@ -106,7 +106,7 @@ class PlayOnline extends React.Component {
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
-        this.ws2 = new WebSocket(`ws://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
         const tempBoard = getJSXBoard();
         this.setState((currentState) => ({
           firstClick: false,
@@ -121,7 +121,7 @@ class PlayOnline extends React.Component {
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
-        this.ws2 = new WebSocket(`ws://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
         this.setState((currentState) => ({
           firstClick: true,
           rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
@@ -134,7 +134,7 @@ class PlayOnline extends React.Component {
       } else if (type === 'Square') {
         clickedSquareJSX(file, rank);
       }
-      this.ws2 = new WebSocket(`ws://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+      this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
       let tempBoard = getJSXBoard();
       this.setState((currentState) => ({
         firstClick: false,
@@ -149,7 +149,7 @@ class PlayOnline extends React.Component {
       } else if (type === 'Square') {
         clickedSquareJSX(file, rank);
       }
-      this.ws2 = new WebSocket(`ws://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+      this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
       this.setState((currentState) => ({
         firstClick: true,
         rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,

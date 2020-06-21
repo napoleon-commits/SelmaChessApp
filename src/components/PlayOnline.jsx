@@ -11,6 +11,8 @@ import {
   getJSXBoard,
 } from '../utils/engine';
 
+import {reverseBoard} from '../utils/utils';
+
 class PlayOnline extends React.Component {
   constructor(props) {
     super(props);
@@ -173,7 +175,9 @@ class PlayOnline extends React.Component {
       boardArray,
       rankSelected,
       fileSelected,
+      playerSide
     } = this.state;
+    let myBoard = (playerSide === 1) ? reverseBoard(boardArray): boardArray;
     const jsxTags = [];
     const rowTags = [];
     for (let i = 0; i < 8; i += 1) {
@@ -186,16 +190,16 @@ class PlayOnline extends React.Component {
             id={`square-${i}${j}`}
             className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
             onClick={() => {
-              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`, boardArray[i][j]);
+              this.squareClick(8 - i, j + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
             }}
             onKeyDown={() => {
-              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`, boardArray[i][j]);
+              this.squareClick(8 - i, j + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
             }}
             // eslint-disable-next-line
             role="button"
             tabIndex="0"
           >
-            {getHTMLChessPiece(boardArray[i][j])}
+            {getHTMLChessPiece(myBoard[i][j])}
           </td>,
         );
       }

@@ -53,33 +53,38 @@ class PlayOnline extends React.Component {
     this.ws.onmessage = (evt) => {
       const obj = JSON.parse(evt.data);
       // eslint-disable-next-line
+      console.log("obj");
       console.log(obj);
-      this.setState((prevState) => ({
-        foundOpponent: (
-          obj.foundOpponent
-            ? obj.foundOpponent
-            : prevState.foundOpponent
-        ),
-        gameID: (
-          obj.gameID
-            ? obj.gameID
-            : prevState.gameID
-        ),
-        playerSide: obj.side,
-      }), () => {
-        if(obj.move){
-          if (obj.move.type === 'Piece') {
-            clickedPieceJSX(obj.move.file, obj.move.rank);
-          } else if (obj.move.type === 'Square') {
-            clickedSquareJSX(obj.move.file, obj.move.rank);
-          }
-          this.setState((currentState) => ({
-            boardArray: getJSXBoard(),
-            // rankSelected: (currentState.rankSelected !== null || obj.move.type === 'Square') ? null : 8 - obj.move.rank,
-            // fileSelected: (currentState.fileSelected !== null || obj.move.type === 'Square') ? null : obj.move.file - 1,
-          }));
+      console.log("obj");
+
+      if(obj.foundOpponent){
+        this.setState({
+          foundOpponent: obj.foundOpponent,
+        })
+      }
+
+      if(obj.gameID){
+        this.setState({
+          gameID: obj.gameID,
+        })
+      }
+
+      if(obj.side === 0 || obj.side === 1){
+        this.setState({
+          playerSide: obj.side,
+        })
+      }
+
+      if(obj.move){
+        if (obj.move.type === 'Piece') {
+          clickedPieceJSX(obj.move.file, obj.move.rank);
+        } else if (obj.move.type === 'Square') {
+          clickedSquareJSX(obj.move.file, obj.move.rank);
         }
-      });
+        this.setState({
+          boardArray: getJSXBoard(),
+        })
+      }
     };
 
     this.ws.onclose = () => {

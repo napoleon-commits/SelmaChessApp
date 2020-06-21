@@ -5,6 +5,14 @@ import Footer from './Footer';
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
 
+import {
+  clickedPieceJSX,
+  clickedSquareJSX,
+  getJSXBoard,
+} from '../utils/engine';
+
+import { reverseBoard } from '../utils/utils';
+
 class PlayOnline extends React.Component {
   constructor(props) {
     super(props);
@@ -14,12 +22,15 @@ class PlayOnline extends React.Component {
       gameID: null,
       pairingType: null,
       boardArray: startBoard,
+      reversedBoardArray: reverseBoard(startBoard),
       rankSelected: null,
       fileSelected: null,
+      playerSide: null,
+      firstClick: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
-    this.send = this.send.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.squareClick = this.squareClick.bind(this);
   }
 
   handleInputChange(e) {
@@ -29,13 +40,11 @@ class PlayOnline extends React.Component {
   }
 
   initializeWebSocket(pairingType) {
-    // console.log(e.target.id);
-    // console.log(id);
     this.setState({
       pairingType,
     });
     this.ws = new WebSocket(
-      `ws://localhost:8999/opensearch/${new Date().toLocaleString()}`,
+      `wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/opensearch/${new Date().toLocaleString()}`,
     );
 
     this.ws.onopen = () => {
@@ -46,18 +55,37 @@ class PlayOnline extends React.Component {
 
     this.ws.onmessage = (evt) => {
       const obj = JSON.parse(evt.data);
-      this.setState((prevState) => ({
-        foundOpponent: (
-          obj.foundOpponent
-            ? obj.foundOpponent
-            : prevState.foundOpponent
-        ),
-        gameID: (
-          obj.gameID
-            ? obj.gameID
-            : prevState.gameID
-        ),
-      }));
+
+      if (obj.foundOpponent) {
+        this.setState({
+          foundOpponent: obj.foundOpponent,
+        });
+      }
+
+      if (obj.gameID) {
+        this.setState({
+          gameID: obj.gameID,
+        });
+      }
+
+      if (obj.side === 0 || obj.side === 1) {
+        this.setState({
+          playerSide: obj.side,
+        });
+      }
+
+      if (obj.move) {
+        if (obj.move.type === 'Piece') {
+          clickedPieceJSX(obj.move.file, obj.move.rank);
+        } else if (obj.move.type === 'Square') {
+          clickedSquareJSX(obj.move.file, obj.move.rank);
+        }
+        const tempBoard = getJSXBoard();
+        this.setState({
+          boardArray: tempBoard,
+          reversedBoardArray: reverseBoard(tempBoard),
+        });
+      }
     };
 
     this.ws.onclose = () => {
@@ -67,16 +95,81 @@ class PlayOnline extends React.Component {
     };
   }
 
-  send() {
-    this.ws.send({
-
-    });
+  squareClick(rank, file, type, piece) {
+    const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
+    const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
+    const { playerSide, firstClick, gameID } = this.state;
+    if (playerSide === 0) {
+      if (firstClick === true) {
+        if (type === 'Piece') {
+          clickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          clickedSquareJSX(file, rank);
+        }
+        this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        const tempBoard = getJSXBoard();
+        this.setState((currentState) => ({
+          firstClick: false,
+          boardArray: tempBoard,
+          reversedBoardArray: reverseBoard(tempBoard),
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+        }));
+      } else if (whitePieces.includes(piece)) {
+        if (type === 'Piece') {
+          clickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          clickedSquareJSX(file, rank);
+        }
+        this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        this.setState((currentState) => ({
+          firstClick: true,
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+        }));
+      }
+    } else if (firstClick === true) {
+      if (type === 'Piece') {
+        clickedPieceJSX(file, rank);
+      } else if (type === 'Square') {
+        clickedSquareJSX(file, rank);
+      }
+      this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+      const tempBoard = getJSXBoard();
+      this.setState((currentState) => ({
+        firstClick: false,
+        boardArray: tempBoard,
+        reversedBoardArray: reverseBoard(tempBoard),
+        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
+        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
+      }));
+    } else if (blackPieces.includes(piece)) {
+      if (type === 'Piece') {
+        clickedPieceJSX(file, rank);
+      } else if (type === 'Square') {
+        clickedSquareJSX(file, rank);
+      }
+      this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+      this.setState((currentState) => ({
+        firstClick: true,
+        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
+        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
+      }));
+    }
   }
 
   render() {
     const {
-      foundOpponent, madeConnection, pairingType, boardArray, rankSelected, fileSelected,
+      foundOpponent,
+      madeConnection,
+      pairingType,
+      boardArray,
+      rankSelected,
+      fileSelected,
+      playerSide,
+      reversedBoardArray,
     } = this.state;
+    const myBoard = (playerSide === 1) ? reversedBoardArray : boardArray;
     const jsxTags = [];
     const rowTags = [];
     for (let i = 0; i < 8; i += 1) {
@@ -89,16 +182,16 @@ class PlayOnline extends React.Component {
             id={`square-${i}${j}`}
             className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
             onClick={() => {
-              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
+              this.squareClick(playerSide === 0 ? 8 - i : 8 - (8 - i) + 1, playerSide === 0 ? j + 1 : 8 - (j + 1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
             }}
             onKeyDown={() => {
-              this.squareClick(8 - i, j + 1, `${boardArray[i][j] !== '.' ? 'Piece' : 'Square'}`);
+              this.squareClick(playerSide === 0 ? 8 - i : 8 - (8 - i) + 1, playerSide === 0 ? j + 1 : 8 - (j + 1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
             }}
             // eslint-disable-next-line
             role="button"
             tabIndex="0"
           >
-            {getHTMLChessPiece(boardArray[i][j])}
+            {getHTMLChessPiece(myBoard[i][j])}
           </td>,
         );
       }
@@ -129,7 +222,7 @@ class PlayOnline extends React.Component {
                     onKeyDown={() => { this.initializeWebSocket(1); }}
                   >
                     <div className="mt-4">10+0</div>
-                    <div>Rapid</div>
+                    <div>&nbsp;Rapid&nbsp;</div>
                     {
                 madeConnection && !foundOpponent && pairingType === 1
                   ? (

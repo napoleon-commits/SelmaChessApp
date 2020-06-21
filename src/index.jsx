@@ -42,7 +42,7 @@ ReactDOM.render(
         <PlayOnline />
       </Route>
       <Route path="/">
-        <Enroll />
+        <Learn />
       </Route>
     </Switch>
   </Router>,

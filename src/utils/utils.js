@@ -9,3 +9,15 @@ export const reverseBoard = (board) => {
     }
     return s0;
 }
+
+export const hasBoardChanged = (oldBoard, newBoard) => {
+    let changed = false;
+    for(let i = 0; i < oldBoard.length; i+=1){
+        for(let j = 0; j < oldBoard[i].length; j+=1){
+            if(oldBoard[i][j] !== newBoard[i][j]){
+                changed = true;
+            }
+        }
+    }
+    return changed;
+}

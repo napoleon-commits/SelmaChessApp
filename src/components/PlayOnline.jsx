@@ -11,7 +11,7 @@ import {
   getJSXBoard,
 } from '../utils/engine';
 
-import { reverseBoard } from '../utils/utils';
+import { reverseBoard, hasBoardChanged } from '../utils/utils';
 
 class PlayOnline extends React.Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class PlayOnline extends React.Component {
       fileSelected: null,
       playerSide: null,
       firstClick: false,
+      yourTurn: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -63,16 +64,17 @@ class PlayOnline extends React.Component {
       if (obj.side === 0 || obj.side === 1) {
         this.setState({
           playerSide: obj.side,
+          yourTurn: (obj.side === 0),
         });
       }
 
       // send websocket message to initialize other player
-      if(obj.method === 'init'){
+      if (obj.method === 'init') {
         this.ws.send(JSON.stringify({
-          "action":"message",
-          "method":"init",
-          "message":"",
-        }))
+          action: 'message',
+          method: 'init',
+          message: '',
+        }));
       }
 
       if (obj.move) {
@@ -82,9 +84,11 @@ class PlayOnline extends React.Component {
           clickedSquareJSX(obj.move.file, obj.move.rank);
         }
         const tempBoard = getJSXBoard();
+        const boardChange = hasBoardChanged(this.state.boardArray, tempBoard);
         this.setState({
           boardArray: tempBoard,
           reversedBoardArray: reverseBoard(tempBoard),
+          yourTurn: (boardChange === true) ? this.state.yourTurn !== true : this.state.yourTurn,
         });
       }
     };
@@ -100,86 +104,92 @@ class PlayOnline extends React.Component {
     const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
     const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
     const { playerSide, firstClick } = this.state;
-    if (playerSide === 0) {
-      if (firstClick === true) {
+    if (this.state.yourTurn) {
+      if (playerSide === 0) {
+        if (firstClick === true) {
+          if (type === 'Piece') {
+            clickedPieceJSX(file, rank);
+          } else if (type === 'Square') {
+            clickedSquareJSX(file, rank);
+          }
+          this.ws.send(JSON.stringify({
+            action: 'message',
+            method: 'sendmove',
+            rank,
+            file,
+            type,
+          }));
+          const tempBoard = getJSXBoard();
+          const boardChange = hasBoardChanged(this.state.boardArray, tempBoard);
+          this.setState((currentState) => ({
+            firstClick: false,
+            boardArray: tempBoard,
+            reversedBoardArray: reverseBoard(tempBoard),
+            rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+            fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+            yourTurn: (boardChange === true) ? this.state.yourTurn !== true : this.state.yourTurn,
+          }));
+        } else if (whitePieces.includes(piece)) {
+          if (type === 'Piece') {
+            clickedPieceJSX(file, rank);
+          } else if (type === 'Square') {
+            clickedSquareJSX(file, rank);
+          }
+          this.ws.send(JSON.stringify({
+            action: 'message',
+            method: 'sendmove',
+            rank,
+            file,
+            type,
+          }));
+          this.setState((currentState) => ({
+            firstClick: true,
+            rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+            fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+          }));
+        }
+      } else if (firstClick === true) {
         if (type === 'Piece') {
           clickedPieceJSX(file, rank);
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
         this.ws.send(JSON.stringify({
-          "action":"message",
-          "method":"sendmove",
-          "rank": rank,
-          "file": file,
-          "type": type
+          action: 'message',
+          method: 'sendmove',
+          rank,
+          file,
+          type,
         }));
         const tempBoard = getJSXBoard();
+        const boardChange = hasBoardChanged(this.state.boardArray, tempBoard);
         this.setState((currentState) => ({
           firstClick: false,
           boardArray: tempBoard,
           reversedBoardArray: reverseBoard(tempBoard),
-          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
+          yourTurn: (boardChange === true) ? this.state.yourTurn !== true : this.state.yourTurn,
         }));
-      } else if (whitePieces.includes(piece)) {
+      } else if (blackPieces.includes(piece)) {
         if (type === 'Piece') {
           clickedPieceJSX(file, rank);
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
         this.ws.send(JSON.stringify({
-          "action":"message",
-          "method":"sendmove",
-          "rank": rank,
-          "file": file,
-          "type": type
+          action: 'message',
+          method: 'sendmove',
+          rank,
+          file,
+          type,
         }));
         this.setState((currentState) => ({
           firstClick: true,
-          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
         }));
       }
-    } else if (firstClick === true) {
-      if (type === 'Piece') {
-        clickedPieceJSX(file, rank);
-      } else if (type === 'Square') {
-        clickedSquareJSX(file, rank);
-      }
-      this.ws.send(JSON.stringify({
-        "action":"message",
-        "method":"sendmove",
-        "rank": rank,
-        "file": file,
-        "type": type
-      }));
-      const tempBoard = getJSXBoard();
-      this.setState((currentState) => ({
-        firstClick: false,
-        boardArray: tempBoard,
-        reversedBoardArray: reverseBoard(tempBoard),
-        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
-        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
-      }));
-    } else if (blackPieces.includes(piece)) {
-      if (type === 'Piece') {
-        clickedPieceJSX(file, rank);
-      } else if (type === 'Square') {
-        clickedSquareJSX(file, rank);
-      }
-      this.ws.send(JSON.stringify({
-        "action":"message",
-        "method":"sendmove",
-        "rank": rank,
-        "file": file,
-        "type": type
-      }));
-      this.setState((currentState) => ({
-        firstClick: true,
-        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
-        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
-      }));
     }
   }
 

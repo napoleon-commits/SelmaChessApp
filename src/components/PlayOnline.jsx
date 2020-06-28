@@ -75,24 +75,18 @@ class PlayOnline extends React.Component {
         }))
       }
 
-      // if (obj.gameID) {
-      //   this.setState({
-      //     gameID: obj.gameID,
-      //   });
-      // }
-
-      // if (obj.move) {
-      //   if (obj.move.type === 'Piece') {
-      //     clickedPieceJSX(obj.move.file, obj.move.rank);
-      //   } else if (obj.move.type === 'Square') {
-      //     clickedSquareJSX(obj.move.file, obj.move.rank);
-      //   }
-      //   const tempBoard = getJSXBoard();
-      //   this.setState({
-      //     boardArray: tempBoard,
-      //     reversedBoardArray: reverseBoard(tempBoard),
-      //   });
-      // }
+      if (obj.move) {
+        if (obj.move.type === 'Piece') {
+          clickedPieceJSX(obj.move.file, obj.move.rank);
+        } else if (obj.move.type === 'Square') {
+          clickedSquareJSX(obj.move.file, obj.move.rank);
+        }
+        const tempBoard = getJSXBoard();
+        this.setState({
+          boardArray: tempBoard,
+          reversedBoardArray: reverseBoard(tempBoard),
+        });
+      }
     };
 
     this.ws.onclose = () => {
@@ -105,7 +99,7 @@ class PlayOnline extends React.Component {
   squareClick(rank, file, type, piece) {
     const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
     const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
-    const { playerSide, firstClick, gameID } = this.state;
+    const { playerSide, firstClick } = this.state;
     if (playerSide === 0) {
       if (firstClick === true) {
         if (type === 'Piece') {
@@ -113,7 +107,13 @@ class PlayOnline extends React.Component {
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
-        this.ws2 = new WebSocket(`wss://2wjewv5cf3.execute-api.us-east-1.amazonaws.com/dev/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        this.ws.send(JSON.stringify({
+          "action":"message",
+          "method":"sendmove",
+          "rank": rank,
+          "file": file,
+          "type": type
+        }));
         const tempBoard = getJSXBoard();
         this.setState((currentState) => ({
           firstClick: false,
@@ -128,7 +128,13 @@ class PlayOnline extends React.Component {
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
-        this.ws2 = new WebSocket(`wss://2wjewv5cf3.execute-api.us-east-1.amazonaws.com/dev/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        this.ws.send(JSON.stringify({
+          "action":"message",
+          "method":"sendmove",
+          "rank": rank,
+          "file": file,
+          "type": type
+        }));
         this.setState((currentState) => ({
           firstClick: true,
           rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
@@ -141,7 +147,13 @@ class PlayOnline extends React.Component {
       } else if (type === 'Square') {
         clickedSquareJSX(file, rank);
       }
-      this.ws2 = new WebSocket(`wss://2wjewv5cf3.execute-api.us-east-1.amazonaws.com/dev/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+      this.ws.send(JSON.stringify({
+        "action":"message",
+        "method":"sendmove",
+        "rank": rank,
+        "file": file,
+        "type": type
+      }));
       const tempBoard = getJSXBoard();
       this.setState((currentState) => ({
         firstClick: false,
@@ -156,7 +168,13 @@ class PlayOnline extends React.Component {
       } else if (type === 'Square') {
         clickedSquareJSX(file, rank);
       }
-      this.ws2 = new WebSocket(`wss://2wjewv5cf3.execute-api.us-east-1.amazonaws.com/dev/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+      this.ws.send(JSON.stringify({
+        "action":"message",
+        "method":"sendmove",
+        "rank": rank,
+        "file": file,
+        "type": type
+      }));
       this.setState((currentState) => ({
         firstClick: true,
         rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,

@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "selmachess384b2e49_identitypool_384b2e49",
+    "identityPoolName": "selmachess296cedbc_identitypool_296cedbc",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "selmac384b2e49",
-    "userPoolName": "selmachess384b2e49_userpool_384b2e49",
+    "resourceNameTruncated": "selmac296cedbc",
+    "userPoolName": "selmachess296cedbc_userpool_296cedbc",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "selmac384b2e49_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "selmac296cedbc_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "384b2e49",
-    "resourceName": "selmachess384b2e49",
+    "sharedId": "296cedbc",
+    "resourceName": "selmachess296cedbc",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,9 +46,6 @@
         ]
     },
     "useDefault": "default",
-    "usernameAttributes": [
-        "email, phone_number"
-    ],
     "userPoolGroupList": [],
     "dependsOn": []
 }

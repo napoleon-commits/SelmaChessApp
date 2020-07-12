@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"selmachess384b2e49": {
+		"selmachess296cedbc": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],

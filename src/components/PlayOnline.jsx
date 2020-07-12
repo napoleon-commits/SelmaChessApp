@@ -13,6 +13,8 @@ import {
 
 import { reverseBoard, hasBoardChanged } from '../utils/utils';
 
+import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+
 class PlayOnline extends React.Component {
   constructor(props) {
     super(props);
@@ -238,6 +240,7 @@ class PlayOnline extends React.Component {
     return (
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
         <CustomNav />
+        <AmplifySignOut />
         {
           foundOpponent && madeConnection
             ? (
@@ -297,5 +300,5 @@ class PlayOnline extends React.Component {
     );
   }
 }
-
-export default PlayOnline;
+export default withAuthenticator(PlayOnline, true);
+// export default PlayOnline;

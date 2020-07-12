@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-selmachess-dev-114024-authRole",
+            "UnauthRoleArn": "arn:aws:iam::951404070522:role/amplify-selmachess-dev-114024-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::951404070522:role/amplify-selmachess-dev-114024-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-selmachess-dev-114024-deployment",
+            "UnauthRoleName": "amplify-selmachess-dev-114024-unauthRole",
+            "StackName": "amplify-selmachess-dev-114024",
+            "StackId": "arn:aws:cloudformation:us-east-1:951404070522:stack/amplify-selmachess-dev-114024/658cfd10-c45e-11ea-9a87-1217092af407",
+            "AmplifyAppId": "d3pusow3o03006"
+        },
+        "categories": {
+            "auth": {
+                "selmachess384b2e49": {}
+            }
+        }
+    }
+}

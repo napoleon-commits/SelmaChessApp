@@ -19,6 +19,11 @@ import PlayEngine from './components/PlayEngine';
 import PlayOffline from './components/PlayOffline';
 import PlayOnline from './components/PlayOnline';
 
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
+
 ReactDOM.render(
   // <React.StrictMode>
   <Router>

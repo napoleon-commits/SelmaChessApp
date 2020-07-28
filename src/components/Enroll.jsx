@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { Auth } from 'aws-amplify';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
@@ -29,14 +30,18 @@ class Enroll extends React.Component {
     });
   }
 
-  login() {
+  async login() {
     const { formUsername, formPassword } = this.state;
-    // eslint-disable-next-line
-    console.log(`${formUsername} ${formPassword}`);
+    try {
+      await Auth.signIn(formUsername, formPassword);
+    } catch (error) {
+      // eslint-disable-next-line
+      console.log('error signing in', error);
+    }
   }
 
   render() {
-    const { status } = this.state;
+    const { status, formUsername, formPassword } = this.state;
     return (
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
@@ -70,6 +75,10 @@ class Enroll extends React.Component {
                           variant="primary"
                           onClick={this.login}
                           onKeyDown={this.login}
+                          disabled={
+                            formUsername.length === 0
+                            || formPassword.length === 0
+                          }
                         >
                           Submit
                         </Button>

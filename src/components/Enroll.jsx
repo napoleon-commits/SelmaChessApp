@@ -9,14 +9,29 @@ class Enroll extends React.Component {
     super(props);
     this.state = {
       status: 'login',
+      formUsername: '',
+      formPassword: '',
     };
     this.changeStatus = this.changeStatus.bind(this);
+    this.login = this.login.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   changeStatus(status) {
     this.setState({
       status,
     });
+  }
+
+  handleChange(event){
+    this.setState({
+      [event.target.id]: event.target.value,
+    })
+  }
+
+  login(){
+    const {formUsername, formPassword} = this.state;
+    console.log(formUsername + ' ' + formPassword);
   }
 
   render() {
@@ -33,16 +48,28 @@ class Enroll extends React.Component {
                     <>
                       <Form.Text className="h4 mb-4">Sign in with your username and password</Form.Text>
 
-                      <Form.Group controlId="formBasicEmail">
-                        <Form.Control type="string" placeholder="Username" />
+                      <Form.Group controlId="formUsername">
+                        <Form.Control 
+                          type="string" 
+                          placeholder="Username"
+                          onChange={this.handleChange}
+                        />
                       </Form.Group>
 
-                      <Form.Group controlId="formBasicPassword">
-                        <Form.Control type="password" placeholder="Password" />
+                      <Form.Group controlId="formPassword">
+                        <Form.Control 
+                          type="password" 
+                          placeholder="Password"
+                          onChange={this.handleChange}
+                        />
                       </Form.Group>
 
                       <Form.Group>
-                        <Button variant="primary" type="submit">
+                        <Button 
+                          variant="primary"
+                          onClick={this.login}
+                          onKeyDown={this.login}
+                        >
                           Submit
                         </Button>
                         <Form.Text className="h6 mt-4">

@@ -23,15 +23,16 @@ class Enroll extends React.Component {
     });
   }
 
-  handleChange(event){
+  handleChange(event) {
     this.setState({
       [event.target.id]: event.target.value,
-    })
+    });
   }
 
-  login(){
-    const {formUsername, formPassword} = this.state;
-    console.log(formUsername + ' ' + formPassword);
+  login() {
+    const { formUsername, formPassword } = this.state;
+    // eslint-disable-next-line
+    console.log(`${formUsername} ${formPassword}`);
   }
 
   render() {
@@ -49,23 +50,23 @@ class Enroll extends React.Component {
                       <Form.Text className="h4 mb-4">Sign in with your username and password</Form.Text>
 
                       <Form.Group controlId="formUsername">
-                        <Form.Control 
-                          type="string" 
+                        <Form.Control
+                          type="string"
                           placeholder="Username"
                           onChange={this.handleChange}
                         />
                       </Form.Group>
 
                       <Form.Group controlId="formPassword">
-                        <Form.Control 
-                          type="password" 
+                        <Form.Control
+                          type="password"
                           placeholder="Password"
                           onChange={this.handleChange}
                         />
                       </Form.Group>
 
                       <Form.Group>
-                        <Button 
+                        <Button
                           variant="primary"
                           onClick={this.login}
                           onKeyDown={this.login}

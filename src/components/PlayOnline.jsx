@@ -1,4 +1,5 @@
 import React from 'react';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
@@ -13,7 +14,6 @@ import {
 
 import { reverseBoard, hasBoardChanged } from '../utils/utils';
 
-import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
 class PlayOnline extends React.Component {
   constructor(props) {

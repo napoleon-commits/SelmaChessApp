@@ -9,6 +9,7 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Amplify from 'aws-amplify';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -19,7 +20,6 @@ import PlayEngine from './components/PlayEngine';
 import PlayOffline from './components/PlayOffline';
 import PlayOnline from './components/PlayOnline';
 
-import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);

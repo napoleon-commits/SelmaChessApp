@@ -98,13 +98,13 @@ button:hover, .btn-primary.disabled, .btn-primary:disabled{
 }
 
 #navbar-toggle{
-  border: 2px solid #61dafb !important;
+  /* border: 2px solid #61dafb !important; */
 }
 
-#logout{
+#logout, #login{
   cursor: pointer;
 }
 
-#logout:hover{
+#logout:hover, #login:hover{
   color: #61dafb;
 }

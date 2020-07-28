@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
@@ -34,6 +36,8 @@ class Enroll extends React.Component {
     const { formUsername, formPassword } = this.state;
     try {
       await Auth.signIn(formUsername, formPassword);
+      const { history } = this.props;
+      history.push('/online');
     } catch (error) {
       // eslint-disable-next-line
       console.log('error signing in', error);
@@ -59,6 +63,7 @@ class Enroll extends React.Component {
                           type="string"
                           placeholder="Username"
                           onChange={this.handleChange}
+                          value={formUsername}
                         />
                       </Form.Group>
 
@@ -67,6 +72,7 @@ class Enroll extends React.Component {
                           type="password"
                           placeholder="Password"
                           onChange={this.handleChange}
+                          value={formPassword}
                         />
                       </Form.Group>
 
@@ -146,4 +152,16 @@ class Enroll extends React.Component {
   }
 }
 
-export default Enroll;
+Enroll.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+};
+
+Enroll.defaultProps = {
+  history: {
+    push: () => {},
+  },
+};
+
+export default withRouter(Enroll);

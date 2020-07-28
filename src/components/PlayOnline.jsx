@@ -1,5 +1,4 @@
 import React from 'react';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
@@ -240,7 +239,6 @@ class PlayOnline extends React.Component {
     return (
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
         <CustomNav />
-        <AmplifySignOut />
         {
           foundOpponent && madeConnection
             ? (
@@ -300,5 +298,5 @@ class PlayOnline extends React.Component {
     );
   }
 }
-export default withAuthenticator(PlayOnline, true);
-// export default PlayOnline;
+// export default withAuthenticator(PlayOnline, true);
+export default PlayOnline;

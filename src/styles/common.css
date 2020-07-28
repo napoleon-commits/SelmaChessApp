@@ -96,3 +96,15 @@ button:hover, .btn-primary.disabled, .btn-primary:disabled{
   color: #61dafb !important;
   border: 2px solid #61dafb !important;
 }
+
+#navbar-toggle{
+  border: 2px solid #61dafb !important;
+}
+
+#logout{
+  cursor: pointer;
+}
+
+#logout:hover{
+  color: #61dafb;
+}

@@ -31,10 +31,10 @@ class Enroll extends React.Component {
                 status === 'login'
                   ? (
                     <>
-                      <Form.Text className="h4 mb-4">Sign in with your email or phone number and password</Form.Text>
+                      <Form.Text className="h4 mb-4">Sign in with your username and password</Form.Text>
 
                       <Form.Group controlId="formBasicEmail">
-                        <Form.Control type="string" placeholder="Email or Phone number" />
+                        <Form.Control type="string" placeholder="Username" />
                       </Form.Group>
 
                       <Form.Group controlId="formBasicPassword">

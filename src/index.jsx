@@ -14,11 +14,12 @@ import * as serviceWorker from './serviceWorker';
 
 
 import Contact from './components/Contact';
-import Enroll from './components/Enroll';
+import Login from './components/Login';
 import Learn from './components/Learn';
 import PlayEngine from './components/PlayEngine';
 import PlayOffline from './components/PlayOffline';
 import PlayOnline from './components/PlayOnline';
+import Register from './components/Register';
 
 import awsconfig from './aws-exports';
 
@@ -32,7 +33,7 @@ ReactDOM.render(
         <Contact />
       </Route>
       <Route path="/login">
-        <Enroll />
+        <Login />
       </Route>
       <Route path="/learn">
         <Learn />
@@ -45,6 +46,9 @@ ReactDOM.render(
       </Route>
       <Route path="/online">
         <PlayOnline />
+      </Route>
+      <Route path="/register">
+        <Register />
       </Route>
       <Route path="/">
         <Learn />

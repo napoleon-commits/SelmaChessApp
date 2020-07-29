@@ -108,3 +108,7 @@ button:hover, .btn-primary.disabled, .btn-primary:disabled{
 #logout:hover, #login:hover{
   color: #61dafb;
 }
+
+.c-pointer{
+  cursor: pointer;
+}

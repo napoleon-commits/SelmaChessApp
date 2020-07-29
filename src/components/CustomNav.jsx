@@ -123,23 +123,23 @@ class CustomNav extends React.Component {
               How to Play
             </span>
             <span
-                className="text-white px-2 c-pointer custom-nav-link"
-                onClick={() => { this.goTo('/offline'); }}
-                onKeyDown={() => { this.goTo('/offline'); }}
-                role="button"
-                tabIndex={0}
-              >
-                Play Offline
-              </span>
-              <span
-                className="text-white px-2 c-pointer custom-nav-link"
-                onClick={() => { this.goTo('/online'); }}
-                onKeyDown={() => { this.goTo('/online'); }}
-                role="button"
-                tabIndex={0}
-              >
-                Play Online
-              </span>
+              className="text-white px-2 c-pointer custom-nav-link"
+              onClick={() => { this.goTo('/offline'); }}
+              onKeyDown={() => { this.goTo('/offline'); }}
+              role="button"
+              tabIndex={0}
+            >
+              Play Offline
+            </span>
+            <span
+              className="text-white px-2 c-pointer custom-nav-link"
+              onClick={() => { this.goTo('/online'); }}
+              onKeyDown={() => { this.goTo('/online'); }}
+              role="button"
+              tabIndex={0}
+            >
+              Play Online
+            </span>
             <span
               className="c-pointer px-2 custom-nav-link"
               onClick={() => { this.goTo('/contact'); }}

@@ -7,15 +7,35 @@ import CustomNav from './CustomNav';
 import Footer from './Footer';
 import Modal from './subcomponents/Modal';
 
-import {countryCallingCodes} from '../constants';
+import { countryCallingCodes } from '../constants';
 
 class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       displayModal: false,
+      formUsername: '',
+      formPassword: '',
+      formEmail: '',
+      formCallingCode: '+1',
+      formPhoneNumber: '',
     };
     this.goToLogin = this.goToLogin.bind(this);
+    this.register = this.register.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  register() {
+    const {
+      formUsername, formPassword, formEmail, formCallingCode, formPhoneNumber,
+    } = this.state;
+    // eslint-disable-next-line
+    console.log(
+      `${formUsername}\n${
+        formPassword}\n${
+        formEmail}\n${
+        formCallingCode}${formPhoneNumber}`,
+    );
   }
 
   goToLogin() {
@@ -23,8 +43,16 @@ class Register extends React.Component {
     history.push('/login');
   }
 
+  handleChange(event) {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
+
   render() {
-    const { displayModal } = this.state;
+    const {
+      displayModal, formUsername, formPassword, formEmail, formCallingCode, formPhoneNumber,
+    } = this.state;
     return (
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
@@ -35,34 +63,50 @@ class Register extends React.Component {
                 <Form.Text className="h4 mb-4">Create a new account</Form.Text>
 
                 <Form.Group controlId="formUsername">
-                  <Form.Control type="string" placeholder="Username" />
+                  <Form.Control type="string" placeholder="Username" value={formUsername} onChange={this.handleChange} />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Control type="password" placeholder="Password" />
+                <Form.Group controlId="formPassword">
+                  <Form.Control type="password" placeholder="Password" value={formPassword} onChange={this.handleChange} />
                 </Form.Group>
 
                 <Form.Group controlId="formEmail">
-                  <Form.Control type="email" placeholder="Email" />
+                  <Form.Control type="email" placeholder="Email" value={formEmail} onChange={this.handleChange} />
                 </Form.Group>
 
                 <Form.Group>
                   <InputGroup>
                     <InputGroup.Prepend>
-                      <Form.Control as="select" className="c-pointer">
+                      <Form.Control
+                        as="select"
+                        className="c-pointer"
+                        onChange={this.handleChange}
+                        id="formCallingCode"
+                        value={formCallingCode}
+                      >
                         {
-                          countryCallingCodes.map(code => (
+                          countryCallingCodes.map((code) => (
                             <option key={code} value={code}>{code}</option>
                           ))
                         }
                       </Form.Control>
                     </InputGroup.Prepend>
-                    <Form.Control type="phone" placeholder="(555)555-1212" />
+                    <Form.Control
+                      id="formPhoneNumber"
+                      type="phone"
+                      placeholder="(555)555-1212"
+                      value={formPhoneNumber}
+                      onChange={this.handleChange}
+                    />
                   </InputGroup>
                 </Form.Group>
 
                 <Form.Group>
-                  <Button variant="primary" type="submit">
+                  <Button
+                    variant="primary"
+                    onClick={this.register}
+                    onKeyDown={this.register}
+                  >
                     Submit
                   </Button>
                   <Form.Text className="h6 mt-4">

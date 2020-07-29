@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Navbar,
   Nav,
-  NavDropdown,
 } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router-dom';
@@ -50,7 +49,7 @@ class CustomNav extends React.Component {
 
   enrollTags() {
     const { authObject } = this.state;
-    if (window.location.pathname === '/login') {
+    if (window.location.pathname === '/login' || window.location.pathname === '/register') {
       return null;
     } if (authObject && authObject.username) {
       return (
@@ -77,7 +76,7 @@ class CustomNav extends React.Component {
         onKeyDown={this.goToLogin}
         className="pl-3"
       >
-        Log in
+        Log in / Register
       </span>
     );
   }

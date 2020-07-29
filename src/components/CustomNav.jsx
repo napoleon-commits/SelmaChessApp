@@ -75,6 +75,7 @@ class CustomNav extends React.Component {
         role="button"
         tabIndex={0}
         onKeyDown={this.goToLogin}
+        className="pl-3"
       >
         Log in
       </span>
@@ -114,7 +115,7 @@ class CustomNav extends React.Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav activeKey={window.location.pathname} className="mr-auto">
             <span
-              className="c-pointer"
+              className="c-pointer pl-3"
               onClick={() => { this.goTo('/learn'); }}
               onKeyDown={() => { this.goTo('/learn'); }}
               role="button"
@@ -122,28 +123,26 @@ class CustomNav extends React.Component {
             >
               How to Play
             </span>
-            <NavDropdown title="Play" id="basic-nav-dropdown">
-              <div
-                className="text-white pl-4 c-pointer"
+            <span
+                className="text-white pl-3 c-pointer"
                 onClick={() => { this.goTo('/offline'); }}
                 onKeyDown={() => { this.goTo('/offline'); }}
                 role="button"
                 tabIndex={0}
               >
-                Free Mode
-              </div>
-              <div
-                className="text-white pl-4 c-pointer"
+                Play Offline
+              </span>
+              <span
+                className="text-white pl-3 c-pointer"
                 onClick={() => { this.goTo('/online'); }}
                 onKeyDown={() => { this.goTo('/online'); }}
                 role="button"
                 tabIndex={0}
               >
-                Against a Friend Online
-              </div>
-            </NavDropdown>
+                Play Online
+              </span>
             <span
-              className="c-pointer"
+              className="c-pointer pl-3"
               onClick={() => { this.goTo('/contact'); }}
               onKeyDown={() => { this.goTo('/contact'); }}
               role="button"

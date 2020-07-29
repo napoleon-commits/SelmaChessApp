@@ -70,11 +70,11 @@ class CustomNav extends React.Component {
     return (
       <span
         onClick={this.goToLogin}
-        id="login"
+        // id="login"
         role="button"
         tabIndex={0}
         onKeyDown={this.goToLogin}
-        className="pl-3"
+        className="px-2 custom-nav-link"
       >
         Log in / Register
       </span>
@@ -97,7 +97,7 @@ class CustomNav extends React.Component {
         <div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-3" />
           <span
-            className="h5 c-pointer"
+            className="h5 c-pointer custom-nav-link"
             onClick={() => { this.goTo('/'); }}
             role="button"
             tabIndex={0}
@@ -114,7 +114,7 @@ class CustomNav extends React.Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav activeKey={window.location.pathname} className="mr-auto">
             <span
-              className="c-pointer pl-3"
+              className="c-pointer px-2 custom-nav-link"
               onClick={() => { this.goTo('/learn'); }}
               onKeyDown={() => { this.goTo('/learn'); }}
               role="button"
@@ -123,7 +123,7 @@ class CustomNav extends React.Component {
               How to Play
             </span>
             <span
-                className="text-white pl-3 c-pointer"
+                className="text-white px-2 c-pointer custom-nav-link"
                 onClick={() => { this.goTo('/offline'); }}
                 onKeyDown={() => { this.goTo('/offline'); }}
                 role="button"
@@ -132,7 +132,7 @@ class CustomNav extends React.Component {
                 Play Offline
               </span>
               <span
-                className="text-white pl-3 c-pointer"
+                className="text-white px-2 c-pointer custom-nav-link"
                 onClick={() => { this.goTo('/online'); }}
                 onKeyDown={() => { this.goTo('/online'); }}
                 role="button"
@@ -141,7 +141,7 @@ class CustomNav extends React.Component {
                 Play Online
               </span>
             <span
-              className="c-pointer pl-3"
+              className="c-pointer px-2 custom-nav-link"
               onClick={() => { this.goTo('/contact'); }}
               onKeyDown={() => { this.goTo('/contact'); }}
               role="button"

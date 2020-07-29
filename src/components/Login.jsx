@@ -63,7 +63,7 @@ class Login extends React.Component {
           <div className="container my-5" style={{ borderRadius: '25px', border: '4px solid #61dafb' }}>
             <Form>
               <>
-                <Form.Text className="h4 mb-4">Sign in with your username and password</Form.Text>
+                <Form.Text className="h4 mb-4">Sign in to your account</Form.Text>
 
                 <Form.Group controlId="formUsername">
                   <Form.Control

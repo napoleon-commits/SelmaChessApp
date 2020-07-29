@@ -20,6 +20,7 @@ class Register extends React.Component {
       formEmail: '',
       formCallingCode: '+1',
       formPhoneNumber: '',
+      status:'register'
     };
     this.goToLogin = this.goToLogin.bind(this);
     this.register = this.register.bind(this);
@@ -59,6 +60,7 @@ class Register extends React.Component {
       console.log(user);
       this.setState({
         displayModal: false,
+        status: 'confirmationCode'
       });
     } catch (error) {
       // eslint-disable-next-line
@@ -82,14 +84,17 @@ class Register extends React.Component {
 
   render() {
     const {
-      displayModal, formUsername, formPassword, formEmail, formCallingCode, formPhoneNumber,
+      displayModal, formUsername, formPassword, formEmail, formCallingCode, formPhoneNumber, status
     } = this.state;
     return (
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
           <CustomNav />
           <div className="container my-5" style={{ borderRadius: '25px', border: '4px solid #61dafb' }}>
-            <Form>
+            {
+              status === 'register' 
+              ? (
+                <Form>
               <>
                 <Form.Text className="h4 mb-4">Create a new account</Form.Text>
 
@@ -161,6 +166,9 @@ class Register extends React.Component {
                 </Form.Group>
               </>
             </Form>
+              )
+              : ('') 
+            }
           </div>
           <div className="px-3">
             <Footer />

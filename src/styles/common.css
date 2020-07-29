@@ -97,9 +97,9 @@ button:hover, .btn-primary.disabled, .btn-primary:disabled{
   border: 2px solid #61dafb !important;
 }
 
-#navbar-toggle{
+/* #navbar-toggle{ */
   /* border: 2px solid #61dafb !important; */
-}
+/* } */
 
 #logout, #login{
   cursor: pointer;

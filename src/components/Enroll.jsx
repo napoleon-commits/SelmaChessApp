@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CustomNav from './CustomNav';
 import Footer from './Footer';
+import Modal from './subcomponents/Modal';
 
 
 class Enroll extends React.Component {
@@ -14,6 +15,7 @@ class Enroll extends React.Component {
       status: 'login',
       formUsername: '',
       formPassword: '',
+      displayModal: false,
     };
     this.changeStatus = this.changeStatus.bind(this);
     this.login = this.login.bind(this);
@@ -33,19 +35,30 @@ class Enroll extends React.Component {
   }
 
   async login() {
+    this.setState({
+      displayModal: true,
+    });
     const { formUsername, formPassword } = this.state;
     try {
       await Auth.signIn(formUsername, formPassword);
+      this.setState({
+        displayModal: false,
+      });
       const { history } = this.props;
       history.push('/online');
     } catch (error) {
+      this.setState({
+        displayModal: false,
+      });
       // eslint-disable-next-line
       console.log('error signing in', error);
     }
   }
 
   render() {
-    const { status, formUsername, formPassword } = this.state;
+    const {
+      status, formUsername, formPassword, displayModal,
+    } = this.state;
     return (
       <>
         <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
@@ -147,6 +160,7 @@ class Enroll extends React.Component {
             <Footer />
           </div>
         </div>
+        <div style={{ display: (displayModal ? 'block' : 'none') }}><Modal /></div>
       </>
     );
   }

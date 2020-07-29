@@ -8,7 +8,7 @@ import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import '../styles/CustomNav.css'
+import '../styles/CustomNav.css';
 
 class CustomNav extends React.Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class CustomNav extends React.Component {
     this.logout = this.logout.bind(this);
     this.enrollTags = this.enrollTags.bind(this);
     this.goToLogin = this.goToLogin.bind(this);
+    this.goTo = this.goTo.bind(this);
   }
 
   componentDidMount() {
@@ -59,6 +60,8 @@ class CustomNav extends React.Component {
             id="logout"
             onClick={this.logout}
             onKeyDown={this.logout}
+            role="button"
+            tabIndex={0}
           >
             Log out
           </div>
@@ -66,23 +69,42 @@ class CustomNav extends React.Component {
       );
     }
     return (
-        <span onClick={this.goToLogin} id="login">
-          {'Log in'}
-        </span>
+      <span
+        onClick={this.goToLogin}
+        id="login"
+        role="button"
+        tabIndex={0}
+        onKeyDown={this.goToLogin}
+      >
+        Log in
+      </span>
     );
   }
 
-  goToLogin(){
-    const {history} = this.props;
+  goToLogin() {
+    const { history } = this.props;
     history.push('/login');
+  }
+
+  goTo(href) {
+    const { history } = this.props;
+    history.push(href);
   }
 
   render() {
     return (
       <Navbar bg="dark" expand="lg">
         <div>
-          <Navbar.Toggle id="navbar-toggle" aria-controls="basic-navbar-nav" className="mr-3" />
-          <Navbar.Brand href="/">Selma Chess App</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-3" />
+          <span
+            className="h5 c-pointer"
+            onClick={() => { this.goTo('/'); }}
+            role="button"
+            tabIndex={0}
+            onKeyDown={() => { this.goTo('/'); }}
+          >
+            Selma Chess App
+          </span>
         </div>
         <div>
           {
@@ -91,13 +113,44 @@ class CustomNav extends React.Component {
         </div>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav activeKey={window.location.pathname} className="mr-auto">
-            <Nav.Link href="/learn">How to Play</Nav.Link>
+            <span
+              className="c-pointer"
+              onClick={() => { this.goTo('/learn'); }}
+              onKeyDown={() => { this.goTo('/learn'); }}
+              role="button"
+              tabIndex={0}
+            >
+              How to Play
+            </span>
             <NavDropdown title="Play" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/offline">Free Mode</NavDropdown.Item>
-              <NavDropdown.Item href="/online">Against a Friend Online</NavDropdown.Item>
-              <NavDropdown.Item href="/engine">Against Engine</NavDropdown.Item>
+              <div
+                className="text-white pl-4 c-pointer"
+                onClick={() => { this.goTo('/offline'); }}
+                onKeyDown={() => { this.goTo('/offline'); }}
+                role="button"
+                tabIndex={0}
+              >
+                Free Mode
+              </div>
+              <div
+                className="text-white pl-4 c-pointer"
+                onClick={() => { this.goTo('/online'); }}
+                onKeyDown={() => { this.goTo('/online'); }}
+                role="button"
+                tabIndex={0}
+              >
+                Against a Friend Online
+              </div>
             </NavDropdown>
-            <Nav.Link href="/contact">Contact</Nav.Link>
+            <span
+              className="c-pointer"
+              onClick={() => { this.goTo('/contact'); }}
+              onKeyDown={() => { this.goTo('/contact'); }}
+              role="button"
+              tabIndex={0}
+            >
+              Contact
+            </span>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -118,4 +171,3 @@ CustomNav.defaultProps = {
 };
 
 export default withRouter(CustomNav);
-

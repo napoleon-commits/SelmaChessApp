@@ -16,7 +16,6 @@ import * as serviceWorker from './serviceWorker';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Learn from './components/Learn';
-import PlayEngine from './components/PlayEngine';
 import PlayOffline from './components/PlayOffline';
 import PlayOnline from './components/PlayOnline';
 import Register from './components/Register';
@@ -37,9 +36,6 @@ ReactDOM.render(
       </Route>
       <Route path="/learn">
         <Learn />
-      </Route>
-      <Route path="/engine">
-        <PlayEngine />
       </Route>
       <Route path="/offline">
         <PlayOffline />

@@ -46,7 +46,7 @@ class CustomNav extends React.Component {
 
   enrollTags() {
     const { authObject } = this.state;
-    if (window.location.pathname === '/enroll') {
+    if (window.location.pathname === '/login') {
       return null;
     } if (authObject && authObject.username) {
       return (
@@ -63,7 +63,7 @@ class CustomNav extends React.Component {
       );
     }
     return (
-      <Nav.Link href="/enroll">
+      <Nav.Link href="/login">
         <span id="login">{String('Log in').substring(0, 7)}</span>
       </Nav.Link>
     );

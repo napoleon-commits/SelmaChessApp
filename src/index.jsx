@@ -31,7 +31,7 @@ ReactDOM.render(
       <Route path="/contact">
         <Contact />
       </Route>
-      <Route path="/enroll">
+      <Route path="/login">
         <Enroll />
       </Route>
       <Route path="/learn">

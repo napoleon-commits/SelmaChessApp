@@ -101,14 +101,6 @@ button:hover, .btn-primary.disabled, .btn-primary:disabled{
   /* border: 2px solid #61dafb !important; */
 /* } */
 
-#logout, #login{
-  cursor: pointer;
-}
-
-#logout:hover, #login:hover{
-  color: #61dafb;
-}
-
 .c-pointer{
   cursor: pointer;
 }

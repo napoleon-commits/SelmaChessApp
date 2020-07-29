@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Navbar,
   Nav,
@@ -7,6 +6,8 @@ import {
 } from 'react-bootstrap';
 
 import { Auth } from 'aws-amplify';
+
+import '../styles/CustomNav.css'
 
 class CustomNav extends React.Component {
   constructor(props) {

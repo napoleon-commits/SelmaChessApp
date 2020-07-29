@@ -1,0 +1,7 @@
+#logout, #login{
+    cursor: pointer;
+}
+
+#logout:hover, #login:hover{
+    color: #61dafb;
+}

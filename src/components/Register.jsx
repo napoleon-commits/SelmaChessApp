@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Auth } from 'aws-amplify';
 
 import CustomNav from './CustomNav';
 import Footer from './Footer';
@@ -25,17 +26,47 @@ class Register extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  register() {
+  async register() {
+    this.setState({
+      displayModal: true,
+    });
     const {
-      formUsername, formPassword, formEmail, formCallingCode, formPhoneNumber,
+      formUsername: username,
+      formPassword: password,
+      formEmail: email,
+      formCallingCode,
+      formPhoneNumber,
     } = this.state;
     // eslint-disable-next-line
     console.log(
-      `${formUsername}\n${
-        formPassword}\n${
-        formEmail}\n${
+      `${username}\n${
+        password}\n${
+        email}\n${
         formCallingCode}${formPhoneNumber}`,
     );
+    try {
+      const user = await Auth.signUp({
+        username,
+        password,
+        attributes: {
+          email,
+          phone_number: (formCallingCode + formPhoneNumber),
+        },
+      });
+      // eslint-disable-next-line
+      console.log({ user });
+      // eslint-disable-next-line
+      console.log(user);
+      this.setState({
+        displayModal: false,
+      });
+    } catch (error) {
+      // eslint-disable-next-line
+      console.log('error signing up:', error);
+      this.setState({
+        displayModal: false,
+      });
+    }
   }
 
   goToLogin() {
@@ -106,6 +137,12 @@ class Register extends React.Component {
                     variant="primary"
                     onClick={this.register}
                     onKeyDown={this.register}
+                    disabled={
+                      formUsername.length === 0
+                      || formPassword.length === 0
+                      || formEmail.length === 0
+                      || formPhoneNumber.length === 0
+                    }
                   >
                     Submit
                   </Button>

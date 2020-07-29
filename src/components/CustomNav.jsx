@@ -4,8 +4,9 @@ import {
   Nav,
   NavDropdown,
 } from 'react-bootstrap';
-
 import { Auth } from 'aws-amplify';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import '../styles/CustomNav.css'
 
@@ -17,6 +18,7 @@ class CustomNav extends React.Component {
     };
     this.logout = this.logout.bind(this);
     this.enrollTags = this.enrollTags.bind(this);
+    this.goToLogin = this.goToLogin.bind(this);
   }
 
   componentDidMount() {
@@ -64,10 +66,15 @@ class CustomNav extends React.Component {
       );
     }
     return (
-      <Nav.Link href="/login">
-        <span id="login">{String('Log in').substring(0, 7)}</span>
-      </Nav.Link>
+        <span onClick={this.goToLogin} id="login">
+          {'Log in'}
+        </span>
     );
+  }
+
+  goToLogin(){
+    const {history} = this.props;
+    history.push('/login');
   }
 
   render() {
@@ -98,4 +105,17 @@ class CustomNav extends React.Component {
   }
 }
 
-export default CustomNav;
+CustomNav.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+};
+
+CustomNav.defaultProps = {
+  history: {
+    push: () => { },
+  },
+};
+
+export default withRouter(CustomNav);
+

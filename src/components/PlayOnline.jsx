@@ -1,16 +1,15 @@
 import React from 'react';
+
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
-
 import {
   clickedPieceJSX,
   clickedSquareJSX,
   getJSXBoard,
 } from '../utils/engine';
-
 import { reverseBoard, hasBoardChanged } from '../utils/utils';
 
 
@@ -31,14 +30,7 @@ class PlayOnline extends React.Component {
       yourTurn: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
     this.squareClick = this.squareClick.bind(this);
-  }
-
-  handleInputChange(e) {
-    this.setState({
-      [e.target.id]: e.target.value,
-    });
   }
 
   initializeWebSocket(pairingType) {

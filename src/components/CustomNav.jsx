@@ -49,13 +49,44 @@ class CustomNav extends React.Component {
 
   enrollTags() {
     const { authObject } = this.state;
-    if (window.location.pathname === '/login' || window.location.pathname === '/register') {
-      return null;
-    } if (authObject && authObject.username) {
+    if (window.location.pathname === '/login') {
       return (
-        <>
+        <div className="px-2">
+          <span
+            // id="logout"
+            onClick={() => { this.goTo('/register'); }}
+            onKeyDown={() => { this.goTo('/register'); }}
+            role="button"
+            tabIndex={0}
+            className="custom-nav-link"
+          >
+            Register
+          </span>
+        </div>
+      );
+    }
+    if (window.location.pathname === '/register') {
+      return (
+        <div className="px-2">
+          <span
+            // id="logout"
+            onClick={() => { this.goTo('/login'); }}
+            onKeyDown={() => { this.goTo('/login'); }}
+            role="button"
+            tabIndex={0}
+            className="custom-nav-link"
+          >
+            Log in
+          </span>
+        </div>
+      );
+    }
+    if (authObject && authObject.username) {
+      return (
+        <div className="px-2">
           <>{`${authObject.username}`}</>
-          <div
+          <span className="px-1">/</span>
+          <span
             id="logout"
             onClick={this.logout}
             onKeyDown={this.logout}
@@ -63,21 +94,35 @@ class CustomNav extends React.Component {
             tabIndex={0}
           >
             Log out
-          </div>
-        </>
+          </span>
+        </div>
       );
     }
+
     return (
-      <span
-        onClick={this.goToLogin}
-        // id="login"
-        role="button"
-        tabIndex={0}
-        onKeyDown={this.goToLogin}
-        className="px-2 custom-nav-link"
-      >
-        Log in / Register
-      </span>
+      <div className="px-2">
+        <span
+              // id="logout"
+          onClick={() => { this.goTo('/login'); }}
+          onKeyDown={() => { this.goTo('/login'); }}
+          role="button"
+          tabIndex={0}
+          className="custom-nav-link"
+        >
+          Log in
+        </span>
+        <span className="px-1">/</span>
+        <span
+              // id="logout"
+          onClick={() => { this.goTo('/register'); }}
+          onKeyDown={() => { this.goTo('/register'); }}
+          role="button"
+          tabIndex={0}
+          className="custom-nav-link"
+        >
+          Register
+        </span>
+      </div>
     );
   }
 

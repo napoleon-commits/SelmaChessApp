@@ -1,0 +1,15 @@
+#logout, #login{
+    cursor: pointer;
+}
+
+#logout:hover, #login:hover{
+    color: #61dafb;
+}
+
+.custom-nav-link{
+    cursor: pointer;
+}
+
+.custom-nav-link:hover{
+    color: #61dafb !important;
+}

@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"selmachess296cedbc": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

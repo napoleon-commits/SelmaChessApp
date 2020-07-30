@@ -11,7 +11,8 @@ import {
   getJSXBoard,
 } from '../utils/engine';
 
-import { reverseBoard } from '../utils/utils';
+import { reverseBoard, hasBoardChanged } from '../utils/utils';
+
 
 class PlayOnline extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class PlayOnline extends React.Component {
     this.state = {
       madeConnection: false,
       foundOpponent: false,
-      gameID: null,
+      // gameID: null,
       pairingType: null,
       boardArray: startBoard,
       reversedBoardArray: reverseBoard(startBoard),
@@ -27,6 +28,7 @@ class PlayOnline extends React.Component {
       fileSelected: null,
       playerSide: null,
       firstClick: false,
+      yourTurn: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -40,12 +42,11 @@ class PlayOnline extends React.Component {
   }
 
   initializeWebSocket(pairingType) {
+    const { boardArray, yourTurn } = this.state;
     this.setState({
       pairingType,
     });
-    this.ws = new WebSocket(
-      `wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/opensearch/${new Date().toLocaleString()}`,
-    );
+    this.ws = new WebSocket('wss://as4r4pfx8l.execute-api.us-east-1.amazonaws.com/dev');
 
     this.ws.onopen = () => {
       this.setState({
@@ -62,16 +63,20 @@ class PlayOnline extends React.Component {
         });
       }
 
-      if (obj.gameID) {
-        this.setState({
-          gameID: obj.gameID,
-        });
-      }
-
       if (obj.side === 0 || obj.side === 1) {
         this.setState({
           playerSide: obj.side,
+          yourTurn: (obj.side === 0),
         });
+      }
+
+      // send websocket message to initialize other player
+      if (obj.method === 'init') {
+        this.ws.send(JSON.stringify({
+          action: 'message',
+          method: 'init',
+          message: '',
+        }));
       }
 
       if (obj.move) {
@@ -81,9 +86,11 @@ class PlayOnline extends React.Component {
           clickedSquareJSX(obj.move.file, obj.move.rank);
         }
         const tempBoard = getJSXBoard();
+        const boardChange = hasBoardChanged(boardArray, tempBoard);
         this.setState({
           boardArray: tempBoard,
           reversedBoardArray: reverseBoard(tempBoard),
+          yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
         });
       }
     };
@@ -98,63 +105,95 @@ class PlayOnline extends React.Component {
   squareClick(rank, file, type, piece) {
     const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
     const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
-    const { playerSide, firstClick, gameID } = this.state;
-    if (playerSide === 0) {
-      if (firstClick === true) {
+    const {
+      playerSide, firstClick, yourTurn, boardArray,
+    } = this.state;
+    if (yourTurn) {
+      if (playerSide === 0) {
+        if (firstClick === true) {
+          if (type === 'Piece') {
+            clickedPieceJSX(file, rank);
+          } else if (type === 'Square') {
+            clickedSquareJSX(file, rank);
+          }
+          this.ws.send(JSON.stringify({
+            action: 'message',
+            method: 'sendmove',
+            rank,
+            file,
+            type,
+          }));
+          const tempBoard = getJSXBoard();
+          const boardChange = hasBoardChanged(boardArray, tempBoard);
+          this.setState((currentState) => ({
+            firstClick: false,
+            boardArray: tempBoard,
+            reversedBoardArray: reverseBoard(tempBoard),
+            rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+            fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+            yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
+          }));
+        } else if (whitePieces.includes(piece)) {
+          if (type === 'Piece') {
+            clickedPieceJSX(file, rank);
+          } else if (type === 'Square') {
+            clickedSquareJSX(file, rank);
+          }
+          this.ws.send(JSON.stringify({
+            action: 'message',
+            method: 'sendmove',
+            rank,
+            file,
+            type,
+          }));
+          this.setState((currentState) => ({
+            firstClick: true,
+            rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
+            fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+          }));
+        }
+      } else if (firstClick === true) {
         if (type === 'Piece') {
           clickedPieceJSX(file, rank);
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
-        this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        this.ws.send(JSON.stringify({
+          action: 'message',
+          method: 'sendmove',
+          rank,
+          file,
+          type,
+        }));
         const tempBoard = getJSXBoard();
+        const boardChange = hasBoardChanged(boardArray, tempBoard);
         this.setState((currentState) => ({
           firstClick: false,
           boardArray: tempBoard,
           reversedBoardArray: reverseBoard(tempBoard),
-          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
+          yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
         }));
-      } else if (whitePieces.includes(piece)) {
+      } else if (blackPieces.includes(piece)) {
         if (type === 'Piece') {
           clickedPieceJSX(file, rank);
         } else if (type === 'Square') {
           clickedSquareJSX(file, rank);
         }
-        this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
+        this.ws.send(JSON.stringify({
+          action: 'message',
+          method: 'sendmove',
+          rank,
+          file,
+          type,
+        }));
         this.setState((currentState) => ({
           firstClick: true,
-          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
+          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
+          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
         }));
       }
-    } else if (firstClick === true) {
-      if (type === 'Piece') {
-        clickedPieceJSX(file, rank);
-      } else if (type === 'Square') {
-        clickedSquareJSX(file, rank);
-      }
-      this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
-      const tempBoard = getJSXBoard();
-      this.setState((currentState) => ({
-        firstClick: false,
-        boardArray: tempBoard,
-        reversedBoardArray: reverseBoard(tempBoard),
-        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
-        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
-      }));
-    } else if (blackPieces.includes(piece)) {
-      if (type === 'Piece') {
-        clickedPieceJSX(file, rank);
-      } else if (type === 'Square') {
-        clickedSquareJSX(file, rank);
-      }
-      this.ws2 = new WebSocket(`wss://websocket1-env.eba-jyhmgcvf.us-east-1.elasticbeanstalk.com/sendmove/${gameID}/${playerSide}/${rank}/${file}/${type}`);
-      this.setState((currentState) => ({
-        firstClick: true,
-        rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
-        fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
-      }));
     }
   }
 
@@ -262,5 +301,5 @@ class PlayOnline extends React.Component {
     );
   }
 }
-
+// export default withAuthenticator(PlayOnline, true);
 export default PlayOnline;

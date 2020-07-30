@@ -9,15 +9,20 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Amplify from 'aws-amplify';
 import * as serviceWorker from './serviceWorker';
 
 
 import Contact from './components/Contact';
-import Enroll from './components/Enroll';
+import Login from './components/Login';
 import Learn from './components/Learn';
-import PlayEngine from './components/PlayEngine';
 import PlayOffline from './components/PlayOffline';
 import PlayOnline from './components/PlayOnline';
+import Register from './components/Register';
+
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
 
 ReactDOM.render(
   // <React.StrictMode>
@@ -26,20 +31,20 @@ ReactDOM.render(
       <Route path="/contact">
         <Contact />
       </Route>
-      <Route path="/enroll">
-        <Enroll />
+      <Route path="/login">
+        <Login />
       </Route>
       <Route path="/learn">
         <Learn />
-      </Route>
-      <Route path="/engine">
-        <PlayEngine />
       </Route>
       <Route path="/offline">
         <PlayOffline />
       </Route>
       <Route path="/online">
         <PlayOnline />
+      </Route>
+      <Route path="/register">
+        <Register />
       </Route>
       <Route path="/">
         <Learn />

@@ -246,26 +246,9 @@ class PlayOnline extends React.Component {
                 <div className="w-75 m-auto text-center h1">
                   Choose Your Time Limit
                 </div>
-                <div className="row w-50 mx-auto mt-4">
+                <div className="w-50 mx-auto mt-4">
                   <div
-                    className="col text-center game-select"
-                    onClick={() => { this.initializeWebSocket(1); }}
-                    onKeyDown={() => { this.initializeWebSocket(1); }}
-                  >
-                    <div className="mt-4">10+0</div>
-                    <div>&nbsp;Rapid&nbsp;</div>
-                    {
-                madeConnection && !foundOpponent && pairingType === 1
-                  ? (
-                    <div className="spinner-border text-secondary" role="status" />
-                  )
-                  : (
-                    <div className="spinner-border text-tertiary" role="status" />
-                  )
-              }
-                  </div>
-                  <div
-                    className="col text-center game-select"
+                    className="text-center game-select"
                     onClick={() => { this.initializeWebSocket(2); }}
                     onKeyDown={() => { this.initializeWebSocket(2); }}
                   >

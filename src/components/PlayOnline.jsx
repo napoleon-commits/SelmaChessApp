@@ -20,7 +20,7 @@ class PlayOnline extends React.Component {
     this.state = {
       madeConnection: false,
       foundOpponent: false,
-      gameID: null,
+      // gameID: null,
       pairingType: null,
       boardArray: startBoard,
       reversedBoardArray: reverseBoard(startBoard),
@@ -42,6 +42,7 @@ class PlayOnline extends React.Component {
   }
 
   initializeWebSocket(pairingType) {
+    const { boardArray, yourTurn } = this.state;
     this.setState({
       pairingType,
     });
@@ -85,11 +86,11 @@ class PlayOnline extends React.Component {
           clickedSquareJSX(obj.move.file, obj.move.rank);
         }
         const tempBoard = getJSXBoard();
-        const boardChange = hasBoardChanged(this.state.boardArray, tempBoard);
+        const boardChange = hasBoardChanged(boardArray, tempBoard);
         this.setState({
           boardArray: tempBoard,
           reversedBoardArray: reverseBoard(tempBoard),
-          yourTurn: (boardChange === true) ? this.state.yourTurn !== true : this.state.yourTurn,
+          yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
         });
       }
     };
@@ -104,8 +105,10 @@ class PlayOnline extends React.Component {
   squareClick(rank, file, type, piece) {
     const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
     const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
-    const { playerSide, firstClick } = this.state;
-    if (this.state.yourTurn) {
+    const {
+      playerSide, firstClick, yourTurn, boardArray,
+    } = this.state;
+    if (yourTurn) {
       if (playerSide === 0) {
         if (firstClick === true) {
           if (type === 'Piece') {
@@ -121,14 +124,14 @@ class PlayOnline extends React.Component {
             type,
           }));
           const tempBoard = getJSXBoard();
-          const boardChange = hasBoardChanged(this.state.boardArray, tempBoard);
+          const boardChange = hasBoardChanged(boardArray, tempBoard);
           this.setState((currentState) => ({
             firstClick: false,
             boardArray: tempBoard,
             reversedBoardArray: reverseBoard(tempBoard),
             rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
             fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
-            yourTurn: (boardChange === true) ? this.state.yourTurn !== true : this.state.yourTurn,
+            yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
           }));
         } else if (whitePieces.includes(piece)) {
           if (type === 'Piece') {
@@ -163,14 +166,14 @@ class PlayOnline extends React.Component {
           type,
         }));
         const tempBoard = getJSXBoard();
-        const boardChange = hasBoardChanged(this.state.boardArray, tempBoard);
+        const boardChange = hasBoardChanged(boardArray, tempBoard);
         this.setState((currentState) => ({
           firstClick: false,
           boardArray: tempBoard,
           reversedBoardArray: reverseBoard(tempBoard),
           rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
           fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
-          yourTurn: (boardChange === true) ? this.state.yourTurn !== true : this.state.yourTurn,
+          yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
         }));
       } else if (blackPieces.includes(piece)) {
         if (type === 'Piece') {

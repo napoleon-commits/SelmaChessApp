@@ -82,8 +82,6 @@ class CustomNav extends React.Component {
     if (authObject && authObject.username) {
       return (
         <div className="px-4">
-          {/* <>{`${authObject.username}`}</>
-          <span className="px-1">/</span> */}
           <span
             onClick={this.logout}
             onKeyDown={this.logout}
@@ -107,16 +105,6 @@ class CustomNav extends React.Component {
         >
           Enroll
         </span>
-        {/* <span className="px-1">/</span>
-        <span
-          onClick={() => { this.goTo('/register'); }}
-          onKeyDown={() => { this.goTo('/register'); }}
-          role="button"
-          tabIndex={0}
-          className="custom-nav-link"
-        >
-          Register
-        </span> */}
       </div>
     );
   }
@@ -133,7 +121,7 @@ class CustomNav extends React.Component {
 
   render() {
     return (
-      <Navbar bg="dark" expand="lg" style={{ borderBottom: '4px solid white' }}>
+      <Navbar expand="lg">
         <div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-3" />
           <span

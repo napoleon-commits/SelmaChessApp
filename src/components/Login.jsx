@@ -4,7 +4,7 @@ import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CustomNav from './subcomponents/CustomNav';
-import Footer from './Footer';
+import Footer from './subcomponents/Footer';
 import Modal from './subcomponents/Modal';
 
 class Login extends React.Component {

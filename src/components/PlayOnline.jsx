@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CustomNav from './subcomponents/CustomNav';
-import Footer from './Footer';
+import Footer from './subcomponents/Footer';
 
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';

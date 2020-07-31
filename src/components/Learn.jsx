@@ -14,7 +14,7 @@ import enPassant from '../images/en_passant.gif';
 import pawnPromotion from '../images/pawn_promotion.gif';
 
 import CustomNav from './subcomponents/CustomNav';
-import Footer from './Footer';
+import Footer from './subcomponents/Footer';
 
 const Learn = () => (
   <div className="bg-primary text-white">

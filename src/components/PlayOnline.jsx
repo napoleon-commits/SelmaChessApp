@@ -1,16 +1,15 @@
 import React from 'react';
+
 import CustomNav from './CustomNav';
 import Footer from './Footer';
 
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
-
 import {
   clickedPieceJSX,
   clickedSquareJSX,
   getJSXBoard,
 } from '../utils/engine';
-
 import { reverseBoard, hasBoardChanged } from '../utils/utils';
 
 
@@ -31,14 +30,7 @@ class PlayOnline extends React.Component {
       yourTurn: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
     this.squareClick = this.squareClick.bind(this);
-  }
-
-  handleInputChange(e) {
-    this.setState({
-      [e.target.id]: e.target.value,
-    });
   }
 
   initializeWebSocket(pairingType) {
@@ -254,26 +246,9 @@ class PlayOnline extends React.Component {
                 <div className="w-75 m-auto text-center h1">
                   Choose Your Time Limit
                 </div>
-                <div className="row w-50 mx-auto mt-4">
+                <div className="w-50 mx-auto mt-4">
                   <div
-                    className="col text-center game-select"
-                    onClick={() => { this.initializeWebSocket(1); }}
-                    onKeyDown={() => { this.initializeWebSocket(1); }}
-                  >
-                    <div className="mt-4">10+0</div>
-                    <div>&nbsp;Rapid&nbsp;</div>
-                    {
-                madeConnection && !foundOpponent && pairingType === 1
-                  ? (
-                    <div className="spinner-border text-secondary" role="status" />
-                  )
-                  : (
-                    <div className="spinner-border text-tertiary" role="status" />
-                  )
-              }
-                  </div>
-                  <div
-                    className="col text-center game-select"
+                    className="text-center game-select"
                     onClick={() => { this.initializeWebSocket(2); }}
                     onKeyDown={() => { this.initializeWebSocket(2); }}
                   >

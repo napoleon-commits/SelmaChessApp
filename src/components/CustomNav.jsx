@@ -49,13 +49,44 @@ class CustomNav extends React.Component {
 
   enrollTags() {
     const { authObject } = this.state;
-    if (window.location.pathname === '/login' || window.location.pathname === '/register') {
-      return null;
-    } if (authObject && authObject.username) {
+    if (window.location.pathname === '/login') {
       return (
-        <>
-          <>{`${authObject.username}`}</>
-          <div
+        <div className="px-4">
+          <span
+            // id="logout"
+            onClick={() => { this.goTo('/register'); }}
+            onKeyDown={() => { this.goTo('/register'); }}
+            role="button"
+            tabIndex={0}
+            className="custom-nav-link"
+          >
+            Register
+          </span>
+        </div>
+      );
+    }
+    if (window.location.pathname === '/register') {
+      return (
+        <div className="px-4">
+          <span
+            // id="logout"
+            onClick={() => { this.goTo('/login'); }}
+            onKeyDown={() => { this.goTo('/login'); }}
+            role="button"
+            tabIndex={0}
+            className="custom-nav-link"
+          >
+            Log in
+          </span>
+        </div>
+      );
+    }
+    if (authObject && authObject.username) {
+      return (
+        <div className="px-4">
+          {/* <>{`${authObject.username}`}</>
+          <span className="px-1">/</span> */}
+          <span
             id="logout"
             onClick={this.logout}
             onKeyDown={this.logout}
@@ -63,21 +94,33 @@ class CustomNav extends React.Component {
             tabIndex={0}
           >
             Log out
-          </div>
-        </>
+          </span>
+        </div>
       );
     }
+
     return (
-      <span
-        onClick={this.goToLogin}
-        // id="login"
-        role="button"
-        tabIndex={0}
-        onKeyDown={this.goToLogin}
-        className="px-2 custom-nav-link"
-      >
-        Log in / Register
-      </span>
+      <div className="px-4">
+        <span
+          onClick={() => { this.goTo('/login'); }}
+          onKeyDown={() => { this.goTo('/login'); }}
+          role="button"
+          tabIndex={0}
+          className="custom-nav-link"
+        >
+          Enroll
+        </span>
+        {/* <span className="px-1">/</span>
+        <span
+          onClick={() => { this.goTo('/register'); }}
+          onKeyDown={() => { this.goTo('/register'); }}
+          role="button"
+          tabIndex={0}
+          className="custom-nav-link"
+        >
+          Register
+        </span> */}
+      </div>
     );
   }
 
@@ -93,7 +136,7 @@ class CustomNav extends React.Component {
 
   render() {
     return (
-      <Navbar bg="dark" expand="lg">
+      <Navbar bg="dark" expand="lg" style={{ borderBottom: '4px solid white' }}>
         <div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-3" />
           <span
@@ -114,7 +157,7 @@ class CustomNav extends React.Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav activeKey={window.location.pathname} className="mr-auto">
             <span
-              className="c-pointer px-2 custom-nav-link"
+              className="c-pointer mr-4 custom-nav-link"
               onClick={() => { this.goTo('/learn'); }}
               onKeyDown={() => { this.goTo('/learn'); }}
               role="button"
@@ -123,7 +166,7 @@ class CustomNav extends React.Component {
               How to Play
             </span>
             <span
-              className="text-white px-2 c-pointer custom-nav-link"
+              className="text-white mr-4 c-pointer custom-nav-link"
               onClick={() => { this.goTo('/offline'); }}
               onKeyDown={() => { this.goTo('/offline'); }}
               role="button"
@@ -132,7 +175,7 @@ class CustomNav extends React.Component {
               Play Offline
             </span>
             <span
-              className="text-white px-2 c-pointer custom-nav-link"
+              className="text-white mr-4 c-pointer custom-nav-link"
               onClick={() => { this.goTo('/online'); }}
               onKeyDown={() => { this.goTo('/online'); }}
               role="button"
@@ -141,7 +184,7 @@ class CustomNav extends React.Component {
               Play Online
             </span>
             <span
-              className="c-pointer px-2 custom-nav-link"
+              className="c-pointer mr-4 custom-nav-link"
               onClick={() => { this.goTo('/contact'); }}
               onKeyDown={() => { this.goTo('/contact'); }}
               role="button"

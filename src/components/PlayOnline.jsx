@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CustomNav from './CustomNav';
+import CustomNav from './subcomponents/CustomNav';
 import Footer from './Footer';
 
 import { startBoard } from '../constants';

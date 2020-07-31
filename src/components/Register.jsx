@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Auth } from 'aws-amplify';
 
-import CustomNav from './CustomNav';
+import CustomNav from './subcomponents/CustomNav';
 import Footer from './Footer';
 import Modal from './subcomponents/Modal';
 

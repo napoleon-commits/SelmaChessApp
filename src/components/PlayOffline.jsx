@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/common.css';
 
 import $ from 'jquery';
-import CustomNav from './CustomNav';
+import CustomNav from './subcomponents/CustomNav';
 import Footer from './Footer';
 
 import { startBoard } from '../constants';

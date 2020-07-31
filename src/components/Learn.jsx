@@ -13,7 +13,7 @@ import castling from '../images/castling.gif';
 import enPassant from '../images/en_passant.gif';
 import pawnPromotion from '../images/pawn_promotion.gif';
 
-import CustomNav from './CustomNav';
+import CustomNav from './subcomponents/CustomNav';
 import Footer from './Footer';
 
 const Learn = () => (

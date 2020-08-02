@@ -48,53 +48,64 @@ class PlayOnline extends React.Component {
 
   componentDidMount() {
     window.onblur = () => {
-      this.props.dispatch({
+      const { dispatch } = this.props;
+      dispatch({
         type: SET_INACTIVE_TIME_STAMP,
         payload: {
           inactiveTimeStamp: new Date().getTime(),
-        }
-      })
+        },
+      });
     };
     window.onfocus = () => {
-      if (this.props.isTimer1Running) {
-        this.props.dispatch({
+      const {
+        isTimer1Running,
+        dispatch,
+        timer1RemainingTime,
+        inactiveTimeStamp,
+        isTimer2Running,
+        timer2RemainingTime,
+      } = this.props;
+      if (isTimer1Running) {
+        dispatch({
           type: SET_TIMER_1,
           payload: {
             timer1RemainingTime: (
-              this.props.timer1RemainingTime - (
+              timer1RemainingTime - (
                 Math.floor((
                   new Date().getTime()
-                  - this.props.inactiveTimeStamp
+                  - inactiveTimeStamp
                 ) / 10)
               )
-            )
+            ),
           },
         });
       }
-      if (this.props.isTimer2Running) {
-        this.props.dispatch({
+      if (isTimer2Running) {
+        dispatch({
           type: SET_TIMER_2,
           payload: {
             timer2RemainingTime: (
-              this.props.timer2RemainingTime - (
+              timer2RemainingTime - (
                 Math.floor((
                   new Date().getTime()
-                  - this.props.inactiveTimeStamp
+                  - inactiveTimeStamp
                 ) / 10)
               )
-            )
+            ),
           },
         });
       }
     };
     setInterval(() => {
-      const { timer1RemainingTime, timer2RemainingTime, dispatch, isTimer1Running, isTimer2Running } = this.props;
+      const {
+        timer1RemainingTime, timer2RemainingTime, dispatch, isTimer1Running, isTimer2Running,
+      } = this.props;
       if (timer1RemainingTime <= 0) {
         dispatch({
           type: SET_TIMER1_STATUS,
           payload: {
             isTimer1Running: false,
-          }
+          },
         });
       }
       if (timer2RemainingTime <= 0) {
@@ -102,7 +113,7 @@ class PlayOnline extends React.Component {
           type: SET_TIMER2_STATUS,
           payload: {
             isTimer2Running: false,
-          }
+          },
         });
       }
       if (isTimer1Running) {
@@ -157,15 +168,17 @@ class PlayOnline extends React.Component {
 
       if (obj.move) {
         // start timer for black pieces
-        if(!this.state.firstMove){
+        const { firstMove } = this.state;
+        const { dispatch } = this.props;
+        if (!firstMove) {
           this.setState({
             firstMove: true,
-          })
-          this.props.dispatch({
+          });
+          dispatch({
             type: SET_TIMER1_STATUS,
             payload: {
               isTimer1Running: true,
-            }
+            },
           });
         }
         if (obj.move.type === 'Piece') {
@@ -194,18 +207,19 @@ class PlayOnline extends React.Component {
     const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
     const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
     const {
-      playerSide, firstClick, yourTurn, boardArray,
+      playerSide, firstClick, yourTurn, boardArray, firstMove,
     } = this.state;
+    const { dispatch } = this.props;
     if (yourTurn) {
-      if(!this.state.firstMove){
+      if (!firstMove) {
         this.setState({
           firstMove: true,
-        })
-        this.props.dispatch({
+        });
+        dispatch({
           type: SET_TIMER1_STATUS,
           payload: {
             isTimer1Running: true,
-          }
+          },
         });
       }
       if (playerSide === 0) {
@@ -422,12 +436,18 @@ PlayOnline.propTypes = {
   dispatch: PropTypes.func,
   timer1RemainingTime: PropTypes.number,
   timer2RemainingTime: PropTypes.number,
+  isTimer1Running: PropTypes.bool,
+  isTimer2Running: PropTypes.bool,
+  inactiveTimeStamp: PropTypes.number,
 };
 
 PlayOnline.defaultProps = {
   dispatch: () => {},
   timer1RemainingTime: 0,
   timer2RemainingTime: 0,
+  isTimer1Running: false,
+  isTimer2Running: false,
+  inactiveTimeStamp: 0,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -435,13 +455,15 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state /* ownProps */) => {
-  const { timer1RemainingTime, timer2RemainingTime, isTimer1Running, isTimer2Running, inactiveTimeStamp } = state.Timer;
+  const {
+    timer1RemainingTime, timer2RemainingTime, isTimer1Running, isTimer2Running, inactiveTimeStamp,
+  } = state.Timer;
   return {
     timer1RemainingTime,
     timer2RemainingTime,
     isTimer1Running,
     isTimer2Running,
-    inactiveTimeStamp
+    inactiveTimeStamp,
   };
 };
 

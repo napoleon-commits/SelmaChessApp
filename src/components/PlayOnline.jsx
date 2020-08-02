@@ -45,9 +45,9 @@ class PlayOnline extends React.Component {
   }
 
   componentDidMount() {
-    const { timer1RemainingTime, timer2RemainingTime, dispatch } = this.props;
-    const { startTimer1bool, startTimer2bool } = this.state;
     setInterval(() => {
+      const { timer1RemainingTime, timer2RemainingTime, dispatch } = this.props;
+      const { startTimer1bool, startTimer2bool } = this.state;
       if (timer1RemainingTime < 0) {
         this.setState({
           startTimer1bool: false,
@@ -96,6 +96,7 @@ class PlayOnline extends React.Component {
         this.setState({
           playerSide: obj.side,
           yourTurn: (obj.side === 0),
+          startTimer1bool: true,
         });
       }
 
@@ -275,7 +276,7 @@ class PlayOnline extends React.Component {
           foundOpponent && madeConnection
             ? (
               <>
-                <div className="text-center pb-3 h6">
+                <div className="text-center pb-3 h2">
                   {
                     playerSide === 0
                       ? (
@@ -293,7 +294,7 @@ class PlayOnline extends React.Component {
                   }
                 </div>
                 {jsxTags}
-                <div className="text-center py-3 h6">
+                <div className="text-center py-3 h2">
                   {
                     playerSide === 0
                       ? (
@@ -350,14 +351,14 @@ class PlayOnline extends React.Component {
 
 PlayOnline.propTypes = {
   dispatch: PropTypes.func,
-  timer1RemainingTime: PropTypes.bool,
-  timer2RemainingTime: PropTypes.bool,
+  timer1RemainingTime: PropTypes.number,
+  timer2RemainingTime: PropTypes.number,
 };
 
 PlayOnline.defaultProps = {
   dispatch: () => {},
-  timer1RemainingTime: false,
-  timer2RemainingTime: false,
+  timer1RemainingTime: 0,
+  timer2RemainingTime: 0,
 };
 
 const mapDispatchToProps = (dispatch) => ({

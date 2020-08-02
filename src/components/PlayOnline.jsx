@@ -45,7 +45,6 @@ class PlayOnline extends React.Component {
   }
 
   componentDidMount() {
-    // eslint-disable-next-line
     const { timer1RemainingTime, timer2RemainingTime, dispatch } = this.props;
     const { startTimer1bool, startTimer2bool } = this.state;
     setInterval(() => {
@@ -76,6 +75,9 @@ class PlayOnline extends React.Component {
     this.ws = new WebSocket('wss://as4r4pfx8l.execute-api.us-east-1.amazonaws.com/dev');
 
     this.ws.onopen = () => {
+      const { dispatch } = this.props;
+      dispatch({ type: SET_TIMER_1, payload: { remainingTime: 180000 } });
+      dispatch({ type: SET_TIMER_2, payload: { remainingTime: 180000 } });
       this.setState({
         madeConnection: true,
       });
@@ -104,10 +106,6 @@ class PlayOnline extends React.Component {
           method: 'init',
           message: '',
         }));
-        // eslint-disable-next-line
-        const { dispatch } = this.props;
-        dispatch({ type: SET_TIMER_1, payload: { remainingTime: 360000 } });
-        dispatch({ type: SET_TIMER_2, payload: { remainingTime: 360000 } });
       }
 
       if (obj.move) {
@@ -277,36 +275,36 @@ class PlayOnline extends React.Component {
           foundOpponent && madeConnection
             ? (
               <>
-                <div className="text-center py-3">
+                <div className="text-center pb-3 h6">
                   {
                     playerSide === 0
                       ? (
                         <>
-                          <span className="h1 mx-4">Player 2</span>
+                          <span className="mx-4">Player 2</span>
                           <span className="mx-4"><Timer id="timer2" /></span>
                         </>
                       )
                       : (
                         <>
-                          <span className="h1 mx-4">Player 1</span>
+                          <span className="mx-4">Player 1</span>
                           <span className="mx-4"><Timer id="timer1" /></span>
                         </>
                       )
                   }
                 </div>
                 {jsxTags}
-                <div className="text-center py-3">
+                <div className="text-center py-3 h6">
                   {
                     playerSide === 0
                       ? (
                         <>
-                          <span className="h1 mx-4">Player 1</span>
+                          <span className="mx-4">Player 1</span>
                           <span className="mx-4"><Timer id="timer1" /></span>
                         </>
                       )
                       : (
                         <>
-                          <span className="h1 mx-4">Player 2</span>
+                          <span className="mx-4">Player 2</span>
                           <span className="mx-4"><Timer id="timer2" /></span>
                         </>
                       )
@@ -350,13 +348,13 @@ class PlayOnline extends React.Component {
   }
 }
 
-CustomNav.propTypes = {
+PlayOnline.propTypes = {
   dispatch: PropTypes.func,
   timer1RemainingTime: PropTypes.bool,
   timer2RemainingTime: PropTypes.bool,
 };
 
-CustomNav.defaultProps = {
+PlayOnline.defaultProps = {
   dispatch: () => {},
   timer1RemainingTime: false,
   timer2RemainingTime: false,

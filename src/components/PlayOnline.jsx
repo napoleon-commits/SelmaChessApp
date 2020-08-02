@@ -17,10 +17,8 @@ import { reverseBoard, hasBoardChanged } from '../utils';
 import Timer from './subcomponents/Timer';
 
 import {
-  // START_TIMER_1,
-  // START_TIMER_2,
-  // INCREMENT_TIMER_1,
-  // INCREMENT_TIMER_2,
+  START_TIMER_1,
+  START_TIMER_2,
   SET_TIMER_1,
   SET_TIMER_2,
 } from '../redux/ActionTypes';
@@ -39,9 +37,35 @@ class PlayOnline extends React.Component {
       playerSide: null,
       firstClick: false,
       yourTurn: false,
+      startTimer1bool: false,
+      startTimer2bool: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.squareClick = this.squareClick.bind(this);
+  }
+
+  componentDidMount() {
+    // eslint-disable-next-line
+    const { timer1RemainingTime, timer2RemainingTime, dispatch } = this.props;
+    const { startTimer1bool, startTimer2bool } = this.state;
+    setInterval(() => {
+      if (timer1RemainingTime < 0) {
+        this.setState({
+          startTimer1bool: false,
+        });
+      }
+      if (timer2RemainingTime < 0) {
+        this.setState({
+          startTimer2bool: false,
+        });
+      }
+      if (startTimer1bool) {
+        dispatch({ type: START_TIMER_1 });
+      }
+      if (startTimer2bool) {
+        dispatch({ type: START_TIMER_2 });
+      }
+    }, 10);
   }
 
   initializeWebSocket(pairingType) {
@@ -328,10 +352,14 @@ class PlayOnline extends React.Component {
 
 CustomNav.propTypes = {
   dispatch: PropTypes.func,
+  timer1RemainingTime: PropTypes.bool,
+  timer2RemainingTime: PropTypes.bool,
 };
 
 CustomNav.defaultProps = {
   dispatch: () => {},
+  timer1RemainingTime: false,
+  timer2RemainingTime: false,
 };
 
 const mapDispatchToProps = (dispatch) => ({

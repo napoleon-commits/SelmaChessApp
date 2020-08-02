@@ -10,7 +10,7 @@ import {
   clickedSquareJSX,
   getJSXBoard,
 } from '../utils/engine';
-import { reverseBoard, hasBoardChanged } from '../utils/utils';
+import { reverseBoard, hasBoardChanged } from '../utils';
 
 
 class PlayOnline extends React.Component {

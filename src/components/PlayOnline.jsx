@@ -21,6 +21,9 @@ import {
   START_TIMER_2,
   SET_TIMER_1,
   SET_TIMER_2,
+  SET_TIMER1_STATUS,
+  SET_TIMER2_STATUS,
+  SET_INACTIVE_TIME_STAMP,
 } from '../redux/ActionTypes';
 
 class PlayOnline extends React.Component {
@@ -37,31 +40,75 @@ class PlayOnline extends React.Component {
       playerSide: null,
       firstClick: false,
       yourTurn: false,
-      startTimer1bool: false,
-      startTimer2bool: false,
+      firstMove: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.squareClick = this.squareClick.bind(this);
   }
 
   componentDidMount() {
+    window.onblur = () => {
+      this.props.dispatch({
+        type: SET_INACTIVE_TIME_STAMP,
+        payload: {
+          inactiveTimeStamp: new Date().getTime(),
+        }
+      })
+    };
+    window.onfocus = () => {
+      if (this.props.isTimer1Running) {
+        this.props.dispatch({
+          type: SET_TIMER_1,
+          payload: {
+            timer1RemainingTime: (
+              this.props.timer1RemainingTime - (
+                Math.floor((
+                  new Date().getTime()
+                  - this.props.inactiveTimeStamp
+                ) / 10)
+              )
+            )
+          },
+        });
+      }
+      if (this.props.isTimer2Running) {
+        this.props.dispatch({
+          type: SET_TIMER_2,
+          payload: {
+            timer2RemainingTime: (
+              this.props.timer2RemainingTime - (
+                Math.floor((
+                  new Date().getTime()
+                  - this.props.inactiveTimeStamp
+                ) / 10)
+              )
+            )
+          },
+        });
+      }
+    };
     setInterval(() => {
-      const { timer1RemainingTime, timer2RemainingTime, dispatch } = this.props;
-      const { startTimer1bool, startTimer2bool } = this.state;
-      if (timer1RemainingTime < 0) {
-        this.setState({
-          startTimer1bool: false,
+      const { timer1RemainingTime, timer2RemainingTime, dispatch, isTimer1Running, isTimer2Running } = this.props;
+      if (timer1RemainingTime <= 0) {
+        dispatch({
+          type: SET_TIMER1_STATUS,
+          payload: {
+            isTimer1Running: false,
+          }
         });
       }
-      if (timer2RemainingTime < 0) {
-        this.setState({
-          startTimer2bool: false,
+      if (timer2RemainingTime <= 0) {
+        dispatch({
+          type: SET_TIMER2_STATUS,
+          payload: {
+            isTimer2Running: false,
+          }
         });
       }
-      if (startTimer1bool) {
+      if (isTimer1Running) {
         dispatch({ type: START_TIMER_1 });
       }
-      if (startTimer2bool) {
+      if (isTimer2Running) {
         dispatch({ type: START_TIMER_2 });
       }
     }, 10);
@@ -76,8 +123,8 @@ class PlayOnline extends React.Component {
 
     this.ws.onopen = () => {
       const { dispatch } = this.props;
-      dispatch({ type: SET_TIMER_1, payload: { remainingTime: 180000 } });
-      dispatch({ type: SET_TIMER_2, payload: { remainingTime: 180000 } });
+      dispatch({ type: SET_TIMER_1, payload: { timer1RemainingTime: 180000 } });
+      dispatch({ type: SET_TIMER_2, payload: { timer2RemainingTime: 180000 } });
       this.setState({
         madeConnection: true,
       });
@@ -96,7 +143,6 @@ class PlayOnline extends React.Component {
         this.setState({
           playerSide: obj.side,
           yourTurn: (obj.side === 0),
-          startTimer1bool: true,
         });
       }
 
@@ -110,6 +156,18 @@ class PlayOnline extends React.Component {
       }
 
       if (obj.move) {
+        // start timer for black pieces
+        if(!this.state.firstMove){
+          this.setState({
+            firstMove: true,
+          })
+          this.props.dispatch({
+            type: SET_TIMER1_STATUS,
+            payload: {
+              isTimer1Running: true,
+            }
+          });
+        }
         if (obj.move.type === 'Piece') {
           clickedPieceJSX(obj.move.file, obj.move.rank);
         } else if (obj.move.type === 'Square') {
@@ -139,6 +197,17 @@ class PlayOnline extends React.Component {
       playerSide, firstClick, yourTurn, boardArray,
     } = this.state;
     if (yourTurn) {
+      if(!this.state.firstMove){
+        this.setState({
+          firstMove: true,
+        })
+        this.props.dispatch({
+          type: SET_TIMER1_STATUS,
+          payload: {
+            isTimer1Running: true,
+          }
+        });
+      }
       if (playerSide === 0) {
         if (firstClick === true) {
           if (type === 'Piece') {
@@ -366,10 +435,13 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state /* ownProps */) => {
-  const { timer1RemainingTime, timer2RemainingTime } = state.Timer;
+  const { timer1RemainingTime, timer2RemainingTime, isTimer1Running, isTimer2Running, inactiveTimeStamp } = state.Timer;
   return {
     timer1RemainingTime,
     timer2RemainingTime,
+    isTimer1Running,
+    isTimer2Running,
+    inactiveTimeStamp
   };
 };
 

@@ -3,11 +3,11 @@
 UI for selmachessapp.com<br /><br />
 
 TECH STACK:<br />
-&#9;ReactJS
-&#9;Bootstrap/css
-&#9;AWS amplify
-&#9;jQuery
-&#9;Redux
+&#9;ReactJS<br />
+&#9;Bootstrap/css<br />
+&#9;AWS amplify<br />
+&#9;jQuery<br />
+&#9;Redux<br /><br /><hr />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

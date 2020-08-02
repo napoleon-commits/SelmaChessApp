@@ -1,4 +1,14 @@
 # SelmaChess
+
+UI for selmachessapp.com<br /><br />
+
+TECH STACK:<br />
+&#9;ReactJS
+&#9;Bootstrap/css
+&#9;AWS amplify
+&#9;jQuery
+&#9;Redux
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

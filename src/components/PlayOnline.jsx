@@ -276,7 +276,7 @@ class PlayOnline extends React.Component {
           foundOpponent && madeConnection
             ? (
               <>
-                <div className="text-center pb-3 h2">
+                <div className="text-center pb-3 h4">
                   {
                     playerSide === 0
                       ? (
@@ -294,7 +294,7 @@ class PlayOnline extends React.Component {
                   }
                 </div>
                 {jsxTags}
-                <div className="text-center py-3 h2">
+                <div className="text-center py-3 h4">
                   {
                     playerSide === 0
                       ? (

@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import CustomNav from './subcomponents/CustomNav';
 import Footer from './subcomponents/Footer';
@@ -12,6 +14,16 @@ import {
 } from '../utils/engine';
 import { reverseBoard, hasBoardChanged } from '../utils';
 
+import Timer from './subcomponents/Timer';
+
+import {
+  // START_TIMER_1,
+  // START_TIMER_2,
+  // INCREMENT_TIMER_1,
+  // INCREMENT_TIMER_2,
+  SET_TIMER_1,
+  SET_TIMER_2,
+} from '../redux/ActionTypes';
 
 class PlayOnline extends React.Component {
   constructor(props) {
@@ -19,7 +31,6 @@ class PlayOnline extends React.Component {
     this.state = {
       madeConnection: false,
       foundOpponent: false,
-      // gameID: null,
       pairingType: null,
       boardArray: startBoard,
       reversedBoardArray: reverseBoard(startBoard),
@@ -69,6 +80,10 @@ class PlayOnline extends React.Component {
           method: 'init',
           message: '',
         }));
+        // eslint-disable-next-line
+        const { dispatch } = this.props;
+        dispatch({ type: SET_TIMER_1, payload: { remainingTime: 360000 } });
+        dispatch({ type: SET_TIMER_2, payload: { remainingTime: 360000 } });
       }
 
       if (obj.move) {
@@ -238,7 +253,41 @@ class PlayOnline extends React.Component {
           foundOpponent && madeConnection
             ? (
               <>
+                <div className="text-center py-3">
+                  {
+                    playerSide === 0
+                      ? (
+                        <>
+                          <span className="h1 mx-4">Player 2</span>
+                          <span className="mx-4"><Timer id="timer2" /></span>
+                        </>
+                      )
+                      : (
+                        <>
+                          <span className="h1 mx-4">Player 1</span>
+                          <span className="mx-4"><Timer id="timer1" /></span>
+                        </>
+                      )
+                  }
+                </div>
                 {jsxTags}
+                <div className="text-center py-3">
+                  {
+                    playerSide === 0
+                      ? (
+                        <>
+                          <span className="h1 mx-4">Player 1</span>
+                          <span className="mx-4"><Timer id="timer1" /></span>
+                        </>
+                      )
+                      : (
+                        <>
+                          <span className="h1 mx-4">Player 2</span>
+                          <span className="mx-4"><Timer id="timer2" /></span>
+                        </>
+                      )
+                  }
+                </div>
               </>
             )
             : (
@@ -276,5 +325,28 @@ class PlayOnline extends React.Component {
     );
   }
 }
-// export default withAuthenticator(PlayOnline, true);
-export default PlayOnline;
+
+CustomNav.propTypes = {
+  dispatch: PropTypes.func,
+};
+
+CustomNav.defaultProps = {
+  dispatch: () => {},
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch,
+});
+
+const mapStateToProps = (state /* ownProps */) => {
+  const { timer1RemainingTime, timer2RemainingTime } = state.Timer;
+  return {
+    timer1RemainingTime,
+    timer2RemainingTime,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PlayOnline);

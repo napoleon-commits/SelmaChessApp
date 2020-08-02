@@ -10,6 +10,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Amplify from 'aws-amplify';
+import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -22,35 +23,39 @@ import Register from './components/Register';
 
 import awsconfig from './aws-exports';
 
+import store from './redux/store';
+
 Amplify.configure(awsconfig);
 
 ReactDOM.render(
   // <React.StrictMode>
-  <Router>
-    <Switch>
-      <Route path="/contact">
-        <Contact />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/learn">
-        <Learn />
-      </Route>
-      <Route path="/offline">
-        <PlayOffline />
-      </Route>
-      <Route path="/online">
-        <PlayOnline />
-      </Route>
-      <Route path="/register">
-        <Register />
-      </Route>
-      <Route path="/">
-        <Learn />
-      </Route>
-    </Switch>
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        <Route path="/contact">
+          <Contact />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/learn">
+          <Learn />
+        </Route>
+        <Route path="/offline">
+          <PlayOffline />
+        </Route>
+        <Route path="/online">
+          <PlayOnline />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/">
+          <Learn />
+        </Route>
+      </Switch>
+    </Router>
+  </Provider>,
   // </React.StrictMode>,
   document.getElementById('root'),
 );

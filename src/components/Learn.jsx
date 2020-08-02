@@ -13,8 +13,8 @@ import castling from '../images/castling.gif';
 import enPassant from '../images/en_passant.gif';
 import pawnPromotion from '../images/pawn_promotion.gif';
 
-import CustomNav from './CustomNav';
-import Footer from './Footer';
+import CustomNav from './subcomponents/CustomNav';
+import Footer from './subcomponents/Footer';
 
 const Learn = () => (
   <div className="bg-primary text-white">

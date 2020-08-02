@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import CustomNav from './CustomNav';
-import Footer from './Footer';
+import CustomNav from './subcomponents/CustomNav';
+import Footer from './subcomponents/Footer';
 
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
@@ -10,8 +12,19 @@ import {
   clickedSquareJSX,
   getJSXBoard,
 } from '../utils/engine';
-import { reverseBoard, hasBoardChanged } from '../utils/utils';
+import { reverseBoard, hasBoardChanged } from '../utils';
 
+import Timer from './subcomponents/Timer';
+
+import {
+  START_TIMER_1,
+  START_TIMER_2,
+  SET_TIMER_1,
+  SET_TIMER_2,
+  SET_TIMER1_STATUS,
+  SET_TIMER2_STATUS,
+  SET_INACTIVE_TIME_STAMP,
+} from '../redux/ActionTypes';
 
 class PlayOnline extends React.Component {
   constructor(props) {
@@ -19,7 +32,6 @@ class PlayOnline extends React.Component {
     this.state = {
       madeConnection: false,
       foundOpponent: false,
-      // gameID: null,
       pairingType: null,
       boardArray: startBoard,
       reversedBoardArray: reverseBoard(startBoard),
@@ -28,9 +40,89 @@ class PlayOnline extends React.Component {
       playerSide: null,
       firstClick: false,
       yourTurn: false,
+      firstMove: false,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.squareClick = this.squareClick.bind(this);
+  }
+
+  componentDidMount() {
+    window.onblur = () => {
+      const { dispatch } = this.props;
+      dispatch({
+        type: SET_INACTIVE_TIME_STAMP,
+        payload: {
+          inactiveTimeStamp: new Date().getTime(),
+        },
+      });
+    };
+    window.onfocus = () => {
+      const {
+        isTimer1Running,
+        dispatch,
+        timer1RemainingTime,
+        inactiveTimeStamp,
+        isTimer2Running,
+        timer2RemainingTime,
+      } = this.props;
+      if (isTimer1Running) {
+        dispatch({
+          type: SET_TIMER_1,
+          payload: {
+            timer1RemainingTime: (
+              timer1RemainingTime - (
+                Math.floor((
+                  new Date().getTime()
+                  - inactiveTimeStamp
+                ) / 10)
+              )
+            ),
+          },
+        });
+      }
+      if (isTimer2Running) {
+        dispatch({
+          type: SET_TIMER_2,
+          payload: {
+            timer2RemainingTime: (
+              timer2RemainingTime - (
+                Math.floor((
+                  new Date().getTime()
+                  - inactiveTimeStamp
+                ) / 10)
+              )
+            ),
+          },
+        });
+      }
+    };
+    setInterval(() => {
+      const {
+        timer1RemainingTime, timer2RemainingTime, dispatch, isTimer1Running, isTimer2Running,
+      } = this.props;
+      if (timer1RemainingTime <= 0) {
+        dispatch({
+          type: SET_TIMER1_STATUS,
+          payload: {
+            isTimer1Running: false,
+          },
+        });
+      }
+      if (timer2RemainingTime <= 0) {
+        dispatch({
+          type: SET_TIMER2_STATUS,
+          payload: {
+            isTimer2Running: false,
+          },
+        });
+      }
+      if (isTimer1Running) {
+        dispatch({ type: START_TIMER_1 });
+      }
+      if (isTimer2Running) {
+        dispatch({ type: START_TIMER_2 });
+      }
+    }, 10);
   }
 
   initializeWebSocket(pairingType) {
@@ -41,6 +133,9 @@ class PlayOnline extends React.Component {
     this.ws = new WebSocket('wss://as4r4pfx8l.execute-api.us-east-1.amazonaws.com/dev');
 
     this.ws.onopen = () => {
+      const { dispatch } = this.props;
+      dispatch({ type: SET_TIMER_1, payload: { timer1RemainingTime: 180000 } });
+      dispatch({ type: SET_TIMER_2, payload: { timer2RemainingTime: 180000 } });
       this.setState({
         madeConnection: true,
       });
@@ -72,6 +167,20 @@ class PlayOnline extends React.Component {
       }
 
       if (obj.move) {
+        // start timer for black pieces
+        const { firstMove } = this.state;
+        const { dispatch } = this.props;
+        if (!firstMove) {
+          this.setState({
+            firstMove: true,
+          });
+          dispatch({
+            type: SET_TIMER1_STATUS,
+            payload: {
+              isTimer1Running: true,
+            },
+          });
+        }
         if (obj.move.type === 'Piece') {
           clickedPieceJSX(obj.move.file, obj.move.rank);
         } else if (obj.move.type === 'Square') {
@@ -98,9 +207,21 @@ class PlayOnline extends React.Component {
     const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
     const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
     const {
-      playerSide, firstClick, yourTurn, boardArray,
+      playerSide, firstClick, yourTurn, boardArray, firstMove,
     } = this.state;
+    const { dispatch } = this.props;
     if (yourTurn) {
+      if (!firstMove) {
+        this.setState({
+          firstMove: true,
+        });
+        dispatch({
+          type: SET_TIMER1_STATUS,
+          payload: {
+            isTimer1Running: true,
+          },
+        });
+      }
       if (playerSide === 0) {
         if (firstClick === true) {
           if (type === 'Piece') {
@@ -238,7 +359,41 @@ class PlayOnline extends React.Component {
           foundOpponent && madeConnection
             ? (
               <>
+                <div className="text-center pb-3 h4">
+                  {
+                    playerSide === 0
+                      ? (
+                        <>
+                          <span className="mx-4">Player 2</span>
+                          <span className="mx-4"><Timer id="timer2" /></span>
+                        </>
+                      )
+                      : (
+                        <>
+                          <span className="mx-4">Player 1</span>
+                          <span className="mx-4"><Timer id="timer1" /></span>
+                        </>
+                      )
+                  }
+                </div>
                 {jsxTags}
+                <div className="text-center py-3 h4">
+                  {
+                    playerSide === 0
+                      ? (
+                        <>
+                          <span className="mx-4">Player 1</span>
+                          <span className="mx-4"><Timer id="timer1" /></span>
+                        </>
+                      )
+                      : (
+                        <>
+                          <span className="mx-4">Player 2</span>
+                          <span className="mx-4"><Timer id="timer2" /></span>
+                        </>
+                      )
+                  }
+                </div>
               </>
             )
             : (
@@ -276,5 +431,43 @@ class PlayOnline extends React.Component {
     );
   }
 }
-// export default withAuthenticator(PlayOnline, true);
-export default PlayOnline;
+
+PlayOnline.propTypes = {
+  dispatch: PropTypes.func,
+  timer1RemainingTime: PropTypes.number,
+  timer2RemainingTime: PropTypes.number,
+  isTimer1Running: PropTypes.bool,
+  isTimer2Running: PropTypes.bool,
+  inactiveTimeStamp: PropTypes.number,
+};
+
+PlayOnline.defaultProps = {
+  dispatch: () => {},
+  timer1RemainingTime: 0,
+  timer2RemainingTime: 0,
+  isTimer1Running: false,
+  isTimer2Running: false,
+  inactiveTimeStamp: 0,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch,
+});
+
+const mapStateToProps = (state /* ownProps */) => {
+  const {
+    timer1RemainingTime, timer2RemainingTime, isTimer1Running, isTimer2Running, inactiveTimeStamp,
+  } = state.Timer;
+  return {
+    timer1RemainingTime,
+    timer2RemainingTime,
+    isTimer1Running,
+    isTimer2Running,
+    inactiveTimeStamp,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PlayOnline);

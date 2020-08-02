@@ -7,7 +7,7 @@ import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import '../styles/CustomNav.css';
+import '../../styles/subcomponents/CustomNav.css';
 
 class CustomNav extends React.Component {
   constructor(props) {
@@ -53,7 +53,6 @@ class CustomNav extends React.Component {
       return (
         <div className="px-4">
           <span
-            // id="logout"
             onClick={() => { this.goTo('/register'); }}
             onKeyDown={() => { this.goTo('/register'); }}
             role="button"
@@ -69,7 +68,6 @@ class CustomNav extends React.Component {
       return (
         <div className="px-4">
           <span
-            // id="logout"
             onClick={() => { this.goTo('/login'); }}
             onKeyDown={() => { this.goTo('/login'); }}
             role="button"
@@ -84,10 +82,7 @@ class CustomNav extends React.Component {
     if (authObject && authObject.username) {
       return (
         <div className="px-4">
-          {/* <>{`${authObject.username}`}</>
-          <span className="px-1">/</span> */}
           <span
-            id="logout"
             onClick={this.logout}
             onKeyDown={this.logout}
             role="button"
@@ -110,16 +105,6 @@ class CustomNav extends React.Component {
         >
           Enroll
         </span>
-        {/* <span className="px-1">/</span>
-        <span
-          onClick={() => { this.goTo('/register'); }}
-          onKeyDown={() => { this.goTo('/register'); }}
-          role="button"
-          tabIndex={0}
-          className="custom-nav-link"
-        >
-          Register
-        </span> */}
       </div>
     );
   }
@@ -136,7 +121,7 @@ class CustomNav extends React.Component {
 
   render() {
     return (
-      <Navbar bg="dark" expand="lg" style={{ borderBottom: '4px solid white' }}>
+      <Navbar expand="lg">
         <div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-3" />
           <span
@@ -166,7 +151,7 @@ class CustomNav extends React.Component {
               How to Play
             </span>
             <span
-              className="text-white mr-4 c-pointer custom-nav-link"
+              className="mr-4 c-pointer custom-nav-link"
               onClick={() => { this.goTo('/offline'); }}
               onKeyDown={() => { this.goTo('/offline'); }}
               role="button"
@@ -175,7 +160,7 @@ class CustomNav extends React.Component {
               Play Offline
             </span>
             <span
-              className="text-white mr-4 c-pointer custom-nav-link"
+              className="mr-4 c-pointer custom-nav-link"
               onClick={() => { this.goTo('/online'); }}
               onKeyDown={() => { this.goTo('/online'); }}
               role="button"

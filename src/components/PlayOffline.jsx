@@ -3,8 +3,8 @@ import React from 'react';
 import '../styles/common.css';
 
 import $ from 'jquery';
-import CustomNav from './CustomNav';
-import Footer from './Footer';
+import CustomNav from './subcomponents/CustomNav';
+import Footer from './subcomponents/Footer';
 
 import { startBoard } from '../constants';
 import {

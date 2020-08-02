@@ -3,8 +3,8 @@ import { Form, Button } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import CustomNav from './CustomNav';
-import Footer from './Footer';
+import CustomNav from './subcomponents/CustomNav';
+import Footer from './subcomponents/Footer';
 import Modal from './subcomponents/Modal';
 
 class Login extends React.Component {

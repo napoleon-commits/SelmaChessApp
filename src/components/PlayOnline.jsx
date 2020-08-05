@@ -1,146 +1,36 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import CustomNav from './subcomponents/CustomNav';
 import Footer from './subcomponents/Footer';
+import LiveBoard from './subcomponents/LiveBoard';
 
 import { startBoard } from '../constants';
-import getHTMLChessPiece from '../utils/board';
-import {
-  clickedPieceJSX,
-  clickedSquareJSX,
-  getJSXBoard,
-} from '../utils/engine';
 import { reverseBoard, hasBoardChanged } from '../utils';
-
-import Timer from './subcomponents/Timer';
-
-import {
-  START_TIMER_1,
-  START_TIMER_2,
-  SET_TIMER_1,
-  SET_TIMER_2,
-  SET_TIMER1_STATUS,
-  SET_TIMER2_STATUS,
-  SET_INACTIVE_TIME_STAMP,
-} from '../redux/ActionTypes';
+import { clickedPieceJSX, clickedSquareJSX, getJSXBoard } from '../utils/engine';
 
 class PlayOnline extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      madeConnection: false,
-      foundOpponent: false,
-      pairingType: null,
+      webSocket: null,
       boardArray: startBoard,
       reversedBoardArray: reverseBoard(startBoard),
-      rankSelected: null,
-      fileSelected: null,
-      playerSide: null,
-      firstClick: false,
+      madeConnection: false,
       yourTurn: false,
-      firstMove: false,
+      foundOpponent: false,
+      playerSide: null,
     };
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
-    this.squareClick = this.squareClick.bind(this);
+    this.updateBoard = this.updateBoard.bind(this);
   }
 
-  componentDidMount() {
-    window.onblur = () => {
-      const { dispatch } = this.props;
-      dispatch({
-        type: SET_INACTIVE_TIME_STAMP,
-        payload: {
-          inactiveTimeStamp: new Date().getTime(),
-        },
-      });
-    };
-    window.onfocus = () => {
-      const {
-        isTimer1Running,
-        dispatch,
-        timer1RemainingTime,
-        inactiveTimeStamp,
-        isTimer2Running,
-        timer2RemainingTime,
-      } = this.props;
-      if (isTimer1Running) {
-        dispatch({
-          type: SET_TIMER_1,
-          payload: {
-            timer1RemainingTime: (
-              timer1RemainingTime - (
-                Math.floor((
-                  new Date().getTime()
-                  - inactiveTimeStamp
-                ) / 10)
-              )
-            ),
-          },
-        });
-      }
-      if (isTimer2Running) {
-        dispatch({
-          type: SET_TIMER_2,
-          payload: {
-            timer2RemainingTime: (
-              timer2RemainingTime - (
-                Math.floor((
-                  new Date().getTime()
-                  - inactiveTimeStamp
-                ) / 10)
-              )
-            ),
-          },
-        });
-      }
-    };
-    setInterval(() => {
-      const {
-        timer1RemainingTime, timer2RemainingTime, dispatch, isTimer1Running, isTimer2Running,
-      } = this.props;
-      if (timer1RemainingTime <= 0) {
-        dispatch({
-          type: SET_TIMER1_STATUS,
-          payload: {
-            isTimer1Running: false,
-          },
-        });
-      }
-      if (timer2RemainingTime <= 0) {
-        dispatch({
-          type: SET_TIMER2_STATUS,
-          payload: {
-            isTimer2Running: false,
-          },
-        });
-      }
-      if (isTimer1Running) {
-        dispatch({ type: START_TIMER_1 });
-      }
-      if (isTimer2Running) {
-        dispatch({ type: START_TIMER_2 });
-      }
-    }, 10);
-  }
-
-  initializeWebSocket(pairingType) {
-    const { boardArray, yourTurn } = this.state;
-    this.setState({
-      pairingType,
-    });
+  initializeWebSocket() {
     this.ws = new WebSocket('wss://as4r4pfx8l.execute-api.us-east-1.amazonaws.com/dev');
-
     this.ws.onopen = () => {
-      const { dispatch } = this.props;
-      dispatch({ type: SET_TIMER_1, payload: { timer1RemainingTime: 180000 } });
-      dispatch({ type: SET_TIMER_2, payload: { timer2RemainingTime: 180000 } });
       this.setState({
         madeConnection: true,
       });
     };
-
     this.ws.onmessage = (evt) => {
       const obj = JSON.parse(evt.data);
 
@@ -157,7 +47,6 @@ class PlayOnline extends React.Component {
         });
       }
 
-      // send websocket message to initialize other player
       if (obj.method === 'init') {
         this.ws.send(JSON.stringify({
           action: 'message',
@@ -167,146 +56,42 @@ class PlayOnline extends React.Component {
       }
 
       if (obj.move) {
-        // start timer for black pieces
-        const { firstMove } = this.state;
-        const { dispatch } = this.props;
-        if (!firstMove) {
-          this.setState({
-            firstMove: true,
-          });
-          dispatch({
-            type: SET_TIMER1_STATUS,
-            payload: {
-              isTimer1Running: true,
-            },
-          });
-        }
-        if (obj.move.type === 'Piece') {
-          clickedPieceJSX(obj.move.file, obj.move.rank);
-        } else if (obj.move.type === 'Square') {
-          clickedSquareJSX(obj.move.file, obj.move.rank);
-        }
+        if (obj.move.type === 'Piece') clickedPieceJSX(obj.move.file, obj.move.rank);
+        else if (obj.move.type === 'Square') clickedSquareJSX(obj.move.file, obj.move.rank);
         const tempBoard = getJSXBoard();
+        const { boardArray } = this.state;
         const boardChange = hasBoardChanged(boardArray, tempBoard);
-        this.setState({
-          boardArray: tempBoard,
-          reversedBoardArray: reverseBoard(tempBoard),
-          yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
-        });
+        if (boardChange) {
+          const { yourTurn } = this.state;
+          this.setState({
+            boardArray: tempBoard,
+            reversedBoardArray: reverseBoard(tempBoard),
+            yourTurn: !yourTurn,
+          });
+        }
       }
     };
-
     this.ws.onclose = () => {
       this.setState({
         madeConnection: false,
       });
     };
+    this.setState({
+      webSocket: this.ws,
+    });
   }
 
-  squareClick(rank, file, type, piece) {
-    const whitePieces = ['P', 'R', 'N', 'B', 'Q', 'K'];
-    const blackPieces = ['p', 'r', 'n', 'b', 'q', 'k'];
-    const {
-      playerSide, firstClick, yourTurn, boardArray, firstMove,
-    } = this.state;
-    const { dispatch } = this.props;
-    if (yourTurn) {
-      if (!firstMove) {
-        this.setState({
-          firstMove: true,
-        });
-        dispatch({
-          type: SET_TIMER1_STATUS,
-          payload: {
-            isTimer1Running: true,
-          },
-        });
-      }
-      if (playerSide === 0) {
-        if (firstClick === true) {
-          if (type === 'Piece') {
-            clickedPieceJSX(file, rank);
-          } else if (type === 'Square') {
-            clickedSquareJSX(file, rank);
-          }
-          this.ws.send(JSON.stringify({
-            action: 'message',
-            method: 'sendmove',
-            rank,
-            file,
-            type,
-          }));
-          const tempBoard = getJSXBoard();
-          const boardChange = hasBoardChanged(boardArray, tempBoard);
-          this.setState((currentState) => ({
-            firstClick: false,
-            boardArray: tempBoard,
-            reversedBoardArray: reverseBoard(tempBoard),
-            rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-            fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
-            yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
-          }));
-        } else if (whitePieces.includes(piece)) {
-          if (type === 'Piece') {
-            clickedPieceJSX(file, rank);
-          } else if (type === 'Square') {
-            clickedSquareJSX(file, rank);
-          }
-          this.ws.send(JSON.stringify({
-            action: 'message',
-            method: 'sendmove',
-            rank,
-            file,
-            type,
-          }));
-          this.setState((currentState) => ({
-            firstClick: true,
-            rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : 8 - rank,
-            fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : file - 1,
-          }));
-        }
-      } else if (firstClick === true) {
-        if (type === 'Piece') {
-          clickedPieceJSX(file, rank);
-        } else if (type === 'Square') {
-          clickedSquareJSX(file, rank);
-        }
-        this.ws.send(JSON.stringify({
-          action: 'message',
-          method: 'sendmove',
-          rank,
-          file,
-          type,
-        }));
-        const tempBoard = getJSXBoard();
-        const boardChange = hasBoardChanged(boardArray, tempBoard);
-        this.setState((currentState) => ({
-          firstClick: false,
-          boardArray: tempBoard,
-          reversedBoardArray: reverseBoard(tempBoard),
-          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
-          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
-          yourTurn: (boardChange === true) ? yourTurn !== true : yourTurn,
-        }));
-      } else if (blackPieces.includes(piece)) {
-        if (type === 'Piece') {
-          clickedPieceJSX(file, rank);
-        } else if (type === 'Square') {
-          clickedSquareJSX(file, rank);
-        }
-        this.ws.send(JSON.stringify({
-          action: 'message',
-          method: 'sendmove',
-          rank,
-          file,
-          type,
-        }));
-        this.setState((currentState) => ({
-          firstClick: true,
-          rankSelected: (currentState.rankSelected !== null || type === 'Square') ? null : rank - 1,
-          fileSelected: (currentState.fileSelected !== null || type === 'Square') ? null : 8 - file,
-        }));
-      }
+  updateBoard() {
+    const tempBoard = getJSXBoard();
+    const { boardArray } = this.state;
+    const boardChange = hasBoardChanged(boardArray, tempBoard);
+    if (boardChange) {
+      const { yourTurn } = this.state;
+      this.setState({
+        boardArray: tempBoard,
+        reversedBoardArray: reverseBoard(tempBoard),
+        yourTurn: !yourTurn,
+      });
     }
   }
 
@@ -314,160 +99,57 @@ class PlayOnline extends React.Component {
     const {
       foundOpponent,
       madeConnection,
-      pairingType,
-      boardArray,
-      rankSelected,
-      fileSelected,
       playerSide,
+      boardArray,
       reversedBoardArray,
+      webSocket,
+      yourTurn,
     } = this.state;
-    const myBoard = (playerSide === 1) ? reversedBoardArray : boardArray;
-    const jsxTags = [];
-    const rowTags = [];
-    for (let i = 0; i < 8; i += 1) {
-      const dataTags = [];
-      for (let j = 0; j < 8; j += 1) {
-        dataTags.push(
-          // eslint-disable-next-line
-          <td
-            key={`${i}${j}`}
-            id={`square-${i}${j}`}
-            className={`${(((i + j) % 2) === 0) ? 'bg-white' : 'darkSquare'} ${(i === rankSelected && j === fileSelected) ? 'square-selected' : ''}`}
-            onClick={() => {
-              this.squareClick(playerSide === 0 ? 8 - i : 8 - (8 - i) + 1, playerSide === 0 ? j + 1 : 8 - (j + 1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
-            }}
-            onKeyDown={() => {
-              this.squareClick(playerSide === 0 ? 8 - i : 8 - (8 - i) + 1, playerSide === 0 ? j + 1 : 8 - (j + 1) + 1, `${myBoard[i][j] !== '.' ? 'Piece' : 'Square'}`, myBoard[i][j]);
-            }}
-            // eslint-disable-next-line
-            role="button"
-            tabIndex="0"
-          >
-            {getHTMLChessPiece(myBoard[i][j])}
-          </td>,
-        );
-      }
-      rowTags.push(
-        <tr key={i}>{dataTags}</tr>,
-      );
-    }
-    jsxTags.push(<table id="chess-board" className="m-auto" key={0}><tbody>{rowTags}</tbody></table>);
     return (
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
         <CustomNav />
         {
-          foundOpponent && madeConnection
-            ? (
-              <>
-                <div className="text-center pb-3 h4">
-                  {
-                    playerSide === 0
+                    foundOpponent && madeConnection
                       ? (
                         <>
-                          <span className="mx-4">Player 2</span>
-                          <span className="mx-4"><Timer id="timer2" /></span>
+                          <LiveBoard
+                            boardArray={
+                                playerSide === 0
+                                  ? boardArray
+                                  : reversedBoardArray
+                            }
+                            webSocket={webSocket}
+                            yourTurn={yourTurn}
+                            playerSide={playerSide}
+                            updateBoard={this.updateBoard}
+                          />
                         </>
                       )
                       : (
-                        <>
-                          <span className="mx-4">Player 1</span>
-                          <span className="mx-4"><Timer id="timer1" /></span>
-                        </>
+                        <div className="mx-3">
+                          <div className="w-75 m-auto h1 text-center">Choose Your Time Limit</div>
+                          <div className="w-50 mx-auto mt-4">
+                            <div
+                              className="text-center game-select"
+                              onClick={this.initializeWebSocket}
+                              onKeyDown={this.initializeWebSocket}
+                            >
+                              <div className="mt-4">30+0</div>
+                              <div>Classic</div>
+                              {
+                                    madeConnection && !foundOpponent
+                                      ? <div className="spinner-border text-secondary" role="status" />
+                                      : <div className="spinner-border text-tertiary" role="status" />
+                                }
+                            </div>
+                          </div>
+                        </div>
                       )
-                  }
-                </div>
-                {jsxTags}
-                <div className="text-center py-3 h4">
-                  {
-                    playerSide === 0
-                      ? (
-                        <>
-                          <span className="mx-4">Player 1</span>
-                          <span className="mx-4"><Timer id="timer1" /></span>
-                        </>
-                      )
-                      : (
-                        <>
-                          <span className="mx-4">Player 2</span>
-                          <span className="mx-4"><Timer id="timer2" /></span>
-                        </>
-                      )
-                  }
-                </div>
-              </>
-            )
-            : (
-              <div className="mx-3">
-                <div className="w-75 m-auto text-center h1">
-                  Choose Your Time Limit
-                </div>
-                <div className="w-50 mx-auto mt-4">
-                  <div
-                    className="text-center game-select"
-                    onClick={() => { this.initializeWebSocket(2); }}
-                    onKeyDown={() => { this.initializeWebSocket(2); }}
-                  >
-                    <div className="mt-4">30+0</div>
-                    <div>Classic</div>
-                    {
-                madeConnection && !foundOpponent && pairingType === 2
-                  ? (
-                    <div className="spinner-border text-secondary" role="status" />
-                  )
-                  : (
-                    <div className="spinner-border text-tertiary" role="status" />
-                  )
-              }
-                  </div>
-                </div>
-              </div>
-            )
-        }
-
-        <div className="px-3">
-          <Footer />
-        </div>
+                }
+        <div className="px-3"><Footer /></div>
       </div>
     );
   }
 }
 
-PlayOnline.propTypes = {
-  dispatch: PropTypes.func,
-  timer1RemainingTime: PropTypes.number,
-  timer2RemainingTime: PropTypes.number,
-  isTimer1Running: PropTypes.bool,
-  isTimer2Running: PropTypes.bool,
-  inactiveTimeStamp: PropTypes.number,
-};
-
-PlayOnline.defaultProps = {
-  dispatch: () => {},
-  timer1RemainingTime: 0,
-  timer2RemainingTime: 0,
-  isTimer1Running: false,
-  isTimer2Running: false,
-  inactiveTimeStamp: 0,
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  dispatch,
-});
-
-const mapStateToProps = (state /* ownProps */) => {
-  const {
-    timer1RemainingTime, timer2RemainingTime, isTimer1Running, isTimer2Running, inactiveTimeStamp,
-  } = state.Timer;
-  return {
-    timer1RemainingTime,
-    timer2RemainingTime,
-    isTimer1Running,
-    isTimer2Running,
-    inactiveTimeStamp,
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(PlayOnline);
+export default PlayOnline;

@@ -109,43 +109,43 @@ class PlayOnline extends React.Component {
       <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
         <CustomNav />
         {
-                    foundOpponent && madeConnection
-                      ? (
-                        <>
-                          <LiveBoard
-                            boardArray={
-                                playerSide === 0
-                                  ? boardArray
-                                  : reversedBoardArray
-                            }
-                            webSocket={webSocket}
-                            yourTurn={yourTurn}
-                            playerSide={playerSide}
-                            updateBoard={this.updateBoard}
-                          />
-                        </>
-                      )
-                      : (
-                        <div className="mx-3">
-                          <div className="w-75 m-auto h1 text-center">Choose Your Time Limit</div>
-                          <div className="w-50 mx-auto mt-4">
-                            <div
-                              className="text-center game-select"
-                              onClick={this.initializeWebSocket}
-                              onKeyDown={this.initializeWebSocket}
-                            >
-                              <div className="mt-4">30+0</div>
-                              <div>Classic</div>
-                              {
-                                    madeConnection && !foundOpponent
-                                      ? <div className="spinner-border text-secondary" role="status" />
-                                      : <div className="spinner-border text-tertiary" role="status" />
-                                }
-                            </div>
-                          </div>
-                        </div>
-                      )
-                }
+          foundOpponent && madeConnection
+            ? (
+                <>
+                  <LiveBoard
+                    boardArray={
+                        playerSide === 0
+                          ? boardArray
+                          : reversedBoardArray
+                    }
+                    webSocket={webSocket}
+                    yourTurn={yourTurn}
+                    playerSide={playerSide}
+                    updateBoard={this.updateBoard}
+                  />
+                </>
+              )
+            : (
+                <div className="mx-3">
+                  <div className="w-75 m-auto h1 text-center">Choose Your Time Limit</div>
+                  <div className="w-50 mx-auto mt-4">
+                    <div
+                      className="text-center game-select"
+                      onClick={this.initializeWebSocket}
+                      onKeyDown={this.initializeWebSocket}
+                    >
+                      <div className="mt-4">30+0</div>
+                      <div>Classic</div>
+                      {
+                            madeConnection && !foundOpponent
+                              ? <div className="spinner-border text-secondary" role="status" />
+                              : <div className="spinner-border text-tertiary" role="status" />
+                        }
+                    </div>
+                  </div>
+                </div>
+              )
+        }
         <div className="px-3"><Footer /></div>
       </div>
     );

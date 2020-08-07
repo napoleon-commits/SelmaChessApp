@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { clickedPieceJSX, clickedSquareJSX } from '../../utils/engine';
 import getHTMLChessPiece from '../../utils/board';
+import { SET_TIMER1_STATUS } from '../../redux/ActionTypes';
 
 class LiveBoard extends React.Component {
   constructor(props) {
@@ -11,6 +13,7 @@ class LiveBoard extends React.Component {
       firstClick: false,
       rankSelected: null,
       fileSelected: null,
+      firstMove: false,
     };
     this.squareClick = this.squareClick.bind(this);
   }
@@ -37,6 +40,13 @@ class LiveBoard extends React.Component {
           || (blackPieces.includes(piece) && playerSide === 1)
         )
       ) {
+        /* start the timer for the white pieces after the player clicks a piece */
+        const { firstMove } = this.state;
+        if (!firstMove) {
+          this.setState({ firstMove: true });
+          const { dispatch } = this.props;
+          dispatch({ type: SET_TIMER1_STATUS, payload: { isTimer1Running: true } });
+        }
         /* send move over websocket */
         webSocket.send(JSON.stringify({
           action: 'message',
@@ -137,6 +147,7 @@ LiveBoard.propTypes = {
   yourTurn: PropTypes.bool,
   playerSide: PropTypes.number,
   updateBoard: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 LiveBoard.defaultProps = {
@@ -147,6 +158,10 @@ LiveBoard.defaultProps = {
   yourTurn: false,
   playerSide: 0,
   updateBoard: () => {},
+  dispatch: () => {},
 };
 
-export default LiveBoard;
+const mapStateToProps = (/* state */ /* , */ /* ownProps */) => ({});
+const mapDispatchToProps = (dispatch) => ({ dispatch });
+
+export default connect(mapStateToProps, mapDispatchToProps)(LiveBoard);

@@ -87,6 +87,15 @@ class PlayOnline extends React.Component {
           });
         }
       }
+
+      if (typeof obj.remaingTime === 'number') { /* remaining time could hit '0' */
+        const { dispatch } = this.props;
+        if (obj.timerId === 'timer1') {
+          dispatch({ type: SET_TIMER_1, payload: { timer1RemainingTime: obj.remaingTime } });
+        } else if (obj.timerId === 'timer2') {
+          dispatch({ type: SET_TIMER_2, payload: { timer2RemainingTime: obj.remaingTime } });
+        }
+      }
     };
     this.ws.onclose = () => {
       this.setState({
@@ -131,7 +140,7 @@ class PlayOnline extends React.Component {
               <>
                 <div className="text-center py-3 h4">
                   <span>{playerSide === 0 ? 'Player2' : 'Player1'}</span>
-                  <span className="mx-4"><Timer id={playerSide === 0 ? 'timer2' : 'timer1'} /></span>
+                  <span className="mx-4"><Timer id={playerSide === 0 ? 'timer2' : 'timer1'} webSocket={webSocket} /></span>
                 </div>
                 <LiveBoard
                   boardArray={
@@ -146,7 +155,7 @@ class PlayOnline extends React.Component {
                 />
                 <div className="text-center py-3 h4">
                   <span className="mx-4">{playerSide === 0 ? 'Player1' : 'Player2'}</span>
-                  <span className="mx-4"><Timer id={playerSide === 0 ? 'timer1' : 'timer2'} /></span>
+                  <span className="mx-4"><Timer id={playerSide === 0 ? 'timer1' : 'timer2'} webSocket={webSocket} /></span>
                 </div>
               </>
             )

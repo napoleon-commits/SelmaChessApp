@@ -13,5 +13,9 @@
 
 .navbar{
     background-color: #282c34 !important;
-    border-bottom: 2px solid #b6bcc7;
+}
+
+.navbar-toggler{
+    padding:0;
+    border-color: #282c34 !important;
 }

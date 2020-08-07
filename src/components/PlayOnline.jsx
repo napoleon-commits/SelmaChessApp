@@ -10,7 +10,9 @@ import Timer from './subcomponents/Timer';
 import { startBoard } from '../constants';
 import { reverseBoard, hasBoardChanged } from '../utils';
 import { clickedPieceJSX, clickedSquareJSX, getJSXBoard } from '../utils/engine';
-import { SET_TIMER_1, SET_TIMER_2 } from '../redux/ActionTypes';
+import {
+  SET_TIMER_1, SET_TIMER_2, SET_TIMER1_STATUS, SET_TIMER2_STATUS,
+} from '../redux/ActionTypes';
 
 class PlayOnline extends React.Component {
   constructor(props) {
@@ -28,6 +30,7 @@ class PlayOnline extends React.Component {
     this.createWebSocket = this.createWebSocket.bind(this);
     this.initializeWebSocket = this.initializeWebSocket.bind(this);
     this.updateBoard = this.updateBoard.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
   }
 
   initializeWebSocket() {
@@ -61,7 +64,7 @@ class PlayOnline extends React.Component {
         });
         const { dispatch } = this.props;
         dispatch({ type: SET_TIMER_1, payload: { timer1RemainingTime: 180000 } });
-        dispatch({ type: SET_TIMER_2, payload: { timer2RemainingTime: 90000 } });
+        dispatch({ type: SET_TIMER_2, payload: { timer2RemainingTime: 180000 } });
       }
 
       if (obj.method === 'init') {
@@ -79,6 +82,13 @@ class PlayOnline extends React.Component {
         const { boardArray } = this.state;
         const boardChange = hasBoardChanged(boardArray, tempBoard);
         if (boardChange) {
+          /* start the timer for receiving an incoming move */
+          const { dispatch } = this.props;
+          if (obj.move.playerSide === 0) {
+            dispatch({ type: SET_TIMER2_STATUS, payload: { isTimer2Running: true } });
+          } else if (obj.move.playerSide === 1) {
+            dispatch({ type: SET_TIMER1_STATUS, payload: { isTimer1Running: true } });
+          }
           const { yourTurn } = this.state;
           this.setState({
             boardArray: tempBoard,
@@ -107,11 +117,18 @@ class PlayOnline extends React.Component {
     });
   }
 
+  stopTimer() {
+    const { isTimer1Running, isTimer2Running, dispatch } = this.props;
+    if (isTimer1Running) dispatch({ type: SET_TIMER1_STATUS, payload: { isTimer1Running: false } });
+    if (isTimer2Running) dispatch({ type: SET_TIMER2_STATUS, payload: { isTimer2Running: false } });
+  }
+
   updateBoard() {
     const tempBoard = getJSXBoard();
     const { boardArray } = this.state;
     const boardChange = hasBoardChanged(boardArray, tempBoard);
     if (boardChange) {
+      this.stopTimer();
       const { yourTurn } = this.state;
       this.setState({
         boardArray: tempBoard,
@@ -188,16 +205,26 @@ class PlayOnline extends React.Component {
 
 PlayOnline.propTypes = {
   dispatch: PropTypes.func,
+  isTimer1Running: PropTypes.bool,
+  isTimer2Running: PropTypes.bool,
 };
 
 PlayOnline.defaultProps = {
   dispatch: () => {},
+  isTimer1Running: false,
+  isTimer2Running: false,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   dispatch,
 });
 
-const mapStateToProps = (/* state */ /* , */ /* ownProps */) => ({});
+const mapStateToProps = (state /* , */ /* ownProps */) => {
+  const { isTimer1Running, isTimer2Running } = state.Timer;
+  return {
+    isTimer1Running,
+    isTimer2Running,
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayOnline);

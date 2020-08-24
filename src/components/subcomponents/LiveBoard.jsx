@@ -42,7 +42,7 @@ class LiveBoard extends React.Component {
       ) {
         /* start the timer for the white pieces after the player clicks a piece */
         const { firstMove } = this.state;
-        if (!firstMove) {
+        if (playerSide === 0 && !firstMove) {
           this.setState({ firstMove: true });
           const { dispatch } = this.props;
           dispatch({ type: SET_TIMER1_STATUS, payload: { isTimer1Running: true } });
@@ -54,6 +54,7 @@ class LiveBoard extends React.Component {
           rank,
           file,
           type,
+          playerSide,
         }));
         /* send move to local engine */
         clickedPieceJSX(file, rank);
@@ -80,6 +81,7 @@ class LiveBoard extends React.Component {
           rank,
           file,
           type,
+          playerSide,
         }));
         /* send move to local engine */
         if (type === 'Piece') {

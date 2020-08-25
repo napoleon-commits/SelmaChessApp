@@ -39,7 +39,7 @@ export default [
     },
     {
         move: "En passant",
-        description: `When a pawn moves forward two squares and there is an opponent&apos;s pawn next to it,
+        description: `When a pawn moves forward two squares and there is an opponent's pawn next to it,
         the opponent can capture the pawn by moving to the square the first pawn skipped.
         This can be done only on the very next turn.`,
         image: enPassant,

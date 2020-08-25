@@ -94,3 +94,19 @@ button:hover, .btn-primary.disabled, .btn-primary:disabled{
 .c-pointer{
   cursor: pointer;
 }
+
+.btn-secondary {
+  /* color: #282c34; */
+  color: #61dafb;
+  background-color: #282c34 !important;
+  border: 2px solid #61dafb !important;
+}
+
+.btn-secondary:hover{
+  background-color: #61dafb !important;
+  color: #282c34 !important;
+}
+.btn-secondary:focus{
+  background-color: #61dafb;
+  color: #61dafb;
+}

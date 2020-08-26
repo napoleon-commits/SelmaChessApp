@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import CustomNav from './subcomponents/CustomNav';
 import Footer from './subcomponents/Footer';
-import LiveBoard from './subcomponents/LiveBoard';
-import Timer from './subcomponents/Timer';
 
 import { startBoard } from '../constants';
 import { reverseBoard, hasBoardChanged } from '../utils';
@@ -13,6 +11,11 @@ import { clickedPieceJSX, clickedSquareJSX, getJSXBoard } from '../utils/engine'
 import {
   SET_TIMER_1, SET_TIMER_2, SET_TIMER1_STATUS, SET_TIMER2_STATUS,
 } from '../redux/ActionTypes';
+import logo from '../images/logo.svg';
+
+
+const LiveBoard = React.lazy(() => import('./subcomponents/LiveBoard'));
+const Timer = React.lazy(() => import('./subcomponents/Timer'));
 
 class PlayOnline extends React.Component {
   constructor(props) {
@@ -154,7 +157,7 @@ class PlayOnline extends React.Component {
         {
           foundOpponent && madeConnection
             ? (
-              <>
+              <Suspense fallback={<div className="bg-primary" style={{ minHeight: '100vh' }}><img src={logo} className="App-logo d-block m-auto" alt="logo" /></div>}>
                 <div className="text-center py-3 h4">
                   <span>{playerSide === 0 ? 'Player2' : 'Player1'}</span>
                   <span className="mx-4"><Timer id={playerSide === 0 ? 'timer2' : 'timer1'} webSocket={webSocket} /></span>
@@ -174,7 +177,7 @@ class PlayOnline extends React.Component {
                   <span className="mx-4">{playerSide === 0 ? 'Player1' : 'Player2'}</span>
                   <span className="mx-4"><Timer id={playerSide === 0 ? 'timer1' : 'timer2'} webSocket={webSocket} /></span>
                 </div>
-              </>
+              </Suspense>
             )
             : (
               <div className="mx-3">

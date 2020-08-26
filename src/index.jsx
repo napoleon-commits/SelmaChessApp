@@ -37,7 +37,7 @@ ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store}>
     <Router>
-      <Suspense fallback={<div><img src={logo} className="App-logo d-block m-auto" alt="logo" /></div>}>
+      <Suspense fallback={<div className="bg-primary" style={{ minHeight: '100vh' }}><img src={logo} className="App-logo d-block m-auto" alt="logo" /></div>}>
         <Switch>
           <Route path="/contact">
             <Contact />

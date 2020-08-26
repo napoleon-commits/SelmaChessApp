@@ -21,6 +21,8 @@ import awsconfig from './aws-exports';
 import store from './redux/store';
 
 import './styles/common.css';
+import logo from './images/logo.svg';
+
 
 const Contact = React.lazy(() => import('./components/Contact'));
 const Login = React.lazy(() => import('./components/Login'));
@@ -35,7 +37,7 @@ ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store}>
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div><img src={logo} className="App-logo d-block m-auto" alt="logo" /></div>}>
         <Switch>
           <Route path="/contact">
             <Contact />

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import CustomNav from './subcomponents/CustomNav';
 import Footer from './subcomponents/Footer';
 import logo from '../images/logo.svg';
@@ -8,7 +7,6 @@ import logo from '../images/logo.svg';
 const Contact = () => (
   <div className="bg-primary text-white" style={{ minHeight: '100vh' }}>
     <CustomNav />
-    {/* <AmplifySignOut /> */}
     <img src={logo} className="App-logo d-block m-auto" alt="logo" />
     <div className="px-3">
       <Footer />
@@ -17,4 +15,3 @@ const Contact = () => (
 );
 
 export default Contact;
-// export default withAuthenticator(Contact, true);

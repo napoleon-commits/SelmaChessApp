@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../styles/common.css';
-
 import $ from 'jquery';
 import CustomNav from './subcomponents/CustomNav';
 import Footer from './subcomponents/Footer';

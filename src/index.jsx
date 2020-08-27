@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {
@@ -16,17 +16,20 @@ import Amplify from 'aws-amplify';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
-
-import Contact from './components/Contact';
-import Login from './components/Login';
-import Learn from './components/Learn';
-import PlayOffline from './components/PlayOffline';
-import PlayOnline from './components/PlayOnline';
-import Register from './components/Register';
-
 import awsconfig from './aws-exports';
 
 import store from './redux/store';
+
+import './styles/common.css';
+import logo from './images/logo.svg';
+
+
+const Contact = React.lazy(() => import('./components/Contact'));
+const Login = React.lazy(() => import('./components/Login'));
+const Learn = React.lazy(() => import('./components/Learn'));
+const PlayOffline = React.lazy(() => import('./components/PlayOffline'));
+const PlayOnline = React.lazy(() => import('./components/PlayOnline'));
+const Register = React.lazy(() => import('./components/Register'));
 
 Amplify.configure(awsconfig);
 
@@ -34,29 +37,31 @@ ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store}>
     <Router>
-      <Switch>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/learn">
-          <Learn />
-        </Route>
-        <Route path="/offline">
-          <PlayOffline />
-        </Route>
-        <Route path="/online">
-          <PlayOnline />
-        </Route>
-        <Route path="/register">
-          <Register />
-        </Route>
-        <Route path="/">
-          <Learn />
-        </Route>
-      </Switch>
+      <Suspense fallback={<div className="bg-primary" style={{ minHeight: '100vh' }}><img src={logo} className="App-logo d-block m-auto" alt="logo" /></div>}>
+        <Switch>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/learn">
+            <Learn />
+          </Route>
+          <Route path="/offline">
+            <PlayOffline />
+          </Route>
+          <Route path="/online">
+            <PlayOnline />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/">
+            <Learn />
+          </Route>
+        </Switch>
+      </Suspense>
     </Router>
   </Provider>,
   // </React.StrictMode>,

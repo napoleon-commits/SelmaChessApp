@@ -4,6 +4,8 @@ import startingPosition from '../images/StartingPosition.png';
 
 import ChessMovements from '../utils/ChessMovements';
 import SpecialMoves from '../utils/SpecialMoves';
+import GettingStarted from '../utils/GettingStarted';
+import textToSpeech from '../utils/TextToSpeech';
 
 import CustomNav from './subcomponents/CustomNav';
 import Footer from './subcomponents/Footer';
@@ -21,8 +23,9 @@ const Learn = () => (
         </button>
         <div className="collapse" id="GoalOfChess">
           <div className="mb-3">
-            The goal in chess is to checkmate your opponent&apos;s King.
-            When a king cannot avoid capture, then it is checkmated and the game is over.
+            {GettingStarted[0]}
+            {/* eslint-disable-next-line */}
+            <span onClick={() => { textToSpeech(GettingStarted[0]); }} className="ml-3 c-pointer" role="img" aria-label="Speaker">&#128264;</span>
           </div>
         </div>
       </div>
@@ -32,9 +35,9 @@ const Learn = () => (
         </button>
         <div className="collapse" id="StartingPosition">
           <div className="mb-3">
-            The chessboard is placed with the light square at the right-hand
-            corner nearest to each player.
-            The rows are referred to as ranks. The columns are referred to as files.
+            {GettingStarted[1]}
+            {/* eslint-disable-next-line */}
+            <span onClick={() => { textToSpeech(GettingStarted[1]); }} className="ml-3 c-pointer" role="img" aria-label="Speaker">&#128264;</span>
           </div>
           <div>
             <img src={startingPosition} alt="starting chess position" className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
@@ -52,7 +55,11 @@ const Learn = () => (
               {obj.piece}
             </button>
             <div className="collapse" id={String(obj.piece).replace(' ', '')}>
-              <div className="mb-3">{obj.rules}</div>
+              <div className="mb-3">
+                {obj.rules}
+                {/* eslint-disable-next-line */}
+                <span onClick={() => { textToSpeech(obj.rules); }} className="ml-3 c-pointer" role="img" aria-label="Speaker">&#128264;</span>
+              </div>
               <div>
                 <img src={obj.image} alt={obj.alt} className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
               </div>
@@ -60,7 +67,6 @@ const Learn = () => (
           </div>
         ))
       }
-      {/* <hr /> */}
       <div className="mb-3">
         <div className="h2">Special Moves</div>
       </div>
@@ -71,7 +77,11 @@ const Learn = () => (
               {obj.move}
             </button>
             <div className="collapse" id={String(obj.move).replace(' ', '')}>
-              <div className="mb-3">{obj.description}</div>
+              <div className="mb-3">
+                {obj.description}
+                {/* eslint-disable-next-line */}
+                <span onClick={() => { textToSpeech(obj.description); }} className="ml-3 c-pointer" role="img" aria-label="Speaker">&#128264;</span>
+              </div>
               <div>
                 <img src={obj.image} alt={obj.alt} className="d-block mx-auto" style={{ maxWidth: '100%', height: '60vh' }} />
               </div>

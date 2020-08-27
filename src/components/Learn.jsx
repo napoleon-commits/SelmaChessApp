@@ -2,9 +2,9 @@ import React from 'react';
 
 import startingPosition from '../images/StartingPosition.png';
 
-import ChessMovements from '../utils/ChessMovements';
-import SpecialMoves from '../utils/SpecialMoves';
-import GettingStarted from '../utils/GettingStarted';
+import ChessMovements from '../static/ChessMovements';
+import SpecialMoves from '../static/SpecialMoves';
+import GettingStarted from '../static/GettingStarted';
 import textToSpeech from '../utils/TextToSpeech';
 
 import CustomNav from './subcomponents/CustomNav';

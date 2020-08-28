@@ -6,6 +6,7 @@ import ChessMovements from '../static/ChessMovements';
 import SpecialMoves from '../static/SpecialMoves';
 import GettingStarted from '../static/GettingStarted';
 import textToSpeech from '../utils/TextToSpeech';
+import LandingPageHeader from '../static/LandingPageHeader';
 
 import CustomNav from './subcomponents/CustomNav';
 import Footer from './subcomponents/Footer';
@@ -14,6 +15,14 @@ const Learn = () => (
   <div className="bg-primary text-white">
     <CustomNav />
     <div className="px-3">
+      <div className="mb-3">
+        <div className="h1">{LandingPageHeader.header}</div>
+        <div>
+          {LandingPageHeader.description}
+          {/* eslint-disable-next-line */}
+          <span onClick={() => { textToSpeech(LandingPageHeader.speech); }} className="ml-2 c-pointer" role="img" aria-label="Speaker">&#128264;</span>
+        </div>
+      </div>
       <div className="mb-3">
         <div className="h2">Getting Started</div>
       </div>

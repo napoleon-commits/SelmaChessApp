@@ -103,7 +103,7 @@ class CustomNav extends React.Component {
           tabIndex={0}
           className="custom-nav-link"
         >
-          Enroll
+          Log in
         </span>
       </div>
     );

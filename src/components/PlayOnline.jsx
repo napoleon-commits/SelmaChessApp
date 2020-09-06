@@ -11,7 +11,6 @@ import { clickedPieceJSX, clickedSquareJSX, getJSXBoard } from '../utils/engine'
 import {
   SET_TIMER_1, SET_TIMER_2, SET_TIMER1_STATUS, SET_TIMER2_STATUS,
 } from '../redux/ActionTypes';
-import logo from '../images/logo.svg';
 
 
 const LiveBoard = React.lazy(() => import('./subcomponents/LiveBoard'));
@@ -157,7 +156,7 @@ class PlayOnline extends React.Component {
         {
           foundOpponent && madeConnection
             ? (
-              <Suspense fallback={<div className="bg-primary" style={{ minHeight: '100vh' }}><img src={logo} className="App-logo d-block m-auto" alt="logo" /></div>}>
+              <Suspense fallback={<div className="bg-primary" style={{ minHeight: '100vh' }} />}>
                 <div className="text-center py-3 h4">
                   <span>{playerSide === 0 ? 'Player2' : 'Player1'}</span>
                   <span className="mx-4"><Timer id={playerSide === 0 ? 'timer2' : 'timer1'} webSocket={webSocket} /></span>

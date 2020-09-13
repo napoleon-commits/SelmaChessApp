@@ -9,8 +9,8 @@
 
 <script>
 export default {
-    props: ['className', 'letter', 'imagesStyleObject', 'imageSrc',]
-}
+  props: ['className', 'letter', 'imagesStyleObject', 'imageSrc'],
+};
 </script>
 
 <style>

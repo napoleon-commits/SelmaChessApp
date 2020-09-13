@@ -12,8 +12,6 @@ import whiteKnight from '../images/wN.png';
 import whiteRook from '../images/wR.png';
 import blankSquare from '../images/blankSquare.png';
 
-import square from './square';
-
 const imagesStyleObject = {
   display: 'block', maxWidth: '100%', maxHeight: '100%', margin: 'auto',
 };
@@ -52,7 +50,14 @@ const getHTMLChessPiece = (letter) => {
   }
 
   return (
-    square(className, letter, imagesStyleObject, imageSrc)
+    `
+      <img 
+        class=${className}
+        alt=${letter}
+        style=${imagesStyleObject}
+        src=${imageSrc}
+      />
+    `
   );
 };
 

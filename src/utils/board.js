@@ -12,12 +12,8 @@ import whiteKnight from '../images/wN.png';
 import whiteRook from '../images/wR.png';
 import blankSquare from '../images/blankSquare.png';
 
-const imagesStyleObject = {
-  display: 'block', maxWidth: '100%', maxHeight: '100%', margin: 'auto',
-};
 
 const getHTMLChessPiece = (letter) => {
-  const className = '';
   let imageSrc = null;
   switch (letter) {
     case 'r':
@@ -51,10 +47,9 @@ const getHTMLChessPiece = (letter) => {
 
   return (
     `
-      <img 
-        class=${className}
+      <img
         alt=${letter}
-        style=${imagesStyleObject}
+        style="display: block; max-width: 100%; max-height: 100%; margin: auto"
         src=${imageSrc}
       />
     `

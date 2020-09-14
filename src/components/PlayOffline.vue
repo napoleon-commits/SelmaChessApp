@@ -1,7 +1,7 @@
 <template>
 <div class="mt-2">
-  <span v-html="tableHTMLTags">
-  </span>
+  <div v-html="tableHTMLTags">
+  </div>
 </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
       }
       return (
         `
-            <table id="chess-board" class="m-auto">
+            <table class="m-auto">
                 <tbody>${rowTags.join('')}</tbody>
             </table>
         `

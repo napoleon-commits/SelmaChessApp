@@ -1,7 +1,17 @@
 <template>
 <div class="mt-2">
-  <div v-html="tableHTMLTags">
-  </div>
+  <table class="m-auto">
+      <tbody>
+          <tr :key="rankIndex" v-for="(rank, rankIndex) in chessboard">
+              <td
+                :key="squareIndex"
+                v-for="(square, squareIndex) in rank"
+                v-html="getHTMLChessPiece(square)"
+                @click="squareClick"
+                />
+          </tr>
+      </tbody>
+  </table>
 </div>
 </template>
 
@@ -12,28 +22,14 @@ import getHTMLChessPiece from '../utils/board';
 export default {
   data() {
     return {
-      boardArray: startBoard,
-      rankSelected: null,
-      fileSelected: null,
+      chessboard: startBoard,
     };
   },
-  computed: {
-    tableHTMLTags() {
-      const rowTags = [];
-      for (let i = 0; i < 8; i += 1) {
-        const dataTags = [];
-        for (let j = 0; j < 8; j += 1) {
-          dataTags.push(`<td>${getHTMLChessPiece(this.boardArray[i][j])}</td>`);
-        }
-        rowTags.push(`<tr>${dataTags.join('')}</tr>`);
-      }
-      return (
-        `
-            <table class="m-auto">
-                <tbody>${rowTags.join('')}</tbody>
-            </table>
-        `
-      );
+  methods: {
+    getHTMLChessPiece,
+    squareClick() {
+      // eslint-disable-next-line
+      console.log('!!!');
     },
   },
 };

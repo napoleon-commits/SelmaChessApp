@@ -24,6 +24,14 @@
           </tr>
       </tbody>
   </table>
+  <div class="mt-2">
+    <div id="chessmenu" class="mx-auto" :style="{width: `${chessboardSize+8}px`}">
+      <div class="row mx-0">
+        <button type="button" class="custom-button col">Take Back</button>
+        <button type="button" class="custom-button col">New Game</button>
+      </div>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -38,6 +46,7 @@ export default {
       chessboard: startBoard,
       rankSelected: null,
       fileSelected: null,
+      chessboardSize: null,
     };
   },
   methods: {
@@ -60,6 +69,17 @@ export default {
   },
   mounted() {
     newGame();
+    const $ = require('jquery');
+    this.chessboardSize = $('#chessboard').width();
+    const myInterval = setInterval(() => {
+      this.chessboardSize = $('#chessboard').width();
+    }, 1);
+    setTimeout(() => {
+      clearInterval(myInterval);
+    }, 3000);
+    window.addEventListener('resize', () => {
+      this.chessboardSize = $('#chessboard').width()
+    });
   },
 };
 </script>

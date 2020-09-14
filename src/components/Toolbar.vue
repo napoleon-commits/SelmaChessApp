@@ -1,11 +1,14 @@
 <template>
   <div id="toolbar">
-    <span v-if="this.$store.state.darkMode" @click="toggleDarkMode" class="c-pointer">
-      <v-icon>mdi-white-balance-sunny</v-icon>
-    </span>
-    <span v-else @click="toggleDarkMode" class="c-pointer">
-      <v-icon>mdi-moon-waxing-crescent</v-icon>
-    </span>
+    <v-toolbar>
+      <v-spacer />
+      <span v-if="this.$store.state.darkMode" @click="toggleDarkMode" class="c-pointer">
+        <v-icon>mdi-white-balance-sunny</v-icon>
+      </span>
+      <span v-else @click="toggleDarkMode" class="c-pointer">
+        <v-icon>mdi-moon-waxing-crescent</v-icon>
+      </span>
+    </v-toolbar>
   </div>
 </template>
 

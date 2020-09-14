@@ -70,7 +70,6 @@ export default {
   mounted() {
     newGame();
     const $ = require('jquery');
-    this.chessboardSize = $('#chessboard').width();
     const myInterval = setInterval(() => {
       this.chessboardSize = $('#chessboard').width();
     }, 1);

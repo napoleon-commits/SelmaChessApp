@@ -59,8 +59,7 @@ export default {
       }
       this.chessboard = getJSXBoard();
       if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
-        this.rankSelected = null;
-        this.fileSelected = null;
+        this.rankSelected = this.fileSelected = null;
       } else {
         this.rankSelected = 8 - rank;
         this.fileSelected = file - 1;
@@ -69,14 +68,12 @@ export default {
     takeBack(){
       takeBack();
       this.chessboard = getJSXBoard();
-      this.fileSelected = null;
-      this.rankSelected = null;
+      this.fileSelected = this.rankSelected = null;
     },
     newGame(){
       newGame();
       this.chessboard = getJSXBoard();
-      this.fileSelected = null;
-      this.rankSelected = null;
+      this.fileSelected = this.rankSelected = null;
     }
   },
   mounted() {

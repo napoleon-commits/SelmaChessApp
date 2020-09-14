@@ -38,7 +38,7 @@
 <script>
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
-import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack, } from '../utils/engine';
+import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '../utils/engine';
 
 export default {
   data() {
@@ -65,16 +65,16 @@ export default {
         this.fileSelected = file - 1;
       }
     },
-    takeBack(){
+    takeBack() {
       takeBack();
       this.chessboard = getJSXBoard();
       this.fileSelected = this.rankSelected = null;
     },
-    newGame(){
+    newGame() {
       newGame();
       this.chessboard = getJSXBoard();
       this.fileSelected = this.rankSelected = null;
-    }
+    },
   },
   mounted() {
     newGame();
@@ -86,7 +86,7 @@ export default {
       clearInterval(myInterval);
     }, 3000);
     window.addEventListener('resize', () => {
-      this.chessboardSize = $('#chessboard').width()
+      this.chessboardSize = $('#chessboard').width();
     });
   },
 };

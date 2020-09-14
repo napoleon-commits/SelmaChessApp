@@ -14,12 +14,12 @@
 
 <script>
 export default {
-  methods:{
-    toggleDarkMode(){
-      this.$store.commit('toggleDarkMode')
-    }
-  }
-}
+  methods: {
+    toggleDarkMode() {
+      this.$store.commit('toggleDarkMode');
+    },
+  },
+};
 </script>
 
 <style>

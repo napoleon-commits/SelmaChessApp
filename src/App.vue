@@ -33,4 +33,7 @@ export default {
   font-size: 16px;
   border-radius: 8px;
 }
+.c-pointer{
+  cursor: pointer;
+}
 </style>

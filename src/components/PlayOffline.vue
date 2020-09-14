@@ -99,9 +99,6 @@ export default {
   .square-selected{
     background-color: #6d7a82 !important;
   }
-  .c-pointer{
-    cursor: pointer;
-  }
   #chessboard{
     border: 4px solid #343a40;
   }

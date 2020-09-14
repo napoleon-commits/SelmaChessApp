@@ -1,13 +1,21 @@
 <template>
   <div id="toolbar">
-    <v-icon>mdi-white-balance-sunny</v-icon>
-    <v-icon>mdi-moon-waxing-crescent</v-icon>
+    <span v-if="this.$store.state.darkMode" @click="toggleDarkMode" class="c-pointer">
+      <v-icon>mdi-white-balance-sunny</v-icon>
+    </span>
+    <span v-else @click="toggleDarkMode" class="c-pointer">
+      <v-icon>mdi-moon-waxing-crescent</v-icon>
+    </span>
   </div>
 </template>
 
 <script>
 export default {
-
+  methods:{
+    toggleDarkMode(){
+      this.$store.commit('toggleDarkMode')
+    }
+  }
 }
 </script>
 

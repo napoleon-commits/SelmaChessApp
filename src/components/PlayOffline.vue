@@ -27,8 +27,8 @@
   <div class="mt-2">
     <div id="chessmenu" class="mx-auto" :style="{width: `${chessboardSize+8}px`}">
       <div class="row mx-0">
-        <button type="button" class="custom-button col">Take Back</button>
-        <button type="button" class="custom-button col">New Game</button>
+        <button @click="takeBack" type="button" class="custom-button col">Take Back</button>
+        <button @click="newGame" type="button" class="custom-button col">New Game</button>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
 <script>
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
-import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame } from '../utils/engine';
+import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack, } from '../utils/engine';
 
 export default {
   data() {
@@ -66,6 +66,18 @@ export default {
         this.fileSelected = file - 1;
       }
     },
+    takeBack(){
+      takeBack();
+      this.chessboard = getJSXBoard();
+      this.fileSelected = null;
+      this.rankSelected = null;
+    },
+    newGame(){
+      newGame();
+      this.chessboard = getJSXBoard();
+      this.fileSelected = null;
+      this.rankSelected = null;
+    }
   },
   mounted() {
     newGame();

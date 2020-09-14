@@ -1,6 +1,6 @@
 <template>
-<div class="mx-4 mt-2">
-  <table class="m-auto">
+<div class="mx-4 my-2">
+  <table id="chessboard" class="m-auto">
       <tbody>
           <tr :key="rankIndex" v-for="(rank, rankIndex) in chessboard">
               <td
@@ -73,5 +73,8 @@ export default {
   }
   .c-pointer{
     cursor: pointer;
+  }
+  #chessboard{
+    border: 4px solid #343a40;
   }
 </style>

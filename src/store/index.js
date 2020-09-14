@@ -5,8 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        darkMode: false,
-        darkModeClass: "light-mode",
+        darkMode: true,
+        darkModeClass: "dark-mode",
     },
     mutations: {
         toggleDarkMode(state){
@@ -14,7 +14,7 @@ export default new Vuex.Store({
             if(state.darkMode){
                 state.darkModeClass = "dark-mode";
             } else {
-                state.darkModeClass = "ligiht-mode";
+                state.darkModeClass = "light-mode";
             }
         }
     }

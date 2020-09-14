@@ -28,7 +28,7 @@ export default {
   background-color: white;
 }
 .dark-mode{
-  background-color: #343a40;
+  background-color: #343a40 !important;
 }
 .c-pointer{
   cursor: pointer;

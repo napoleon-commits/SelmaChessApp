@@ -27,8 +27,8 @@
   <div class="mt-2">
     <div id="chessmenu" class="mx-auto" :style="{width: `${chessboardSize+8}px`}">
       <div class="row mx-0">
-        <button @click="takeBack" type="button" class="custom-button-offline col">Take Back</button>
-        <button @click="newGame" type="button" class="custom-button-offline col">New Game</button>
+        <button @click="takeBack" type="button" :class="`custom-button-offline col ${this.$store.state.darkModeClass}`">Take Back</button>
+        <button @click="newGame" type="button" :class="`custom-button-offline col ${this.$store.state.darkModeClass}`">New Game</button>
       </div>
     </div>
   </div>
@@ -103,12 +103,18 @@ export default {
     border: 4px solid #343a40;
   }
   .custom-button-offline {
-    background-color: white;
-    border: 2px solid #42b983;
-    color: black;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     border-radius: 8px;
+    border: 2px solid #42b983;
+  }
+  .custom-button-offline.dark-mode{
+    background-color: #343a40;
+    color: white;
+  }
+  .custom-button-offline.light-mode{
+    background-color: white;
+    color: #343a40;
   }
 </style>

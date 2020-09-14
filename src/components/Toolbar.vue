@@ -1,6 +1,6 @@
 <template>
   <div id="toolbar">
-    <v-toolbar>
+    <v-toolbar :class="this.$store.state.darkModeClass">
       <v-spacer />
       <span v-if="this.$store.state.darkMode" @click="toggleDarkMode" class="c-pointer">
         <v-icon>mdi-white-balance-sunny</v-icon>

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="this.$store.state.darkModeClass">
     <Toolbar />
     <router-view/>
   </div>
@@ -23,6 +23,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   min-height: 100vh;
+}
+.light-mode{
+  background-color: white;
+}
+.dark-mode{
+  background-color: #343a40;
 }
 .c-pointer{
   cursor: pointer;

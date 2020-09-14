@@ -27,8 +27,8 @@
   <div class="mt-2">
     <div id="chessmenu" class="mx-auto" :style="{width: `${chessboardSize+8}px`}">
       <div class="row mx-0">
-        <button @click="takeBack" type="button" class="custom-button col">Take Back</button>
-        <button @click="newGame" type="button" class="custom-button col">New Game</button>
+        <button @click="takeBack" type="button" class="custom-button-offline col">Take Back</button>
+        <button @click="newGame" type="button" class="custom-button-offline col">New Game</button>
       </div>
     </div>
   </div>
@@ -101,5 +101,14 @@ export default {
   }
   #chessboard{
     border: 4px solid #343a40;
+  }
+  .custom-button-offline {
+    background-color: white;
+    border: 2px solid #42b983;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
   }
 </style>

@@ -124,7 +124,7 @@ const CastleKeys = new Array(16);
 const Sq120ToSq64 = new Array(BRD_SQ_NUM);
 const Sq64ToSq120 = new Array(64);
 
-function RAND_32() {
+export function RAND_32() {
   // eslint-disable-next-line
   return (Math.floor((Math.random() * 255) + 1) << 23) | (Math.floor((Math.random() * 255) + 1) << 16) | (Math.floor((Math.random() * 255) + 1) << 8) | Math.floor((Math.random() * 255) + 1);
 }

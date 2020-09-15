@@ -7,12 +7,8 @@ describe('the tests for the engine', () => {
         expect(FR2SQ(f,r)).toBe((21 + (f)) + ((r) * 10));
     });
     it('should test the RAND_32 function', () => {
-        console.log('RAND_32()');
-        console.log(RAND_32());
-        console.log(RAND_32());
-        console.log(RAND_32());
-        console.log(RAND_32());
-        console.log('RAND_32()');
-        expect(true).toBe(true);
+        let randomNumber = RAND_32();
+        expect(randomNumber).toBeLessThan(2147483648);
+        expect(randomNumber).toBeGreaterThanOrEqual(255);
     });
 });

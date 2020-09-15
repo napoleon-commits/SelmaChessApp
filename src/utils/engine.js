@@ -86,7 +86,7 @@ const SideChar = 'wb-';
 const RankChar = '12345678';
 const FileChar = 'abcdefgh';
 
-function FR2SQ(f, r) {
+export function FR2SQ(f, r) {
   return ((21 + (f)) + ((r) * 10));
 }
 

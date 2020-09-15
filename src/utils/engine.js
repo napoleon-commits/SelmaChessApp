@@ -90,19 +90,20 @@ function FR2SQ(f, r) {
   return ((21 + (f)) + ((r) * 10));
 }
 
-// var PieceBig = [BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE];
-// var PieceMaj = [BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE];
-// var PieceMin = [BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE];
 const PieceVal = [0, 100, 325, 325, 550, 1000, 50000, 100, 325, 325, 550, 1000, 50000];
-const PieceCol = [COLOURS.BOTH, COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE,
-  COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK];
+// eslint-disable-next-line
+const PieceCol = [COLOURS.BOTH, COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE, COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK];
 
+// eslint-disable-next-line
 const PiecePawn = [BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE];
+// eslint-disable-next-line
 const PieceKnight = [BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE];
+// eslint-disable-next-line
 const PieceKing = [BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE];
+// eslint-disable-next-line
 const PieceRookQueen = [BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE];
+// eslint-disable-next-line
 const PieceBishopQueen = [BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE];
-// var PieceSlides = [BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE];
 
 const KnDir = [-8, -19, -21, -12, 8, 19, 21, 12];
 const RkDir = [-1, -10, 1, 10];
@@ -124,8 +125,8 @@ const Sq120ToSq64 = new Array(BRD_SQ_NUM);
 const Sq64ToSq120 = new Array(64);
 
 function RAND_32() {
-  return (Math.floor((Math.random() * 255) + 1) << 23) | (Math.floor((Math.random() * 255) + 1) << 16)
-		| (Math.floor((Math.random() * 255) + 1) << 8) | Math.floor((Math.random() * 255) + 1);
+  // eslint-disable-next-line
+  return (Math.floor((Math.random() * 255) + 1) << 23) | (Math.floor((Math.random() * 255) + 1) << 16) | (Math.floor((Math.random() * 255) + 1) << 8) | Math.floor((Math.random() * 255) + 1);
 }
 
 const Mirror64 = [
@@ -148,6 +149,7 @@ function SQ120(sq64) {
 }
 
 function PCEINDEX(pce, pceNum) {
+  // eslint-disable-next-line
   return (pce * 10 + pceNum);
 }
 
@@ -181,10 +183,13 @@ const CastlePerm = [
 0001 0000 0000 0000 0000 0000 0000 -> Castle 0x1000000
 */
 
-
+// eslint-disable-next-line
 function FROMSQ(m) { return (m & 0x7F); }
+// eslint-disable-next-line
 function TOSQ(m) { return ((m >> 7) & 0x7F); }
+// eslint-disable-next-line
 function CAPTURED(m) { return ((m >> 14) & 0xF); }
+// eslint-disable-next-line
 function PROMOTED(m) { return ((m >> 20) & 0xF); }
 
 const MFLAGEP = 0x40000;
@@ -201,12 +206,38 @@ function SQOFFBOARD(sq) {
   return BOOL.FALSE;
 }
 
+const GameBoard = {};
+
+GameBoard.pieces = new Array(BRD_SQ_NUM);
+GameBoard.side = COLOURS.WHITE;
+GameBoard.fiftyMove = 0;
+GameBoard.hisPly = 0;
+GameBoard.history = [];
+GameBoard.ply = 0;
+GameBoard.enPas = 0;
+GameBoard.castlePerm = 0;
+GameBoard.material = new Array(2); // WHITE,BLACK material of pieces
+GameBoard.pceNum = new Array(13); // indexed by Pce
+GameBoard.pList = new Array(14 * 10);
+GameBoard.posKey = 0;
+GameBoard.moveList = new Array(MAXDEPTH * MAXPOSITIONMOVES);
+GameBoard.moveScores = new Array(MAXDEPTH * MAXPOSITIONMOVES);
+GameBoard.moveListStart = new Array(MAXDEPTH);
+GameBoard.PvTable = [];
+GameBoard.PvArray = new Array(MAXDEPTH);
+GameBoard.searchHistory = new Array(14 * BRD_SQ_NUM);
+GameBoard.searchKillers = new Array(3 * MAXDEPTH);
+
 function HASH_PCE(pce, sq) {
+  // eslint-disable-next-line
   GameBoard.posKey ^= PieceKeys[(pce * 120) + sq];
 }
 
+// eslint-disable-next-line
 function HASH_CA() { GameBoard.posKey ^= CastleKeys[GameBoard.castlePerm]; }
+// eslint-disable-next-line
 function HASH_SIDE() { GameBoard.posKey ^= SideKey; }
+// eslint-disable-next-line
 function HASH_EP() { GameBoard.posKey ^= PieceKeys[GameBoard.enPas]; }
 
 const GameController = {};
@@ -238,14 +269,569 @@ function PrMove(move) {
     let pchar = 'q';
     if (PieceKnight[promoted] === BOOL.TRUE) {
       pchar = 'n';
-    } else if (PieceRookQueen[promoted] === BOOL.TRUE && PieceBishopQueen[promoted] === BOOL.FALSE) {
+    } else if (
+      PieceRookQueen[promoted] === BOOL.TRUE
+      && PieceBishopQueen[promoted] === BOOL.FALSE
+    ) {
       pchar = 'r';
-    } else if (PieceRookQueen[promoted] === BOOL.FALSE && PieceBishopQueen[promoted] === BOOL.TRUE) {
+    } else if (
+      PieceRookQueen[promoted] === BOOL.FALSE
+      && PieceBishopQueen[promoted] === BOOL.TRUE
+    ) {
       pchar = 'b';
     }
     MvStr += pchar;
   }
   return MvStr;
+}
+
+function AddPiece(sq, pce) {
+  const col = PieceCol[pce];
+
+  HASH_PCE(pce, sq);
+
+  GameBoard.pieces[sq] = pce;
+  GameBoard.material[col] += PieceVal[pce];
+  GameBoard.pList[PCEINDEX(pce, GameBoard.pceNum[pce])] = sq;
+  GameBoard.pceNum[pce] += 1;
+}
+
+function MovePiece(from, to) {
+  let index = 0;
+  const pce = GameBoard.pieces[from];
+
+  HASH_PCE(pce, from);
+  GameBoard.pieces[from] = PIECES.EMPTY;
+
+  HASH_PCE(pce, to);
+  GameBoard.pieces[to] = pce;
+
+  // eslint-disable-next-line
+  for (index = 0; index < GameBoard.pceNum[pce]; ++index) {
+    if (GameBoard.pList[PCEINDEX(pce, index)] === from) {
+      GameBoard.pList[PCEINDEX(pce, index)] = to;
+      break;
+    }
+  }
+}
+
+function ClearPiece(sq) {
+  const pce = GameBoard.pieces[sq];
+  const col = PieceCol[pce];
+  let index;
+  let tPceNum = -1;
+
+  HASH_PCE(pce, sq);
+
+  GameBoard.pieces[sq] = PIECES.EMPTY;
+  GameBoard.material[col] -= PieceVal[pce];
+
+  // eslint-disable-next-line
+  for (index = 0; index < GameBoard.pceNum[pce]; ++index) {
+    if (GameBoard.pList[PCEINDEX(pce, index)] === sq) {
+      tPceNum = index;
+      break;
+    }
+  }
+
+  GameBoard.pceNum[pce] -= 1;
+  GameBoard.pList[PCEINDEX(pce, tPceNum)] = GameBoard.pList[PCEINDEX(pce, GameBoard.pceNum[pce])];
+}
+
+function TakeMove() {
+  GameBoard.hisPly -= 1;
+  GameBoard.ply -= 1;
+
+  const move = GameBoard.history[GameBoard.hisPly].move;
+  const from = FROMSQ(move);
+  const to = TOSQ(move);
+
+  if (GameBoard.enPas !== SQUARES.NO_SQ) HASH_EP();
+  HASH_CA();
+
+  GameBoard.castlePerm = GameBoard.history[GameBoard.hisPly].castlePerm;
+  GameBoard.fiftyMove = GameBoard.history[GameBoard.hisPly].fiftyMove;
+  GameBoard.enPas = GameBoard.history[GameBoard.hisPly].enPas;
+
+  if (GameBoard.enPas !== SQUARES.NO_SQ) HASH_EP();
+  HASH_CA();
+
+  // eslint-disable-next-line
+  GameBoard.side ^= 1;
+  HASH_SIDE();
+
+  // eslint-disable-next-line
+  if ((MFLAGEP & move) !== 0) {
+    if (GameBoard.side === COLOURS.WHITE) {
+      AddPiece(to - 10, PIECES.bP);
+    } else {
+      AddPiece(to + 10, PIECES.wP);
+    }
+  // eslint-disable-next-line
+  }
+  // eslint-disable-next-line
+  else if ((MFLAGCA & move) !== 0) {
+    switch (to) {
+      case SQUARES.C1: MovePiece(SQUARES.D1, SQUARES.A1); break;
+      case SQUARES.C8: MovePiece(SQUARES.D8, SQUARES.A8); break;
+      case SQUARES.G1: MovePiece(SQUARES.F1, SQUARES.H1); break;
+      case SQUARES.G8: MovePiece(SQUARES.F8, SQUARES.H8); break;
+      default: break;
+    }
+  }
+
+  MovePiece(to, from);
+
+  const captured = CAPTURED(move);
+  if (captured !== PIECES.EMPTY) {
+    AddPiece(to, captured);
+  }
+
+  if (PROMOTED(move) !== PIECES.EMPTY) {
+    ClearPiece(from);
+    AddPiece(from, (PieceCol[PROMOTED(move)] === COLOURS.WHITE ? PIECES.wP : PIECES.bP));
+  }
+}
+
+function SqAttacked(sq, side) {
+  let pce;
+  let tSq;
+  let index;
+
+  if (side === COLOURS.WHITE) {
+    if (GameBoard.pieces[sq - 11] === PIECES.wP || GameBoard.pieces[sq - 9] === PIECES.wP) {
+      return BOOL.TRUE;
+    }
+  } else if (GameBoard.pieces[sq + 11] === PIECES.bP || GameBoard.pieces[sq + 9] === PIECES.bP) {
+    return BOOL.TRUE;
+  }
+
+  for (index = 0; index < 8; index += 1) {
+    pce = GameBoard.pieces[sq + KnDir[index]];
+    if (pce !== SQUARES.OFFBOARD && PieceCol[pce] === side && PieceKnight[pce] === BOOL.TRUE) {
+      return BOOL.TRUE;
+    }
+  }
+
+  // eslint-disable-next-line
+  for (index = 0; index < 4; ++index) {
+    const dir = RkDir[index];
+    tSq = sq + dir;
+    pce = GameBoard.pieces[tSq];
+    while (pce !== SQUARES.OFFBOARD) {
+      if (pce !== PIECES.EMPTY) {
+        if (PieceRookQueen[pce] === BOOL.TRUE && PieceCol[pce] === side) {
+          return BOOL.TRUE;
+        }
+        break;
+      }
+      tSq += dir;
+      pce = GameBoard.pieces[tSq];
+    }
+  }
+
+  // eslint-disable-next-line
+  for (index = 0; index < 4; ++index) {
+    const dir = BiDir[index];
+    tSq = sq + dir;
+    pce = GameBoard.pieces[tSq];
+    while (pce !== SQUARES.OFFBOARD) {
+      if (pce !== PIECES.EMPTY) {
+        if (PieceBishopQueen[pce] === BOOL.TRUE && PieceCol[pce] === side) {
+          return BOOL.TRUE;
+        }
+        break;
+      }
+      tSq += dir;
+      pce = GameBoard.pieces[tSq];
+    }
+  }
+
+  for (index = 0; index < 8; index += 1) {
+    pce = GameBoard.pieces[sq + KiDir[index]];
+    if (pce !== SQUARES.OFFBOARD && PieceCol[pce] === side && PieceKing[pce] === BOOL.TRUE) {
+      return BOOL.TRUE;
+    }
+  }
+
+  return BOOL.FALSE;
+}
+
+function MakeMove(move) {
+  const from = FROMSQ(move);
+  const to = TOSQ(move);
+  const side = GameBoard.side;
+
+  GameBoard.history[GameBoard.hisPly].posKey = GameBoard.posKey;
+
+  // eslint-disable-next-line
+  if ((move & MFLAGEP) !== 0) {
+    if (side === COLOURS.WHITE) {
+      ClearPiece(to - 10);
+    } else {
+      ClearPiece(to + 10);
+    }
+  // eslint-disable-next-line
+  }
+  // eslint-disable-next-line
+  else if ((move & MFLAGCA) !== 0) {
+    switch (to) {
+      case SQUARES.C1:
+        MovePiece(SQUARES.A1, SQUARES.D1);
+        break;
+      case SQUARES.C8:
+        MovePiece(SQUARES.A8, SQUARES.D8);
+        break;
+      case SQUARES.G1:
+        MovePiece(SQUARES.H1, SQUARES.F1);
+        break;
+      case SQUARES.G8:
+        MovePiece(SQUARES.H8, SQUARES.F8);
+        break;
+      default: break;
+    }
+  }
+
+  if (GameBoard.enPas !== SQUARES.NO_SQ) HASH_EP();
+  HASH_CA();
+
+  GameBoard.history[GameBoard.hisPly].move = move;
+  GameBoard.history[GameBoard.hisPly].fiftyMove = GameBoard.fiftyMove;
+  GameBoard.history[GameBoard.hisPly].enPas = GameBoard.enPas;
+  GameBoard.history[GameBoard.hisPly].castlePerm = GameBoard.castlePerm;
+
+  // eslint-disable-next-line
+  GameBoard.castlePerm &= CastlePerm[from];
+  // eslint-disable-next-line
+  GameBoard.castlePerm &= CastlePerm[to];
+  GameBoard.enPas = SQUARES.NO_SQ;
+
+  HASH_CA();
+
+  const captured = CAPTURED(move);
+  GameBoard.fiftyMove += 1;
+
+  if (captured !== PIECES.EMPTY) {
+    ClearPiece(to);
+    GameBoard.fiftyMove = 0;
+  }
+
+  GameBoard.hisPly += 1;
+  GameBoard.ply += 1;
+
+  if (PiecePawn[GameBoard.pieces[from]] === BOOL.TRUE) {
+    GameBoard.fiftyMove = 0;
+    // eslint-disable-next-line
+    if ((move & MFLAGPS) !== 0) {
+      if (side === COLOURS.WHITE) {
+        GameBoard.enPas = from + 10;
+      } else {
+        GameBoard.enPas = from - 10;
+      }
+      HASH_EP();
+    }
+  }
+
+  MovePiece(from, to);
+
+  const prPce = PROMOTED(move);
+  if (prPce !== PIECES.EMPTY) {
+    ClearPiece(to);
+    AddPiece(to, prPce);
+  }
+
+  // eslint-disable-next-line
+  GameBoard.side ^= 1;
+  HASH_SIDE();
+
+  if (SqAttacked(GameBoard.pList[PCEINDEX(Kings[side], 0)], GameBoard.side)) {
+    TakeMove();
+    return BOOL.FALSE;
+  }
+
+  return BOOL.TRUE;
+}
+
+function MOVE(from, to, captured, promoted, flag) {
+  // eslint-disable-next-line
+  return (from | (to << 7) | (captured << 14) | (promoted << 20) | flag);
+}
+
+function AddQuietMove(move) {
+  GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
+  GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] = 0;
+
+  if (move === GameBoard.searchKillers[GameBoard.ply]) {
+    GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] = 900000;
+  } else if (move === GameBoard.searchKillers[GameBoard.ply + MAXDEPTH]) {
+    GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] = 800000;
+  } else {
+    // eslint-disable-next-line
+    GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] = GameBoard.searchHistory[GameBoard.pieces[FROMSQ(move)] * BRD_SQ_NUM + TOSQ(move)];
+  }
+
+  GameBoard.moveListStart[GameBoard.ply + 1] += 1;
+}
+
+function AddCaptureMove(move) {
+  GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
+  // eslint-disable-next-line
+  GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1] += 1] = MvvLvaScores[CAPTURED(move) * 14 + GameBoard.pieces[FROMSQ(move)]] + 1000000;
+}
+
+function AddEnPassantMove(move) {
+  GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
+  GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1] += 1] = 105 + 1000000;
+}
+
+function AddBlackPawnCaptureMove(from, to, cap) {
+  if (RanksBrd[from] === RANKS.RANK_2) {
+    AddCaptureMove(MOVE(from, to, cap, PIECES.bQ, 0));
+    AddCaptureMove(MOVE(from, to, cap, PIECES.bR, 0));
+    AddCaptureMove(MOVE(from, to, cap, PIECES.bB, 0));
+    AddCaptureMove(MOVE(from, to, cap, PIECES.bN, 0));
+  } else {
+    AddCaptureMove(MOVE(from, to, cap, PIECES.EMPTY, 0));
+  }
+}
+
+function AddBlackPawnQuietMove(from, to) {
+  if (RanksBrd[from] === RANKS.RANK_2) {
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bQ, 0));
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bR, 0));
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bB, 0));
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bN, 0));
+  } else {
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.EMPTY, 0));
+  }
+}
+
+function AddWhitePawnCaptureMove(from, to, cap) {
+  if (RanksBrd[from] === RANKS.RANK_7) {
+    AddCaptureMove(MOVE(from, to, cap, PIECES.wQ, 0));
+    AddCaptureMove(MOVE(from, to, cap, PIECES.wR, 0));
+    AddCaptureMove(MOVE(from, to, cap, PIECES.wB, 0));
+    AddCaptureMove(MOVE(from, to, cap, PIECES.wN, 0));
+  } else {
+    AddCaptureMove(MOVE(from, to, cap, PIECES.EMPTY, 0));
+  }
+}
+
+function AddWhitePawnQuietMove(from, to) {
+  if (RanksBrd[from] === RANKS.RANK_7) {
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wQ, 0));
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wR, 0));
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wB, 0));
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wN, 0));
+  } else {
+    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.EMPTY, 0));
+  }
+}
+
+function GenerateMoves() {
+  GameBoard.moveListStart[GameBoard.ply + 1] = GameBoard.moveListStart[GameBoard.ply];
+
+  let pceType;
+  let pceNum;
+  let sq;
+  let pceIndex;
+  let pce;
+  let tSq;
+  let dir;
+
+  if (GameBoard.side === COLOURS.WHITE) {
+    pceType = PIECES.wP;
+
+    // eslint-disable-next-line
+    for (pceNum = 0; pceNum < GameBoard.pceNum[pceType]; ++pceNum) {
+      sq = GameBoard.pList[PCEINDEX(pceType, pceNum)];
+      if (GameBoard.pieces[sq + 10] === PIECES.EMPTY) {
+        AddWhitePawnQuietMove(sq, sq + 10);
+        if (RanksBrd[sq] === RANKS.RANK_2 && GameBoard.pieces[sq + 20] === PIECES.EMPTY) {
+          AddQuietMove(MOVE(sq, sq + 20, PIECES.EMPTY, PIECES.EMPTY, MFLAGPS));
+        }
+      }
+
+      if (
+        SQOFFBOARD(sq + 9) === BOOL.FALSE
+        && PieceCol[GameBoard.pieces[sq + 9]] === COLOURS.BLACK
+      ) {
+        AddWhitePawnCaptureMove(sq, sq + 9, GameBoard.pieces[sq + 9]);
+      }
+
+      if (
+        SQOFFBOARD(sq + 11) === BOOL.FALSE
+        && PieceCol[GameBoard.pieces[sq + 11]] === COLOURS.BLACK
+      ) {
+        AddWhitePawnCaptureMove(sq, sq + 11, GameBoard.pieces[sq + 11]);
+      }
+
+      if (GameBoard.enPas !== SQUARES.NO_SQ) {
+        if (sq + 9 === GameBoard.enPas) {
+          AddEnPassantMove(MOVE(sq, sq + 9, PIECES.EMPTY, PIECES.EMPTY, MFLAGEP));
+        }
+
+        if (sq + 11 === GameBoard.enPas) {
+          AddEnPassantMove(MOVE(sq, sq + 11, PIECES.EMPTY, PIECES.EMPTY, MFLAGEP));
+        }
+      }
+    }
+
+    // eslint-disable-next-line
+    if (GameBoard.castlePerm & CASTLEBIT.WKCA) {
+      if (
+        GameBoard.pieces[SQUARES.F1] === PIECES.EMPTY
+        && GameBoard.pieces[SQUARES.G1] === PIECES.EMPTY
+      ) {
+        if (
+          SqAttacked(SQUARES.F1, COLOURS.BLACK) === BOOL.FALSE
+          && SqAttacked(SQUARES.E1, COLOURS.BLACK) === BOOL.FALSE
+        ) {
+          AddQuietMove(MOVE(SQUARES.E1, SQUARES.G1, PIECES.EMPTY, PIECES.EMPTY, MFLAGCA));
+        }
+      }
+    }
+
+    // eslint-disable-next-line
+    if (GameBoard.castlePerm & CASTLEBIT.WQCA) {
+      if (
+        GameBoard.pieces[SQUARES.D1] === PIECES.EMPTY
+        && GameBoard.pieces[SQUARES.C1] === PIECES.EMPTY
+        && GameBoard.pieces[SQUARES.B1] === PIECES.EMPTY
+      ) {
+        if (
+          SqAttacked(SQUARES.D1, COLOURS.BLACK) === BOOL.FALSE
+          && SqAttacked(SQUARES.E1, COLOURS.BLACK) === BOOL.FALSE
+        ) {
+          AddQuietMove(MOVE(SQUARES.E1, SQUARES.C1, PIECES.EMPTY, PIECES.EMPTY, MFLAGCA));
+        }
+      }
+    }
+  } else {
+    pceType = PIECES.bP;
+
+    // eslint-disable-next-line
+    for (pceNum = 0; pceNum < GameBoard.pceNum[pceType]; ++pceNum) {
+      sq = GameBoard.pList[PCEINDEX(pceType, pceNum)];
+      if (GameBoard.pieces[sq - 10] === PIECES.EMPTY) {
+        AddBlackPawnQuietMove(sq, sq - 10);
+        if (RanksBrd[sq] === RANKS.RANK_7 && GameBoard.pieces[sq - 20] === PIECES.EMPTY) {
+          AddQuietMove(MOVE(sq, sq - 20, PIECES.EMPTY, PIECES.EMPTY, MFLAGPS));
+        }
+      }
+
+      if (
+        SQOFFBOARD(sq - 9) === BOOL.FALSE
+        && PieceCol[GameBoard.pieces[sq - 9]] === COLOURS.WHITE
+      ) {
+        AddBlackPawnCaptureMove(sq, sq - 9, GameBoard.pieces[sq - 9]);
+      }
+
+      if (
+        SQOFFBOARD(sq - 11) === BOOL.FALSE
+        && PieceCol[GameBoard.pieces[sq - 11]] === COLOURS.WHITE
+      ) {
+        AddBlackPawnCaptureMove(sq, sq - 11, GameBoard.pieces[sq - 11]);
+      }
+
+      if (GameBoard.enPas !== SQUARES.NO_SQ) {
+        if (sq - 9 === GameBoard.enPas) {
+          AddEnPassantMove(MOVE(sq, sq - 9, PIECES.EMPTY, PIECES.EMPTY, MFLAGEP));
+        }
+
+        if (sq - 11 === GameBoard.enPas) {
+          AddEnPassantMove(MOVE(sq, sq - 11, PIECES.EMPTY, PIECES.EMPTY, MFLAGEP));
+        }
+      }
+    }
+    // eslint-disable-next-line
+    if (GameBoard.castlePerm & CASTLEBIT.BKCA) {
+      if (
+        GameBoard.pieces[SQUARES.F8] === PIECES.EMPTY
+        && GameBoard.pieces[SQUARES.G8] === PIECES.EMPTY
+      ) {
+        if (
+          SqAttacked(SQUARES.F8, COLOURS.WHITE) === BOOL.FALSE
+          && SqAttacked(SQUARES.E8, COLOURS.WHITE) === BOOL.FALSE
+        ) {
+          AddQuietMove(MOVE(SQUARES.E8, SQUARES.G8, PIECES.EMPTY, PIECES.EMPTY, MFLAGCA));
+        }
+      }
+    }
+
+    // eslint-disable-next-line
+    if (GameBoard.castlePerm & CASTLEBIT.BQCA) {
+      if (
+        GameBoard.pieces[SQUARES.D8] === PIECES.EMPTY
+        && GameBoard.pieces[SQUARES.C8] === PIECES.EMPTY
+        && GameBoard.pieces[SQUARES.B8] === PIECES.EMPTY
+      ) {
+        if (
+          SqAttacked(SQUARES.D8, COLOURS.WHITE) === BOOL.FALSE
+          && SqAttacked(SQUARES.E8, COLOURS.WHITE) === BOOL.FALSE
+        ) {
+          AddQuietMove(MOVE(SQUARES.E8, SQUARES.C8, PIECES.EMPTY, PIECES.EMPTY, MFLAGCA));
+        }
+      }
+    }
+  }
+
+  pceIndex = LoopNonSlideIndex[GameBoard.side];
+  pce = LoopNonSlidePce[pceIndex += 1];
+
+  while (pce !== 0) {
+    // eslint-disable-next-line
+    for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
+      sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
+
+      for (let index = 0; index < DirNum[pce]; index += 1) {
+        dir = PceDir[pce][index];
+        tSq = sq + dir;
+
+        if (SQOFFBOARD(tSq) === BOOL.TRUE) {
+          // eslint-disable-next-line
+          continue;
+        }
+
+        if (GameBoard.pieces[tSq] !== PIECES.EMPTY) {
+          if (PieceCol[GameBoard.pieces[tSq]] !== GameBoard.side) {
+            AddCaptureMove(MOVE(sq, tSq, GameBoard.pieces[tSq], PIECES.EMPTY, 0));
+          }
+        } else {
+          AddQuietMove(MOVE(sq, tSq, PIECES.EMPTY, PIECES.EMPTY, 0));
+        }
+      }
+    }
+    // eslint-disable-next-line
+    pce = LoopNonSlidePce[pceIndex += 1];
+  }
+
+  pceIndex = LoopSlideIndex[GameBoard.side];
+  pce = LoopSlidePce[pceIndex += 1];
+
+  while (pce !== 0) {
+    // eslint-disable-next-line
+    for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
+      sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
+
+      for (let index = 0; index < DirNum[pce]; index += 1) {
+        dir = PceDir[pce][index];
+        tSq = sq + dir;
+
+        while (SQOFFBOARD(tSq) === BOOL.FALSE) {
+          if (GameBoard.pieces[tSq] !== PIECES.EMPTY) {
+            if (PieceCol[GameBoard.pieces[tSq]] !== GameBoard.side) {
+              AddCaptureMove(MOVE(sq, tSq, GameBoard.pieces[tSq], PIECES.EMPTY, 0));
+            }
+            break;
+          }
+          AddQuietMove(MOVE(sq, tSq, PIECES.EMPTY, PIECES.EMPTY, 0));
+          tSq += dir;
+        }
+      }
+    }
+    pce = LoopSlidePce[pceIndex += 1];
+  }
 }
 
 function ParseMove(from, to) {
@@ -256,16 +842,20 @@ function ParseMove(from, to) {
   let found = BOOL.FALSE;
 
   for (let index = GameBoard.moveListStart[GameBoard.ply];
+    // eslint-disable-next-line
     index < GameBoard.moveListStart[GameBoard.ply + 1]; ++index) {
     Move = GameBoard.moveList[index];
     if (FROMSQ(Move) === from && TOSQ(Move) === to) {
       PromPce = PROMOTED(Move);
       if (PromPce !== PIECES.EMPTY) {
-        if ((PromPce === PIECES.wQ && GameBoard.side === COLOURS.WHITE) ||
-					(PromPce === PIECES.bQ && GameBoard.side === COLOURS.BLACK)) {
+        if (
+          (PromPce === PIECES.wQ && GameBoard.side === COLOURS.WHITE)
+          || (PromPce === PIECES.bQ && GameBoard.side === COLOURS.BLACK)
+        ) {
           found = BOOL.TRUE;
           break;
         }
+        // eslint-disable-next-line
         continue;
       }
       found = BOOL.TRUE;
@@ -284,105 +874,59 @@ function ParseMove(from, to) {
   return NOMOVE;
 }
 
-var GameBoard = {};
-
-GameBoard.pieces = new Array(BRD_SQ_NUM);
-GameBoard.side = COLOURS.WHITE;
-GameBoard.fiftyMove = 0;
-GameBoard.hisPly = 0;
-GameBoard.history = [];
-GameBoard.ply = 0;
-GameBoard.enPas = 0;
-GameBoard.castlePerm = 0;
-GameBoard.material = new Array(2); // WHITE,BLACK material of pieces
-GameBoard.pceNum = new Array(13); // indexed by Pce
-GameBoard.pList = new Array(14 * 10);
-GameBoard.posKey = 0;
-GameBoard.moveList = new Array(MAXDEPTH * MAXPOSITIONMOVES);
-GameBoard.moveScores = new Array(MAXDEPTH * MAXPOSITIONMOVES);
-GameBoard.moveListStart = new Array(MAXDEPTH);
-GameBoard.PvTable = [];
-GameBoard.PvArray = new Array(MAXDEPTH);
-GameBoard.searchHistory = new Array(14 * BRD_SQ_NUM);
-GameBoard.searchKillers = new Array(3 * MAXDEPTH);
-
-
-// function PrintBoard() {
-
-// 	var sq, file, rank, piece;
-
-// 	for (rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank--) {
-// 		var line = (RankChar[rank] + "  ");
-// 		for (file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
-// 			sq = FR2SQ(file, rank);
-// 			piece = GameBoard.pieces[sq];
-// 			line += (" " + PceChar[piece] + " ");
-// 		}
-// 		console.log(line);
-// 	}
-
-// 	console.log("");
-// 	line = "   ";
-// 	for (file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
-// 		line += (' ' + FileChar[file] + ' ');
-// 	}
-
-// 	console.log(line);
-// 	console.log("side:" + SideChar[GameBoard.side]);
-// 	console.log("enPas:" + GameBoard.enPas);
-// 	line = "";
-
-// 	if (GameBoard.castlePerm & CASTLEBIT.WKCA) line += 'K';
-// 	if (GameBoard.castlePerm & CASTLEBIT.WQCA) line += 'Q';
-// 	if (GameBoard.castlePerm & CASTLEBIT.BKCA) line += 'k';
-// 	if (GameBoard.castlePerm & CASTLEBIT.BQCA) line += 'q';
-// 	console.log("castle:" + line);
-// 	console.log("key:" + GameBoard.posKey.toString(16));
-// }
 
 function GeneratePosKey() {
   let sq = 0;
   let finalKey = 0;
   let piece = PIECES.EMPTY;
 
+  // eslint-disable-next-line
   for (sq = 0; sq < BRD_SQ_NUM; ++sq) {
     piece = GameBoard.pieces[sq];
     if (piece !== PIECES.EMPTY && piece !== SQUARES.OFFBOARD) {
+      // eslint-disable-next-line
       finalKey ^= PieceKeys[(piece * 120) + sq];
     }
   }
 
   if (GameBoard.side === COLOURS.WHITE) {
+    // eslint-disable-next-line
     finalKey ^= SideKey;
   }
 
   if (GameBoard.enPas !== SQUARES.NO_SQ) {
+    // eslint-disable-next-line
     finalKey ^= PieceKeys[GameBoard.enPas];
   }
 
+  // eslint-disable-next-line
   finalKey ^= CastleKeys[GameBoard.castlePerm];
 
   return finalKey;
 }
 
 function UpdateListsMaterial() {
-  let piece,
-    sq,
-    index,
-    colour;
+  let piece = null;
+  let sq = null;
+  let index = null;
+  let colour = null;
 
+  // eslint-disable-next-line
   for (index = 0; index < 14 * 120; ++index) {
     GameBoard.pList[index] = PIECES.EMPTY;
   }
 
+  // eslint-disable-next-line
   for (index = 0; index < 2; ++index) {
     GameBoard.material[index] = 0;
   }
 
+  // eslint-disable-next-line
   for (index = 0; index < 13; ++index) {
     GameBoard.pceNum[index] = 0;
   }
 
+  // eslint-disable-next-line
   for (index = 0; index < 64; ++index) {
     sq = SQ120(index);
     piece = GameBoard.pieces[sq];
@@ -392,7 +936,7 @@ function UpdateListsMaterial() {
       GameBoard.material[colour] += PieceVal[piece];
 
       GameBoard.pList[PCEINDEX(piece, GameBoard.pceNum[piece])] = sq;
-      GameBoard.pceNum[piece]++;
+      GameBoard.pceNum[piece] += 1;
     }
   }
 }
@@ -400,10 +944,12 @@ function UpdateListsMaterial() {
 function ResetBoard() {
   let index = 0;
 
+  // eslint-disable-next-line
   for (index = 0; index < BRD_SQ_NUM; ++index) {
     GameBoard.pieces[index] = SQUARES.OFFBOARD;
   }
 
+  // eslint-disable-next-line
   for (index = 0; index < 64; ++index) {
     GameBoard.pieces[SQ120(index)] = PIECES.EMPTY;
   }
@@ -461,112 +1007,56 @@ function ParseFen(fen) {
 
       case '/':
       case ' ':
-        rank--;
+        rank -= 1;
         file = FILES.FILE_A;
-        fenCnt++;
+        fenCnt += 1;
+        // eslint-disable-next-line
         continue;
       default:
         return;
     }
 
-    for (i = 0; i < count; i++) {
+    for (i = 0; i < count; i += 1) {
       sq120 = FR2SQ(file, rank);
       GameBoard.pieces[sq120] = piece;
-      file++;
+      file += 1;
     }
-    fenCnt++;
+    fenCnt += 1;
   } // while loop end
 
   // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
   GameBoard.side = (fen[fenCnt] === 'w') ? COLOURS.WHITE : COLOURS.BLACK;
   fenCnt += 2;
 
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 4; i += 1) {
     if (fen[fenCnt] === ' ') {
       break;
     }
     switch (fen[fenCnt]) {
+      // eslint-disable-next-line
       case 'K': GameBoard.castlePerm |= CASTLEBIT.WKCA; break;
+      // eslint-disable-next-line
       case 'Q': GameBoard.castlePerm |= CASTLEBIT.WQCA; break;
+      // eslint-disable-next-line
       case 'k': GameBoard.castlePerm |= CASTLEBIT.BKCA; break;
+      // eslint-disable-next-line
       case 'q': GameBoard.castlePerm |= CASTLEBIT.BQCA; break;
       default: break;
     }
-    fenCnt++;
+    fenCnt += 1;
   }
-  fenCnt++;
+  fenCnt += 1;
 
   if (fen[fenCnt] !== '-') {
     file = fen[fenCnt].charCodeAt() - 'a'.charCodeAt();
     rank = fen[fenCnt + 1].charCodeAt() - '1'.charCodeAt();
+    // eslint-disable-next-line
     console.log(`fen[fenCnt]:${fen[fenCnt]} File:${file} Rank:${rank}`);
     GameBoard.enPas = FR2SQ(file, rank);
   }
 
   GameBoard.posKey = GeneratePosKey();
   UpdateListsMaterial();
-}
-
-function SqAttacked(sq, side) {
-  let pce;
-  let t_sq;
-  let index;
-
-  if (side === COLOURS.WHITE) {
-    if (GameBoard.pieces[sq - 11] === PIECES.wP || GameBoard.pieces[sq - 9] === PIECES.wP) {
-      return BOOL.TRUE;
-    }
-  } else if (GameBoard.pieces[sq + 11] === PIECES.bP || GameBoard.pieces[sq + 9] === PIECES.bP) {
-    return BOOL.TRUE;
-  }
-
-  for (index = 0; index < 8; index++) {
-    pce = GameBoard.pieces[sq + KnDir[index]];
-    if (pce !== SQUARES.OFFBOARD && PieceCol[pce] === side && PieceKnight[pce] === BOOL.TRUE) {
-      return BOOL.TRUE;
-    }
-  }
-
-  for (index = 0; index < 4; ++index) {
-    const dir = RkDir[index];
-    t_sq = sq + dir;
-    pce = GameBoard.pieces[t_sq];
-    while (pce !== SQUARES.OFFBOARD) {
-      if (pce !== PIECES.EMPTY) {
-        if (PieceRookQueen[pce] === BOOL.TRUE && PieceCol[pce] === side) {
-          return BOOL.TRUE;
-        }
-        break;
-      }
-      t_sq += dir;
-      pce = GameBoard.pieces[t_sq];
-    }
-  }
-
-  for (index = 0; index < 4; ++index) {
-    const dir = BiDir[index];
-    t_sq = sq + dir;
-    pce = GameBoard.pieces[t_sq];
-    while (pce !== SQUARES.OFFBOARD) {
-      if (pce !== PIECES.EMPTY) {
-        if (PieceBishopQueen[pce] === BOOL.TRUE && PieceCol[pce] === side) {
-          return BOOL.TRUE;
-        }
-        break;
-      }
-      t_sq += dir;
-      pce = GameBoard.pieces[t_sq];
-    }
-  }
-
-  for (index = 0; index < 8; index++) {
-    pce = GameBoard.pieces[sq + KiDir[index]];
-    if (pce !== SQUARES.OFFBOARD && PieceCol[pce] === side && PieceKing[pce] === BOOL.TRUE) {
-      return BOOL.TRUE;
-    }
-  }
-
-  return BOOL.FALSE;
 }
 
 const MvvLvaValue = [0, 100, 200, 300, 400, 500, 600, 100, 200, 300, 400, 500, 600];
@@ -576,8 +1066,11 @@ function InitMvvLva() {
   let Attacker;
   let Victim;
 
+  // eslint-disable-next-line
   for (Attacker = PIECES.wP; Attacker <= PIECES.bK; ++Attacker) {
+    // eslint-disable-next-line
     for (Victim = PIECES.wP; Victim <= PIECES.bK; ++Victim) {
+      // eslint-disable-next-line
       MvvLvaScores[Victim * 14 + Attacker] = MvvLvaValue[Victim] + 6 - (MvvLvaValue[Attacker] / 100);
     }
   }
@@ -588,9 +1081,11 @@ function MoveExists(move) {
 
   let index;
   let moveFound = NOMOVE;
+  // eslint-disable-next-line
   for (index = GameBoard.moveListStart[GameBoard.ply]; index < GameBoard.moveListStart[GameBoard.ply + 1]; ++index) {
     moveFound = GameBoard.moveList[index];
     if (MakeMove(moveFound) === BOOL.FALSE) {
+      // eslint-disable-next-line
       continue;
     }
     TakeMove();
@@ -601,239 +1096,6 @@ function MoveExists(move) {
   return BOOL.FALSE;
 }
 
-function MOVE(from, to, captured, promoted, flag) {
-  return (from | (to << 7) | (captured << 14) | (promoted << 20) | flag);
-}
-
-function AddCaptureMove(move) {
-  GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
-  GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]++] =
-		MvvLvaScores[CAPTURED(move) * 14 + GameBoard.pieces[FROMSQ(move)]] + 1000000;
-}
-
-function AddQuietMove(move) {
-  GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
-  GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] = 0;
-
-  if (move === GameBoard.searchKillers[GameBoard.ply]) {
-    GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] = 900000;
-  } else if (move === GameBoard.searchKillers[GameBoard.ply + MAXDEPTH]) {
-    GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] = 800000;
-  } else {
-    GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]] =
-			GameBoard.searchHistory[GameBoard.pieces[FROMSQ(move)] * BRD_SQ_NUM + TOSQ(move)];
-  }
-
-  GameBoard.moveListStart[GameBoard.ply + 1]++;
-}
-
-function AddEnPassantMove(move) {
-  GameBoard.moveList[GameBoard.moveListStart[GameBoard.ply + 1]] = move;
-  GameBoard.moveScores[GameBoard.moveListStart[GameBoard.ply + 1]++] = 105 + 1000000;
-}
-
-function AddWhitePawnCaptureMove(from, to, cap) {
-  if (RanksBrd[from] === RANKS.RANK_7) {
-    AddCaptureMove(MOVE(from, to, cap, PIECES.wQ, 0));
-    AddCaptureMove(MOVE(from, to, cap, PIECES.wR, 0));
-    AddCaptureMove(MOVE(from, to, cap, PIECES.wB, 0));
-    AddCaptureMove(MOVE(from, to, cap, PIECES.wN, 0));
-  } else {
-    AddCaptureMove(MOVE(from, to, cap, PIECES.EMPTY, 0));
-  }
-}
-
-function AddBlackPawnCaptureMove(from, to, cap) {
-  if (RanksBrd[from] === RANKS.RANK_2) {
-    AddCaptureMove(MOVE(from, to, cap, PIECES.bQ, 0));
-    AddCaptureMove(MOVE(from, to, cap, PIECES.bR, 0));
-    AddCaptureMove(MOVE(from, to, cap, PIECES.bB, 0));
-    AddCaptureMove(MOVE(from, to, cap, PIECES.bN, 0));
-  } else {
-    AddCaptureMove(MOVE(from, to, cap, PIECES.EMPTY, 0));
-  }
-}
-
-function AddWhitePawnQuietMove(from, to) {
-  if (RanksBrd[from] === RANKS.RANK_7) {
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wQ, 0));
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wR, 0));
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wB, 0));
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.wN, 0));
-  } else {
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.EMPTY, 0));
-  }
-}
-
-function AddBlackPawnQuietMove(from, to) {
-  if (RanksBrd[from] === RANKS.RANK_2) {
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bQ, 0));
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bR, 0));
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bB, 0));
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.bN, 0));
-  } else {
-    AddQuietMove(MOVE(from, to, PIECES.EMPTY, PIECES.EMPTY, 0));
-  }
-}
-
-function GenerateMoves() {
-  GameBoard.moveListStart[GameBoard.ply + 1] = GameBoard.moveListStart[GameBoard.ply];
-
-  let pceType;
-  let pceNum;
-  let sq;
-  let pceIndex;
-  let pce;
-  let t_sq;
-  let dir;
-
-  if (GameBoard.side === COLOURS.WHITE) {
-    pceType = PIECES.wP;
-
-    for (pceNum = 0; pceNum < GameBoard.pceNum[pceType]; ++pceNum) {
-      sq = GameBoard.pList[PCEINDEX(pceType, pceNum)];
-      if (GameBoard.pieces[sq + 10] === PIECES.EMPTY) {
-        AddWhitePawnQuietMove(sq, sq + 10);
-        if (RanksBrd[sq] === RANKS.RANK_2 && GameBoard.pieces[sq + 20] === PIECES.EMPTY) {
-          AddQuietMove(MOVE(sq, sq + 20, PIECES.EMPTY, PIECES.EMPTY, MFLAGPS));
-        }
-      }
-
-      if (SQOFFBOARD(sq + 9) === BOOL.FALSE && PieceCol[GameBoard.pieces[sq + 9]] === COLOURS.BLACK) {
-        AddWhitePawnCaptureMove(sq, sq + 9, GameBoard.pieces[sq + 9]);
-      }
-
-      if (SQOFFBOARD(sq + 11) === BOOL.FALSE && PieceCol[GameBoard.pieces[sq + 11]] === COLOURS.BLACK) {
-        AddWhitePawnCaptureMove(sq, sq + 11, GameBoard.pieces[sq + 11]);
-      }
-
-      if (GameBoard.enPas !== SQUARES.NO_SQ) {
-        if (sq + 9 === GameBoard.enPas) {
-          AddEnPassantMove(MOVE(sq, sq + 9, PIECES.EMPTY, PIECES.EMPTY, MFLAGEP));
-        }
-
-        if (sq + 11 === GameBoard.enPas) {
-          AddEnPassantMove(MOVE(sq, sq + 11, PIECES.EMPTY, PIECES.EMPTY, MFLAGEP));
-        }
-      }
-    }
-
-    if (GameBoard.castlePerm & CASTLEBIT.WKCA) {
-      if (GameBoard.pieces[SQUARES.F1] === PIECES.EMPTY && GameBoard.pieces[SQUARES.G1] === PIECES.EMPTY) {
-        if (SqAttacked(SQUARES.F1, COLOURS.BLACK) === BOOL.FALSE && SqAttacked(SQUARES.E1, COLOURS.BLACK) === BOOL.FALSE) {
-          AddQuietMove(MOVE(SQUARES.E1, SQUARES.G1, PIECES.EMPTY, PIECES.EMPTY, MFLAGCA));
-        }
-      }
-    }
-
-    if (GameBoard.castlePerm & CASTLEBIT.WQCA) {
-      if (GameBoard.pieces[SQUARES.D1] === PIECES.EMPTY && GameBoard.pieces[SQUARES.C1] === PIECES.EMPTY && GameBoard.pieces[SQUARES.B1] === PIECES.EMPTY) {
-        if (SqAttacked(SQUARES.D1, COLOURS.BLACK) === BOOL.FALSE && SqAttacked(SQUARES.E1, COLOURS.BLACK) === BOOL.FALSE) {
-          AddQuietMove(MOVE(SQUARES.E1, SQUARES.C1, PIECES.EMPTY, PIECES.EMPTY, MFLAGCA));
-        }
-      }
-    }
-  } else {
-    pceType = PIECES.bP;
-
-    for (pceNum = 0; pceNum < GameBoard.pceNum[pceType]; ++pceNum) {
-      sq = GameBoard.pList[PCEINDEX(pceType, pceNum)];
-      if (GameBoard.pieces[sq - 10] === PIECES.EMPTY) {
-        AddBlackPawnQuietMove(sq, sq - 10);
-        if (RanksBrd[sq] === RANKS.RANK_7 && GameBoard.pieces[sq - 20] === PIECES.EMPTY) {
-          AddQuietMove(MOVE(sq, sq - 20, PIECES.EMPTY, PIECES.EMPTY, MFLAGPS));
-        }
-      }
-
-      if (SQOFFBOARD(sq - 9) === BOOL.FALSE && PieceCol[GameBoard.pieces[sq - 9]] === COLOURS.WHITE) {
-        AddBlackPawnCaptureMove(sq, sq - 9, GameBoard.pieces[sq - 9]);
-      }
-
-      if (SQOFFBOARD(sq - 11) === BOOL.FALSE && PieceCol[GameBoard.pieces[sq - 11]] === COLOURS.WHITE) {
-        AddBlackPawnCaptureMove(sq, sq - 11, GameBoard.pieces[sq - 11]);
-      }
-
-      if (GameBoard.enPas !== SQUARES.NO_SQ) {
-        if (sq - 9 === GameBoard.enPas) {
-          AddEnPassantMove(MOVE(sq, sq - 9, PIECES.EMPTY, PIECES.EMPTY, MFLAGEP));
-        }
-
-        if (sq - 11 === GameBoard.enPas) {
-          AddEnPassantMove(MOVE(sq, sq - 11, PIECES.EMPTY, PIECES.EMPTY, MFLAGEP));
-        }
-      }
-    }
-    if (GameBoard.castlePerm & CASTLEBIT.BKCA) {
-      if (GameBoard.pieces[SQUARES.F8] === PIECES.EMPTY && GameBoard.pieces[SQUARES.G8] === PIECES.EMPTY) {
-        if (SqAttacked(SQUARES.F8, COLOURS.WHITE) === BOOL.FALSE && SqAttacked(SQUARES.E8, COLOURS.WHITE) === BOOL.FALSE) {
-          AddQuietMove(MOVE(SQUARES.E8, SQUARES.G8, PIECES.EMPTY, PIECES.EMPTY, MFLAGCA));
-        }
-      }
-    }
-
-    if (GameBoard.castlePerm & CASTLEBIT.BQCA) {
-      if (GameBoard.pieces[SQUARES.D8] === PIECES.EMPTY && GameBoard.pieces[SQUARES.C8] === PIECES.EMPTY && GameBoard.pieces[SQUARES.B8] === PIECES.EMPTY) {
-        if (SqAttacked(SQUARES.D8, COLOURS.WHITE) === BOOL.FALSE && SqAttacked(SQUARES.E8, COLOURS.WHITE) === BOOL.FALSE) {
-          AddQuietMove(MOVE(SQUARES.E8, SQUARES.C8, PIECES.EMPTY, PIECES.EMPTY, MFLAGCA));
-        }
-      }
-    }
-  }
-
-  pceIndex = LoopNonSlideIndex[GameBoard.side];
-  pce = LoopNonSlidePce[pceIndex++];
-
-  while (pce !== 0) {
-    for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
-      sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
-
-      for (let index = 0; index < DirNum[pce]; index++) {
-        dir = PceDir[pce][index];
-        t_sq = sq + dir;
-
-        if (SQOFFBOARD(t_sq) === BOOL.TRUE) {
-          continue;
-        }
-
-        if (GameBoard.pieces[t_sq] !== PIECES.EMPTY) {
-          if (PieceCol[GameBoard.pieces[t_sq]] !== GameBoard.side) {
-            AddCaptureMove(MOVE(sq, t_sq, GameBoard.pieces[t_sq], PIECES.EMPTY, 0));
-          }
-        } else {
-          AddQuietMove(MOVE(sq, t_sq, PIECES.EMPTY, PIECES.EMPTY, 0));
-        }
-      }
-    }
-    pce = LoopNonSlidePce[pceIndex++];
-  }
-
-  pceIndex = LoopSlideIndex[GameBoard.side];
-  pce = LoopSlidePce[pceIndex++];
-
-  while (pce !== 0) {
-    for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
-      sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
-
-      for (let index = 0; index < DirNum[pce]; index++) {
-        dir = PceDir[pce][index];
-        t_sq = sq + dir;
-
-        while (SQOFFBOARD(t_sq) === BOOL.FALSE) {
-          if (GameBoard.pieces[t_sq] !== PIECES.EMPTY) {
-            if (PieceCol[GameBoard.pieces[t_sq]] !== GameBoard.side) {
-              AddCaptureMove(MOVE(sq, t_sq, GameBoard.pieces[t_sq], PIECES.EMPTY, 0));
-            }
-            break;
-          }
-          AddQuietMove(MOVE(sq, t_sq, PIECES.EMPTY, PIECES.EMPTY, 0));
-          t_sq += dir;
-        }
-      }
-    }
-    pce = LoopSlidePce[pceIndex++];
-  }
-}
-
 function GenerateCaptures() {
   GameBoard.moveListStart[GameBoard.ply + 1] = GameBoard.moveListStart[GameBoard.ply];
 
@@ -842,20 +1104,27 @@ function GenerateCaptures() {
   let sq;
   let pceIndex;
   let pce;
-  let t_sq;
+  let tSq;
   let dir;
 
   if (GameBoard.side === COLOURS.WHITE) {
     pceType = PIECES.wP;
 
+    // eslint-disable-next-line
     for (pceNum = 0; pceNum < GameBoard.pceNum[pceType]; ++pceNum) {
       sq = GameBoard.pList[PCEINDEX(pceType, pceNum)];
 
-      if (SQOFFBOARD(sq + 9) === BOOL.FALSE && PieceCol[GameBoard.pieces[sq + 9]] === COLOURS.BLACK) {
+      if (
+        SQOFFBOARD(sq + 9) === BOOL.FALSE
+        && PieceCol[GameBoard.pieces[sq + 9]] === COLOURS.BLACK
+      ) {
         AddWhitePawnCaptureMove(sq, sq + 9, GameBoard.pieces[sq + 9]);
       }
 
-      if (SQOFFBOARD(sq + 11) === BOOL.FALSE && PieceCol[GameBoard.pieces[sq + 11]] === COLOURS.BLACK) {
+      if (
+        SQOFFBOARD(sq + 11) === BOOL.FALSE
+        && PieceCol[GameBoard.pieces[sq + 11]] === COLOURS.BLACK
+      ) {
         AddWhitePawnCaptureMove(sq, sq + 11, GameBoard.pieces[sq + 11]);
       }
 
@@ -872,14 +1141,21 @@ function GenerateCaptures() {
   } else {
     pceType = PIECES.bP;
 
+    // eslint-disable-next-line
     for (pceNum = 0; pceNum < GameBoard.pceNum[pceType]; ++pceNum) {
       sq = GameBoard.pList[PCEINDEX(pceType, pceNum)];
 
-      if (SQOFFBOARD(sq - 9) === BOOL.FALSE && PieceCol[GameBoard.pieces[sq - 9]] === COLOURS.WHITE) {
+      if (
+        SQOFFBOARD(sq - 9) === BOOL.FALSE
+        && PieceCol[GameBoard.pieces[sq - 9]] === COLOURS.WHITE
+      ) {
         AddBlackPawnCaptureMove(sq, sq - 9, GameBoard.pieces[sq - 9]);
       }
 
-      if (SQOFFBOARD(sq - 11) === BOOL.FALSE && PieceCol[GameBoard.pieces[sq - 11]] === COLOURS.WHITE) {
+      if (
+        SQOFFBOARD(sq - 11) === BOOL.FALSE
+        && PieceCol[GameBoard.pieces[sq - 11]] === COLOURS.WHITE
+      ) {
         AddBlackPawnCaptureMove(sq, sq - 11, GameBoard.pieces[sq - 11]);
       }
 
@@ -896,241 +1172,56 @@ function GenerateCaptures() {
   }
 
   pceIndex = LoopNonSlideIndex[GameBoard.side];
-  pce = LoopNonSlidePce[pceIndex++];
+  pce = LoopNonSlidePce[pceIndex += 1];
 
   while (pce !== 0) {
+    // eslint-disable-next-line
     for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
       sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
 
-      for (let index = 0; index < DirNum[pce]; index++) {
+      for (let index = 0; index < DirNum[pce]; index += 1) {
         dir = PceDir[pce][index];
-        t_sq = sq + dir;
+        tSq = sq + dir;
 
-        if (SQOFFBOARD(t_sq) === BOOL.TRUE) {
+        if (SQOFFBOARD(tSq) === BOOL.TRUE) {
+          // eslint-disable-next-line
           continue;
         }
 
-        if (GameBoard.pieces[t_sq] !== PIECES.EMPTY) {
-          if (PieceCol[GameBoard.pieces[t_sq]] !== GameBoard.side) {
-            AddCaptureMove(MOVE(sq, t_sq, GameBoard.pieces[t_sq], PIECES.EMPTY, 0));
+        if (GameBoard.pieces[tSq] !== PIECES.EMPTY) {
+          if (PieceCol[GameBoard.pieces[tSq]] !== GameBoard.side) {
+            AddCaptureMove(MOVE(sq, tSq, GameBoard.pieces[tSq], PIECES.EMPTY, 0));
           }
         }
       }
     }
-    pce = LoopNonSlidePce[pceIndex++];
+    pce = LoopNonSlidePce[pceIndex += 1];
   }
 
   pceIndex = LoopSlideIndex[GameBoard.side];
-  pce = LoopSlidePce[pceIndex++];
+  pce = LoopSlidePce[pceIndex += 1];
 
   while (pce !== 0) {
+    // eslint-disable-next-line
     for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
       sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
 
-      for (let index = 0; index < DirNum[pce]; index++) {
+      for (let index = 0; index < DirNum[pce]; index += 1) {
         dir = PceDir[pce][index];
-        t_sq = sq + dir;
+        tSq = sq + dir;
 
-        while (SQOFFBOARD(t_sq) === BOOL.FALSE) {
-          if (GameBoard.pieces[t_sq] !== PIECES.EMPTY) {
-            if (PieceCol[GameBoard.pieces[t_sq]] !== GameBoard.side) {
-              AddCaptureMove(MOVE(sq, t_sq, GameBoard.pieces[t_sq], PIECES.EMPTY, 0));
+        while (SQOFFBOARD(tSq) === BOOL.FALSE) {
+          if (GameBoard.pieces[tSq] !== PIECES.EMPTY) {
+            if (PieceCol[GameBoard.pieces[tSq]] !== GameBoard.side) {
+              AddCaptureMove(MOVE(sq, tSq, GameBoard.pieces[tSq], PIECES.EMPTY, 0));
             }
             break;
           }
-          t_sq += dir;
+          tSq += dir;
         }
       }
     }
-    pce = LoopSlidePce[pceIndex++];
-  }
-}
-
-function ClearPiece(sq) {
-  const pce = GameBoard.pieces[sq];
-  const col = PieceCol[pce];
-  let index;
-  let t_pceNum = -1;
-
-  HASH_PCE(pce, sq);
-
-  GameBoard.pieces[sq] = PIECES.EMPTY;
-  GameBoard.material[col] -= PieceVal[pce];
-
-  for (index = 0; index < GameBoard.pceNum[pce]; ++index) {
-    if (GameBoard.pList[PCEINDEX(pce, index)] === sq) {
-      t_pceNum = index;
-      break;
-    }
-  }
-
-  GameBoard.pceNum[pce]--;
-  GameBoard.pList[PCEINDEX(pce, t_pceNum)] = GameBoard.pList[PCEINDEX(pce, GameBoard.pceNum[pce])];
-}
-
-function AddPiece(sq, pce) {
-  const col = PieceCol[pce];
-
-  HASH_PCE(pce, sq);
-
-  GameBoard.pieces[sq] = pce;
-  GameBoard.material[col] += PieceVal[pce];
-  GameBoard.pList[PCEINDEX(pce, GameBoard.pceNum[pce])] = sq;
-  GameBoard.pceNum[pce]++;
-}
-
-function MovePiece(from, to) {
-  let index = 0;
-  const pce = GameBoard.pieces[from];
-
-  HASH_PCE(pce, from);
-  GameBoard.pieces[from] = PIECES.EMPTY;
-
-  HASH_PCE(pce, to);
-  GameBoard.pieces[to] = pce;
-
-  for (index = 0; index < GameBoard.pceNum[pce]; ++index) {
-    if (GameBoard.pList[PCEINDEX(pce, index)] === from) {
-      GameBoard.pList[PCEINDEX(pce, index)] = to;
-      break;
-    }
-  }
-}
-
-function MakeMove(move) {
-  const from = FROMSQ(move);
-  const to = TOSQ(move);
-  const side = GameBoard.side;
-
-  GameBoard.history[GameBoard.hisPly].posKey = GameBoard.posKey;
-
-  if ((move & MFLAGEP) !== 0) {
-    if (side === COLOURS.WHITE) {
-      ClearPiece(to - 10);
-    } else {
-      ClearPiece(to + 10);
-    }
-  } else if ((move & MFLAGCA) !== 0) {
-    switch (to) {
-      case SQUARES.C1:
-        MovePiece(SQUARES.A1, SQUARES.D1);
-        break;
-      case SQUARES.C8:
-        MovePiece(SQUARES.A8, SQUARES.D8);
-        break;
-      case SQUARES.G1:
-        MovePiece(SQUARES.H1, SQUARES.F1);
-        break;
-      case SQUARES.G8:
-        MovePiece(SQUARES.H8, SQUARES.F8);
-        break;
-      default: break;
-    }
-  }
-
-  if (GameBoard.enPas !== SQUARES.NO_SQ) HASH_EP();
-  HASH_CA();
-
-  GameBoard.history[GameBoard.hisPly].move = move;
-  GameBoard.history[GameBoard.hisPly].fiftyMove = GameBoard.fiftyMove;
-  GameBoard.history[GameBoard.hisPly].enPas = GameBoard.enPas;
-  GameBoard.history[GameBoard.hisPly].castlePerm = GameBoard.castlePerm;
-
-  GameBoard.castlePerm &= CastlePerm[from];
-  GameBoard.castlePerm &= CastlePerm[to];
-  GameBoard.enPas = SQUARES.NO_SQ;
-
-  HASH_CA();
-
-  const captured = CAPTURED(move);
-  GameBoard.fiftyMove++;
-
-  if (captured !== PIECES.EMPTY) {
-    ClearPiece(to);
-    GameBoard.fiftyMove = 0;
-  }
-
-  GameBoard.hisPly++;
-  GameBoard.ply++;
-
-  if (PiecePawn[GameBoard.pieces[from]] === BOOL.TRUE) {
-    GameBoard.fiftyMove = 0;
-    if ((move & MFLAGPS) !== 0) {
-      if (side === COLOURS.WHITE) {
-        GameBoard.enPas = from + 10;
-      } else {
-        GameBoard.enPas = from - 10;
-      }
-      HASH_EP();
-    }
-  }
-
-  MovePiece(from, to);
-
-  const prPce = PROMOTED(move);
-  if (prPce !== PIECES.EMPTY) {
-    ClearPiece(to);
-    AddPiece(to, prPce);
-  }
-
-  GameBoard.side ^= 1;
-  HASH_SIDE();
-
-  if (SqAttacked(GameBoard.pList[PCEINDEX(Kings[side], 0)], GameBoard.side)) {
-    TakeMove();
-    return BOOL.FALSE;
-  }
-
-  return BOOL.TRUE;
-}
-
-function TakeMove() {
-  GameBoard.hisPly--;
-  GameBoard.ply--;
-
-  const move = GameBoard.history[GameBoard.hisPly].move;
-  const from = FROMSQ(move);
-  const to = TOSQ(move);
-
-  if (GameBoard.enPas !== SQUARES.NO_SQ) HASH_EP();
-  HASH_CA();
-
-  GameBoard.castlePerm = GameBoard.history[GameBoard.hisPly].castlePerm;
-  GameBoard.fiftyMove = GameBoard.history[GameBoard.hisPly].fiftyMove;
-  GameBoard.enPas = GameBoard.history[GameBoard.hisPly].enPas;
-
-  if (GameBoard.enPas !== SQUARES.NO_SQ) HASH_EP();
-  HASH_CA();
-
-  GameBoard.side ^= 1;
-  HASH_SIDE();
-
-  if ((MFLAGEP & move) !== 0) {
-    if (GameBoard.side === COLOURS.WHITE) {
-      AddPiece(to - 10, PIECES.bP);
-    } else {
-      AddPiece(to + 10, PIECES.wP);
-    }
-  } else if ((MFLAGCA & move) !== 0) {
-    switch (to) {
-      case SQUARES.C1: MovePiece(SQUARES.D1, SQUARES.A1); break;
-      case SQUARES.C8: MovePiece(SQUARES.D8, SQUARES.A8); break;
-      case SQUARES.G1: MovePiece(SQUARES.F1, SQUARES.H1); break;
-      case SQUARES.G8: MovePiece(SQUARES.F8, SQUARES.H8); break;
-      default: break;
-    }
-  }
-
-  MovePiece(to, from);
-
-  const captured = CAPTURED(move);
-  if (captured !== PIECES.EMPTY) {
-    AddPiece(to, captured);
-  }
-
-  if (PROMOTED(move) !== PIECES.EMPTY) {
-    ClearPiece(from);
-    AddPiece(from, (PieceCol[PROMOTED(move)] === COLOURS.WHITE ? PIECES.wP : PIECES.bP));
+    pce = LoopSlidePce[pceIndex += 1];
   }
 }
 
@@ -1190,60 +1281,70 @@ function EvalPosition() {
   let pceNum;
 
   pce = PIECES.wP;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score += PawnTable[SQ64(sq)];
   }
 
   pce = PIECES.bP;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score -= PawnTable[MIRROR64(SQ64(sq))];
   }
 
   pce = PIECES.wN;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score += KnightTable[SQ64(sq)];
   }
 
   pce = PIECES.bN;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score -= KnightTable[MIRROR64(SQ64(sq))];
   }
 
   pce = PIECES.wB;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score += BishopTable[SQ64(sq)];
   }
 
   pce = PIECES.bB;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score -= BishopTable[MIRROR64(SQ64(sq))];
   }
 
   pce = PIECES.wR;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score += RookTable[SQ64(sq)];
   }
 
   pce = PIECES.bR;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score -= RookTable[MIRROR64(SQ64(sq))];
   }
 
   pce = PIECES.wQ;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score += RookTable[SQ64(sq)];
   }
 
   pce = PIECES.bQ;
+  // eslint-disable-next-line
   for (pceNum = 0; pceNum < GameBoard.pceNum[pce]; ++pceNum) {
     sq = GameBoard.pList[PCEINDEX(pce, pceNum)];
     score -= RookTable[MIRROR64(SQ64(sq))];
@@ -1263,6 +1364,16 @@ function EvalPosition() {
   return -score;
 }
 
+function ProbePvTable() {
+  const index = GameBoard.posKey % PVENTRIES;
+
+  if (GameBoard.PvTable[index].posKey === GameBoard.posKey) {
+    return GameBoard.PvTable[index].move;
+  }
+
+  return NOMOVE;
+}
+
 function GetPvLine(depth) {
   let move = ProbePvTable();
   let count = 0;
@@ -1270,7 +1381,7 @@ function GetPvLine(depth) {
   while (move !== NOMOVE && count < depth) {
     if (MoveExists(move) === BOOL.TRUE) {
       MakeMove(move);
-      GameBoard.PvArray[count++] = move;
+      GameBoard.PvArray[count += 1] = move;
     } else {
       break;
     }
@@ -1282,16 +1393,6 @@ function GetPvLine(depth) {
   }
 
   return count;
-}
-
-function ProbePvTable() {
-  const index = GameBoard.posKey % PVENTRIES;
-
-  if (GameBoard.PvTable[index].posKey === GameBoard.posKey) {
-    return GameBoard.PvTable[index].move;
-  }
-
-  return NOMOVE;
 }
 
 function StorePvMove(move) {
@@ -1317,6 +1418,7 @@ function PickNextMove(MoveNum) {
   let bestScore = -1;
   let bestNum = MoveNum;
 
+  // eslint-disable-next-line
   for (index = MoveNum; index < GameBoard.moveListStart[GameBoard.ply + 1]; ++index) {
     if (GameBoard.moveScores[index] > bestScore) {
       bestScore = GameBoard.moveScores[index];
@@ -1337,7 +1439,7 @@ function PickNextMove(MoveNum) {
 }
 
 function ClearPvTable() {
-  for (let index = 0; index < PVENTRIES; index++) {
+  for (let index = 0; index < PVENTRIES; index += 1) {
     GameBoard.PvTable[index].move = NOMOVE;
     GameBoard.PvTable[index].posKey = 0;
   }
@@ -1352,6 +1454,7 @@ function CheckUp() {
 function IsRepetition() {
   let index = 0;
 
+  // eslint-disable-next-line
   for (index = GameBoard.hisPly - GameBoard.fiftyMove; index < GameBoard.hisPly - 1; ++index) {
     if (GameBoard.posKey === GameBoard.history[index].posKey) {
       return BOOL.TRUE;
@@ -1362,11 +1465,12 @@ function IsRepetition() {
 }
 
 function Quiescence(alpha, beta) {
+  // eslint-disable-next-line
   if ((SearchController.nodes & 2047) === 0) {
     CheckUp();
   }
 
-  SearchController.nodes++;
+  SearchController.nodes += 1;
 
   if ((IsRepetition() || GameBoard.fiftyMove >= 100) && GameBoard.ply !== 0) {
     return 0;
@@ -1383,6 +1487,7 @@ function Quiescence(alpha, beta) {
   }
 
   if (Score > alpha) {
+    // eslint-disable-next-line
     alpha = Score;
   }
 
@@ -1394,15 +1499,17 @@ function Quiescence(alpha, beta) {
   let BestMove = NOMOVE;
   let Move = NOMOVE;
 
+  // eslint-disable-next-line
   for (MoveNum = GameBoard.moveListStart[GameBoard.ply]; MoveNum < GameBoard.moveListStart[GameBoard.ply + 1]; ++MoveNum) {
     PickNextMove(MoveNum);
 
     Move = GameBoard.moveList[MoveNum];
 
     if (MakeMove(Move) === BOOL.FALSE) {
+      // eslint-disable-next-line
       continue;
     }
-    Legal++;
+    Legal += 1;
     Score = -Quiescence(-beta, -alpha);
 
     TakeMove();
@@ -1414,11 +1521,12 @@ function Quiescence(alpha, beta) {
     if (Score > alpha) {
       if (Score >= beta) {
         if (Legal === 1) {
-          SearchController.fhf++;
+          SearchController.fhf += 1;
         }
-        SearchController.fh++;
+        SearchController.fh += 1;
         return beta;
       }
+      // eslint-disable-next-line
       alpha = Score;
       BestMove = Move;
     }
@@ -1436,11 +1544,12 @@ function AlphaBeta(alpha, beta, depth) {
     return Quiescence(alpha, beta);
   }
 
+  // eslint-disable-next-line
   if ((SearchController.nodes & 2047) === 0) {
     CheckUp();
   }
 
-  SearchController.nodes++;
+  SearchController.nodes += 1;
 
   if ((IsRepetition() || GameBoard.fiftyMove >= 100) && GameBoard.ply !== 0) {
     return 0;
@@ -1450,9 +1559,11 @@ function AlphaBeta(alpha, beta, depth) {
     return EvalPosition();
   }
 
+  // eslint-disable-next-line
   const InCheck = SqAttacked(GameBoard.pList[PCEINDEX(Kings[GameBoard.side], 0)], GameBoard.side ^ 1);
   if (InCheck === BOOL.TRUE) {
-    depth++;
+    // eslint-disable-next-line
+    depth += 1;
   }
 
   let Score = -INFINITE;
@@ -1467,6 +1578,7 @@ function AlphaBeta(alpha, beta, depth) {
 
   const PvMove = ProbePvTable();
   if (PvMove !== NOMOVE) {
+    // eslint-disable-next-line
     for (MoveNum = GameBoard.moveListStart[GameBoard.ply]; MoveNum < GameBoard.moveListStart[GameBoard.ply + 1]; ++MoveNum) {
       if (GameBoard.moveList[MoveNum] === PvMove) {
         GameBoard.moveScores[MoveNum] = 2000000;
@@ -1475,15 +1587,17 @@ function AlphaBeta(alpha, beta, depth) {
     }
   }
 
+  // eslint-disable-next-line
   for (MoveNum = GameBoard.moveListStart[GameBoard.ply]; MoveNum < GameBoard.moveListStart[GameBoard.ply + 1]; ++MoveNum) {
     PickNextMove(MoveNum);
 
     Move = GameBoard.moveList[MoveNum];
 
     if (MakeMove(Move) === BOOL.FALSE) {
+      // eslint-disable-next-line
       continue;
     }
-    Legal++;
+    Legal += 1;
     Score = -AlphaBeta(-beta, -alpha, depth - 1);
 
     TakeMove();
@@ -1495,20 +1609,23 @@ function AlphaBeta(alpha, beta, depth) {
     if (Score > alpha) {
       if (Score >= beta) {
         if (Legal === 1) {
-          SearchController.fhf++;
+          SearchController.fhf += 1;
         }
-        SearchController.fh++;
+        SearchController.fh += 1;
+        // eslint-disable-next-line
         if ((Move & MFLAGCAP) === 0) {
-          GameBoard.searchKillers[MAXDEPTH + GameBoard.ply] =
-						GameBoard.searchKillers[GameBoard.ply];
+          // eslint-disable-next-line
+          GameBoard.searchKillers[MAXDEPTH + GameBoard.ply] = GameBoard.searchKillers[GameBoard.ply];
           GameBoard.searchKillers[GameBoard.ply] = Move;
         }
         return beta;
       }
+      // eslint-disable-next-line
       if ((Move & MFLAGCAP) === 0) {
-        GameBoard.searchHistory[GameBoard.pieces[FROMSQ(Move)] * BRD_SQ_NUM + TOSQ(Move)]
-					+= depth * depth;
+        // eslint-disable-next-line
+        GameBoard.searchHistory[GameBoard.pieces[FROMSQ(Move)] * BRD_SQ_NUM + TOSQ(Move)] += depth * depth;
       }
+      // eslint-disable-next-line
       alpha = Score;
       BestMove = Move;
     }
@@ -1530,12 +1647,13 @@ function AlphaBeta(alpha, beta, depth) {
 
 function ClearForSearch() {
   let index = 0;
-  // var index2 = 0;
 
+  // eslint-disable-next-line
   for (index = 0; index < 14 * BRD_SQ_NUM; ++index) {
     GameBoard.searchHistory[index] = 0;
   }
 
+  // eslint-disable-next-line
   for (index = 0; index < 3 * MAXDEPTH; ++index) {
     GameBoard.searchKillers[index] = 0;
   }
@@ -1549,6 +1667,20 @@ function ClearForSearch() {
   SearchController.stop = BOOL.FALSE;
 }
 
+function UpdateDOMStats(domScore, domDepth) {
+  let scoreText = `Score: ${(domScore / 100).toFixed(2)}`;
+  if (Math.abs(domScore) > MATE - MAXDEPTH) {
+    scoreText = `Score: Mate In ${MATE - (Math.abs(domScore)) - 1} moves`;
+  }
+
+  $('#OrderingOut').text(`Ordering: ${((SearchController.fhf / SearchController.fh) * 100).toFixed(2)}%`);
+  $('#DepthOut').text(`Depth: ${domDepth}`);
+  $('#ScoreOut').text(scoreText);
+  $('#NodesOut').text(`Nodes: ${SearchController.nodes}`);
+  $('#TimeOut').text(`Time: ${(($.now() - SearchController.start) / 1000).toFixed(1)}s`);
+  $('#BestOut').text(`BestMove: ${PrMove(SearchController.best)}`);
+}
+
 function SearchPosition() {
   let bestMove = NOMOVE;
   let bestScore = -INFINITE;
@@ -1559,6 +1691,7 @@ function SearchPosition() {
   let c;
   ClearForSearch();
 
+  // eslint-disable-next-line
   for (currentDepth = 1; currentDepth <= SearchController.depth; ++currentDepth) {
     Score = AlphaBeta(-INFINITE, INFINITE, currentDepth);
 
@@ -1573,12 +1706,14 @@ function SearchPosition() {
 
     PvNum = GetPvLine(currentDepth);
     line += ' Pv:';
+    // eslint-disable-next-line
     for (c = 0; c < PvNum; ++c) {
       line += ` ${PrMove(GameBoard.PvArray[c])}`;
     }
     if (currentDepth !== 1) {
       line += (` Ordering:${((SearchController.fhf / SearchController.fh) * 100).toFixed(2)}%`);
     }
+    // eslint-disable-next-line
     console.log(line);
   }
 
@@ -1587,226 +1722,14 @@ function SearchPosition() {
   UpdateDOMStats(bestScore, currentDepth);
 }
 
-function UpdateDOMStats(dom_score, dom_depth) {
-  let scoreText = `Score: ${(dom_score / 100).toFixed(2)}`;
-  if (Math.abs(dom_score) > MATE - MAXDEPTH) {
-    scoreText = `Score: Mate In ${MATE - (Math.abs(dom_score)) - 1} moves`;
-  }
-
-  $('#OrderingOut').text(`Ordering: ${((SearchController.fhf / SearchController.fh) * 100).toFixed(2)}%`);
-  $('#DepthOut').text(`Depth: ${dom_depth}`);
-  $('#ScoreOut').text(scoreText);
-  $('#NodesOut').text(`Nodes: ${SearchController.nodes}`);
-  $('#TimeOut').text(`Time: ${(($.now() - SearchController.start) / 1000).toFixed(1)}s`);
-  $('#BestOut').text(`BestMove: ${PrMove(SearchController.best)}`);
-}
-
-$('#SetFen').click(() => {
-  const fenStr = $('#fenIn').val();
-  NewGame(fenStr);
-});
-
-export const takeBack = () => {
-  if (GameBoard.hisPly > 0) {
-    TakeMove();
-    GameBoard.ply = 0;
-    SetInitialBoardPieces();
-  }
-};
-
-export const newGame = () => {
-  NewGame(START_FEN);
-};
-
-function NewGame(fenStr) {
-  ParseFen(fenStr);
-  // PrintBoard();
-  SetInitialBoardPieces();
-  CheckAndSet();
-}
-
-function ClearAllPieces() {
-  $('.Piece').remove();
-}
-
-function SetInitialBoardPieces() {
-  let sq;
-  let sq120;
-  // var file, rank;
-  // var rankName;
-  // var fileName;
-  // var imageString;
-  // var pieceFileName;
-  let pce;
-
-  ClearAllPieces();
-
-  for (sq = 0; sq < 64; ++sq) {
-    sq120 = SQ120(sq);
-    pce = GameBoard.pieces[sq120];
-    if (pce >= PIECES.wP && pce <= PIECES.bK) {
-      AddGUIPiece(sq120, pce);
-    }
-  }
-}
-
-function DeSelectSq(sq) {
-  $('.Square').each(function (index) {
-    if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
-      $(this).removeClass('SqSelected');
-    }
-  });
-}
-
-function SetSqSelected(sq) {
-  $('.Square').each(function (index) {
-    if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
-      $(this).addClass('SqSelected');
-    }
-  });
-}
-
-function ClickedSquare(file, rank) {
-  console.log(`ClickedSquare() at ${file},${rank}`);
-
-  const sq = FR2SQ(file - 1, rank - 1);
-
-  console.log(`Clicked sq:${PrSq(sq)}`);
-
-  SetSqSelected(sq);
-
-  return sq;
-}
-
-export const clickedPieceJSX = (file, rank) => {
-  if (UserMove.from === SQUARES.NO_SQ) {
-    UserMove.from = FR2SQ(file - 1, rank - 1);
-  } else {
-    UserMove.to = FR2SQ(file - 1, rank - 1);
-  }
-
-  MakeUserMove();
-};
-
-export const clickedSquareJSX = (file, rank) => {
-  if (UserMove.from !== SQUARES.NO_SQ) {
-    UserMove.to = ClickedSquare(
-      file,
-      rank,
-    );
-    MakeUserMove();
-  }
-};
-
-export const getJSXBoard = () => {
-  const JSXBoard = [];
-  for (let rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank--) {
-    const row = [];
-    for (let file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
-      const sq = FR2SQ(file, rank);
-      const piece = GameBoard.pieces[sq];
-      row.push(PceChar[piece]);
-    }
-    JSXBoard.push(row);
-  }
-  return (JSXBoard);
-};
-
-function MakeUserMove() {
-  if (UserMove.from !== SQUARES.NO_SQ && UserMove.to !== SQUARES.NO_SQ) {
-    console.log(`User Move:${PrSq(UserMove.from)}${PrSq(UserMove.to)}`);
-
-    const parsed = ParseMove(UserMove.from, UserMove.to);
-
-    if (parsed !== NOMOVE) {
-      MakeMove(parsed);
-      // PrintBoard();
-      MoveGUIPiece(parsed);
-      CheckAndSet();
-      // PreSearch();
-    }
-
-    DeSelectSq(UserMove.from);
-    DeSelectSq(UserMove.to);
-
-    UserMove.from = SQUARES.NO_SQ;
-    UserMove.to = SQUARES.NO_SQ;
-  }
-}
-
-function PieceIsOnSq(sq, top, left) {
-  if ((RanksBrd[sq] === 7 - Math.round(top / 60)) &&
-		FilesBrd[sq] === Math.round(left / 60)) {
-    return BOOL.TRUE;
-  }
-
-  return BOOL.FALSE;
-}
-
-function RemoveGUIPiece(sq) {
-  $('.Piece').each(function (index) {
-    if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
-      $(this).remove();
-    }
-  });
-}
-
-function AddGUIPiece(sq, pce) {
-  const file = FilesBrd[sq];
-  const rank = RanksBrd[sq];
-  const rankName = `rank${rank + 1}`;
-  const fileName = `file${file + 1}`;
-  const pieceFileName = `images/${SideChar[PieceCol[pce]]}${PceChar[pce].toUpperCase()}.png`;
-  const imageString = `<image src="${pieceFileName}" class="Piece ${rankName} ${fileName}"/>`;
-  $('#Board').append(imageString);
-}
-
-function MoveGUIPiece(move) {
-  const from = FROMSQ(move);
-  const to = TOSQ(move);
-
-  if (move & MFLAGEP) {
-    let epRemove;
-    if (GameBoard.side === COLOURS.BLACK) {
-      epRemove = to - 10;
-    } else {
-      epRemove = to + 10;
-    }
-    RemoveGUIPiece(epRemove);
-  } else if (CAPTURED(move)) {
-    RemoveGUIPiece(to);
-  }
-
-  const file = FilesBrd[to];
-  const rank = RanksBrd[to];
-  const rankName = `rank${rank + 1}`;
-  const fileName = `file${file + 1}`;
-
-  $('.Piece').each(function (index) {
-    if (PieceIsOnSq(from, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
-      $(this).removeClass();
-      $(this).addClass(`Piece ${rankName} ${fileName}`);
-    }
-  });
-
-  if (move & MFLAGCA) {
-    switch (to) {
-      case SQUARES.G1: RemoveGUIPiece(SQUARES.H1); AddGUIPiece(SQUARES.F1, PIECES.wR); break;
-      case SQUARES.C1: RemoveGUIPiece(SQUARES.A1); AddGUIPiece(SQUARES.D1, PIECES.wR); break;
-      case SQUARES.G8: RemoveGUIPiece(SQUARES.H8); AddGUIPiece(SQUARES.F8, PIECES.bR); break;
-      case SQUARES.C8: RemoveGUIPiece(SQUARES.A8); AddGUIPiece(SQUARES.D8, PIECES.bR); break;
-      default:
-    }
-  } else if (PROMOTED(move)) {
-    RemoveGUIPiece(to);
-    AddGUIPiece(to, PROMOTED(move));
-  }
-}
-
 function DrawMaterial() {
   if (GameBoard.pceNum[PIECES.wP] !== 0 || GameBoard.pceNum[PIECES.bP] !== 0) return BOOL.FALSE;
-  if (GameBoard.pceNum[PIECES.wQ] !== 0 || GameBoard.pceNum[PIECES.bQ] !== 0 ||
-		GameBoard.pceNum[PIECES.wR] !== 0 || GameBoard.pceNum[PIECES.bR] !== 0) return BOOL.FALSE;
+  if (
+    GameBoard.pceNum[PIECES.wQ] !== 0
+    || GameBoard.pceNum[PIECES.bQ] !== 0
+    || GameBoard.pceNum[PIECES.wR] !== 0
+    || GameBoard.pceNum[PIECES.bR] !== 0
+  ) return BOOL.FALSE;
   if (GameBoard.pceNum[PIECES.wB] > 1 || GameBoard.pceNum[PIECES.bB] > 1) { return BOOL.FALSE; }
   if (GameBoard.pceNum[PIECES.wN] > 1 || GameBoard.pceNum[PIECES.bN] > 1) { return BOOL.FALSE; }
 
@@ -1817,12 +1740,13 @@ function DrawMaterial() {
 }
 
 function ThreeFoldRep() {
-  let i = 0,
-    r = 0;
+  let i = 0;
+  let r = 0;
 
+  // eslint-disable-next-line
   for (i = 0; i < GameBoard.hisPly; ++i) {
     if (GameBoard.history[i].posKey === GameBoard.posKey) {
-      r++;
+      r += 1;
     }
   }
   return r;
@@ -1849,27 +1773,33 @@ function CheckResult() {
   let MoveNum = 0;
   let found = 0;
 
+  // eslint-disable-next-line
   for (MoveNum = GameBoard.moveListStart[GameBoard.ply]; MoveNum < GameBoard.moveListStart[GameBoard.ply + 1]; ++MoveNum) {
     if (MakeMove(GameBoard.moveList[MoveNum]) === BOOL.FALSE) {
+      // eslint-disable-next-line
       continue;
     }
-    found++;
+    found += 1;
     TakeMove();
     break;
   }
 
   if (found !== 0) return BOOL.FALSE;
 
+  // eslint-disable-next-line
   const InCheck = SqAttacked(GameBoard.pList[PCEINDEX(Kings[GameBoard.side], 0)], GameBoard.side ^ 1);
 
   if (InCheck === BOOL.TRUE) {
     if (GameBoard.side === COLOURS.WHITE) {
+      // eslint-disable-next-line
       alert('GAME OVER {black mates}');
       return BOOL.TRUE;
     }
+    // eslint-disable-next-line
     alert('GAME OVER {white mates}');
     return BOOL.TRUE;
   }
+  // eslint-disable-next-line
   alert('GAME DRAWN {stalemate}'); return BOOL.TRUE;
 }
 
@@ -1882,23 +1812,217 @@ function CheckAndSet() {
   }
 }
 
-function PreSearch() {
-  if (GameController.GameOver === BOOL.FALSE) {
-    SearchController.thinking = BOOL.TRUE;
-    setTimeout(() => { StartSearch(); }, 200);
+function AddGUIPiece(sq, pce) {
+  const file = FilesBrd[sq];
+  const rank = RanksBrd[sq];
+  const rankName = `rank${rank + 1}`;
+  const fileName = `file${file + 1}`;
+  const pieceFileName = `images/${SideChar[PieceCol[pce]]}${PceChar[pce].toUpperCase()}.png`;
+  const imageString = `<image src="${pieceFileName}" class="Piece ${rankName} ${fileName}"/>`;
+  $('#Board').append(imageString);
+}
+
+function ClearAllPieces() {
+  $('.Piece').remove();
+}
+
+function SetInitialBoardPieces() {
+  let sq;
+  let sq120;
+  let pce;
+
+  ClearAllPieces();
+
+  // eslint-disable-next-line
+  for (sq = 0; sq < 64; ++sq) {
+    sq120 = SQ120(sq);
+    pce = GameBoard.pieces[sq120];
+    if (pce >= PIECES.wP && pce <= PIECES.bK) {
+      AddGUIPiece(sq120, pce);
+    }
   }
 }
 
-$('#SearchButton').click(() => {
-  GameController.PlayerSide = GameController.side ^ 1;
-  PreSearch();
+function NewGame(fenStr) {
+  ParseFen(fenStr);
+  // PrintBoard();
+  SetInitialBoardPieces();
+  CheckAndSet();
+}
+
+$('#SetFen').click(() => {
+  const fenStr = $('#fenIn').val();
+  NewGame(fenStr);
 });
+
+export const takeBack = () => {
+  if (GameBoard.hisPly > 0) {
+    TakeMove();
+    GameBoard.ply = 0;
+    SetInitialBoardPieces();
+  }
+};
+
+export const newGame = () => {
+  NewGame(START_FEN);
+};
+
+function PieceIsOnSq(sq, top, left) {
+  if (
+    (RanksBrd[sq] === 7 - Math.round(top / 60))
+    && FilesBrd[sq] === Math.round(left / 60)
+  ) {
+    return BOOL.TRUE;
+  }
+
+  return BOOL.FALSE;
+}
+
+function DeSelectSq(sq) {
+  $('.Square').each(() => {
+    if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
+      $(this).removeClass('SqSelected');
+    }
+  });
+}
+
+function SetSqSelected(sq) {
+  $('.Square').each(() => {
+    if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
+      $(this).addClass('SqSelected');
+    }
+  });
+}
+
+function ClickedSquare(file, rank) {
+  // eslint-disable-next-line
+  console.log(`ClickedSquare() at ${file},${rank}`);
+
+  const sq = FR2SQ(file - 1, rank - 1);
+
+  // eslint-disable-next-line
+  console.log(`Clicked sq:${PrSq(sq)}`);
+
+  SetSqSelected(sq);
+
+  return sq;
+}
+
+function RemoveGUIPiece(sq) {
+  $('.Piece').each(() => {
+    if (PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
+      $(this).remove();
+    }
+  });
+}
+
+function MoveGUIPiece(move) {
+  const from = FROMSQ(move);
+  const to = TOSQ(move);
+
+  // eslint-disable-next-line
+  if (move & MFLAGEP) {
+    let epRemove;
+    if (GameBoard.side === COLOURS.BLACK) {
+      epRemove = to - 10;
+    } else {
+      epRemove = to + 10;
+    }
+    RemoveGUIPiece(epRemove);
+  } else if (CAPTURED(move)) {
+    RemoveGUIPiece(to);
+  }
+
+  const file = FilesBrd[to];
+  const rank = RanksBrd[to];
+  const rankName = `rank${rank + 1}`;
+  const fileName = `file${file + 1}`;
+
+  $('.Piece').each(() => {
+    if (PieceIsOnSq(from, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
+      $(this).removeClass();
+      $(this).addClass(`Piece ${rankName} ${fileName}`);
+    }
+  });
+
+  // eslint-disable-next-line
+  if (move & MFLAGCA) {
+    switch (to) {
+      case SQUARES.G1: RemoveGUIPiece(SQUARES.H1); AddGUIPiece(SQUARES.F1, PIECES.wR); break;
+      case SQUARES.C1: RemoveGUIPiece(SQUARES.A1); AddGUIPiece(SQUARES.D1, PIECES.wR); break;
+      case SQUARES.G8: RemoveGUIPiece(SQUARES.H8); AddGUIPiece(SQUARES.F8, PIECES.bR); break;
+      case SQUARES.C8: RemoveGUIPiece(SQUARES.A8); AddGUIPiece(SQUARES.D8, PIECES.bR); break;
+      default:
+    }
+  } else if (PROMOTED(move)) {
+    RemoveGUIPiece(to);
+    AddGUIPiece(to, PROMOTED(move));
+  }
+}
+
+function MakeUserMove() {
+  if (UserMove.from !== SQUARES.NO_SQ && UserMove.to !== SQUARES.NO_SQ) {
+    // eslint-disable-next-line
+    console.log(`User Move:${PrSq(UserMove.from)}${PrSq(UserMove.to)}`);
+
+    const parsed = ParseMove(UserMove.from, UserMove.to);
+
+    if (parsed !== NOMOVE) {
+      MakeMove(parsed);
+      // PrintBoard();
+      MoveGUIPiece(parsed);
+      CheckAndSet();
+      // PreSearch();
+    }
+
+    DeSelectSq(UserMove.from);
+    DeSelectSq(UserMove.to);
+
+    UserMove.from = SQUARES.NO_SQ;
+    UserMove.to = SQUARES.NO_SQ;
+  }
+}
+
+export const clickedPieceJSX = (file, rank) => {
+  if (UserMove.from === SQUARES.NO_SQ) {
+    UserMove.from = FR2SQ(file - 1, rank - 1);
+  } else {
+    UserMove.to = FR2SQ(file - 1, rank - 1);
+  }
+
+  MakeUserMove();
+};
+
+export const clickedSquareJSX = (file, rank) => {
+  if (UserMove.from !== SQUARES.NO_SQ) {
+    UserMove.to = ClickedSquare(
+      file,
+      rank,
+    );
+    MakeUserMove();
+  }
+};
+
+export const getJSXBoard = () => {
+  const JSXBoard = [];
+  for (let rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank -= 1) {
+    const row = [];
+    for (let file = FILES.FILE_A; file <= FILES.FILE_H; file += 1) {
+      const sq = FR2SQ(file, rank);
+      const piece = GameBoard.pieces[sq];
+      row.push(PceChar[piece]);
+    }
+    JSXBoard.push(row);
+  }
+  return (JSXBoard);
+};
 
 function StartSearch() {
   SearchController.depth = MAXDEPTH;
   // var t = $.now();
   const tt = $('#ThinkTimeChoice').val();
 
+  // eslint-disable-next-line
   SearchController.time = parseInt(tt) * 1000;
   SearchPosition();
 
@@ -1907,89 +2031,18 @@ function StartSearch() {
   CheckAndSet();
 }
 
-$(() => {
-  init();
-  NewGame(START_FEN);
+function PreSearch() {
+  if (GameController.GameOver === BOOL.FALSE) {
+    SearchController.thinking = BOOL.TRUE;
+    setTimeout(() => { StartSearch(); }, 200);
+  }
+}
+
+$('#SearchButton').click(() => {
+  // eslint-disable-next-line
+  GameController.PlayerSide = GameController.side ^ 1;
+  PreSearch();
 });
-
-function InitFilesRanksBrd() {
-  let index = 0;
-  let file = FILES.FILE_A;
-  let rank = RANKS.RANK_1;
-  let sq = SQUARES.A1;
-
-  for (index = 0; index < BRD_SQ_NUM; ++index) {
-    FilesBrd[index] = SQUARES.OFFBOARD;
-    RanksBrd[index] = SQUARES.OFFBOARD;
-  }
-
-  for (rank = RANKS.RANK_1; rank <= RANKS.RANK_8; ++rank) {
-    for (file = FILES.FILE_A; file <= FILES.FILE_H; ++file) {
-      sq = FR2SQ(file, rank);
-      FilesBrd[sq] = file;
-      RanksBrd[sq] = rank;
-    }
-  }
-}
-
-function InitHashKeys() {
-  let index = 0;
-
-  for (index = 0; index < 14 * 120; ++index) {
-    PieceKeys[index] = RAND_32();
-  }
-
-  SideKey = RAND_32();
-
-  for (index = 0; index < 16; ++index) {
-    CastleKeys[index] = RAND_32();
-  }
-}
-
-function InitSq120To64() {
-  let index = 0;
-  let file = FILES.FILE_A;
-  let rank = RANKS.RANK_1;
-  let sq = SQUARES.A1;
-  let sq64 = 0;
-
-  for (index = 0; index < BRD_SQ_NUM; ++index) {
-    Sq120ToSq64[index] = 65;
-  }
-
-  for (index = 0; index < 64; ++index) {
-    Sq64ToSq120[index] = 120;
-  }
-
-  for (rank = RANKS.RANK_1; rank <= RANKS.RANK_8; ++rank) {
-    for (file = FILES.FILE_A; file <= FILES.FILE_H; ++file) {
-      sq = FR2SQ(file, rank);
-      Sq64ToSq120[sq64] = sq;
-      Sq120ToSq64[sq] = sq64;
-      sq64++;
-    }
-  }
-}
-
-function InitBoardVars() {
-  let index = 0;
-  for (index = 0; index < MAXGAMEMOVES; ++index) {
-    GameBoard.history.push({
-      move: NOMOVE,
-      castlePerm: 0,
-      enPas: 0,
-      fiftyMove: 0,
-      posKey: 0,
-    });
-  }
-
-  for (index = 0; index < PVENTRIES; ++index) {
-    GameBoard.PvTable.push({
-      move: NOMOVE,
-      posKey: 0,
-    });
-  }
-}
 
 function InitBoardSquares() {
   let light = 0;
@@ -2001,18 +2054,111 @@ function InitBoardSquares() {
   let fileIter = 0;
   let lightString;
 
-  for (rankIter = RANKS.RANK_8; rankIter >= RANKS.RANK_1; rankIter--) {
+  for (rankIter = RANKS.RANK_8; rankIter >= RANKS.RANK_1; rankIter -= 1) {
+    // eslint-disable-next-line
     light = lastLight ^ 1;
+    // eslint-disable-next-line
     lastLight ^= 1;
     rankName = `rank${rankIter + 1}`;
-    for (fileIter = FILES.FILE_A; fileIter <= FILES.FILE_H; fileIter++) {
+    for (fileIter = FILES.FILE_A; fileIter <= FILES.FILE_H; fileIter += 1) {
       fileName = `file${fileIter + 1}`;
 
       if (light === 0) lightString = 'Light';
       else lightString = 'Dark';
       divString = `<div class="Square ${rankName} ${fileName} ${lightString}"/>`;
+      // eslint-disable-next-line
       light ^= 1;
       $('#Board').append(divString);
+    }
+  }
+}
+
+function InitBoardVars() {
+  let index = 0;
+  // eslint-disable-next-line
+  for (index = 0; index < MAXGAMEMOVES; ++index) {
+    GameBoard.history.push({
+      move: NOMOVE,
+      castlePerm: 0,
+      enPas: 0,
+      fiftyMove: 0,
+      posKey: 0,
+    });
+  }
+
+  // eslint-disable-next-line
+  for (index = 0; index < PVENTRIES; ++index) {
+    GameBoard.PvTable.push({
+      move: NOMOVE,
+      posKey: 0,
+    });
+  }
+}
+
+function InitSq120To64() {
+  let index = 0;
+  let file = FILES.FILE_A;
+  let rank = RANKS.RANK_1;
+  let sq = SQUARES.A1;
+  let sq64 = 0;
+
+  // eslint-disable-next-line
+  for (index = 0; index < BRD_SQ_NUM; ++index) {
+    Sq120ToSq64[index] = 65;
+  }
+
+  // eslint-disable-next-line
+  for (index = 0; index < 64; ++index) {
+    Sq64ToSq120[index] = 120;
+  }
+
+  // eslint-disable-next-line
+  for (rank = RANKS.RANK_1; rank <= RANKS.RANK_8; ++rank) {
+    // eslint-disable-next-line
+    for (file = FILES.FILE_A; file <= FILES.FILE_H; ++file) {
+      sq = FR2SQ(file, rank);
+      Sq64ToSq120[sq64] = sq;
+      Sq120ToSq64[sq] = sq64;
+      sq64 += 1;
+    }
+  }
+}
+
+function InitHashKeys() {
+  let index = 0;
+
+  // eslint-disable-next-line
+  for (index = 0; index < 14 * 120; ++index) {
+    PieceKeys[index] = RAND_32();
+  }
+
+  SideKey = RAND_32();
+
+  // eslint-disable-next-line
+  for (index = 0; index < 16; ++index) {
+    CastleKeys[index] = RAND_32();
+  }
+}
+
+function InitFilesRanksBrd() {
+  let index = 0;
+  let file = FILES.FILE_A;
+  let rank = RANKS.RANK_1;
+  let sq = SQUARES.A1;
+
+  // eslint-disable-next-line
+  for (index = 0; index < BRD_SQ_NUM; ++index) {
+    FilesBrd[index] = SQUARES.OFFBOARD;
+    RanksBrd[index] = SQUARES.OFFBOARD;
+  }
+
+  // eslint-disable-next-line
+  for (rank = RANKS.RANK_1; rank <= RANKS.RANK_8; ++rank) {
+    // eslint-disable-next-line
+    for (file = FILES.FILE_A; file <= FILES.FILE_H; ++file) {
+      sq = FR2SQ(file, rank);
+      FilesBrd[sq] = file;
+      RanksBrd[sq] = rank;
     }
   }
 }
@@ -2025,3 +2171,8 @@ function init() {
   InitMvvLva();
   InitBoardSquares();
 }
+
+$(() => {
+  init();
+  NewGame(START_FEN);
+});

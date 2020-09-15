@@ -6,10 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery';
 import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import vuetify from '@/plugins/vuetify';
 import App from './App';
 import router from './router';
 import store from './store';
-import vuetify from '@/plugins/vuetify';
 
 Vue.config.productionTip = false;
 

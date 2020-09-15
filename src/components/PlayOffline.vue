@@ -27,8 +27,20 @@
   <div class="mt-2">
     <div id="chessmenu" class="mx-auto" :style="{width: `${chessboardSize+8}px`}">
       <div class="row mx-0">
-        <button @click="takeBack" type="button" :class="`custom-button-offline col ${this.$store.state.darkModeClass}`">Take Back</button>
-        <button @click="newGame" type="button" :class="`custom-button-offline col ${this.$store.state.darkModeClass}`">New Game</button>
+        <button
+          @click="takeBack"
+          type="button"
+          :class="`custom-button-offline col ${this.$store.state.darkModeClass}`"
+        >
+          Take Back
+        </button>
+        <button
+          @click="newGame"
+          type="button"
+          :class="`custom-button-offline col ${this.$store.state.darkModeClass}`"
+        >
+          New Game
+        </button>
       </div>
     </div>
   </div>
@@ -36,6 +48,7 @@
 </template>
 
 <script>
+import $ from 'jquery';
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
 import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '../utils/engine';
@@ -59,7 +72,8 @@ export default {
       }
       this.chessboard = getJSXBoard();
       if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
-        this.rankSelected = this.fileSelected = null;
+        this.fileSelected = null;
+        this.rankSelected = null;
       } else {
         this.rankSelected = 8 - rank;
         this.fileSelected = file - 1;
@@ -68,17 +82,18 @@ export default {
     takeBack() {
       takeBack();
       this.chessboard = getJSXBoard();
-      this.fileSelected = this.rankSelected = null;
+      this.fileSelected = null;
+      this.rankSelected = null;
     },
     newGame() {
       newGame();
       this.chessboard = getJSXBoard();
-      this.fileSelected = this.rankSelected = null;
+      this.fileSelected = null;
+      this.rankSelected = null;
     },
   },
   mounted() {
     newGame();
-    const $ = require('jquery');
     const myInterval = setInterval(() => {
       this.chessboardSize = $('#chessboard').width();
     }, 1);

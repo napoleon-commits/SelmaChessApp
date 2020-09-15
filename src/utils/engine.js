@@ -127,9 +127,9 @@ const Sq64ToSq120 = new Array(64);
 export function RAND_32() {
   // eslint-disable-next-line
   return (
-      (Math.floor((Math.random() * 255) + 1) << 23)
-    | (Math.floor((Math.random() * 255) + 1) << 16)
-    | (Math.floor((Math.random() * 255) + 1) << 8)
+    (Math.floor((Math.random() * 255) + 1) * (2 ** 23))
+    | (Math.floor((Math.random() * 255) + 1) * (2 ** 16))
+    | (Math.floor((Math.random() * 255) + 1) * (2 ** 8))
     | (Math.floor((Math.random() * 255) + 1))
   );
 }

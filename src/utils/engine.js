@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import {decimalToBinary, or, binaryToDecimal} from './bitwise';
 
 const PIECES = {
   EMPTY: 0,
@@ -127,10 +128,16 @@ const Sq64ToSq120 = new Array(64);
 export function RAND_32() {
   // eslint-disable-next-line
   return (
-    (Math.floor((Math.random() * 255) + 1) * (2 ** 23))
-    | (Math.floor((Math.random() * 255) + 1) * (2 ** 16))
-    | (Math.floor((Math.random() * 255) + 1) * (2 ** 8))
-    | (Math.floor((Math.random() * 255) + 1))
+    binaryToDecimal(
+      or(
+        or(
+          or(
+            decimalToBinary((Math.floor((Math.random() * 255) + 1) * (2 ** 23)), ''),
+            decimalToBinary((Math.floor((Math.random() * 255) + 1) * (2 ** 16)), ''),
+          ), decimalToBinary((Math.floor((Math.random() * 255) + 1) * (2 ** 8)), ''),
+        ), decimalToBinary((Math.floor((Math.random() * 255) + 1)), ''),
+      )
+    )
   );
 }
 

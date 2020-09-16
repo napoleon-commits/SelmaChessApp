@@ -17,3 +17,11 @@ const or = (str1, str2) => {
     }
     return a0;
 }
+
+const binaryToDecimal = (str) => {
+    let a0 = 0;
+    for (let i = str.length - 1; i >= 0; i -= 1) {
+        a0 += (Number(str[i]) * (2 ** (str.length - i - 1)))
+    }
+    return a0;
+}

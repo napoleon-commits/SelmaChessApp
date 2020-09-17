@@ -2,16 +2,19 @@
   <div id="app" :class="this.$store.state.darkModeClass">
     <Toolbar />
     <router-view/>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Toolbar from './components/Toolbar';
+import Footer from './components/Footer';
 
 export default {
   name: 'App',
   components: {
     Toolbar,
+    Footer,
   },
 };
 </script>

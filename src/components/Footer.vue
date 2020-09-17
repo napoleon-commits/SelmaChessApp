@@ -2,8 +2,8 @@
   <div :class="`text-center ${this.$store.state.darkModeClass}`">
       <div>
           {{
-          `We must make sure that chess will not be like a dead language;
-          very interesting but for a very small group.`
+          `"We must make sure that chess will not be like a dead language;
+          very interesting but for a very small group."`
           }}
       </div>
       <div>a Byron J-Mil Hall production</div>

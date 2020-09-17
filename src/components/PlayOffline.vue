@@ -96,12 +96,14 @@ export default {
     newGame();
     const myInterval = setInterval(() => {
       this.chessboardSize = $('#chessboard').width();
+      this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });
     }, 1);
     setTimeout(() => {
       clearInterval(myInterval);
     }, 3000);
     window.addEventListener('resize', () => {
       this.chessboardSize = $('#chessboard').width();
+      this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });
     });
   },
 };

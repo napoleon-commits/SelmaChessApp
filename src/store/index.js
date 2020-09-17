@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     darkMode: true,
     darkModeClass: 'dark-mode',
+    chessboardWidth: 0,
   },
   mutations: {
     toggleDarkMode(state) {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
       } else {
         state.darkModeClass = 'light-mode';
       }
+    },
+    setChessBoardWidth(state, payload) {
+      state.chessboardWidth = payload.chessboardWidth;
     },
   },
 });

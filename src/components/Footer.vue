@@ -1,5 +1,8 @@
 <template>
-  <div :class="`text-center ${this.$store.state.darkModeClass}`">
+  <div
+    :class="`mx-auto text-center ${this.$store.state.darkModeClass}`"
+    :style="{width: `${this.$store.state.chessboardWidth+8}px`}"
+  >
       <div>
           {{
           `"We must make sure that chess will not be like a dead language;

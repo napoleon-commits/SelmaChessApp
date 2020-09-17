@@ -24,16 +24,27 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #343a40;
   min-height: 100vh;
 }
 .light-mode{
   background-color: white;
+  color: #343a40;
 }
 .dark-mode{
   background-color: #343a40 !important;
+  color: white;
 }
 .c-pointer{
   cursor: pointer;
+}
+a{
+  color: #42b983;
+}
+.dark-mode a:hover{
+  color: white;
+}
+.light-mode a:hover{
+  color: #343a40;
 }
 </style>

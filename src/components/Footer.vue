@@ -4,6 +4,8 @@
       <div>a Byron J-Mil Hall production</div>
       <div>
           <a href="mailto:selmachessapp@gmail.com" target="_top">
+              selmachessapp@gmail.com
+          </a>
       </div>
   </div>
 </template>

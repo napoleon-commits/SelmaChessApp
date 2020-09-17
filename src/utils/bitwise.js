@@ -25,3 +25,18 @@ export const binaryToDecimal = (str) => {
   }
   return a0;
 };
+
+export const and = (str1, str2) => {
+  const maxLength = (str1.length > str2.length) ? str1.length : str2.length;
+  const t1Str1 = str1.padStart(maxLength, '0');
+  const t2Str2 = str2.padStart(maxLength, '0');
+  let a0 = '';
+  for (let i = 0; i < maxLength; i += 1) {
+    if (t1Str1[i] === '1' && t2Str2[i] === '1') {
+      a0 += '1';
+    } else {
+      a0 += '0';
+    }
+  }
+  return a0;
+};

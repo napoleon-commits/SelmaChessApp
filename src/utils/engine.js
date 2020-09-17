@@ -87,7 +87,7 @@ const SideChar = 'wb-';
 const RankChar = '12345678';
 const FileChar = 'abcdefgh';
 
-function FR2SQ(f, r) {
+export function FR2SQ(f, r) {
   return ((21 + (f)) + ((r) * 10));
 }
 
@@ -124,7 +124,7 @@ const CastleKeys = new Array(16);
 const Sq120ToSq64 = new Array(BRD_SQ_NUM);
 const Sq64ToSq120 = new Array(64);
 
-function RAND_32() {
+export function RAND_32() {
   return (Math.floor((Math.random() * 255) + 1) << 23) | (Math.floor((Math.random() * 255) + 1) << 16)
 		| (Math.floor((Math.random() * 255) + 1) << 8) | Math.floor((Math.random() * 255) + 1);
 }

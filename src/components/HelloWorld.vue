@@ -1,5 +1,5 @@
 <template>
-  <div class="hello mx-4 text-center">
+  <div :class="`hello mx-4 text-center ${this.$store.state.darkModeClass}`">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>

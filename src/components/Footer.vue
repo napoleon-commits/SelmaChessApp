@@ -1,7 +1,15 @@
 <template>
   <div
-    :class="`mx-auto text-center ${this.$store.state.darkModeClass}`"
-    :style="{width: `${this.$store.state.chessboardWidth+8}px`}"
+    :class="`${
+      (this.$store.state.chessboardWidth)
+      ?'mx-auto'
+      :'mx-4'
+      } text-center ${this.$store.state.darkModeClass}`"
+    :style="(()=>{
+      if(this.$store.state.chessboardWidth){
+        return {width: `${this.$store.state.chessboardWidth+8}px`}
+      }
+    })()"
   >
       <div>
           {{

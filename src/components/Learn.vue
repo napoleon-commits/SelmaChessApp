@@ -1,33 +1,43 @@
 <template>
   <div :class="`${this.$store.state.darkModeClass} mx-4`">
       <div class="mb-3">
-        <div class="h1 pl-2">
+        <div class="h1 px-2">
             {{LandingPageHeader.header}}
         </div>
-        <div class="pl-2">
+        <div class="px-2">
             {{LandingPageHeader.description}}
         </div>
       </div>
       <div class="mb-3">
-          <div class="h2 pl-2">Getting Started</div>
+          <div class="h2 px-2">Getting Started</div>
       </div>
       <div class="mb-3">
           <button
-            :class="`custom-button-offline ${this.$store.state.darkModeClass} w-100 text-left pl-2`"
+            :class="`custom-button-offline ${this.$store.state.darkModeClass} w-100 text-left px-2`"
+            type="button"
+            data-toggle="collapse"
+            data-target="#GoalOfChess"
+            aria-controls="GoalOfChess"
+            aria-expanded="flase"
           >
               What is the goal of a chess game?
           </button>
+          <div class="collapse" id="GoalOfChess">
+              <div class="px-2">{{GettingStarted[0]}}</div>
+          </div>
       </div>
   </div>
 </template>
 
 <script>
 import LandingPageHeader from '../static/LandingPageHeader';
+import GettingStarted from '../static/GettingStarted';
 
 export default {
     data(){
         return {
-            LandingPageHeader
+            LandingPageHeader,
+            GettingStarted
         }
     }
 }

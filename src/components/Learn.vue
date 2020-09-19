@@ -46,12 +46,39 @@
               </div>
           </div>
       </div>
+      <hr />
+      <div class="mb-3">
+        <div class="h2">Moving the pieces</div>
+      </div>
+      <div v-for="(move, index) in ChessMovements" :key="index">
+        <div class="mb-3">
+          <button
+            :class="`custom-button-offline w-100 text-left px-2`"
+            type="button"
+            data-toggle="collapse"
+            aria-expanded="false"
+            :data-target="`#${String(move.piece).replace(' ','')}`"
+            :aria-controls="move.piece"
+          >
+              {{move.piece}}
+          </button>
+          <div class="collapse px-2" :id="String(move.piece).replace(' ', '')">
+            <div class="mb-3">
+              {{move.rules}}
+            </div>
+            <div>
+              IMAGE
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
 import LandingPageHeader from '../static/LandingPageHeader';
 import GettingStarted from '../static/GettingStarted';
+import ChessMovements from '../static/ChessMovements';
 
 import StaticChessBoard from './subcomponents/StaticChessBoard';
 import { startBoard } from '../constants';
@@ -65,6 +92,7 @@ export default {
       LandingPageHeader,
       GettingStarted,
       startBoard,
+      ChessMovements,
     };
   },
 };

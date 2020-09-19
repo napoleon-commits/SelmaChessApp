@@ -95,7 +95,7 @@
               {{obj.description}}
             </div>
             <div>
-              IMAGE
+              <DynamicChessBoard :moves="[]"/>
             </div>
           </div>
         </div>
@@ -110,11 +110,13 @@ import ChessMovements from '../static/ChessMovements';
 import SpecialMoves from '../static/SpecialMoves';
 
 import StaticChessBoard from './subcomponents/StaticChessBoard';
+import DynamicChessBoard from './subcomponents/DynamicChessBoard';
 import { startBoard } from '../constants';
 
 export default {
   components: {
     StaticChessBoard,
+    DynamicChessBoard
   },
   data() {
     return {

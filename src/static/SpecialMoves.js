@@ -1,6 +1,5 @@
 import check from '../images/check.png';
 import castling from '../images/castling.gif';
-import pawnPromotion from '../images/pawn_promotion.gif';
 
 import createBoardArray from '../utils/CreateBoardArray';
 
@@ -37,9 +36,11 @@ export default [
         Then the pawn can be exchanged for a queen, rook, bishop, or knight.
         Usually, the pawn is promoted to a queen. In some strategies the pawn is
         promoted to a rook, bishop, or knight. This is called underpromiting.`,
-    image: pawnPromotion,
     alt: 'Pawn Promotion',
-    moves: [],
+    moves: [
+      createBoardArray('..kr....ppp..pp...p.......b..b....P.pPPq.P..P...PBQPB.p.RN.K.R..'),
+      createBoardArray('..kr....ppp..pp...p.......b..b....P.pPPq.P..P...PBQPB...RN.K.q..'),
+    ],
   },
   {
     move: 'En passant',

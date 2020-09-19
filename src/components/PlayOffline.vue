@@ -113,7 +113,4 @@ export default {
   .square-selected{
     background-color: #6d7a82 !important;
   }
-  #chessboard{
-    border: 4px solid #343a40;
-  }
 </style>

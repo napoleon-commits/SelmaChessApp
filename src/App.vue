@@ -62,4 +62,7 @@ a{
 .text-dark{
   color: #343a40 !important;
 }
+table{
+  border: 4px solid #343a40;
+}
 </style>

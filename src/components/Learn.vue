@@ -38,7 +38,7 @@
             Starting Position
           </button>
           <div class="collapse" id="StartingPosition">
-              <div class="mb-3">
+              <div class="mb-3 px-2">
                   {{GettingStarted[1]}}
               </div>
               <div>IMAGE</div>

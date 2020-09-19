@@ -56,15 +56,10 @@ a{
   border-radius: 8px;
   border: 2px solid #42b983;
 }
-/* .custom-button-offline.dark-mode{
-  background-color: #343a40;
-  color: white;
-}
-.custom-button-offline.light-mode{
-  background-color: white;
-  color: #343a40;
-} */
 .dark-square{
     background-color: #42b983;
+}
+.text-dark{
+  color: #343a40 !important;
 }
 </style>

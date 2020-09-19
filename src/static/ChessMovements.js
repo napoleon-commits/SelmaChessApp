@@ -1,5 +1,4 @@
 import bishopMovements from '../images/BishopMovements.png';
-import knightMovements from '../images/KnightMovements.png';
 import rookMovements from '../images/RookMovements.png';
 import queenMovements from '../images/QueenMovements.png';
 import kingMovements from '../images/KingMovements.png';
@@ -14,9 +13,8 @@ export default [
         The knights move in an "L" shape. They can move two
         squares along the file and one square along the rank,
         or two squares along the rank and one square along the file.`,
-    image: knightMovements,
     alt: 'Knight Movements',
-    board: createBoardArray('.'.repeat(16)+'..o.o....o...o.....N.....o...o....o.o...........')
+    board: createBoardArray(`${'.'.repeat(16)}..o.o....o...o.....N.....o...o....o.o...........`),
   },
   {
     piece: 'Bishop',
@@ -24,7 +22,7 @@ export default [
         cannot leap over other pieces.`,
     image: bishopMovements,
     alt: 'Bishop Movements',
-    board: []
+    board: [],
   },
   {
     piece: 'Rook',
@@ -33,7 +31,7 @@ export default [
         Along with the king, a rook is involved in castling.`,
     image: rookMovements,
     alt: 'Rook Movements',
-    board: []
+    board: [],
   },
   {
     piece: 'King',
@@ -41,7 +39,7 @@ export default [
         a special move called castling.`,
     image: kingMovements,
     alt: 'King Movements',
-    board: []
+    board: [],
   },
   {
     piece: 'Queen',
@@ -50,7 +48,7 @@ export default [
         file, or diagonal, but cannot leap over other pieces.`,
     image: queenMovements,
     alt: 'Queen Movements',
-    board: []
+    board: [],
   },
   {
     piece: 'Pawn',
@@ -60,6 +58,6 @@ export default [
         A pawn has two special moves: the en passant and promotion.`,
     image: pawnMovements,
     alt: 'Pawn Movements',
-    board: []
+    board: [],
   },
 ];

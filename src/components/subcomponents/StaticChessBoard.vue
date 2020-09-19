@@ -5,7 +5,7 @@
                 v-for="(square, fileIndex) in rank"
                 :key="fileIndex"
                 v-html="getHTMLChessPiece(square)"
-                :class="(((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square'"
+                :class="((((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square') + ' text-center'"
             />
         </tr>
     </table>

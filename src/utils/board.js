@@ -15,10 +15,10 @@ import blankSquare from '../images/blankSquare.png';
 
 const getHTMLChessPiece = (letter) => {
   if (letter === 'o') {
-    return '<span>&bull;</span>'
+    return '<span class="text-dark" style="font-size: 32px;">&bull;</span>';
   }
   if (letter === 'x') {
-    return '<span>&times;</span>'
+    return '<span class="text-dark" style="font-size: 32px;">&times;</span>';
   }
   let imageSrc = null;
   switch (letter) {

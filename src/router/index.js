@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import PlayOffline from '@/components/PlayOffline';
-import HelloWorld from '@/components/HelloWorld';
+import Learn from '@/components/Learn';
 
 Vue.use(Router);
 
@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: 'Learn',
+      component: Learn,
     },
     {
       path: '/offline',

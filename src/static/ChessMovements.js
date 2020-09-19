@@ -1,8 +1,3 @@
-// import rookMovements from '../images/RookMovements.png';
-// import queenMovements from '../images/QueenMovements.png';
-// import kingMovements from '../images/KingMovements.png';
-// import pawnMovements from '../images/PawnMovements.png';
-
 import createBoardArray from '../utils/CreateBoardArray';
 
 export default [
@@ -27,26 +22,23 @@ export default [
     rules: `The rooks can move any number of squares along a rank or file,
         but cannot leap over other pieces.
         Along with the king, a rook is involved in castling.`,
-    image: rookMovements,
     alt: 'Rook Movements',
-    board: [],
+    board: createBoardArray('...o....'.repeat(3)+'oooRoooo'+'...o....'.repeat(4)),
   },
   {
     piece: 'King',
     rules: `The king can move one square in any direction. The king has
         a special move called castling.`,
-    image: kingMovements,
     alt: 'King Movements',
-    board: [],
+    board: createBoardArray('.'.repeat(16)+'....ooo.....oKo.....ooo.'+'.'.repeat(24)),
   },
   {
     piece: 'Queen',
     rules: `The queen combines the power of a rook and bishop and can move
         any number of squares along a rank,
         file, or diagonal, but cannot leap over other pieces.`,
-    image: queenMovements,
     alt: 'Queen Movements',
-    board: [],
+    board: createBoardArray('...o...oo..o..o..o.o.o....ooo...oooQoooo..ooo....o.o.o..o..o..o.'),
   },
   {
     piece: 'Pawn',
@@ -54,8 +46,7 @@ export default [
         If the pawn is on its first move it can move forward two squares.
         Otherwise, a pawn can only move forward one square.
         A pawn has two special moves: the en passant and promotion.`,
-    image: pawnMovements,
     alt: 'Pawn Movements',
-    board: [],
+    board: createBoardArray('.'.repeat(24)+'xox......P...o......xox......P..........'),
   },
 ];

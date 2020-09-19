@@ -116,7 +116,7 @@ import { startBoard } from '../constants';
 export default {
   components: {
     StaticChessBoard,
-    DynamicChessBoard
+    DynamicChessBoard,
   },
   data() {
     return {

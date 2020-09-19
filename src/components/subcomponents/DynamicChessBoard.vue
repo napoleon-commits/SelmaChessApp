@@ -15,25 +15,25 @@
 import getHTMLChessPiece from '../../utils/board';
 
 export default {
-    props:['moves',],
-    data(){
-        return{
-            moveIndex: 0,
-        }
-    },
-    methods: {
-        getHTMLChessPiece,
-    },
-    mounted(){
-        setInterval(()=>{
-            if((this.moveIndex + 1) === this.moves.length){
-                this.moveIndex = 0;
-            } else {
-                this.moveIndex += 1;
-            }
-        }, 1000)
-    }
-}
+  props: ['moves'],
+  data() {
+    return {
+      moveIndex: 0,
+    };
+  },
+  methods: {
+    getHTMLChessPiece,
+  },
+  mounted() {
+    setInterval(() => {
+      if ((this.moveIndex + 1) === this.moves.length) {
+        this.moveIndex = 0;
+      } else {
+        this.moveIndex += 1;
+      }
+    }, 1000);
+  },
+};
 </script>
 
 <style>

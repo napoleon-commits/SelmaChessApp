@@ -47,4 +47,19 @@ a{
 .light-mode a:hover{
   color: #343a40;
 }
+.custom-button-offline {
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #42b983;
+}
+.custom-button-offline.dark-mode{
+  background-color: #343a40;
+  color: white;
+}
+.custom-button-offline.light-mode{
+  background-color: white;
+  color: #343a40;
+}
 </style>

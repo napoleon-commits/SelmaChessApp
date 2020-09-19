@@ -1,5 +1,5 @@
 <template>
-    <table>
+    <table class="mx-auto">
         <tr v-for="(rank, rankIndex) in board" :key="rankIndex">
             <td
                 v-for="(square, fileIndex) in rank"

@@ -95,7 +95,7 @@
               {{obj.description}}
             </div>
             <div>
-              <DynamicChessBoard :moves="[]"/>
+              <DynamicChessBoard :moves="obj.moves"/>
             </div>
           </div>
         </div>

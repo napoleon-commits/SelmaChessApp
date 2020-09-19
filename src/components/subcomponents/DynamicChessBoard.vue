@@ -1,5 +1,5 @@
 <template>
-    <!-- <table class="mx-auto">
+    <table class="mx-auto">
         <tr v-for="(rank, rankIndex) in moves[moveIndex]" :key="rankIndex">
             <td
                 v-for="(square, fileIndex) in rank"
@@ -8,8 +8,7 @@
                 :class="(((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square'"
             />
         </tr>
-    </table> -->
-    <span>test</span>
+    </table>
 </template>
 
 <script>

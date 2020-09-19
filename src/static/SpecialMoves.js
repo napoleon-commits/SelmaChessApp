@@ -3,6 +3,9 @@ import castling from '../images/castling.gif';
 import enPassant from '../images/en_passant.gif';
 import pawnPromotion from '../images/pawn_promotion.gif';
 
+import createBoardArray from '../utils/CreateBoardArray';
+import CreateBoardArray from '../utils/CreateBoardArray';
+
 export default [
   {
     move: 'Check',
@@ -14,6 +17,7 @@ export default [
         square where it is no longer in check. The king can not castle when it is in check.`,
     image: check,
     alt: 'Example of a check position',
+    moves:[],
   },
   {
     move: 'Castling',
@@ -27,6 +31,7 @@ export default [
         or if the king will end up in check.`,
     image: castling,
     alt: 'Example of castling',
+    moves:[],
   },
   {
     move: 'Pawn Promoting',
@@ -36,6 +41,7 @@ export default [
         promoted to a rook, bishop, or knight. This is called underpromiting.`,
     image: pawnPromotion,
     alt: 'Pawn Promotion',
+    moves:[],
   },
   {
     move: 'En passant',
@@ -44,5 +50,10 @@ export default [
         This can be done only on the very next turn.`,
     image: enPassant,
     alt: 'En passant',
+    moves:[
+      createBoardArray('rnbqkbnrppp.pppp...........P....................PPPP.PPPRNBQKBNR'),
+      createBoardArray('rnbqkbnrppp..ppp...........Pp...................PPPP.PPPRNBQKBNR'),
+      createBoardArray('rnbqkbnrppp..ppp....P...........................PPPP.PPPRNBQKBNR')
+    ],
   },
 ];

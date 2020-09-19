@@ -11,8 +11,8 @@ export default [
         square where it is no longer in check. The king can not castle when it is in check.`,
     alt: 'Example of a check position',
     moves: [
-      createBoardArray('.'.repeat(16)+'..k.....'+'.'.repeat(24)+'.......R....K...'),
-      createBoardArray('.'.repeat(16)+'..k.....'+'.'.repeat(24)+'..R.........K...'),
+      createBoardArray(`${'.'.repeat(16)}..k.....${'.'.repeat(24)}.......R....K...`),
+      createBoardArray(`${'.'.repeat(16)}..k.....${'.'.repeat(24)}..R.........K...`),
     ],
   },
   {
@@ -27,10 +27,10 @@ export default [
         or if the king will end up in check.`,
     alt: 'Example of castling',
     moves: [
-      createBoardArray('.'.repeat(56)+'R...K..R'),
-      createBoardArray('.'.repeat(56)+'R....RK.'),
-      createBoardArray('.'.repeat(56)+'R...K..R'),
-      createBoardArray('.'.repeat(56)+'..KR...R'),
+      createBoardArray(`${'.'.repeat(56)}R...K..R`),
+      createBoardArray(`${'.'.repeat(56)}R....RK.`),
+      createBoardArray(`${'.'.repeat(56)}R...K..R`),
+      createBoardArray(`${'.'.repeat(56)}..KR...R`),
     ],
   },
   {

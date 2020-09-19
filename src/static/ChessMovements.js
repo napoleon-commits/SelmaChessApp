@@ -23,14 +23,14 @@ export default [
         but cannot leap over other pieces.
         Along with the king, a rook is involved in castling.`,
     alt: 'Rook Movements',
-    board: createBoardArray('...o....'.repeat(3)+'oooRoooo'+'...o....'.repeat(4)),
+    board: createBoardArray(`${'...o....'.repeat(3)}oooRoooo${'...o....'.repeat(4)}`),
   },
   {
     piece: 'King',
     rules: `The king can move one square in any direction. The king has
         a special move called castling.`,
     alt: 'King Movements',
-    board: createBoardArray('.'.repeat(16)+'....ooo.....oKo.....ooo.'+'.'.repeat(24)),
+    board: createBoardArray(`${'.'.repeat(16)}....ooo.....oKo.....ooo.${'.'.repeat(24)}`),
   },
   {
     piece: 'Queen',
@@ -47,6 +47,6 @@ export default [
         Otherwise, a pawn can only move forward one square.
         A pawn has two special moves: the en passant and promotion.`,
     alt: 'Pawn Movements',
-    board: createBoardArray('.'.repeat(24)+'xox......P...o......xox......P..........'),
+    board: createBoardArray(`${'.'.repeat(24)}xox......P...o......xox......P..........`),
   },
 ];

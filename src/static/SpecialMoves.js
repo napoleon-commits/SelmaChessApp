@@ -1,6 +1,3 @@
-import check from '../images/check.png';
-import castling from '../images/castling.gif';
-
 import createBoardArray from '../utils/CreateBoardArray';
 
 export default [
@@ -12,9 +9,11 @@ export default [
         This can be capturing the attacking piece, placing a piece
         in between the attacker and the king, or move the king to a
         square where it is no longer in check. The king can not castle when it is in check.`,
-    image: check,
     alt: 'Example of a check position',
-    moves: [],
+    moves: [
+      createBoardArray('.'.repeat(16)+'..k.....'+'.'.repeat(24)+'.......R....K...'),
+      createBoardArray('.'.repeat(16)+'..k.....'+'.'.repeat(24)+'..R.........K...'),
+    ],
   },
   {
     move: 'Castling',
@@ -26,9 +25,13 @@ export default [
         Also, castling can not happen if the king is in check,
         or if the king will pass through a check,
         or if the king will end up in check.`,
-    image: castling,
     alt: 'Example of castling',
-    moves: [],
+    moves: [
+      createBoardArray('.'.repeat(56)+'R...K..R'),
+      createBoardArray('.'.repeat(56)+'R....RK.'),
+      createBoardArray('.'.repeat(56)+'R...K..R'),
+      createBoardArray('.'.repeat(56)+'..KR...R'),
+    ],
   },
   {
     move: 'Pawn Promoting',

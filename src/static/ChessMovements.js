@@ -1,8 +1,7 @@
-import bishopMovements from '../images/BishopMovements.png';
-import rookMovements from '../images/RookMovements.png';
-import queenMovements from '../images/QueenMovements.png';
-import kingMovements from '../images/KingMovements.png';
-import pawnMovements from '../images/PawnMovements.png';
+// import rookMovements from '../images/RookMovements.png';
+// import queenMovements from '../images/QueenMovements.png';
+// import kingMovements from '../images/KingMovements.png';
+// import pawnMovements from '../images/PawnMovements.png';
 
 import createBoardArray from '../utils/CreateBoardArray';
 
@@ -20,9 +19,8 @@ export default [
     piece: 'Bishop',
     rules: `The bishops can move any number of squares diagonally but
         cannot leap over other pieces.`,
-    image: bishopMovements,
     alt: 'Bishop Movements',
-    board: [],
+    board: createBoardArray('o.....o..o...o....o.o......B......o.o....o...o..o.....o........o'),
   },
   {
     piece: 'Rook',

@@ -62,4 +62,7 @@ a{
   background-color: white;
   color: #343a40;
 }
+.dark-square{
+    background-color: #42b983;
+}
 </style>

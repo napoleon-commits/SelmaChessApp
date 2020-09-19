@@ -110,9 +110,6 @@ export default {
 </script>
 
 <style>
-  .dark-square{
-    background-color: #42b983;
-  }
   .square-selected{
     background-color: #6d7a82 !important;
   }

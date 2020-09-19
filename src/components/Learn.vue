@@ -41,7 +41,9 @@
               <div class="mb-3 px-2">
                   {{GettingStarted[1]}}
               </div>
-              <div>IMAGE</div>
+              <div class="px-2">
+                <StaticChessBoard :board="startBoard"/>
+              </div>
           </div>
       </div>
   </div>
@@ -51,11 +53,18 @@
 import LandingPageHeader from '../static/LandingPageHeader';
 import GettingStarted from '../static/GettingStarted';
 
+import StaticChessBoard from './subcomponents/StaticChessBoard';
+import { startBoard } from '../constants';
+
 export default {
+  components: {
+    StaticChessBoard,
+  },
   data() {
     return {
       LandingPageHeader,
       GettingStarted,
+      startBoard,
     };
   },
 };

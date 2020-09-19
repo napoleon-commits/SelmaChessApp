@@ -50,7 +50,7 @@
       <div class="mb-3">
         <div class="h2">Moving the pieces</div>
       </div>
-      <div v-for="(move, index) in ChessMovements" :key="index">
+      <div v-for="(move, index) in ChessMovements" :key="'basic-moves'+index">
         <div class="mb-3">
           <button
             :class="`custom-button-offline w-100 text-left px-2`"
@@ -72,6 +72,34 @@
           </div>
         </div>
       </div>
+      <div class="mb-3">
+        <div class="h2">Special moves</div>
+      </div>
+      <div v-for="(obj, index) in SpecialMoves" :key="'special-move'+index">
+        <div class="mb-3">
+          <button
+            :class="`custom-button-offline w-100 text-left px-2`"
+            type="button"
+            data-toggle="collapse"
+            aria-expanded="false"
+            :data-target="`#${String(obj.move).replace(' ','')}`"
+            :aria-controls="obj.move"
+          >
+              {{obj.move}}
+          </button>
+          <div
+            class="collapse px-2"
+            :id="String(obj.move).replace(' ', '')"
+          >
+            <div class="mb-3">
+              {{obj.description}}
+            </div>
+            <div>
+              IMAGE
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -79,6 +107,7 @@
 import LandingPageHeader from '../static/LandingPageHeader';
 import GettingStarted from '../static/GettingStarted';
 import ChessMovements from '../static/ChessMovements';
+import SpecialMoves from '../static/SpecialMoves';
 
 import StaticChessBoard from './subcomponents/StaticChessBoard';
 import { startBoard } from '../constants';
@@ -93,6 +122,7 @@ export default {
       GettingStarted,
       startBoard,
       ChessMovements,
+      SpecialMoves,
     };
   },
 };

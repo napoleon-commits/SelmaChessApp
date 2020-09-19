@@ -6,9 +6,7 @@
                 :key="fileIndex"
                 v-html="getHTMLChessPiece(square)"
                 :class="(((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square'"
-            >
-
-            </td>
+            />
         </tr>
     </table>
 </template>

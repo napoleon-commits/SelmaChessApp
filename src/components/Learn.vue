@@ -18,12 +18,30 @@
             data-toggle="collapse"
             data-target="#GoalOfChess"
             aria-controls="GoalOfChess"
-            aria-expanded="flase"
+            aria-expanded="false"
           >
               What is the goal of a chess game?
           </button>
           <div class="collapse" id="GoalOfChess">
               <div class="px-2">{{GettingStarted[0]}}</div>
+          </div>
+      </div>
+      <div class="mb-3">
+          <button
+            :class="`custom-button-offline ${this.$store.state.darkModeClass} w-100 text-left px-2`"
+            type="button"
+            data-toggle="collapse"
+            data-target="#StartingPosition"
+            aria-controls="StartingPosition"
+            aria-expanded="false"
+          >
+            Starting Position
+          </button>
+          <div class="collapse" id="StartingPosition">
+              <div class="mb-3">
+                  {{GettingStarted[1]}}
+              </div>
+              <div>IMAGE</div>
           </div>
       </div>
   </div>
@@ -34,13 +52,13 @@ import LandingPageHeader from '../static/LandingPageHeader';
 import GettingStarted from '../static/GettingStarted';
 
 export default {
-    data(){
-        return {
-            LandingPageHeader,
-            GettingStarted
-        }
-    }
-}
+  data() {
+    return {
+      LandingPageHeader,
+      GettingStarted,
+    };
+  },
+};
 </script>
 
 <style>

@@ -13,11 +13,24 @@
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
   methods: {
     toggleDarkMode() {
       this.$store.commit('toggleDarkMode');
     },
+  },
+  mounted() {
+    const myInterval = setInterval(() => {
+      this.$store.commit('setToolbarHeight', { toolbarHeight: $('#toolbar').height() });
+    }, 1);
+    setTimeout(() => {
+      clearInterval(myInterval);
+    }, 3000);
+    window.addEventListener('resize', () => {
+      this.$store.commit('setToolbarHeight', { toolbarHeight: $('#toolbar').height() });
+    });
   },
 };
 </script>
@@ -25,5 +38,10 @@ export default {
 <style>
     #toolbar{
          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        /* background-color: #333; */
+        position: fixed;
+        top: 0;
+        width: 100%;
     }
 </style>

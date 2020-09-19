@@ -1,7 +1,9 @@
 <template>
   <div id="app" :class="this.$store.state.darkModeClass">
     <Toolbar />
-    <router-view/>
+    <div :style="{marginTop: `${this.$store.state.toolbarHeight}px`}">
+      <router-view/>
+    </div>
     <Footer />
   </div>
 </template>

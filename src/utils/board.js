@@ -14,6 +14,12 @@ import blankSquare from '../images/blankSquare.png';
 
 
 const getHTMLChessPiece = (letter) => {
+  if (letter === 'o') {
+    return '<span>&bull;</span>'
+  }
+  if (letter === 'x') {
+    return '<span>&times;</span>'
+  }
   let imageSrc = null;
   switch (letter) {
     case 'r':

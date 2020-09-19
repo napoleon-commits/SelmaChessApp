@@ -67,7 +67,7 @@
               {{move.rules}}
             </div>
             <div>
-              IMAGE
+              <StaticChessBoard :board="move.board"/>
             </div>
           </div>
         </div>

@@ -16,6 +16,10 @@ export default new Router({
       path: '/offline',
       name: 'PlayOffline',
       component: PlayOffline,
+      props: {
+        type: 'offline',
+        mateType: '',
+      },
     },
   ],
 });

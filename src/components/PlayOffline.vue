@@ -52,8 +52,14 @@ import $ from 'jquery';
 import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
 import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '../utils/engine';
+import {
+  clickedPieceJSX as computerClickedPieceJSX,
+  clickedSquareJSX as computerClickedSquareJSX,
+  getJSXBoard as computerGetJSXBoard,
+} from '../utils/ComputerEngine';
 
 export default {
+  props: ['type', 'mateType'],
   data() {
     return {
       chessboard: startBoard,
@@ -65,12 +71,21 @@ export default {
   methods: {
     getHTMLChessPiece,
     squareClick(rank, file, type) {
-      if (type === 'Piece') {
-        clickedPieceJSX(file, rank);
-      } else if (type === 'Square') {
-        clickedSquareJSX(file, rank);
+      if (this.type === 'mate') {
+        if (type === 'Piece') {
+          computerClickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          computerClickedSquareJSX(file, rank);
+        }
+        this.chessboard = computerGetJSXBoard();
+      } else {
+        if (type === 'Piece') {
+          clickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          clickedSquareJSX(file, rank);
+        }
+        this.chessboard = getJSXBoard();
       }
-      this.chessboard = getJSXBoard();
       if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
         this.fileSelected = null;
         this.rankSelected = null;
@@ -86,8 +101,20 @@ export default {
       this.rankSelected = null;
     },
     newGame() {
-      newGame();
-      this.chessboard = getJSXBoard();
+      if (this.type === 'mate-challenge') {
+        if (this.mateType === 'bishop-knight') {
+          //
+        } else if (this.mateType === 'queen') {
+          //
+        } else if (this.mateType === 'rook') {
+          //
+        } else if (this.mateType === 'pawn') {
+          //
+        }
+      } else {
+        newGame();
+        this.chessboard = getJSXBoard();
+      }
       this.fileSelected = null;
       this.rankSelected = null;
     },

@@ -50,20 +50,22 @@
 
 <script>
 import $ from 'jquery';
-import { startBoard } from '../constants';
 import getHTMLChessPiece from '../utils/board';
 import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '../utils/engine';
 import {
+  // eslint-disable-next-line
   clickedPieceJSX as computerClickedPieceJSX,
+  // eslint-disable-next-line
   clickedSquareJSX as computerClickedSquareJSX,
   getJSXBoard as computerGetJSXBoard,
+  ParseFen as computerParseFen,
 } from '../utils/ComputerEngine';
 
 export default {
   props: ['type', 'mateType'],
   data() {
     return {
-      chessboard: startBoard,
+      chessboard: [],
       rankSelected: null,
       fileSelected: null,
       chessboardSize: null,
@@ -73,12 +75,12 @@ export default {
     getHTMLChessPiece,
     squareClick(rank, file, type) {
       if (this.type === 'mate') {
-        if (type === 'Piece') {
-          computerClickedPieceJSX(file, rank);
-        } else if (type === 'Square') {
-          computerClickedSquareJSX(file, rank);
-        }
-        this.chessboard = computerGetJSXBoard();
+        // if (type === 'Piece') {
+        //   computerClickedPieceJSX(file, rank);
+        // } else if (type === 'Square') {
+        //   computerClickedSquareJSX(file, rank);
+        // }
+        // this.chessboard = computerGetJSXBoard();
       } else {
         if (type === 'Piece') {
           clickedPieceJSX(file, rank);
@@ -104,13 +106,17 @@ export default {
     newGame() {
       if (this.type === 'mate') {
         if (this.mateType === 'bishop-knight') {
-          //
+          computerParseFen('2k5/8/8/N7/8/6K1/8/3B4 w - - 0 1');
+          this.chessboard = computerGetJSXBoard();
         } else if (this.mateType === 'queen') {
-          //
+          computerParseFen('4k3/8/8/2K5/7Q/8/8/8 w - - 0 1');
+          this.chessboard = computerGetJSXBoard();
         } else if (this.mateType === 'rook') {
-          //
+          computerParseFen('8/8/4R3/8/1k6/8/7K/8 w - - 0 1');
+          this.chessboard = computerGetJSXBoard();
         } else if (this.mateType === 'pawn') {
-          //
+          computerParseFen('8/1k6/8/8/8/7K/7P/8 w - - 0 1');
+          this.chessboard = computerGetJSXBoard();
         }
       } else {
         newGame();
@@ -121,20 +127,7 @@ export default {
     },
   },
   mounted() {
-    if (this.type === 'mate') {
-      if (this.mateType === 'bishop-knight') {
-        //
-      } else if (this.mateType === 'queen') {
-        //
-      } else if (this.mateType === 'rook') {
-        //
-      } else if (this.mateType === 'pawn') {
-        //
-      }
-    } else {
-      newGame();
-      this.chessboard = getJSXBoard();
-    }
+    this.newGame();
     const myInterval = setInterval(() => {
       this.chessboardSize = $('#chessboard').width();
       this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });

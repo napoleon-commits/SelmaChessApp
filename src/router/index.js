@@ -30,5 +30,32 @@ export default new Router({
         mateType: 'bishop-knight',
       },
     },
+    {
+      path: '/mate/queen',
+      name: 'PlayOfflineQueenMate',
+      component: PlayOffline,
+      props: {
+        type: 'mate',
+        mateType: 'queen',
+      },
+    },
+    {
+      path: '/mate/rook',
+      name: 'PlayOfflineRookMate',
+      component: PlayOffline,
+      props: {
+        type: 'mate',
+        mateType: 'rook',
+      },
+    },
+    {
+      path: '/mate/pawn',
+      name: 'PlayOfflinePawnMate',
+      component: PlayOffline,
+      props: {
+        type: 'mate',
+        mateType: 'pawn',
+      },
+    },
   ],
 });

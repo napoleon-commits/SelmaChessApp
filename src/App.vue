@@ -2,7 +2,7 @@
   <div id="app" :class="this.$store.state.darkModeClass">
     <Toolbar />
     <div :style="{marginTop: `${this.$store.state.toolbarHeight}px`}">
-      <router-view/>
+      <router-view :key="$route.fullPath"/>
     </div>
     <Footer />
   </div>

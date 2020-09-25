@@ -421,7 +421,7 @@ function ResetBoard() {
 
 // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
-function ParseFen(fen) {
+export function ParseFen(fen) {
   ResetBoard();
 
   let rank = RANKS.RANK_8;
@@ -1724,7 +1724,7 @@ function MakeUserMove() {
       // PrintBoard();
       MoveGUIPiece(parsed);
       CheckAndSet();
-      PreSearch();
+      // PreSearch();
     }
 
     DeSelectSq(UserMove.from);

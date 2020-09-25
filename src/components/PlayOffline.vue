@@ -31,6 +31,7 @@
           @click="takeBack"
           type="button"
           :class="`custom-button-offline col ${this.$store.state.darkModeClass}`"
+          v-if="type !== 'mate'"
         >
           Take Back
         </button>

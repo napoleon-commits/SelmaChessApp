@@ -21,5 +21,14 @@ export default new Router({
         mateType: '',
       },
     },
+    {
+      path: '/mate/bishop-knight',
+      name: 'PlayOfflineBishopKnightMate',
+      component: PlayOffline,
+      props: {
+        type: 'mate',
+        mateType: 'bishop-knight',
+      },
+    },
   ],
 });

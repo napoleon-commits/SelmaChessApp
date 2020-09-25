@@ -102,7 +102,7 @@ export default {
       this.rankSelected = null;
     },
     newGame() {
-      if (this.type === 'mate-challenge') {
+      if (this.type === 'mate') {
         if (this.mateType === 'bishop-knight') {
           //
         } else if (this.mateType === 'queen') {
@@ -121,7 +121,20 @@ export default {
     },
   },
   mounted() {
-    newGame();
+    if (this.type === 'mate') {
+      if (this.mateType === 'bishop-knight') {
+        //
+      } else if (this.mateType === 'queen') {
+        //
+      } else if (this.mateType === 'rook') {
+        //
+      } else if (this.mateType === 'pawn') {
+        //
+      }
+    } else {
+      newGame();
+      this.chessboard = getJSXBoard();
+    }
     const myInterval = setInterval(() => {
       this.chessboardSize = $('#chessboard').width();
       this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });

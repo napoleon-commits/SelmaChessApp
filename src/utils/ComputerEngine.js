@@ -421,7 +421,7 @@ function ResetBoard() {
 
 // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
-export function ParseFen(fen) {
+function ParseFen(fen) {
   ResetBoard();
 
   let rank = RANKS.RANK_8;
@@ -1619,7 +1619,7 @@ export const newGame = () => {
   NewGame(START_FEN);
 };
 
-function NewGame(fenStr) {
+export function NewGame(fenStr) {
   ParseFen(fenStr);
   // PrintBoard();
   SetInitialBoardPieces();

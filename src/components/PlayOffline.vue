@@ -58,7 +58,7 @@ import {
   // eslint-disable-next-line
   clickedSquareJSX as computerClickedSquareJSX,
   getJSXBoard as computerGetJSXBoard,
-  ParseFen as computerParseFen,
+  NewGame as computerNewGame,
 } from '../utils/ComputerEngine';
 
 export default {
@@ -75,12 +75,12 @@ export default {
     getHTMLChessPiece,
     squareClick(rank, file, type) {
       if (this.type === 'mate') {
-        // if (type === 'Piece') {
-        //   computerClickedPieceJSX(file, rank);
-        // } else if (type === 'Square') {
-        //   computerClickedSquareJSX(file, rank);
-        // }
-        // this.chessboard = computerGetJSXBoard();
+        if (type === 'Piece') {
+          computerClickedPieceJSX(file, rank);
+        } else if (type === 'Square') {
+          computerClickedSquareJSX(file, rank);
+        }
+        this.chessboard = computerGetJSXBoard();
       } else {
         if (type === 'Piece') {
           clickedPieceJSX(file, rank);
@@ -106,18 +106,15 @@ export default {
     newGame() {
       if (this.type === 'mate') {
         if (this.mateType === 'bishop-knight') {
-          computerParseFen('2k5/8/8/N7/8/6K1/8/3B4 w - - 0 1');
-          this.chessboard = computerGetJSXBoard();
+          computerNewGame('2k5/8/8/N7/8/6K1/8/3B4 w - - 0 1');
         } else if (this.mateType === 'queen') {
-          computerParseFen('4k3/8/8/2K5/7Q/8/8/8 w - - 0 1');
-          this.chessboard = computerGetJSXBoard();
+          computerNewGame('4k3/8/8/2K5/7Q/8/8/8 w - - 0 1');
         } else if (this.mateType === 'rook') {
-          computerParseFen('8/8/4R3/8/1k6/8/7K/8 w - - 0 1');
-          this.chessboard = computerGetJSXBoard();
+          computerNewGame('8/8/4R3/8/1k6/8/7K/8 w - - 0 1');
         } else if (this.mateType === 'pawn') {
-          computerParseFen('8/1k6/8/8/8/7K/7P/8 w - - 0 1');
-          this.chessboard = computerGetJSXBoard();
+          computerNewGame('8/1k6/8/8/8/7K/7P/8 w - - 0 1');
         }
+        this.chessboard = computerGetJSXBoard();
       } else {
         newGame();
         this.chessboard = getJSXBoard();

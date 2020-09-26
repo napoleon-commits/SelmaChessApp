@@ -53,9 +53,7 @@ import $ from 'jquery';
 import getHTMLChessPiece from '../utils/board';
 import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '../utils/engine';
 import {
-  // eslint-disable-next-line
   clickedPieceJSX as computerClickedPieceJSX,
-  // eslint-disable-next-line
   clickedSquareJSX as computerClickedSquareJSX,
   getJSXBoard as computerGetJSXBoard,
   NewGame as computerNewGame,

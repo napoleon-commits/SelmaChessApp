@@ -1616,10 +1616,12 @@ export const takeBack = () => {
 };
 
 export const newGame = () => {
+  init();
   NewGame(START_FEN);
 };
 
 export function NewGame(fenStr) {
+  init();
   ParseFen(fenStr);
   // PrintBoard();
   SetInitialBoardPieces();
@@ -1908,10 +1910,10 @@ function StartSearch() {
   CheckAndSet();
 }
 
-$(() => {
-  init();
-  NewGame(START_FEN);
-});
+// $(() => {
+//   init();
+//   NewGame(START_FEN);
+// });
 
 function InitFilesRanksBrd() {
   let index = 0;

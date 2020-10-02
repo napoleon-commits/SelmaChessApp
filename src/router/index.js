@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import PlayOffline from '@/components/PlayOffline';
 import Learn from '@/components/Learn';
+import Engine from '@/components/Engine';
 
 Vue.use(Router);
 
@@ -56,6 +57,11 @@ export default new Router({
         type: 'mate',
         mateType: 'pawn',
       },
+    },
+    {
+      path: '/engine',
+      name: 'Engine',
+      component: Engine,
     },
   ],
 });

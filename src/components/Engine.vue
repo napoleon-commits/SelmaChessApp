@@ -79,7 +79,7 @@ import { ClickedSpace, ClickedPiece, PreSearch, NewGame, takeBack } from '@/util
 import Modal from './subcomponents/Modal';
 
 export default {
-  components:{
+  components: {
     Modal,
   },
   data() {
@@ -137,13 +137,17 @@ export default {
         this.rankSelected = 7 - rank;
         this.fileSelected = file;
       }
-      if (square === '.') {
-        ClickedSpace(file, rank, this.thinkingTime);
-      } else {
-        ClickedPiece(file, rank, this.thinkingTime);
-      }
-      this.updateMoveStats();
-      this.chessboard = get2DBoard();
+      this.displayModal = true;
+      setTimeout(() => {
+        if (square === '.') {
+          ClickedSpace(file, rank, this.thinkingTime);
+        } else {
+          ClickedPiece(file, rank, this.thinkingTime);
+        }
+        this.updateMoveStats();
+        this.chessboard = get2DBoard();
+        this.displayModal = false;
+      }, 1);
     },
     init() {
       // eslint-disable-next-line
@@ -156,14 +160,14 @@ export default {
     },
     getHTMLChessPiece,
     moveNow() {
-      this.toggleDisplayModal();
-      setTimeout(()=>{
+      this.displayModal = true;
+      setTimeout(() => {
         GameController.PlayerSide = GameController.side ^ 1;
         PreSearch(this.thinkingTime);
         this.updateMoveStats();
         this.chessboard = get2DBoard();
-        this.toggleDisplayModal();
-      }, 1)
+        this.displayModal = false;
+      }, 1);
     },
     vueNewGame() {
       NewGame(START_FEN);
@@ -181,9 +185,6 @@ export default {
       this.Time = MoveStats.Time;
       this.BestMove = MoveStats.BestMove;
     },
-    toggleDisplayModal(){
-      this.displayModal = !this.displayModal;
-    }
   },
 };
 </script>

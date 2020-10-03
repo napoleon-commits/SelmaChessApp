@@ -74,6 +74,7 @@ button{
 }
 input[type=text], select {
   background-color: white;
-  border: 2px solid black;
+  border: 2px solid #42b983;
+  border-radius: 8px;
 }
 </style>

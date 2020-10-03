@@ -59,7 +59,7 @@
         <button type="button" @click="vueTakeBack">Take Back</button><br />
       </div>
     </div>
-    <div v-if="this.$store.state.showModal">
+    <div v-if="displayModal">
       <Modal :clickable="false"/>
     </div>
   </div>
@@ -96,6 +96,7 @@ export default {
       Time: undefined,
       BestMove: undefined,
       chessboardSize: null,
+      displayModal: false,
     };
   },
   mounted() {
@@ -155,13 +156,13 @@ export default {
     },
     getHTMLChessPiece,
     moveNow() {
-      this.$store.commit('toggleShowModal');
+      this.toggleDisplayModal();
       setTimeout(()=>{
         GameController.PlayerSide = GameController.side ^ 1;
         PreSearch(this.thinkingTime);
         this.updateMoveStats();
         this.chessboard = get2DBoard();
-        this.$store.commit('toggleShowModal');
+        this.toggleDisplayModal();
       }, 1)
     },
     vueNewGame() {
@@ -180,6 +181,9 @@ export default {
       this.Time = MoveStats.Time;
       this.BestMove = MoveStats.BestMove;
     },
+    toggleDisplayModal(){
+      this.displayModal = !this.displayModal;
+    }
   },
 };
 </script>

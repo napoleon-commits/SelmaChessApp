@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div>
-      <span>Fen: </span>
-      <input type="text" v-model="fenIn"/>
-      <button @click="vueSetFen">Set Position</button>
+    <div :style="{width: `${chessboardSize+8}px`}" class="row mx-auto">
+      <div class="col"><span>Fen: </span></div>
+      <div class="col"><input type="text" v-model="fenIn"/></div>
+      <div class="col"><button @click="vueSetFen">Set Position</button></div>
     </div>
     <div>
       <table id="chessboard" class="m-auto">
@@ -33,7 +33,7 @@
       </table>
     </div>
     <br />
-    <div class="row">
+    <div :style="{width: `${chessboardSize+8}px`}" class="row mx-auto">
       <div class="col">
         <span>Thinking Time:</span><br />
         <select v-model="thinkingTime">
@@ -65,6 +65,7 @@
 <script>
 /* eslint no-bitwise: ["error", { "allow": ["^",] }] */
 
+import $ from 'jquery';
 import { InitFilesRanksBrd, InitHashKeys, InitSq120To64, InitBoardVars } from '@/utils/engine/main';
 import { ParseFen, PrintBoard } from '@/utils/engine/board';
 import { START_FEN, MoveStats, GameController } from '@/utils/engine/def';
@@ -87,9 +88,21 @@ export default {
       Nodes: undefined,
       Time: undefined,
       BestMove: undefined,
+      chessboardSize: null,
     };
   },
   mounted() {
+    const myInterval = setInterval(() => {
+      this.chessboardSize = $('#chessboard').width();
+      this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });
+    }, 1);
+    setTimeout(() => {
+      clearInterval(myInterval);
+    }, 3000);
+    window.addEventListener('resize', () => {
+      this.chessboardSize = $('#chessboard').width();
+      this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });
+    });
     this.init();
     // eslint-disable-next-line
     console.log('Main Init Called');

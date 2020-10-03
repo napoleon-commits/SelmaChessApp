@@ -66,7 +66,7 @@ table{
   border: 4px solid #343a40;
 }
 button{
-    text-align: center;
+  text-align: center;
   text-decoration: none;
   font-size: 16px;
   border-radius: 8px;
@@ -74,5 +74,6 @@ button{
 }
 input[type=text], select {
   background-color: white;
+  border: 2px solid black;
 }
 </style>

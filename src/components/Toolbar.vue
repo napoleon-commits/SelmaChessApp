@@ -38,10 +38,10 @@ export default {
 <style>
     #toolbar{
          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
         /* background-color: #333; */
         position: fixed;
         top: 0;
         width: 100%;
+        z-index: 1;
     }
 </style>

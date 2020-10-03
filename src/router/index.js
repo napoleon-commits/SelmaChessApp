@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import PlayOffline from '@/components/PlayOffline';
 import Learn from '@/components/Learn';
 import Engine from '@/components/Engine';
+import Modal from '@/components/subcomponents/Modal';
 
 Vue.use(Router);
 
@@ -62,6 +63,14 @@ export default new Router({
       path: '/engine',
       name: 'Engine',
       component: Engine,
+    },
+    {
+      path: '/modal',
+      name: 'Modal',
+      component: Modal,
+      props: {
+        clickable: true,
+      },
     },
   ],
 });

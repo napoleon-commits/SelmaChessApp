@@ -35,7 +35,7 @@ export default {
 }
 .dark-mode{
   background-color: #343a40 !important;
-  color: white;
+  color: white !important;
 }
 .c-pointer{
   cursor: pointer;
@@ -64,5 +64,15 @@ a{
 }
 table{
   border: 4px solid #343a40;
+}
+button{
+    text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #42b983;
+}
+input[type=text], select {
+  background-color: white;
 }
 </style>

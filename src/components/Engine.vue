@@ -60,7 +60,9 @@
       </div>
     </div>
     <div v-if="displayModal">
-      <Modal :clickable="false"/>
+      <Modal :clickable="false">
+        <Spinner />
+      </Modal>
     </div>
   </div>
 </template>
@@ -77,10 +79,12 @@ import { InitMvvLva } from '@/utils/engine/movegen';
 import { getHTMLChessPiece, get2DBoard } from '@/utils/vueboard';
 import { ClickedSpace, ClickedPiece, PreSearch, NewGame, takeBack } from '@/utils/engine/gui';
 import Modal from './subcomponents/Modal';
+import Spinner from './subcomponents/Spinner';
 
 export default {
   components: {
     Modal,
+    Spinner,
   },
   data() {
     return {

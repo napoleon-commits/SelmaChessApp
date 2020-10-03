@@ -9,6 +9,7 @@ export default new Vuex.Store({
     darkModeClass: 'dark-mode',
     chessboardWidth: 0,
     toolbarHeight: 0,
+    showModal: false,
   },
   mutations: {
     toggleDarkMode(state) {
@@ -25,5 +26,8 @@ export default new Vuex.Store({
     setToolbarHeight(state, payload) {
       state.toolbarHeight = payload.toolbarHeight;
     },
+    toggleShowModal(state){
+      state.showModal = !state.showModal;
+    }
   },
 });

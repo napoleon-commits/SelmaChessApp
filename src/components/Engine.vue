@@ -59,6 +59,9 @@
         <button type="button" @click="vueTakeBack">Take Back</button><br />
       </div>
     </div>
+    <div v-if="this.$store.state.showModal">
+      <Modal :clickable="false"/>
+    </div>
   </div>
 </template>
 
@@ -73,8 +76,12 @@ import { SearchPosition } from '@/utils/engine/search';
 import { InitMvvLva } from '@/utils/engine/movegen';
 import { getHTMLChessPiece, get2DBoard } from '@/utils/vueboard';
 import { ClickedSpace, ClickedPiece, PreSearch, NewGame, takeBack } from '@/utils/engine/gui';
+import Modal from './subcomponents/Modal';
 
 export default {
+  components:{
+    Modal,
+  },
   data() {
     return {
       fenIn: '',
@@ -148,10 +155,14 @@ export default {
     },
     getHTMLChessPiece,
     moveNow() {
-      GameController.PlayerSide = GameController.side ^ 1;
-      PreSearch(this.thinkingTime);
-      this.updateMoveStats();
-      this.chessboard = get2DBoard();
+      this.$store.commit('toggleShowModal');
+      setTimeout(()=>{
+        GameController.PlayerSide = GameController.side ^ 1;
+        PreSearch(this.thinkingTime);
+        this.updateMoveStats();
+        this.chessboard = get2DBoard();
+        this.$store.commit('toggleShowModal');
+      }, 1)
     },
     vueNewGame() {
       NewGame(START_FEN);

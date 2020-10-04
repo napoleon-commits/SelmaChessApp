@@ -101,6 +101,7 @@ export default {
       BestMove: undefined,
       chessboardSize: null,
       displayModal: false,
+      firstClick: false,
     };
   },
   mounted() {
@@ -137,11 +138,15 @@ export default {
       ) {
         this.fileSelected = null;
         this.rankSelected = null;
+        if (this.firstClick) {
+          this.displayModal = true;
+          this.firstClick = false;
+        }
       } else {
         this.rankSelected = 7 - rank;
         this.fileSelected = file;
+        this.firstClick = true;
       }
-      this.displayModal = true;
       setTimeout(() => {
         if (square === '.') {
           ClickedSpace(file, rank, this.thinkingTime);

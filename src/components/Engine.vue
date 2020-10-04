@@ -73,10 +73,10 @@
 import $ from 'jquery';
 import { InitFilesRanksBrd, InitHashKeys, InitSq120To64, InitBoardVars } from '@/utils/engine/main';
 import { ParseFen, PrintBoard } from '@/utils/engine/board';
-import { START_FEN, MoveStats, GameController } from '@/utils/engine/def';
+import { START_FEN, MoveStats, GameController, GameBoard } from '@/utils/engine/def';
 import { SearchPosition } from '@/utils/engine/search';
 import { InitMvvLva } from '@/utils/engine/movegen';
-import { getHTMLChessPiece, get2DBoard } from '@/utils/vueboard';
+import { getHTMLChessPiece, get2DBoard, getReversedBoard } from '@/utils/vueboard';
 import { ClickedSpace, ClickedPiece, PreSearch, NewGame, takeBack } from '@/utils/engine/gui';
 import Modal from './subcomponents/Modal';
 import Spinner from './subcomponents/Spinner';
@@ -121,14 +121,14 @@ export default {
     console.log('Main Init Called');
     ParseFen(START_FEN);
     PrintBoard();
-    this.chessboard = get2DBoard();
+    this.chessboard = this.vueReturn2DBoard();
   },
   methods: {
     vueSetFen() {
       ParseFen(this.fenIn);
       PrintBoard();
       SearchPosition();
-      this.chessboard = get2DBoard();
+      this.chessboard = this.vueReturn2DBoard();
     },
     vueClickedSquare(file, rank, square, type) {
       if (
@@ -149,12 +149,18 @@ export default {
       }
       setTimeout(() => {
         if (square === '.') {
-          ClickedSpace(file, rank, this.thinkingTime);
+          if (GameBoard.side) {
+            ClickedSpace(7 - file, 7 - rank, this.thinkingTime);
+          } else {
+            ClickedSpace(file, rank, this.thinkingTime);
+          }
+        } else if (GameBoard.side) {
+          ClickedPiece(7 - file, 7 - rank, this.thinkingTime);
         } else {
           ClickedPiece(file, rank, this.thinkingTime);
         }
         this.updateMoveStats();
-        this.chessboard = get2DBoard();
+        this.chessboard = this.vueReturn2DBoard();
         this.displayModal = false;
       }, 1);
     },
@@ -174,17 +180,17 @@ export default {
         GameController.PlayerSide = GameController.side ^ 1;
         PreSearch(this.thinkingTime);
         this.updateMoveStats();
-        this.chessboard = get2DBoard();
+        this.chessboard = this.vueReturn2DBoard();
         this.displayModal = false;
       }, 1);
     },
     vueNewGame() {
       NewGame(START_FEN);
-      this.chessboard = get2DBoard();
+      this.chessboard = this.vueReturn2DBoard();
     },
     vueTakeBack() {
       takeBack();
-      this.chessboard = get2DBoard();
+      this.chessboard = this.vueReturn2DBoard();
     },
     updateMoveStats() {
       this.Ordering = MoveStats.Ordering;
@@ -193,6 +199,12 @@ export default {
       this.Nodes = MoveStats.Nodes;
       this.Time = MoveStats.Time;
       this.BestMove = MoveStats.BestMove;
+    },
+    vueReturn2DBoard() {
+      if (GameBoard.side) { // if it's black's turn
+        return getReversedBoard(get2DBoard());
+      }
+      return get2DBoard();
     },
   },
 };

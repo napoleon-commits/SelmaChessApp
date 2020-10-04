@@ -75,3 +75,15 @@ export const get2DBoard = () => {
   }
   return (JSXBoard);
 };
+
+export const getReversedBoard = (board) => {
+  const a0Board = [];
+  for (let i = 7; i >= 0; i -= 1) {
+    const row = [];
+    for (let j = 7; j >= 0; j -= 1) {
+      row.push(board[i][j]);
+    }
+    a0Board.push(row);
+  }
+  return a0Board;
+};

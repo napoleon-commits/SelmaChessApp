@@ -162,7 +162,7 @@ export default {
         this.updateMoveStats();
         this.chessboard = this.vueReturn2DBoard();
         this.displayModal = false;
-      }, 1);
+      }, 100);
     },
     init() {
       // eslint-disable-next-line
@@ -182,7 +182,7 @@ export default {
         this.updateMoveStats();
         this.chessboard = this.vueReturn2DBoard();
         this.displayModal = false;
-      }, 1);
+      }, 100);
     },
     vueNewGame() {
       NewGame(START_FEN);

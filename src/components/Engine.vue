@@ -258,7 +258,7 @@ export default {
   .switch {
     position: relative;
     display: inline-block;
-    width: 30px;
+    width: 105px;
     height: 17px;
   }
   .switch input {
@@ -295,9 +295,9 @@ export default {
     box-shadow: 0 0 1px #42b983;
   }
   input:checked + .slider:before {
-    -webkit-transform: translateX(13px);
-    -ms-transform: translateX(13px);
-    transform: translateX(13px);
+    -webkit-transform: translateX(88px);
+    -ms-transform: translateX(88px);
+    transform: translateX(88px);
   }
   /* Rounded sliders */
   .slider.round {

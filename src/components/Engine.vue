@@ -56,14 +56,6 @@
         <div>Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
       </div>
       <div class="col">
-        <span>BestMove: {{BestMove}}</span><br />
-        <span>Depth: {{Depth}}</span><br />
-        <span>Score: {{Score}}</span><br />
-        <span>Nodes: {{Nodes}}</span><br />
-        <span>Ordering: {{Ordering}}</span><br />
-        <span>Time: {{Time}}</span><br />
-      </div>
-      <div class="col">
         <button type="button" @click="moveNow">Move Now</button><br />
         <button type="button" @click="vueNewGame">New Game</button><br />
         <button type="button" @click="vueTakeBack">Take Back</button><br />
@@ -83,7 +75,7 @@
 import $ from 'jquery';
 import { InitFilesRanksBrd, InitHashKeys, InitSq120To64, InitBoardVars } from '@/utils/engine/main';
 import { ParseFen, PrintBoard } from '@/utils/engine/board';
-import { START_FEN, MoveStats, GameController, GameBoard } from '@/utils/engine/def';
+import { START_FEN, GameController, GameBoard } from '@/utils/engine/def';
 import { SearchPosition } from '@/utils/engine/search';
 import { InitMvvLva } from '@/utils/engine/movegen';
 import { getHTMLChessPiece, get2DBoard, getReversedBoard } from '@/utils/vueboard';
@@ -103,12 +95,6 @@ export default {
       chessboard: [],
       rankSelected: null,
       fileSelected: null,
-      Ordering: undefined,
-      Depth: undefined,
-      Score: undefined,
-      Nodes: undefined,
-      Time: undefined,
-      BestMove: undefined,
       chessboardSize: null,
       displayModal: false,
       firstClick: false,
@@ -183,7 +169,6 @@ export default {
         } else {
           ClickedPiece(file, rank, this.thinkingTime);
         }
-        this.updateMoveStats();
         this.chessboard = this.vueReturn2DBoard();
         this.displayModal = false;
       }, 100);
@@ -203,7 +188,6 @@ export default {
       setTimeout(() => {
         GameController.PlayerSide = GameController.side ^ 1;
         PreSearch(this.thinkingTime);
-        this.updateMoveStats();
         this.chessboard = this.vueReturn2DBoard();
         this.displayModal = false;
       }, 100);
@@ -215,14 +199,6 @@ export default {
     vueTakeBack() {
       takeBack();
       this.chessboard = this.vueReturn2DBoard();
-    },
-    updateMoveStats() {
-      this.Ordering = MoveStats.Ordering;
-      this.Depth = MoveStats.Depth;
-      this.Score = MoveStats.Score;
-      this.Nodes = MoveStats.Nodes;
-      this.Time = MoveStats.Time;
-      this.BestMove = MoveStats.BestMove;
     },
     vueReturn2DBoard() {
       if (this.autoRotate) {

@@ -295,6 +295,8 @@ function UpdateMoveStats(domScore, domDepth) {
   MoveStats.Nodes = SearchController.nodes;
   MoveStats.Time = `${(($.now() - SearchController.start) / 1000).toFixed(1)}s`;
   MoveStats.BestMove = PrMove(SearchController.best);
+  // eslint-disable-next-line
+  console.log(MoveStats);
 }
 
 export function SearchPosition() {

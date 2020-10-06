@@ -51,6 +51,7 @@
             <span class="slider round"></span>
           </label>
         </div>
+        <div>Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
       </div>
       <div class="col">
         <span>BestMove: {{BestMove}}</span><br />
@@ -231,8 +232,8 @@ export default {
   .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 30px;
+    height: 17px;
   }
   .switch input {
     opacity: 0;
@@ -253,10 +254,10 @@ export default {
   .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -268,13 +269,13 @@ export default {
     box-shadow: 0 0 1px #42b983;
   }
   input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
   }
   /* Rounded sliders */
   .slider.round {
-    border-radius: 34px;
+    border-radius: 17px;
   }
   .slider.round:before {
     border-radius: 50%;

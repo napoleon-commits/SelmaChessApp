@@ -35,8 +35,8 @@
     <br />
     <div :style="{width: `${chessboardSize+8}px`}" class="row mx-auto">
       <div class="col">
-        <span>Thinking Time:</span><br />
-        <select v-model="thinkingTime">
+        <div class="text-center">Thinking Time:</div>
+        <select class="d-block mx-auto" v-model="thinkingTime">
         <option value="1">1 second</option>
         <option value="2">2 seconds</option>
         <option value="4">4 seconds</option>
@@ -46,19 +46,16 @@
         <option value="33">33 seconds</option>
         <option value="50">50 seconds</option>
         </select>
-        <br /><br />
-        <div>
-          <label class="switch">
-            <input type="checkbox" v-model="autoRotate" @click="lockAutoRotate">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
+        <div class="text-center mt-3">Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
+        <label class="switch d-block mx-auto">
+          <input type="checkbox" v-model="autoRotate" @click="lockAutoRotate">
+          <span class="slider round"></span>
+        </label>
       </div>
       <div class="col">
-        <button type="button" @click="moveNow">Move Now</button><br />
-        <button type="button" @click="vueNewGame">New Game</button><br />
-        <button type="button" @click="vueTakeBack">Take Back</button><br />
+        <button class="d-block mx-auto" type="button" @click="moveNow">Move Now</button>
+        <button class="d-block mx-auto" type="button" @click="vueNewGame">New Game</button>
+        <button class="d-block mx-auto" type="button" @click="vueTakeBack">Take Back</button>
       </div>
     </div>
     <div v-if="displayModal">

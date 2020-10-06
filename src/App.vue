@@ -71,10 +71,14 @@ button{
   font-size: 16px;
   border-radius: 8px;
   border: 2px solid #42b983;
+  padding: 8px;
+  min-width: 105px;
 }
 input[type=text], select {
   background-color: white;
   border: 2px solid #42b983;
   border-radius: 8px;
+  padding: 8px;
+  min-width: 105px;
 }
 </style>

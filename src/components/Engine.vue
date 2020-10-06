@@ -37,12 +37,14 @@
       <div class="col">
         <span>Thinking Time:</span><br />
         <select v-model="thinkingTime">
-        <option value="1">1s</option>
-        <option value="2">2s</option>
-        <option value="4">4s</option>
-        <option value="6">6s</option>
-        <option value="8">8s</option>
-        <option value="10">10s</option>
+        <option value="1">1 second</option>
+        <option value="2">2 seconds</option>
+        <option value="4">4 seconds</option>
+        <option value="6">6 seconds</option>
+        <option value="8">8 seconds</option>
+        <option value="10">10 seconds</option>
+        <option value="33">33 seconds</option>
+        <option value="50">50 seconds</option>
         </select>
         <br /><br />
         <div>
@@ -281,4 +283,7 @@ export default {
     border-radius: 50%;
   }
 
+  select, option{
+    cursor: pointer;
+  }
 </style>

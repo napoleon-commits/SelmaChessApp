@@ -49,7 +49,7 @@
         <br /><br />
         <div>
           <label class="switch">
-            <input type="checkbox" v-model="autoRotate">
+            <input type="checkbox" v-model="autoRotate" @click="lockAutoRotate">
             <span class="slider round"></span>
           </label>
         </div>
@@ -113,6 +113,7 @@ export default {
       displayModal: false,
       firstClick: false,
       autoRotate: true,
+      autoRotateSide: 0, // 0 -> white, 1 -> black
     };
   },
   mounted() {
@@ -160,12 +161,24 @@ export default {
       }
       setTimeout(() => {
         if (square === '.') {
-          if (GameBoard.side) {
+          if (this.autoRotate) {
+            if (GameBoard.side) {
+              ClickedSpace(7 - file, 7 - rank, this.thinkingTime);
+            } else {
+              ClickedSpace(file, rank, this.thinkingTime);
+            }
+          } else if (this.autoRotateSide) {
             ClickedSpace(7 - file, 7 - rank, this.thinkingTime);
           } else {
             ClickedSpace(file, rank, this.thinkingTime);
           }
-        } else if (GameBoard.side) {
+        } else if (this.autoRotate) {
+          if (GameBoard.side) {
+            ClickedPiece(7 - file, 7 - rank, this.thinkingTime);
+          } else {
+            ClickedPiece(file, rank, this.thinkingTime);
+          }
+        } else if (this.autoRotateSide) {
           ClickedPiece(7 - file, 7 - rank, this.thinkingTime);
         } else {
           ClickedPiece(file, rank, this.thinkingTime);
@@ -212,10 +225,21 @@ export default {
       this.BestMove = MoveStats.BestMove;
     },
     vueReturn2DBoard() {
-      if (GameBoard.side) { // if it's black's turn
+      if (this.autoRotate) {
+        if (GameBoard.side) { // if it's black's turn
+          return getReversedBoard(get2DBoard());
+        }
+        return get2DBoard();
+      }
+      if (this.autoRotateSide) {
         return getReversedBoard(get2DBoard());
       }
       return get2DBoard();
+    },
+    lockAutoRotate() {
+      if (this.autoRotate) { // turn off auto rotate
+        this.autoRotateSide = GameBoard.side;
+      }
     },
   },
 };

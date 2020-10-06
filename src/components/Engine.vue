@@ -1,9 +1,11 @@
 <template>
   <div>
     <div :style="{width: `${chessboardSize+8}px`}" class="row mx-auto">
-      <div class="col"><span>Fen: </span></div>
-      <div class="col"><input type="text" v-model="fenIn"/></div>
-      <div class="col"><button @click="vueSetFen">Set Position</button></div>
+      <div class="col text-center">
+          <span>Fen: </span>
+          <input type="text" v-model="fenIn"/>
+          <button @click="vueSetFen">Set Position</button>
+      </div>
     </div>
     <div>
       <table id="chessboard" class="m-auto">

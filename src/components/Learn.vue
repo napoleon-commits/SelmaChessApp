@@ -1,15 +1,12 @@
 <template>
   <div :class="`${this.$store.state.darkModeClass} mx-4`">
       <div class="mb-3">
-        <div class="h1 px-2">
-            {{LandingPageHeader.header}}
-        </div>
+          <div class="h1 px-2">Getting Started</div>
+      </div>
+      <div class="mb-3">
         <div class="px-2">
             {{LandingPageHeader.description}}
         </div>
-      </div>
-      <div class="mb-3">
-          <div class="h2 px-2">Getting Started</div>
       </div>
       <div class="mb-3">
           <button

@@ -16,15 +16,15 @@ const Learn = () => (
     <CustomNav />
     <div className="px-3">
       <div className="mb-3">
-        <div className="h1">{LandingPageHeader.header}</div>
+        <div className="h1">Getting Started</div>
+      </div>
+      <div className="mb-3">
+        {/* <div className="h1">{LandingPageHeader.header}</div> */}
         <div>
           {LandingPageHeader.description}
           {/* eslint-disable-next-line */}
           <span onClick={() => { textToSpeech(LandingPageHeader.speech); }} className="ml-2 c-pointer" role="img" aria-label="Speaker">&#128264;</span>
         </div>
-      </div>
-      <div className="mb-3">
-        <div className="h2">Getting Started</div>
       </div>
       <div className="mb-3">
         <button className="btn btn-secondary w-100 text-left mb-2" type="button" data-toggle="collapse" data-target="#GoalOfChess" aria-expanded="false" aria-controls="GoalOfChess">

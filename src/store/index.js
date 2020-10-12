@@ -26,9 +26,6 @@ export default new Vuex.Store({
     setToolbarHeight(state, payload) {
       state.toolbarHeight = payload.toolbarHeight;
     },
-    setSchoolColor(state, payload) {
-      state.schoolColor = payload.schoolColor;
-    },
     setCustomColor(state, payload) {
       state.customColor = `rgb(${payload.red},${payload.green},${payload.blue})`;
     },

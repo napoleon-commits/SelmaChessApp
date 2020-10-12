@@ -30,7 +30,7 @@
         <button
           @click="takeBack"
           type="button"
-          :class="`custom-button-offline col ${this.$store.state.darkModeClass}`"
+          :class="`col ${this.$store.state.darkModeClass}`"
           v-if="type !== 'mate'"
         >
           Take Back
@@ -38,7 +38,7 @@
         <button
           @click="newGame"
           type="button"
-          :class="`custom-button-offline col ${this.$store.state.darkModeClass}`"
+          :class="`col ${this.$store.state.darkModeClass}`"
         >
           New Game
         </button>

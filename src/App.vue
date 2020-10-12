@@ -29,6 +29,12 @@ export default {
   color: #343a40;
   min-height: 100vh;
 }
+.c-pointer{
+  cursor: pointer;
+}
+table{
+  border: 4px solid #343a40;
+}
 .light-mode{
   background-color: white;
   color: #343a40;
@@ -36,9 +42,6 @@ export default {
 .dark-mode{
   background-color: #343a40 !important;
   color: white !important;
-}
-.c-pointer{
-  cursor: pointer;
 }
 a{
   color: #42b983;
@@ -49,21 +52,11 @@ a{
 .light-mode a:hover{
   color: #343a40;
 }
-.custom-button-offline {
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 2px solid #42b983;
-}
 .dark-square{
-    background-color: #42b983;
+  background-color: #42b983;
 }
 .text-dark{
   color: #343a40 !important;
-}
-table{
-  border: 4px solid #343a40;
 }
 button{
   text-align: center;

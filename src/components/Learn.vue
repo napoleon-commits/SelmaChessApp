@@ -10,7 +10,7 @@
       </div>
       <div class="mb-3">
           <button
-            :class="`custom-button-offline ${this.$store.state.darkModeClass} w-100 text-left px-2`"
+            :class="`${this.$store.state.darkModeClass} w-100 text-left px-2`"
             type="button"
             data-toggle="collapse"
             data-target="#GoalOfChess"
@@ -25,7 +25,7 @@
       </div>
       <div class="mb-3">
           <button
-            :class="`custom-button-offline ${this.$store.state.darkModeClass} w-100 text-left px-2`"
+            :class="`${this.$store.state.darkModeClass} w-100 text-left px-2`"
             type="button"
             data-toggle="collapse"
             data-target="#StartingPosition"
@@ -50,7 +50,7 @@
       <div v-for="(move, index) in ChessMovements" :key="'basic-moves'+index">
         <div class="mb-3">
           <button
-            :class="`custom-button-offline w-100 text-left px-2`"
+            :class="`w-100 text-left px-2`"
             type="button"
             data-toggle="collapse"
             aria-expanded="false"
@@ -75,7 +75,7 @@
       <div v-for="(obj, index) in SpecialMoves" :key="'special-move'+index">
         <div class="mb-3">
           <button
-            :class="`custom-button-offline w-100 text-left px-2`"
+            :class="`w-100 text-left px-2`"
             type="button"
             data-toggle="collapse"
             aria-expanded="false"

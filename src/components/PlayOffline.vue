@@ -136,11 +136,11 @@ export default {
       this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });
     });
   },
-  computed:{
-    schoolColor(){
+  computed: {
+    schoolColor() {
       return this.$store.state.schoolColor;
-    }
-  }
+    },
+  },
 };
 </script>
 

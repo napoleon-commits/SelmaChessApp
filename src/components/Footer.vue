@@ -28,11 +28,11 @@
 
 <script>
 export default {
-  computed:{
-    schoolColor(){
+  computed: {
+    schoolColor() {
       return this.$store.state.schoolColor;
-    }
-  }
+    },
+  },
 };
 </script>
 

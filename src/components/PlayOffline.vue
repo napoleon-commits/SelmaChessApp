@@ -19,6 +19,7 @@
                     && fileIndex === fileSelected
                   )?' square-selected':''}
                   ${(chessboard[rankIndex][fileIndex] !== '.')?' c-pointer':''}
+                  ${` ${schoolColor}`}
                   `"
                 />
           </tr>
@@ -30,7 +31,7 @@
         <button
           @click="takeBack"
           type="button"
-          :class="`col ${this.$store.state.darkModeClass}`"
+          :class="`col ${this.$store.state.darkModeClass} ${schoolColor}`"
           v-if="type !== 'mate'"
         >
           Take Back
@@ -38,7 +39,7 @@
         <button
           @click="newGame"
           type="button"
-          :class="`col ${this.$store.state.darkModeClass}`"
+          :class="`col ${this.$store.state.darkModeClass} ${schoolColor}`"
         >
           New Game
         </button>
@@ -135,6 +136,11 @@ export default {
       this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });
     });
   },
+  computed:{
+    schoolColor(){
+      return this.$store.state.schoolColor;
+    }
+  }
 };
 </script>
 

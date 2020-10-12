@@ -19,7 +19,7 @@
       </div>
       <div>a Byron J-Mil Hall production</div>
       <div>
-          <a href="mailto:selmachessapp@gmail.com" target="_top">
+          <a href="mailto:selmachessapp@gmail.com" target="_top" :class="schoolColor">
               selmachessapp@gmail.com
           </a>
       </div>
@@ -28,7 +28,11 @@
 
 <script>
 export default {
-
+  computed:{
+    schoolColor(){
+      return this.$store.state.schoolColor;
+    }
+  }
 };
 </script>
 

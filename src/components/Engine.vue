@@ -22,6 +22,7 @@
                     && fileIndex === fileSelected
                   )?' square-selected':''}
                 ${(chessboard[rankIndex][fileIndex] !== '.')?' c-pointer':''}
+                ${` ${schoolColor}`}
               `"
               @click="vueClickedSquare(
                 fileIndex,
@@ -55,9 +56,24 @@
         </label>
       </div>
       <div class="col">
-        <button class="d-block mx-auto" type="button" @click="moveNow">Move Now</button>
-        <button class="d-block mx-auto" type="button" @click="vueNewGame">New Game</button>
-        <button class="d-block mx-auto" type="button" @click="vueTakeBack">Take Back</button>
+        <button
+          :class="`${schoolColor} d-block mx-auto`"
+          type="button"
+          @click="moveNow">
+            Move Now
+        </button>
+        <button
+          :class="`${schoolColor} d-block mx-auto`"
+          type="button"
+          @click="vueNewGame">
+            New Game
+        </button>
+        <button
+          :class="`${schoolColor} d-block mx-auto`"
+          type="button"
+          @click="vueTakeBack">
+            Take Back
+        </button>
       </div>
     </div>
     <div v-if="displayModal">
@@ -217,13 +233,15 @@ export default {
       }
     },
   },
+  computed: {
+    schoolColor() {
+      return this.$store.state.schoolColor;
+    },
+  },
 };
 </script>
 
 <style>
-  .dark-square{
-    background-color: #42b983;
-  }
   #chessboard{
     border: 4px solid black;
   }
@@ -263,11 +281,11 @@ export default {
     -webkit-transition: .4s;
     transition: .4s;
   }
-  input:checked + .slider {
-    background-color: #42b983;
+  input:checked.dallas + .slider.dallas {
+    background-color: rgb(70, 165, 81);
   }
-  input:focus + .slider {
-    box-shadow: 0 0 1px #42b983;
+  input:focus.dallas + .slider.dallas {
+    box-shadow: 0 0 1px rgb(70, 165, 81);
   }
   input:checked + .slider:before {
     -webkit-transform: translateX(88px);

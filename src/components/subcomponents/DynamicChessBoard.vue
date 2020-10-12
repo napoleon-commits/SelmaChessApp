@@ -5,7 +5,7 @@
                 v-for="(square, fileIndex) in rank"
                 :key="fileIndex"
                 v-html="getHTMLChessPiece(square)"
-                :class="(((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square'"
+                :class="(((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square' + ` ${schoolColor}`"
             />
         </tr>
     </table>
@@ -33,6 +33,11 @@ export default {
       }
     }, 1000);
   },
+  computed:{
+    schoolColor(){
+      return this.$store.state.schoolColor;
+    }
+  }
 };
 </script>
 

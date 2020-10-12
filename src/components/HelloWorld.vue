@@ -107,7 +107,7 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
+a.dallas {
+  color: rgb(70, 165, 81);
 }
 </style>

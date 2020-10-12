@@ -16,7 +16,7 @@ const Learn = () => (
     <CustomNav />
     <div className="px-3">
       <div className="mb-3">
-        <div className="h1">Getting Started</div>
+        <div className="h1">An Introduction to Chess</div>
       </div>
       <div className="mb-3">
         {/* <div className="h1">{LandingPageHeader.header}</div> */}

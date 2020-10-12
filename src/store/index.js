@@ -9,8 +9,7 @@ export default new Vuex.Store({
     darkModeClass: 'dark-mode',
     chessboardWidth: 0,
     toolbarHeight: 0,
-    schoolColor: 'dallas',
-    customColor: null,
+    customColor: 'rgb(70, 165, 81)',
   },
   mutations: {
     toggleDarkMode(state) {
@@ -29,6 +28,9 @@ export default new Vuex.Store({
     },
     setSchoolColor(state, payload) {
       state.schoolColor = payload.schoolColor;
+    },
+    setCustomColor(state, payload) {
+      state.customColor = `rgb(${payload.red},${payload.green},${payload.blue})`;
     },
   },
 });

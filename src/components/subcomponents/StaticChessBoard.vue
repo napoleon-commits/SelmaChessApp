@@ -8,15 +8,15 @@
                 :class="
                   ((((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square')
                   + ' text-center'
-                  + ` ${schoolColor}`
                 "
+                :style="`background-color: ${customColor}`"
             />
         </tr>
     </table>
 </template>
 
 <script>
-import getHTMLChessPiece from '../../utils/board';
+import getHTMLChessPiece from '@/utils/board';
 
 export default {
   props: ['board'],
@@ -24,8 +24,8 @@ export default {
     getHTMLChessPiece,
   },
   computed: {
-    schoolColor() {
-      return this.$store.state.schoolColor;
+    customColor() {
+      return this.$store.state.customColor;
     },
   },
 };

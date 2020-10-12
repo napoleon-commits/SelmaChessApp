@@ -3,7 +3,7 @@
     <div :style="{width: `${chessboardSize+8}px`}" class="row mx-auto">
       <div class="col text-center">
           <span>Fen: </span>
-          <input type="text" v-model="fenIn"/>
+          <input :style="`border: 2px solid ${customColor}`" type="text" v-model="fenIn"/>
           <button @click="vueSetFen">Set Position</button>
       </div>
     </div>
@@ -22,8 +22,8 @@
                     && fileIndex === fileSelected
                   )?' square-selected':''}
                 ${(chessboard[rankIndex][fileIndex] !== '.')?' c-pointer':''}
-                ${` ${schoolColor}`}
               `"
+              :style="`background-color: ${customColor};`"
               @click="vueClickedSquare(
                 fileIndex,
                 7 - rankIndex,
@@ -39,7 +39,11 @@
     <div :style="{width: `${chessboardSize+8}px`}" class="row mx-auto">
       <div class="col">
         <div class="text-center">Thinking Time:</div>
-        <select class="d-block mx-auto" v-model="thinkingTime">
+        <select
+          :style="`border: 2px solid ${customColor}`"
+          class="d-block mx-auto"
+          v-model="thinkingTime"
+        >
         <option value="1">1 second</option>
         <option value="2">2 seconds</option>
         <option value="4">4 seconds</option>
@@ -52,24 +56,27 @@
         <div class="text-center mt-3">Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
         <label class="switch d-block mx-auto">
           <input type="checkbox" v-model="autoRotate" @click="lockAutoRotate">
-          <span class="slider round"></span>
+          <span class="slider round" :style="sliderStyle"></span>
         </label>
       </div>
       <div class="col">
         <button
-          :class="`${schoolColor} d-block mx-auto`"
+          class="d-block mx-auto"
+          :style="`border: 2px solid ${customColor}`"
           type="button"
           @click="moveNow">
             Move Now
         </button>
         <button
-          :class="`${schoolColor} d-block mx-auto`"
+          class="d-block mx-auto"
+          :style="`border: 2px solid ${customColor}`"
           type="button"
           @click="vueNewGame">
             New Game
         </button>
         <button
-          :class="`${schoolColor} d-block mx-auto`"
+          class="d-block mx-auto"
+          :style="`border: 2px solid ${customColor}`"
           type="button"
           @click="vueTakeBack">
             Take Back
@@ -237,6 +244,15 @@ export default {
     schoolColor() {
       return this.$store.state.schoolColor;
     },
+    customColor() {
+      return this.$store.state.customColor;
+    },
+    sliderStyle() {
+      if (this.autoRotate) {
+        return { backgroundColor: this.customColor };
+      }
+      return { boxShadow: `0 0 1px ${this.customColor}` };
+    },
   },
 };
 </script>
@@ -280,12 +296,6 @@ export default {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  input:checked.dallas + .slider.dallas {
-    background-color: rgb(70, 165, 81);
-  }
-  input:focus.dallas + .slider.dallas {
-    box-shadow: 0 0 1px rgb(70, 165, 81);
   }
   input:checked + .slider:before {
     -webkit-transform: translateX(88px);

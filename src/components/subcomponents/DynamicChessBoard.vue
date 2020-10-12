@@ -7,15 +7,15 @@
                 v-html="getHTMLChessPiece(square)"
                 :class="
                   (((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square'
-                  + ` ${schoolColor}`
                 "
+                :style="`background-color: ${customColor}`"
             />
         </tr>
     </table>
 </template>
 
 <script>
-import getHTMLChessPiece from '../../utils/board';
+import getHTMLChessPiece from '@/utils/board';
 
 export default {
   props: ['moves'],
@@ -37,8 +37,8 @@ export default {
     }, 1000);
   },
   computed: {
-    schoolColor() {
-      return this.$store.state.schoolColor;
+    customColor() {
+      return this.$store.state.customColor;
     },
   },
 };

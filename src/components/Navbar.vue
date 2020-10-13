@@ -4,7 +4,6 @@
             <span class="h5">Selma Chess App</span>
             <span
                 class="navbar-toggler px-0"
-                type="button"
                 data-toggle="collapse"
                 data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown"

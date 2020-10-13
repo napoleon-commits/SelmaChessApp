@@ -1,9 +1,12 @@
 <template>
   <div id="toolbar">
-    <v-toolbar :class="this.$store.state.darkModeClass">
+    <v-toolbar
+      :class="this.$store.state.darkModeClass"
+      style="box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2) !important; border-top:"
+    >
       <div class="dropdown">
         <button
-          class="btn dropdown-toggle"
+          class="dropdown-toggle pl-0"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
@@ -95,6 +98,7 @@ export default {
   methods: {
     toggleDarkMode() {
       this.$store.commit('toggleDarkMode');
+      this.adjustToolBarSize();
     },
     setSchoolColor(schoolColor) {
       switch (schoolColor) {
@@ -112,34 +116,25 @@ export default {
           break;
         default:
       }
+      this.adjustToolBarSize();
     },
     setCustomColor() {
       this.$store.commit('setCustomColor', { red: this.red, green: this.green, blue: this.blue });
+      this.adjustToolBarSize();
     },
-  },
-  mounted() {
-    const myInterval = setInterval(() => {
-      this.$store.commit('setToolbarHeight', { toolbarHeight: $('#toolbar').height() });
-    }, 1);
-    setTimeout(() => {
-      clearInterval(myInterval);
-    }, 3000);
-    window.addEventListener('resize', () => {
-      this.$store.commit('setToolbarHeight', { toolbarHeight: $('#toolbar').height() });
-    });
+    adjustToolBarSize() {
+      const myInterval = setInterval(() => {
+        this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
+      }, 1);
+      setTimeout(() => {
+        clearInterval(myInterval);
+      }, 1500);
+    },
   },
 };
 </script>
 
 <style>
-  #toolbar{
-    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
-    /* background-color: #333; */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-  }
   input.rgb-picker {
     border: 2px solid #343a40;
     border-radius: 8px;
@@ -147,5 +142,8 @@ export default {
   }
   button.rgb-picker {
     border: 2px solid #343a40;
+  }
+  #dropdownMenuButton:hover{
+    font-weight: bold;
   }
 </style>

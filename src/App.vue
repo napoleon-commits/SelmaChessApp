@@ -1,7 +1,13 @@
 <template>
-  <div id="app" :class="this.$store.state.darkModeClass">
-    <Toolbar />
-    <div :style="{marginTop: `${this.$store.state.toolbarHeight}px`}">
+  <div id="app" :class="darkModeClass">
+    <div id="custom-header">
+      <Navbar />
+      <Toolbar />
+    </div>
+    <div
+      :style="{marginTop: `${toolbarHeight}px`}"
+      :class="`pt-3 ${darkModeClass}`"
+    >
       <router-view :key="$route.fullPath"/>
     </div>
     <Footer />
@@ -9,14 +15,36 @@
 </template>
 
 <script>
-import Toolbar from './components/Toolbar';
-import Footer from './components/Footer';
+import $ from 'jquery';
+import Toolbar from '@/components/Toolbar';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 
 export default {
   name: 'App',
   components: {
     Toolbar,
     Footer,
+    Navbar,
+  },
+  mounted() {
+    const myInterval = setInterval(() => {
+      this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
+    }, 1);
+    setTimeout(() => {
+      clearInterval(myInterval);
+    }, 3000);
+    window.addEventListener('resize', () => {
+      this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
+    });
+  },
+  computed: {
+    darkModeClass() {
+      return this.$store.state.darkModeClass;
+    },
+    toolbarHeight() {
+      return this.$store.state.toolbarHeight;
+    },
   },
 };
 </script>
@@ -36,8 +64,8 @@ table{
   border: 4px solid #343a40;
 }
 .light-mode{
-  background-color: white;
-  color: #343a40;
+  background-color: white !important;
+  color: #343a40 !important;
 }
 .dark-mode{
   background-color: #343a40 !important;
@@ -78,5 +106,11 @@ input[type=text], select {
 }
 .keith-high-text-color{
   color: rgb(0, 110, 156);
+}
+#custom-header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 </style>

@@ -11,7 +11,11 @@
       >
         School Colors
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div
+        class="dropdown-menu"
+        aria-labelledby="dropdownMenuButton"
+        style="border: 2px solid #343a40"
+      >
         <div class="dropdown-item c-pointer" @click="setSchoolColor('keith')">
           <span>Keith</span>
           <span class="h2 keith-high-text-color">&bull;</span>
@@ -145,6 +149,7 @@ export default {
 <style>
   #toolbar{
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+    margin-top: -1px;
   }
   input.rgb-picker {
     border: 2px solid #343a40;

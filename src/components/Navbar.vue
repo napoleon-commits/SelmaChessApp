@@ -1,5 +1,5 @@
 <template>
-    <div :class="darkModeClass" class="">
+    <div :class="darkModeClass">
         <nav class="navbar navbar-expand-lg">
             <span class="h5">Selma Chess App</span>
             <span

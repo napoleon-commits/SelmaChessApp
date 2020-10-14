@@ -1,83 +1,83 @@
 <template>
-  <div id="toolbar">
-    <v-toolbar
-      :class="this.$store.state.darkModeClass"
-      style="box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2) !important;"
-    >
-      <div class="dropdown">
-        <button
-          class="dropdown-toggle pl-0"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          School Colors
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <div class="dropdown-item c-pointer" @click="setSchoolColor('keith')">
-            <span>Keith</span>
-            <span class="h2 keith-high-text-color">&bull;</span>
+  <div id="toolbar" :class="`${darkModeClass} row px-3`">
+    <div class="dropdown col-11">
+      <button
+        class="dropdown-toggle pl-0"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        School Colors
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-item c-pointer" @click="setSchoolColor('keith')">
+          <span>Keith</span>
+          <span class="h2 keith-high-text-color">&bull;</span>
+        </div>
+        <div class="dropdown-item c-pointer" @click="setSchoolColor('selma')">
+          <span>Selma</span>
+          <span class="h2 selma-high-text-color">&bull;</span>
+        </div>
+        <div class="dropdown-item c-pointer" @click="setSchoolColor('southside')">
+          <span>Southside</span>
+          <span class="h2 southside-high-text-color">&bull;</span>
+        </div>
+        <div class="dropdown-item c-pointer" @click="setSchoolColor('dallas')">
+          <span>Dallas County</span>
+          <span class="h2 dallas-county-high-text-color">&bull;</span>
+        </div>
+        <hr style="border-top: 2px solid #343a40"/>
+        <div class="dropdown-item">
+          <div class="mb-3">Custom Color</div>
+          <div>
+            <label>Red: </label>
+            <input
+              v-model="red"
+              :class="`w-50 rgb-picker float-right`"
+              :placeholder="redPlaceHolder"
+            />
           </div>
-          <div class="dropdown-item c-pointer" @click="setSchoolColor('selma')">
-            <span>Selma</span>
-            <span class="h2 selma-high-text-color">&bull;</span>
+          <div>
+            <label>Green: </label>
+            <input
+              v-model="green"
+              :class="`w-50 rgb-picker float-right`"
+              :placeholder="greenPlaceHolder"
+            />
           </div>
-          <div class="dropdown-item c-pointer" @click="setSchoolColor('southside')">
-            <span>Southside</span>
-            <span class="h2 southside-high-text-color">&bull;</span>
+          <div>
+            <label>Blue: </label>
+            <input
+              v-model="blue"
+              :class="`w-50 rgb-picker float-right`"
+              :placeholder="bluePlaceHolder"
+            />
           </div>
-          <div class="dropdown-item c-pointer" @click="setSchoolColor('dallas')">
-            <span>Dallas County</span>
-            <span class="h2 dallas-county-high-text-color">&bull;</span>
-          </div>
-          <hr style="border-top: 2px solid #343a40"/>
-          <div class="dropdown-item">
-            <div class="mb-3">Custom Color</div>
-            <div>
-              <label>Red: </label>
-              <input
-                v-model="red"
-                :class="`w-50 rgb-picker float-right`"
-                :placeholder="redPlaceHolder"
-              />
-            </div>
-            <div>
-              <label>Green: </label>
-              <input
-                v-model="green"
-                :class="`w-50 rgb-picker float-right`"
-                :placeholder="greenPlaceHolder"
-              />
-            </div>
-            <div>
-              <label>Blue: </label>
-              <input
-                v-model="blue"
-                :class="`w-50 rgb-picker float-right`"
-                :placeholder="bluePlaceHolder"
-              />
-            </div>
-            <div>
-              <button
-                :class="`rgb-picker w-100`"
-                @click="setCustomColor"
-              >
-                Set
-              </button>
-            </div>
+          <div>
+            <button
+              :class="`rgb-picker w-100`"
+              @click="setCustomColor"
+            >
+              Set
+            </button>
           </div>
         </div>
       </div>
-      <v-spacer />
-      <span v-if="this.$store.state.darkMode" @click="toggleDarkMode" class="c-pointer">
-        <v-icon class="text-white">mdi-white-balance-sunny</v-icon>
-      </span>
-      <span v-else @click="toggleDarkMode" class="c-pointer">
-        <v-icon>mdi-moon-waxing-crescent</v-icon>
-      </span>
-    </v-toolbar>
+    </div>
+    <div class="col-1">
+      <div class="float-right mt-2" style="margin-right: 1px;">
+        <span v-if="darkMode" @click="toggleDarkMode" class="c-pointer">
+          <v-icon class="text-white">
+            mdi-white-balance-sunny
+          </v-icon>
+        </span>
+        <span v-else @click="toggleDarkMode" class="c-pointer">
+          <v-icon>mdi-moon-waxing-crescent</v-icon>
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -95,7 +95,23 @@ export default {
       bluePlaceHolder: Math.floor(Math.random() * 256),
     };
   },
+  computed: {
+    darkModeClass() {
+      return this.$store.state.darkModeClass;
+    },
+    darkMode() {
+      return this.$store.state.darkMode;
+    },
+  },
   methods: {
+    adjustToolBarSize() {
+      const myInterval = setInterval(() => {
+        this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
+      }, 1);
+      setTimeout(() => {
+        clearInterval(myInterval);
+      }, 1500);
+    },
     toggleDarkMode() {
       this.$store.commit('toggleDarkMode');
       this.adjustToolBarSize();
@@ -122,19 +138,14 @@ export default {
       this.$store.commit('setCustomColor', { red: this.red, green: this.green, blue: this.blue });
       this.adjustToolBarSize();
     },
-    adjustToolBarSize() {
-      const myInterval = setInterval(() => {
-        this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
-      }, 1);
-      setTimeout(() => {
-        clearInterval(myInterval);
-      }, 1500);
-    },
   },
 };
 </script>
 
 <style>
+  #toolbar{
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
   input.rgb-picker {
     border: 2px solid #343a40;
     border-radius: 8px;

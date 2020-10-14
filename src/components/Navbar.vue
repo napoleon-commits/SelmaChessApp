@@ -17,14 +17,20 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-2">
                     <li class="nav-item">
-                        <span
-                            class="nav-link c-pointer"
-                        >
+                        <span class="nav-link c-pointer">
                             Login / Register
                         </span>
                     </li>
                     <li class="nav-item" v-if="route.path !== '/'">
                         <span class="nav-link c-pointer" @click="router.push('/')">Home</span>
+                    </li>
+                    <li class="nav-item" v-if="route.path !== '/offline'">
+                        <span
+                            class="nav-link c-pointer"
+                            @click="router.push('/offline')"
+                        >
+                            Offline
+                        </span>
                     </li>
                     <li class="nav-item" v-if="route.path !== '/engine'">
                         <span

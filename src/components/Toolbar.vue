@@ -33,7 +33,7 @@
           <span class="h2 dallas-county-high-text-color">&bull;</span>
         </div>
         <hr :class="darkModeClass"/>
-        <div class="dropdown-item">
+        <div :class="`dropdown-item ${darkModeClass}`">
           <div :class="`mb-3 ${darkModeClass}`">Custom Color</div>
           <div>
             <label :class="darkModeClass">Red: </label>

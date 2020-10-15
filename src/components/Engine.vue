@@ -7,7 +7,7 @@
             :style="`border: 2px solid ${customColor}`"
             type="text"
             v-model="fenIn"
-            class="w-50"
+            :class="`w-50 ${darkModeClass}`"
             placeholder="7k/p7/1R5K/6r1/6p1/6P1/8/8 w - - bm Rb7"
           />
           <button @click="vueSetFen" :style="`border: 2px solid ${customColor}`">
@@ -48,8 +48,8 @@
       <div class="col">
         <div class="text-center">Thinking Time:</div>
         <select
-          :style="`border: 2px solid ${customColor}`"
-          class="d-block mx-auto"
+          :style="`border: 2px solid ${customColor}; text-align-last: center;`"
+          :class="`d-block mx-auto ${darkModeClass}`"
           v-model="thinkingTime"
         >
         <option value="1">1 second</option>
@@ -260,6 +260,9 @@ export default {
         return { backgroundColor: this.customColor };
       }
       return { boxShadow: `0 0 1px ${this.customColor}` };
+    },
+    darkModeClass() {
+      return this.$store.state.darkModeClass;
     },
   },
 };

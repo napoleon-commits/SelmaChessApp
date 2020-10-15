@@ -89,7 +89,6 @@ button{
   min-width: 105px;
 }
 input[type=text], select {
-  background-color: white;
   border-radius: 8px;
   padding: 8px;
   min-width: 105px;

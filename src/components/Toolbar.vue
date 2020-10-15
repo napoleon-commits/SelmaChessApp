@@ -12,56 +12,56 @@
         School Colors
       </button>
       <div
-        class="dropdown-menu"
+        id="school-color-dropdown-menu"
+        :class="`dropdown-menu ${darkModeClass}`"
         aria-labelledby="dropdownMenuButton"
-        style="border: 2px solid #343a40"
       >
         <div class="dropdown-item c-pointer" @click="setSchoolColor('keith')">
-          <span>Keith</span>
+          <span :class="darkModeClass">Keith</span>
           <span class="h2 keith-high-text-color">&bull;</span>
         </div>
         <div class="dropdown-item c-pointer" @click="setSchoolColor('selma')">
-          <span>Selma</span>
+          <span :class="darkModeClass">Selma</span>
           <span class="h2 selma-high-text-color">&bull;</span>
         </div>
         <div class="dropdown-item c-pointer" @click="setSchoolColor('southside')">
-          <span>Southside</span>
+          <span :class="darkModeClass">Southside</span>
           <span class="h2 southside-high-text-color">&bull;</span>
         </div>
         <div class="dropdown-item c-pointer" @click="setSchoolColor('dallas')">
-          <span>Dallas County</span>
+          <span :class="darkModeClass">Dallas County</span>
           <span class="h2 dallas-county-high-text-color">&bull;</span>
         </div>
-        <hr style="border-top: 2px solid #343a40"/>
+        <hr :class="darkModeClass"/>
         <div class="dropdown-item">
-          <div class="mb-3">Custom Color</div>
+          <div :class="`mb-3 ${darkModeClass}`">Custom Color</div>
           <div>
-            <label>Red: </label>
+            <label :class="darkModeClass">Red: </label>
             <input
               v-model="red"
-              :class="`w-50 rgb-picker float-right`"
+              :class="`w-50 rgb-picker float-right ${darkModeClass}`"
               :placeholder="redPlaceHolder"
             />
           </div>
           <div>
-            <label>Green: </label>
+            <label :class="darkModeClass">Green: </label>
             <input
               v-model="green"
-              :class="`w-50 rgb-picker float-right`"
+              :class="`w-50 rgb-picker float-right ${darkModeClass}`"
               :placeholder="greenPlaceHolder"
             />
           </div>
           <div>
-            <label>Blue: </label>
+            <label :class="darkModeClass">Blue: </label>
             <input
               v-model="blue"
-              :class="`w-50 rgb-picker float-right`"
+              :class="`w-50 rgb-picker float-right ${darkModeClass}`"
               :placeholder="bluePlaceHolder"
             />
           </div>
           <div>
             <button
-              :class="`rgb-picker w-100`"
+              :class="`rgb-picker w-100 ${darkModeClass}`"
               @click="setCustomColor"
             >
               Set
@@ -152,14 +152,34 @@ export default {
     margin-top: -1px;
   }
   input.rgb-picker {
-    border: 2px solid #343a40;
     border-radius: 8px;
     text-align: center;
   }
-  button.rgb-picker {
+  input.rgb-picker.light-mode{
     border: 2px solid #343a40;
+  }
+  input.rgb-picker.dark-mode{
+    border: 2px solid white;
+  }
+  button.rgb-picker.light-mode {
+    border: 2px solid #343a40;
+  }
+  button.rgb-picker.dark-mode {
+    border: 2px solid white;
   }
   #dropdownMenuButton:hover{
     font-weight: bold;
+  }
+  hr.dark-mode{
+    border-top: 2px solid white;
+  }
+  hr.light-mode{
+    border-top: 2px solid #343a40;
+  }
+  #school-color-dropdown-menu.light-mode{
+    border: 2px solid #343a40;
+  }
+  #school-color-dropdown-menu.dark-mode{
+    border: 2px solid white;
   }
 </style>

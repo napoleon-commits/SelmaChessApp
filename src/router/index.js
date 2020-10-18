@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import PlayOffline from '@/components/PlayOffline';
 import Learn from '@/components/Learn';
 import Engine from '@/components/Engine';
+import Register from '@/components/Register';
+import Login from '@/components/Login';
 
 Vue.use(Router);
 
@@ -62,6 +64,16 @@ export default new Router({
       path: '/engine',
       name: 'Engine',
       component: Engine,
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register,
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
     },
   ],
 });

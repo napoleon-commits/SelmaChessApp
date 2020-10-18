@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-2">
                     <li class="nav-item">
-                        <span class="nav-link c-pointer">
+                        <span class="nav-link c-pointer" @click="router.push('/login')">
                             Login / Register
                         </span>
                     </li>

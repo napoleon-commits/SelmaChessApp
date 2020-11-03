@@ -2,7 +2,6 @@
 import tsv from 'tsv';
 
 export default tsv.parse(`
-eco	name	fen	moves
 D00	Amazon Attack	rnbqkbnr/ppp1pppp/8/3p4/3P4/3Q4/PPP1PPPP/RNB1KBNR b KQkq -	d2d4 d7d5 d1d3
 D00	Blackmar Gambit	rnbqkbnr/ppp1pppp/8/3p4/3PP3/8/PPP2PPP/RNBQKBNR b KQkq -	d2d4 d7d5 e2e4
 D00	Blackmar-Diemer Gambit	rnbqkbnr/ppp1pppp/8/8/3Pp3/2N5/PPP2PPP/R1BQKBNR b KQkq -	d2d4 d7d5 e2e4 d5e4 b1c3

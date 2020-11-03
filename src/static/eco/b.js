@@ -2,7 +2,6 @@
 import tsv from 'tsv';
 
 export default tsv.parse(`
-eco	name	fen	moves
 B00	Barnes Defense	rnbqkbnr/ppppp1pp/5p2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -	e2e4 f7f6
 B00	Borg Defense: Borg Gambit	rnbqk1nr/ppppppbp/8/6p1/3PP3/8/PPP2PPP/RNBQKBNR w KQkq -	e2e4 g7g5 d2d4 f8g7
 B00	Borg Defense: Langhorst Gambit	rnbqkbnr/p2p1p1p/1p2p3/2P3p1/4P3/2P5/PP3PPP/RNBQKBNR w KQkq -	e2e4 g7g5 d2d4 e7e6 c2c3 c7c5 d4c5 b7b6

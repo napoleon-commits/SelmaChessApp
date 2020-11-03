@@ -2,7 +2,6 @@
 import tsv from 'tsv';
 
 export default tsv.parse(`
-eco	name	fen	moves
 C00	French Defense: Alapin Gambit	rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/4B3/PPP2PPP/RN1QKBNR b KQkq -	e2e4 e7e6 d2d4 d7d5 c1e3
 C00	French Defense: Baeuerle Gambit	rnbqkbnr/p1pp1ppp/4p3/1p6/3PP3/8/PPP2PPP/RNBQKBNR w KQkq -	e2e4 e7e6 d2d4 b7b5
 C00	French Defense: Banzai-Leong Gambit, Pinova Gambit	rnbqk1nr/pppp1ppp/4p3/4P3/1b6/8/P1PP1PPP/RNBQKBNR b KQkq -	e2e4 e7e6 b2b4 f8b4 e4e5

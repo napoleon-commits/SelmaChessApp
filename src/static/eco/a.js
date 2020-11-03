@@ -2,7 +2,6 @@
 import tsv from 'tsv';
 
 export default tsv.parse(`
-eco	name	fen	moves
 A00	Amar Gambit	rn1qkbnr/ppp2ppp/8/3p4/5p2/6PB/PPPPP2P/RNBQK2R w KQkq -	g1h3 d7d5 g2g3 e7e5 f2f4 c8h3 f1h3 e5f4
 A00	Amar Opening: Gent Gambit	rn1qkbnr/ppp2ppp/8/3p4/8/6PB/PPPPP3/RNBQ1RK1 b kq -	g1h3 d7d5 g2g3 e7e5 f2f4 c8h3 f1h3 e5f4 e1g1 f4g3 h2g3
 A00	Amar Opening: Paris Gambit	rnbqkbnr/ppp2ppp/8/3pp3/5P2/6PN/PPPPP2P/RNBQKB1R b KQkq -	g1h3 d7d5 g2g3 e7e5 f2f4

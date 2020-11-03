@@ -2,7 +2,6 @@
 import tsv from 'tsv';
 
 export default tsv.parse(`
-eco	name	fen	moves
 E00	Catalan Opening: Hungarian Gambit	rnbqkb1r/pppp1ppp/5n2/4p3/2PP4/6P1/PP2PP1P/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 e7e6 g2g3 e6e5
 E00	Catalan Opening	rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/6P1/PP2PP1P/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 e7e6 g2g3 d7d5
 E00	Catalan Opening	rnbqkb1r/pppp1ppp/4pn2/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq -	d2d4 g8f6 c2c4 e7e6 g2g3

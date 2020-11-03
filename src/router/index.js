@@ -5,6 +5,7 @@ import Learn from '@/components/Learn';
 import Engine from '@/components/Engine';
 import Register from '@/components/Register';
 import Login from '@/components/Login';
+import OpeningExplorer from '@/components/OpeningExplorer';
 
 Vue.use(Router);
 
@@ -74,6 +75,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/opening-explorer',
+      name: 'OpeningExplorer',
+      component: OpeningExplorer,
     },
   ],
 });

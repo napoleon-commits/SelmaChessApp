@@ -17,17 +17,30 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-2">
                     <li class="nav-item">
-                        <span class="nav-link c-pointer" @click="router.push('/login')">
+                        <span
+                            class="nav-link c-pointer"
+                            @click="router.push('/login')"
+                            data-target="#navbarNavDropdown"
+                            data-toggle="collapse"
+                        >
                             Login / Register
                         </span>
                     </li>
                     <li class="nav-item" v-if="route.path !== '/'">
-                        <span class="nav-link c-pointer" @click="router.push('/')">Home</span>
+                        <span
+                            class="nav-link c-pointer"
+                            @click="router.push('/')"
+                            data-target="#navbarNavDropdown"
+                            data-toggle="collapse"
+                        >
+                            Home
+                        </span>
                     </li>
                     <li class="nav-item" v-if="route.path !== '/offline'">
                         <span
                             class="nav-link c-pointer"
                             @click="router.push('/offline')"
+                             data-target="#navbarNavDropdown" data-toggle="collapse"
                         >
                             Offline
                         </span>
@@ -36,6 +49,7 @@
                         <span
                             class="nav-link c-pointer"
                             @click="router.push('/engine')"
+                             data-target="#navbarNavDropdown" data-toggle="collapse"
                         >
                             Engine
                         </span>

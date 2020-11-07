@@ -147,6 +147,60 @@ export default {
               this.chessboard[7][3] = this.chessboard[7][0];
               this.chessboard[7][4] = '.';
               this.chessboard[7][0] = '.';
+            } else if (
+              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'P'
+              && (
+                (
+                  currentMoveArray[0].charCodeAt(0) - (97 - 1)
+                  === currentMoveArray[2].charCodeAt(0) - 97
+                )
+                || (
+                  currentMoveArray[0].charCodeAt(0) - (97 + 1)
+                  === currentMoveArray[2].charCodeAt(0) - 97
+                )
+              )
+              && (
+                this.chessboard[8 - (Number(currentMoveArray[3]))][currentMoveArray[2].charCodeAt(0) - 97] === '.'
+              )
+            ) {
+              this.chessboard[
+                8 - (Number(currentMoveArray[3]))
+              ][
+                currentMoveArray[2].charCodeAt(0) - 97
+              ] = this.chessboard[
+                8 - (Number(currentMoveArray[1]))
+              ][
+                currentMoveArray[0].charCodeAt(0) - 97
+              ];
+              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+              this.chessboard[(8 - (Number(currentMoveArray[3]))) + 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+            } else if (
+              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'p'
+              && (
+                (
+                  currentMoveArray[0].charCodeAt(0) - (97 - 1)
+                  === currentMoveArray[2].charCodeAt(0) - 97
+                )
+                || (
+                  currentMoveArray[0].charCodeAt(0) - (97 + 1)
+                  === currentMoveArray[2].charCodeAt(0) - 97
+                )
+              )
+              && (
+                this.chessboard[8 - (Number(currentMoveArray[3]))][currentMoveArray[2].charCodeAt(0) - 97] === '.'
+              )
+            ) {
+              this.chessboard[
+                8 - (Number(currentMoveArray[3]))
+              ][
+                currentMoveArray[2].charCodeAt(0) - 97
+              ] = this.chessboard[
+                8 - (Number(currentMoveArray[1]))
+              ][
+                currentMoveArray[0].charCodeAt(0) - 97
+              ];
+              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+              this.chessboard[(8 - (Number(currentMoveArray[3]))) - 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
             } else { // not castling and not en passant
               this.chessboard[
                 8 - (Number(currentMoveArray[3]))

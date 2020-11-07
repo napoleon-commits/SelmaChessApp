@@ -150,16 +150,6 @@ export default {
             } else if (
               this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'P'
               && (
-                (
-                  currentMoveArray[0].charCodeAt(0) - (97 - 1)
-                  === currentMoveArray[2].charCodeAt(0) - 97
-                )
-                || (
-                  currentMoveArray[0].charCodeAt(0) - (97 + 1)
-                  === currentMoveArray[2].charCodeAt(0) - 97
-                )
-              )
-              && (
                 this.chessboard[8 - (Number(currentMoveArray[3]))][currentMoveArray[2].charCodeAt(0) - 97] === '.'
               )
             ) {
@@ -176,16 +166,6 @@ export default {
               this.chessboard[(8 - (Number(currentMoveArray[3]))) + 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
             } else if (
               this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'p'
-              && (
-                (
-                  currentMoveArray[0].charCodeAt(0) - (97 - 1)
-                  === currentMoveArray[2].charCodeAt(0) - 97
-                )
-                || (
-                  currentMoveArray[0].charCodeAt(0) - (97 + 1)
-                  === currentMoveArray[2].charCodeAt(0) - 97
-                )
-              )
               && (
                 this.chessboard[8 - (Number(currentMoveArray[3]))][currentMoveArray[2].charCodeAt(0) - 97] === '.'
               )

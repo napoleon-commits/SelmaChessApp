@@ -1,16 +1,9 @@
 <template>
   <div>
     <div class="h5">Can you guess the chess opening?</div>
-    <br />
-    <div>Streak: {{streak}}</div>
-    <br />
     <div
       v-if="openingsArray[openingsArrayIndex]"
     >
-      <div>
-        {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
-      </div>
-      <br />
       <table id="chessboard" class="m-auto">
           <tbody>
               <tr v-for="(rank, rankIndex) in chessboard" :key="rankIndex" >
@@ -36,13 +29,16 @@
               </tr>
           </tbody>
       </table>
-      <br />
+      <div>
+        {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
+      </div>
+      <hr :style="`border: 1px solid ${customColor};`"/>
       <div>
         Solution: {{openingsArray[openingsArrayIndex][3]}}
       </div>
-      <br />
     </div>
-    <br />
+    <hr :style="`border: 1px solid ${customColor};`"/>
+    <div>Streak: {{streak}}</div>
     <div class="row">
       <div class="col">
         <button

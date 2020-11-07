@@ -112,4 +112,7 @@ input[type=text], select {
   width: 100%;
   z-index: 1;
 }
+.square-selected{
+  background-color: #6d7a82 !important;
+}
 </style>

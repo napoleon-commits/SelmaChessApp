@@ -147,7 +147,5 @@ export default {
 </script>
 
 <style>
-  .square-selected{
-    background-color: #6d7a82 !important;
-  }
+
 </style>

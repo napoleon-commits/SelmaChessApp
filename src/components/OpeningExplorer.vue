@@ -9,9 +9,35 @@
         {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
       </div>
       <br />
+      <table id="chessboard" class="m-auto">
+          <tbody>
+              <tr v-for="(rank, rankIndex) in chessboard" :key="rankIndex" >
+                  <td
+                    v-for="(square, fileIndex) in rank"
+                    :key="fileIndex"
+                    v-html="getHTMLChessPiece(square)"
+                    :class="`
+                      ${(((rankIndex+fileIndex)%2)===0)?'bg-white':'dark-square'}
+                      ${(
+                        rankIndex === rankSelected
+                        && fileIndex === fileSelected
+                      )?' square-selected':''}
+                      ${(chessboard[rankIndex][fileIndex] !== '.')?' c-pointer':''}
+                      `"
+                    :style="`background-color: ${customColor}`"
+                    @click="squareClick(
+                      8-rankIndex,
+                      1+fileIndex,
+                      `${(chessboard[rankIndex][fileIndex] !== '.')?'Piece':'Square'}`
+                    )"
+                    />
+              </tr>
+          </tbody>
+      </table>
+      <!-- <br />
       <div>
         Solution: {{openingsArray[openingsArrayIndex][3]}}
-      </div>
+      </div> -->
       <br />
     </div>
     <div>Streak: {{streak}}</div>
@@ -29,6 +55,8 @@ import BTSV from '@/static/eco/b';
 import CTSV from '@/static/eco/c';
 import DTSV from '@/static/eco/d';
 import ETSV from '@/static/eco/e';
+import getHTMLChessPiece from '@/utils/board';
+import { startBoard } from '@/constants/index';
 
 export default {
   data() {
@@ -36,6 +64,9 @@ export default {
       streak: 0,
       openingsArray: [],
       openingsArrayIndex: 0,
+      chessboard: startBoard,
+      rankSelected: null,
+      fileSelected: null,
     };
   },
   mounted() {
@@ -48,12 +79,28 @@ export default {
     }
   },
   methods: {
+    getHTMLChessPiece,
+    squareClick(rank, file, type) {
+      if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
+        this.fileSelected = null;
+        this.rankSelected = null;
+      } else {
+        this.rankSelected = 8 - rank;
+        this.fileSelected = file - 1;
+      }
+    },
     next() {
       if ((this.openingsArrayIndex + 1) === this.openingsArray.length) {
         this.openingsArrayIndex = 0;
       } else {
         this.openingsArrayIndex += 1;
       }
+      this.chessboard = startBoard;
+    },
+  },
+  computed: {
+    customColor() {
+      return this.$store.state.customColor;
     },
   },
 };

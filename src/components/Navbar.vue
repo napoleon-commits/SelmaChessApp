@@ -64,7 +64,7 @@
                             aria-expanded="false"
                             @click="adjustToolBarSize"
                         >
-                            Mate Practicing
+                            Checkmate Practicing
                         </span>
                     <div
                         :class="`dropdown-menu ${darkModeClass}`"

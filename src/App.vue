@@ -5,7 +5,7 @@
       <Toolbar />
     </div>
     <div
-      :class="`pt-3 ${darkModeClass}`"
+      :class="`pt-3 px-3 ${darkModeClass}`"
     >
       <router-view :key="$route.fullPath"/>
     </div>

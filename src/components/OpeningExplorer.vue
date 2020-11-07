@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="h5">Can you guess the chess opening?</div>
+    <div class="h5 text-center">Can you guess the chess opening?</div>
+    <hr :style="`border: 1px solid ${customColor};`"/>
+    <div class="text-center">Auto Rotate Slider</div>
+    <hr :style="`border: 1px solid ${customColor};`"/>
     <div
       v-if="openingsArray[openingsArrayIndex]"
     >
@@ -29,16 +32,19 @@
               </tr>
           </tbody>
       </table>
-      <div>
-        {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
+      <div class="text-center" style="height: 5vh">
+        <div class="my-2">
+          {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
+        </div>
       </div>
-      <hr :style="`border: 1px solid ${customColor};`"/>
-      <div>
+      <!-- <hr :style="`border: 1px solid ${customColor};`"/>
+      <div class="text-center">
         Solution: {{openingsArray[openingsArrayIndex][3]}}
-      </div>
+      </div> -->
     </div>
     <hr :style="`border: 1px solid ${customColor};`"/>
-    <div>Streak: {{streak}}</div>
+    <div class="text-center">Streak: {{streak}}</div>
+    <hr :style="`border: 1px solid ${customColor};`"/>
     <div class="row">
       <div class="col">
         <button

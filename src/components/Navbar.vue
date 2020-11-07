@@ -9,7 +9,6 @@
                 aria-controls="navbarNavDropdown"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
-                @click="adjustToolBarSize"
                 style="font-size: 1.75rem !important;"
             >
                 &#9776;
@@ -62,7 +61,6 @@
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
-                            @click="adjustToolBarSize"
                         >
                             Checkmate Practicing
                         </span>
@@ -104,19 +102,8 @@
 </template>
 
 <script>
-import $ from 'jquery';
 
 export default {
-  methods: {
-    adjustToolBarSize() {
-      const myInterval = setInterval(() => {
-        this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
-      }, 1);
-      setTimeout(() => {
-        clearInterval(myInterval);
-      }, 1500);
-    },
-  },
   computed: {
     darkModeClass() {
       return this.$store.state.darkModeClass;

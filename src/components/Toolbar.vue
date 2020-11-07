@@ -86,7 +86,6 @@
 </template>
 
 <script>
-import $ from 'jquery';
 
 export default {
   data() {
@@ -108,17 +107,8 @@ export default {
     },
   },
   methods: {
-    adjustToolBarSize() {
-      const myInterval = setInterval(() => {
-        this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
-      }, 1);
-      setTimeout(() => {
-        clearInterval(myInterval);
-      }, 1500);
-    },
     toggleDarkMode() {
       this.$store.commit('toggleDarkMode');
-      this.adjustToolBarSize();
     },
     setSchoolColor(schoolColor) {
       switch (schoolColor) {
@@ -136,11 +126,11 @@ export default {
           break;
         default:
       }
-      this.adjustToolBarSize();
+      // this.adjustToolBarSize();
     },
     setCustomColor() {
       this.$store.commit('setCustomColor', { red: this.red, green: this.green, blue: this.blue });
-      this.adjustToolBarSize();
+      // this.adjustToolBarSize();
     },
   },
 };

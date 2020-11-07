@@ -23,9 +23,6 @@ export default new Vuex.Store({
     setChessBoardWidth(state, payload) {
       state.chessboardWidth = payload.chessboardWidth;
     },
-    setToolbarHeight(state, payload) {
-      state.toolbarHeight = payload.toolbarHeight;
-    },
     setCustomColor(state, payload) {
       state.customColor = `rgb(${payload.red},${payload.green},${payload.blue})`;
     },

@@ -48,6 +48,7 @@
         <button
           :class="`w-100 ${this.$store.state.darkModeClass}`"
           :style="`border: 2px solid ${customColor}`"
+          @click="showSolution"
         >
         Show Solution
       </button>
@@ -162,6 +163,16 @@ export default {
       this.resetBoard();
       this.currentMoveIndex = 0;
       this.openingCompleted = false;
+      this.rankSelected = null;
+      this.fileSelected = null;
+    },
+    showSolution() {
+      this.openingCompleted = true;
+      this.streak = 0;
+      this.currentMoveString = '';
+      this.rankSelected = null;
+      this.fileSelected = null;
+      this.currentMoveIndex = 0;
     },
   },
   computed: {

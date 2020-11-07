@@ -36,10 +36,10 @@
               </tr>
           </tbody>
       </table>
-      <!-- <br />
+      <br />
       <div>
         Solution: {{openingsArray[openingsArrayIndex][3]}}
-      </div> -->
+      </div>
       <br />
     </div>
     <br />
@@ -83,6 +83,8 @@ export default {
       chessboard: startBoard,
       rankSelected: null,
       fileSelected: null,
+      currentMoveString: '',
+      currentMoveIndex: 0,
     };
   },
   mounted() {
@@ -97,6 +99,29 @@ export default {
   methods: {
     getHTMLChessPiece,
     squareClick(rank, file, type) {
+      if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
+        this.currentMoveString = `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+      } else if (this.currentMoveString.length === 2) {
+        this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+      }
+      // eslint-disable-next-line
+      console.log(this.currentMoveString);
+      // eslint-disable-next-line
+      console.log(this.openingsArray[this.openingsArrayIndex][3].split(' '));
+      if (this.currentMoveString.length === 4) {
+        if (
+          this.currentMoveString
+          === this.openingsArray[this.openingsArrayIndex][3].split(' ')[this.currentMoveIndex]
+        ) {
+          // eslint-disable-next-line
+          console.log("Correct");
+          this.currentMoveIndex += 1;
+        } else {
+          // eslint-disable-next-line
+          console.log("Incorrect");
+          this.streak = 0;
+        }
+      }
       if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
         this.fileSelected = null;
         this.rankSelected = null;
@@ -112,6 +137,7 @@ export default {
         this.openingsArrayIndex += 1;
       }
       this.chessboard = startBoard;
+      this.currentMoveIndex = 0;
     },
   },
   computed: {

@@ -17,8 +17,8 @@
     <div>Streak: {{streak}}</div>
     <br />
     <div class="row">
-      <div class="col"><button class="w-100">Play</button></div>
-      <div class="col"><button class="w-100">Next</button></div>
+      <div class="col"><button class="w-100">Show Solution</button></div>
+      <div class="col"><button class="w-100" @click="next">Next</button></div>
     </div>
   </div>
 </template>
@@ -46,6 +46,15 @@ export default {
       this.openingsArray[randomLocation] = this.openingsArray[i];
       this.openingsArray[i] = randomOpening;
     }
+  },
+  methods: {
+    next() {
+      if ((this.openingsArrayIndex + 1) === this.openingsArray.length) {
+        this.openingsArrayIndex = 0;
+      } else {
+        this.openingsArrayIndex += 1;
+      }
+    },
   },
 };
 </script>

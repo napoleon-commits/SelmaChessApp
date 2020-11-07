@@ -25,24 +25,10 @@ export default {
     Footer,
     Navbar,
   },
-  // mounted() {
-  //   const myInterval = setInterval(() => {
-  //     this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
-  //   }, 1);
-  //   setTimeout(() => {
-  //     clearInterval(myInterval);
-  //   }, 3000);
-  //   window.addEventListener('resize', () => {
-  //     this.$store.commit('setToolbarHeight', { toolbarHeight: $('#custom-header').height() });
-  //   });
-  // },
   computed: {
     darkModeClass() {
       return this.$store.state.darkModeClass;
     },
-    // toolbarHeight() {
-    //   return this.$store.state.toolbarHeight;
-    // },
   },
 };
 </script>
@@ -105,8 +91,6 @@ input[type=text], select {
   color: rgb(0, 110, 156);
 }
 #custom-header{
-  /* position: fixed; */
-  /* top: 0; */
   width: 100%;
   z-index: 1;
 }

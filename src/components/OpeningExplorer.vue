@@ -127,16 +127,38 @@ export default {
           === this.openingsArray[this.openingsArrayIndex][3].split(' ')[this.currentMoveIndex]
           ) {
             const currentMoveArray = this.currentMoveString.split('');
-            this.chessboard[
-              8 - (Number(currentMoveArray[3]))
-            ][
-              currentMoveArray[2].charCodeAt(0) - 97
-            ] = this.chessboard[
-              8 - (Number(currentMoveArray[1]))
-            ][
-              currentMoveArray[0].charCodeAt(0) - 97
-            ];
-            this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+            if (this.currentMoveString === 'e8g8') {
+              this.chessboard[0][6] = this.chessboard[0][4];
+              this.chessboard[0][5] = this.chessboard[0][7];
+              this.chessboard[0][4] = '.';
+              this.chessboard[0][7] = '.';
+            } else if (this.currentMoveString === 'e8c8') {
+              this.chessboard[0][2] = this.chessboard[0][4];
+              this.chessboard[0][3] = this.chessboard[0][0];
+              this.chessboard[0][4] = '.';
+              this.chessboard[0][0] = '.';
+            } else if (this.currentMoveString === 'e1g1') {
+              this.chessboard[7][6] = this.chessboard[7][4];
+              this.chessboard[7][5] = this.chessboard[7][7];
+              this.chessboard[7][4] = '.';
+              this.chessboard[7][7] = '.';
+            } else if (this.currentMoveString === 'e1c1') {
+              this.chessboard[7][2] = this.chessboard[7][4];
+              this.chessboard[7][3] = this.chessboard[7][0];
+              this.chessboard[7][4] = '.';
+              this.chessboard[7][0] = '.';
+            } else { // not castling and not en passant
+              this.chessboard[
+                8 - (Number(currentMoveArray[3]))
+              ][
+                currentMoveArray[2].charCodeAt(0) - 97
+              ] = this.chessboard[
+                8 - (Number(currentMoveArray[1]))
+              ][
+                currentMoveArray[0].charCodeAt(0) - 97
+              ];
+              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+            }
             if (this.currentMoveIndex + 1 === this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
               this.openingCompleted = true;
               this.streak += 1;

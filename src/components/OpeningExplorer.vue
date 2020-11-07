@@ -103,12 +103,25 @@ export default {
     getHTMLChessPiece,
     squareClick(rank, file, type) {
       if (this.openingCompleted === false) {
+        if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
+          this.fileSelected = null;
+          this.rankSelected = null;
+        } else {
+          this.rankSelected = 8 - rank;
+          this.fileSelected = file - 1;
+        }
         if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
           this.currentMoveString = `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
         } else if (this.currentMoveString.length === 2) {
           this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
         }
-        if (this.currentMoveString.length === 4) {
+        if (
+          this.currentMoveString.length === 4
+          && (
+            (this.currentMoveString[0] !== this.currentMoveString[2])
+            || (this.currentMoveString[1] !== this.currentMoveString[3])
+          )
+        ) {
           if (
             this.currentMoveString
           === this.openingsArray[this.openingsArrayIndex][3].split(' ')[this.currentMoveIndex]
@@ -138,13 +151,6 @@ export default {
             this.streak = 0;
           }
         }
-        if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
-          this.fileSelected = null;
-          this.rankSelected = null;
-        } else {
-          this.rankSelected = 8 - rank;
-          this.fileSelected = file - 1;
-        }
       }
     },
     resetBoard() {
@@ -167,8 +173,10 @@ export default {
       this.fileSelected = null;
     },
     showSolution() {
+      if (this.currentMoveIndex + 1 !== this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
+        this.streak = 0;
+      }
       this.openingCompleted = true;
-      this.streak = 0;
       this.currentMoveString = '';
       this.rankSelected = null;
       this.fileSelected = null;

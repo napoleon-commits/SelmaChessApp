@@ -80,14 +80,16 @@ export default {
       streak: 0,
       openingsArray: [],
       openingsArrayIndex: 0,
-      chessboard: startBoard,
+      chessboard: [[], [], [], [], [], [], [], []],
       rankSelected: null,
       fileSelected: null,
       currentMoveString: '',
       currentMoveIndex: 0,
+      openingCompleted: false,
     };
   },
   mounted() {
+    this.resetBoard();
     this.openingsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     for (let i = 0; i < this.openingsArray.length; i += 1) {
       const randomLocation = Math.floor(Math.random() * this.openingsArray.length);
@@ -99,35 +101,56 @@ export default {
   methods: {
     getHTMLChessPiece,
     squareClick(rank, file, type) {
-      if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
-        this.currentMoveString = `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
-      } else if (this.currentMoveString.length === 2) {
-        this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
-      }
-      // eslint-disable-next-line
-      console.log(this.currentMoveString);
-      // eslint-disable-next-line
-      console.log(this.openingsArray[this.openingsArrayIndex][3].split(' '));
-      if (this.currentMoveString.length === 4) {
-        if (
-          this.currentMoveString
+      if (this.openingCompleted === false) {
+        if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
+          this.currentMoveString = `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+        } else if (this.currentMoveString.length === 2) {
+          this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+        }
+        if (this.currentMoveString.length === 4) {
+          if (
+            this.currentMoveString
           === this.openingsArray[this.openingsArrayIndex][3].split(' ')[this.currentMoveIndex]
-        ) {
-          // eslint-disable-next-line
-          console.log("Correct");
-          this.currentMoveIndex += 1;
+          ) {
+            const currentMoveArray = this.currentMoveString.split('');
+            this.chessboard[
+              8 - (Number(currentMoveArray[3]))
+            ][
+              currentMoveArray[2].charCodeAt(0) - 97
+            ] = this.chessboard[
+              8 - (Number(currentMoveArray[1]))
+            ][
+              currentMoveArray[0].charCodeAt(0) - 97
+            ];
+            this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+            if (this.currentMoveIndex + 1 === this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
+              this.openingCompleted = true;
+              this.streak += 1;
+            } else {
+              this.currentMoveIndex += 1;
+            }
+          } else {
+            // eslint-disable-next-line
+            console.log("Incorrect");
+            // eslint-disable-next-line
+            console.log(this.currentMoveString.split(''));
+            this.streak = 0;
+          }
+        }
+        if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
+          this.fileSelected = null;
+          this.rankSelected = null;
         } else {
-          // eslint-disable-next-line
-          console.log("Incorrect");
-          this.streak = 0;
+          this.rankSelected = 8 - rank;
+          this.fileSelected = file - 1;
         }
       }
-      if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
-        this.fileSelected = null;
-        this.rankSelected = null;
-      } else {
-        this.rankSelected = 8 - rank;
-        this.fileSelected = file - 1;
+    },
+    resetBoard() {
+      for (let i = 0; i < 8; i += 1) {
+        for (let j = 0; j < 8; j += 1) {
+          this.chessboard[i][j] = startBoard[i][j];
+        }
       }
     },
     next() {
@@ -136,8 +159,9 @@ export default {
       } else {
         this.openingsArrayIndex += 1;
       }
-      this.chessboard = startBoard;
+      this.resetBoard();
       this.currentMoveIndex = 0;
+      this.openingCompleted = false;
     },
   },
   computed: {

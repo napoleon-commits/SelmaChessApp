@@ -2,6 +2,8 @@
   <div>
     <div class="h5">Can you guess the chess opening?</div>
     <br />
+    <div>Streak: {{streak}}</div>
+    <br />
     <div
       v-if="openingsArray[openingsArrayIndex]"
     >
@@ -40,11 +42,25 @@
       </div> -->
       <br />
     </div>
-    <div>Streak: {{streak}}</div>
     <br />
     <div class="row">
-      <div class="col"><button class="w-100">Show Solution</button></div>
-      <div class="col"><button class="w-100" @click="next">Next</button></div>
+      <div class="col">
+        <button
+          :class="`w-100 ${this.$store.state.darkModeClass}`"
+          :style="`border: 2px solid ${customColor}`"
+        >
+        Show Solution
+      </button>
+      </div>
+      <div class="col">
+        <button
+          :class="`w-100 ${this.$store.state.darkModeClass}`"
+          :style="`border: 2px solid ${customColor}`"
+          @click="next"
+        >
+          Next
+        </button>
+      </div>
     </div>
   </div>
 </template>

@@ -63,7 +63,6 @@
     </div>
     <hr :style="`border: 1px solid ${customColor};`"/>
     <div class="text-center">Streak: {{streak}}</div>
-    <hr :style="`border: 1px solid ${customColor};`"/>
     <div class="row">
       <div class="col">
         <button

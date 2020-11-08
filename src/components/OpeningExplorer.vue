@@ -121,6 +121,8 @@ export default {
       this.openingsArray[randomLocation] = this.openingsArray[i];
       this.openingsArray[i] = randomOpening;
     }
+    // eslint-disable-next-line
+    console.log(this.openingsArray[openingsArrayIndex]);
   },
   methods: {
     getHTMLChessPiece,
@@ -272,7 +274,6 @@ export default {
             const currentMoveArray = this.currentMoveString.split('');
             if (
               this.castlingMoves() === false
-              && this.enPassant(currentMoveArray) === false
             ) { // not castling and not en passant
               if (this.side === 0) {
                 this.chessboard[
@@ -287,15 +288,19 @@ export default {
                 this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
               } else {
                 this.chessboard[
-                  (Number(currentMoveArray[3])) - 1
+                  7 - (8 - (Number(currentMoveArray[3])))
                 ][
-                  currentMoveArray[2].charCodeAt(0) - 97
+                  7 - (currentMoveArray[2].charCodeAt(0) - 97)
                 ] = this.chessboard[
-                  (Number(currentMoveArray[1])) - 1
+                  7 - (8 - (Number(currentMoveArray[1])))
                 ][
-                  currentMoveArray[0].charCodeAt(0) - 97
+                  7 - (currentMoveArray[0].charCodeAt(0) - 97)
                 ];
-                this.chessboard[(Number(currentMoveArray[1])) - 1][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+                this.chessboard[
+                  7 - (8 - (Number(currentMoveArray[1])))
+                ][
+                  7 - (currentMoveArray[0].charCodeAt(0) - 97)
+                ] = '.';
               }
             }
             this.updateCurrentMoveIndex();
@@ -331,6 +336,8 @@ export default {
       this.openingCompleted = false;
       this.rankSelected = null;
       this.fileSelected = null;
+      // eslint-disable-next-line
+      console.log(this.openingsArray[openingsArrayIndex]);
     },
     showSolution() {
       if (this.currentMoveIndex + 1 !== this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {

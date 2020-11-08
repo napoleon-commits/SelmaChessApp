@@ -244,11 +244,10 @@ export default {
           === this.openingsArray[this.openingsArrayIndex][3].split(' ')[this.currentMoveIndex]
           ) {
             const currentMoveArray = this.currentMoveString.split('');
-            if (this.castlingMoves()) {
-              //
-            } else if (this.enPassant(currentMoveArray)) {
-              //
-            } else { // not castling and not en passant
+            if (
+              this.castlingMoves() === false
+              && this.enPassant(currentMoveArray) === false
+            ) { // not castling and not en passant
               this.chessboard[
                 8 - (Number(currentMoveArray[3]))
               ][

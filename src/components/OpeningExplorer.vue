@@ -110,20 +110,26 @@ export default {
   },
   methods: {
     getHTMLChessPiece,
+    updateSquareBackground(rank, file, type) {
+      if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
+        this.fileSelected = null;
+        this.rankSelected = null;
+      } else {
+        this.rankSelected = 8 - rank;
+        this.fileSelected = file - 1;
+      }
+    },
+    updateCurrentMoveString(rank, file) {
+      if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
+        this.currentMoveString = `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+      } else if (this.currentMoveString.length === 2) {
+        this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+      }
+    },
     squareClick(rank, file, type) {
       if (this.openingCompleted === false) {
-        if (this.fileSelected !== null || this.rankSelected !== null || type === 'Square') {
-          this.fileSelected = null;
-          this.rankSelected = null;
-        } else {
-          this.rankSelected = 8 - rank;
-          this.fileSelected = file - 1;
-        }
-        if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
-          this.currentMoveString = `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
-        } else if (this.currentMoveString.length === 2) {
-          this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
-        }
+        this.updateSquareBackground(rank, file, type);
+        this.updateCurrentMoveString(rank, file);
         if (
           this.currentMoveString.length === 4
           && (

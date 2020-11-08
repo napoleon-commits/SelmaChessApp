@@ -7,7 +7,7 @@
             <div>
       <div class="text-center">Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
         <label class="switch d-block mx-auto">
-          <input type="checkbox" v-model="autoRotate" @click="lockAutoRotate">
+          <input type="checkbox" v-model="autoRotate" @click="toggleAutoRotate">
           <span class="slider round" :style="sliderStyle"></span>
         </label>
     </div>
@@ -122,7 +122,7 @@ export default {
       this.openingsArray[i] = randomOpening;
     }
     // eslint-disable-next-line
-    console.log(this.openingsArray[openingsArrayIndex]);
+    console.log(this.openingsArray[this.openingsArrayIndex][3]);
   },
   methods: {
     getHTMLChessPiece,
@@ -304,6 +304,9 @@ export default {
               }
             }
             this.updateCurrentMoveIndex();
+            if (this.autoRotate) {
+              this.rotateBoard();
+            }
           } else {
             // eslint-disable-next-line
             console.log("Incorrect");
@@ -337,7 +340,7 @@ export default {
       this.rankSelected = null;
       this.fileSelected = null;
       // eslint-disable-next-line
-      console.log(this.openingsArray[openingsArrayIndex]);
+      console.log(this.openingsArray[this.openingsArrayIndex][3]);
     },
     showSolution() {
       if (this.currentMoveIndex + 1 !== this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
@@ -349,10 +352,8 @@ export default {
       this.fileSelected = null;
       this.currentMoveIndex = 0;
     },
-    lockAutoRotate() {
-      if (this.autoRotate) { // turn off auto rotate
-        // this.autoRotateSide = GameBoard.side;
-      }
+    toggleAutoRotate() {
+      this.autoRotate = !this.autoRotate;
     },
     rotateBoard() {
       // eslint-disable-next-line

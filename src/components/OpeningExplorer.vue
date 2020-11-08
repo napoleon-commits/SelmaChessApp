@@ -306,7 +306,11 @@ export default {
     resetBoard() {
       for (let i = 0; i < 8; i += 1) {
         for (let j = 0; j < 8; j += 1) {
-          this.chessboard[i][j] = startBoard[i][j];
+          if (this.side === 0) {
+            this.chessboard[i][j] = startBoard[i][j];
+          } else {
+            this.chessboard[i][j] = startBoard[7 - i][7 - j];
+          }
         }
       }
     },
@@ -317,9 +321,6 @@ export default {
         this.openingsArrayIndex += 1;
       }
       this.resetBoard();
-      if (this.side === 1) {
-        this.rotateBoard();
-      }
       this.currentMoveIndex = 0;
       this.openingCompleted = false;
       this.rankSelected = null;

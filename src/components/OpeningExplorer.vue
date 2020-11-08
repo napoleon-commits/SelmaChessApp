@@ -256,16 +256,29 @@ export default {
               this.castlingMoves() === false
               && this.enPassant(currentMoveArray) === false
             ) { // not castling and not en passant
-              this.chessboard[
-                8 - (Number(currentMoveArray[3]))
-              ][
-                currentMoveArray[2].charCodeAt(0) - 97
-              ] = this.chessboard[
-                8 - (Number(currentMoveArray[1]))
-              ][
-                currentMoveArray[0].charCodeAt(0) - 97
-              ];
-              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+              if (this.side === 0) {
+                this.chessboard[
+                  8 - (Number(currentMoveArray[3]))
+                ][
+                  currentMoveArray[2].charCodeAt(0) - 97
+                ] = this.chessboard[
+                  8 - (Number(currentMoveArray[1]))
+                ][
+                  currentMoveArray[0].charCodeAt(0) - 97
+                ];
+                this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+              } else {
+                this.chessboard[
+                  (Number(currentMoveArray[3])) - 1
+                ][
+                  currentMoveArray[2].charCodeAt(0) - 97
+                ] = this.chessboard[
+                  (Number(currentMoveArray[1])) - 1
+                ][
+                  currentMoveArray[0].charCodeAt(0) - 97
+                ];
+                this.chessboard[(Number(currentMoveArray[1])) - 1][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+              }
             }
             this.updateCurrentMoveIndex();
           } else {

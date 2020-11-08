@@ -55,7 +55,7 @@ const getHTMLChessPiece = (letter) => {
     `
       <img
         alt=${letter}
-        style="display: block; max-width: 100%; max-height: 100%; margin: auto"
+        style="display: block; max-width: 100%; max-height: 100%; height: 6vh; margin: auto"
         src=${imageSrc}
       />
     `

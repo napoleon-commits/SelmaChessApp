@@ -2,12 +2,25 @@
   <div>
     <div class="h5 text-center">Can you guess the chess opening?</div>
     <hr :style="`border: 1px solid ${customColor};`"/>
-    <div>
-      <div class="text-center mt-3">Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
+    <div class="row">
+      <div class="col">
+            <div>
+      <div class="text-center">Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
         <label class="switch d-block mx-auto">
           <input type="checkbox" v-model="autoRotate" @click="lockAutoRotate">
           <span class="slider round" :style="sliderStyle"></span>
         </label>
+    </div>
+      </div>
+      <div class="col">
+        <button
+          :class="`w-100 ${this.$store.state.darkModeClass}`"
+          :style="`border: 2px solid ${customColor}`"
+          @click="rotateBoard"
+        >
+          Rotate Board
+        </button>
+      </div>
     </div>
     <hr :style="`border: 1px solid ${customColor};`"/>
     <div
@@ -324,6 +337,15 @@ export default {
       if (this.autoRotate) { // turn off auto rotate
         // this.autoRotateSide = GameBoard.side;
       }
+    },
+    rotateBoard() {
+      const rotatedBoard = [[], [], [], [], [], [], [], []];
+      for (let i = 0; i < 8; i += 1) {
+        for (let j = 0; j < 8; j += 1) {
+          rotatedBoard[i][j] = this.chessboard[7 - i][7 - j];
+        }
+      }
+      this.chessboard = rotatedBoard;
     },
   },
   computed: {

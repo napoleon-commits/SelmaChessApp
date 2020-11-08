@@ -126,6 +126,82 @@ export default {
         this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
       }
     },
+    castlingMoves() {
+      if (this.currentMoveString === 'e8g8') {
+        this.chessboard[0][6] = this.chessboard[0][4];
+        this.chessboard[0][5] = this.chessboard[0][7];
+        this.chessboard[0][4] = '.';
+        this.chessboard[0][7] = '.';
+        return true;
+      } else if (this.currentMoveString === 'e8c8') {
+        this.chessboard[0][2] = this.chessboard[0][4];
+        this.chessboard[0][3] = this.chessboard[0][0];
+        this.chessboard[0][4] = '.';
+        this.chessboard[0][0] = '.';
+        return true;
+      } else if (this.currentMoveString === 'e1g1') {
+        this.chessboard[7][6] = this.chessboard[7][4];
+        this.chessboard[7][5] = this.chessboard[7][7];
+        this.chessboard[7][4] = '.';
+        this.chessboard[7][7] = '.';
+        return true;
+      } else if (this.currentMoveString === 'e1c1') {
+        this.chessboard[7][2] = this.chessboard[7][4];
+        this.chessboard[7][3] = this.chessboard[7][0];
+        this.chessboard[7][4] = '.';
+        this.chessboard[7][0] = '.';
+        return true;
+      }
+      return false;
+    },
+    enPassant(currentMoveArray) {
+      if (
+        this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'P'
+              && (
+                this.chessboard[8 - (Number(currentMoveArray[3]))][currentMoveArray[2].charCodeAt(0) - 97] === '.'
+              )
+      ) {
+        this.chessboard[
+          8 - (Number(currentMoveArray[3]))
+        ][
+          currentMoveArray[2].charCodeAt(0) - 97
+        ] = this.chessboard[
+          8 - (Number(currentMoveArray[1]))
+        ][
+          currentMoveArray[0].charCodeAt(0) - 97
+        ];
+        this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+        this.chessboard[(8 - (Number(currentMoveArray[3]))) + 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+        return true;
+      } else if (
+        this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'p'
+              && (
+                this.chessboard[8 - (Number(currentMoveArray[3]))][currentMoveArray[2].charCodeAt(0) - 97] === '.'
+              )
+      ) {
+        this.chessboard[
+          8 - (Number(currentMoveArray[3]))
+        ][
+          currentMoveArray[2].charCodeAt(0) - 97
+        ] = this.chessboard[
+          8 - (Number(currentMoveArray[1]))
+        ][
+          currentMoveArray[0].charCodeAt(0) - 97
+        ];
+        this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+        this.chessboard[(8 - (Number(currentMoveArray[3]))) - 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+        return true;
+      }
+      return false;
+    },
+    updateCurrentMoveIndex() {
+      if (this.currentMoveIndex + 1 === this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
+        this.openingCompleted = true;
+        this.streak += 1;
+      } else {
+        this.currentMoveIndex += 1;
+      }
+    },
     squareClick(rank, file, type) {
       if (this.openingCompleted === false) {
         this.updateSquareBackground(rank, file, type);
@@ -142,60 +218,10 @@ export default {
           === this.openingsArray[this.openingsArrayIndex][3].split(' ')[this.currentMoveIndex]
           ) {
             const currentMoveArray = this.currentMoveString.split('');
-            if (this.currentMoveString === 'e8g8') {
-              this.chessboard[0][6] = this.chessboard[0][4];
-              this.chessboard[0][5] = this.chessboard[0][7];
-              this.chessboard[0][4] = '.';
-              this.chessboard[0][7] = '.';
-            } else if (this.currentMoveString === 'e8c8') {
-              this.chessboard[0][2] = this.chessboard[0][4];
-              this.chessboard[0][3] = this.chessboard[0][0];
-              this.chessboard[0][4] = '.';
-              this.chessboard[0][0] = '.';
-            } else if (this.currentMoveString === 'e1g1') {
-              this.chessboard[7][6] = this.chessboard[7][4];
-              this.chessboard[7][5] = this.chessboard[7][7];
-              this.chessboard[7][4] = '.';
-              this.chessboard[7][7] = '.';
-            } else if (this.currentMoveString === 'e1c1') {
-              this.chessboard[7][2] = this.chessboard[7][4];
-              this.chessboard[7][3] = this.chessboard[7][0];
-              this.chessboard[7][4] = '.';
-              this.chessboard[7][0] = '.';
-            } else if (
-              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'P'
-              && (
-                this.chessboard[8 - (Number(currentMoveArray[3]))][currentMoveArray[2].charCodeAt(0) - 97] === '.'
-              )
-            ) {
-              this.chessboard[
-                8 - (Number(currentMoveArray[3]))
-              ][
-                currentMoveArray[2].charCodeAt(0) - 97
-              ] = this.chessboard[
-                8 - (Number(currentMoveArray[1]))
-              ][
-                currentMoveArray[0].charCodeAt(0) - 97
-              ];
-              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
-              this.chessboard[(8 - (Number(currentMoveArray[3]))) + 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
-            } else if (
-              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'p'
-              && (
-                this.chessboard[8 - (Number(currentMoveArray[3]))][currentMoveArray[2].charCodeAt(0) - 97] === '.'
-              )
-            ) {
-              this.chessboard[
-                8 - (Number(currentMoveArray[3]))
-              ][
-                currentMoveArray[2].charCodeAt(0) - 97
-              ] = this.chessboard[
-                8 - (Number(currentMoveArray[1]))
-              ][
-                currentMoveArray[0].charCodeAt(0) - 97
-              ];
-              this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
-              this.chessboard[(8 - (Number(currentMoveArray[3]))) - 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+            if (this.castlingMoves()) {
+              //
+            } else if (this.enPassant(currentMoveArray)) {
+              //
             } else { // not castling and not en passant
               this.chessboard[
                 8 - (Number(currentMoveArray[3]))
@@ -208,12 +234,7 @@ export default {
               ];
               this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
             }
-            if (this.currentMoveIndex + 1 === this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
-              this.openingCompleted = true;
-              this.streak += 1;
-            } else {
-              this.currentMoveIndex += 1;
-            }
+            this.updateCurrentMoveIndex();
           } else {
             // eslint-disable-next-line
             console.log("Incorrect");

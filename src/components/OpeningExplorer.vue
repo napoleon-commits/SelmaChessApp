@@ -51,6 +51,7 @@
               </tr>
           </tbody>
       </table>
+      <hr :style="`border: 1px solid ${customColor};`"/>
       <div class="text-center" style="height: 5vh">
         <div class="my-2">
           {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}

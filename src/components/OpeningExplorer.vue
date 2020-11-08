@@ -317,7 +317,7 @@ export default {
         this.openingsArrayIndex += 1;
       }
       this.resetBoard();
-      if(this.side === 1){
+      if (this.side === 1) {
         this.rotateBoard();
       }
       this.currentMoveIndex = 0;
@@ -341,6 +341,7 @@ export default {
       }
     },
     rotateBoard() {
+      // eslint-disable-next-line
       this.side ^= 1;
       const rotatedBoard = [[], [], [], [], [], [], [], []];
       for (let i = 0; i < 8; i += 1) {

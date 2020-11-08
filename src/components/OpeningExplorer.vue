@@ -197,7 +197,11 @@ export default {
           currentMoveArray[0].charCodeAt(0) - 97
         ];
         this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
-        this.chessboard[(8 - (Number(currentMoveArray[3]))) + 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+        if (this.side === 0) {
+          this.chessboard[(8 - (Number(currentMoveArray[3]))) + 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+        } else {
+          this.chessboard[(8 - (Number(currentMoveArray[3]))) - 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+        }
         return true;
       } else if (
         this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] === 'p'
@@ -215,7 +219,11 @@ export default {
           currentMoveArray[0].charCodeAt(0) - 97
         ];
         this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
-        this.chessboard[(8 - (Number(currentMoveArray[3]))) - 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+        if (this.side === 0) {
+          this.chessboard[(8 - (Number(currentMoveArray[3]))) - 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+        } else {
+          this.chessboard[(8 - (Number(currentMoveArray[3]))) + 1][currentMoveArray[2].charCodeAt(0) - 97] = '.';
+        }
         return true;
       }
       return false;

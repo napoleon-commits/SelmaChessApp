@@ -96,6 +96,8 @@ export default {
       currentMoveIndex: 0,
       openingCompleted: false,
       autoRotate: true,
+      turn: 0,
+      side: 0,
     };
   },
   mounted() {
@@ -127,29 +129,53 @@ export default {
       }
     },
     castlingMoves() {
-      if (this.currentMoveString === 'e8g8') {
-        this.chessboard[0][6] = this.chessboard[0][4];
-        this.chessboard[0][5] = this.chessboard[0][7];
+      if (this.currentMoveString === 'e8g8' && this.side === 0) {
+        this.chessboard[0][6] = 'k';
+        this.chessboard[0][5] = 'r';
         this.chessboard[0][4] = '.';
         this.chessboard[0][7] = '.';
         return true;
-      } else if (this.currentMoveString === 'e8c8') {
-        this.chessboard[0][2] = this.chessboard[0][4];
-        this.chessboard[0][3] = this.chessboard[0][0];
+      } else if (this.currentMoveString === 'e8c8' && this.side === 0) {
+        this.chessboard[0][2] = 'k';
+        this.chessboard[0][3] = 'r';
         this.chessboard[0][4] = '.';
         this.chessboard[0][0] = '.';
         return true;
-      } else if (this.currentMoveString === 'e1g1') {
-        this.chessboard[7][6] = this.chessboard[7][4];
-        this.chessboard[7][5] = this.chessboard[7][7];
+      } else if (this.currentMoveString === 'e1g1' && this.side === 0) {
+        this.chessboard[7][6] = 'K';
+        this.chessboard[7][5] = 'R';
         this.chessboard[7][4] = '.';
         this.chessboard[7][7] = '.';
         return true;
-      } else if (this.currentMoveString === 'e1c1') {
-        this.chessboard[7][2] = this.chessboard[7][4];
-        this.chessboard[7][3] = this.chessboard[7][0];
+      } else if (this.currentMoveString === 'e1c1' && this.side === 0) {
+        this.chessboard[7][2] = 'K';
+        this.chessboard[7][3] = 'R';
         this.chessboard[7][4] = '.';
         this.chessboard[7][0] = '.';
+        return true;
+      } else if (this.currentMoveString === 'e8g8' && this.side === 1) {
+        this.chessboard[0][1] = 'k';
+        this.chessboard[0][2] = 'r';
+        this.chessboard[0][3] = '.';
+        this.chessboard[0][0] = '.';
+        return true;
+      } else if (this.currentMoveString === 'e8c8' && this.side === 1) {
+        this.chessboard[0][5] = 'k';
+        this.chessboard[0][4] = 'r';
+        this.chessboard[0][3] = '.';
+        this.chessboard[0][7] = '.';
+        return true;
+      } else if (this.currentMoveString === 'e1g1' && this.side === 1) {
+        this.chessboard[7][1] = 'K';
+        this.chessboard[7][2] = 'R';
+        this.chessboard[7][3] = '.';
+        this.chessboard[7][0] = '.';
+        return true;
+      } else if (this.currentMoveString === 'e1c1' && this.side === 1) {
+        this.chessboard[7][5] = 'K';
+        this.chessboard[7][4] = 'R';
+        this.chessboard[7][3] = '.';
+        this.chessboard[7][7] = '.';
         return true;
       }
       return false;

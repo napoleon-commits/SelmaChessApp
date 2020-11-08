@@ -134,10 +134,16 @@ export default {
       }
     },
     updateCurrentMoveString(rank, file) {
-      if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
-        this.currentMoveString = `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+      if (this.side === 0) {
+        if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
+          this.currentMoveString = `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+        } else if (this.currentMoveString.length === 2) {
+          this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+        }
+      } else if (this.currentMoveString.length === 0 || this.currentMoveString.length === 4) {
+        this.currentMoveString = `${String.fromCharCode('h'.charCodeAt(0) - (file - 1))}${9 - rank}`;
       } else if (this.currentMoveString.length === 2) {
-        this.currentMoveString += `${String.fromCharCode('a'.charCodeAt(0) + (file - 1))}${rank}`;
+        this.currentMoveString += `${String.fromCharCode('h'.charCodeAt(0) - (file - 1))}${9 - rank}`;
       }
     },
     castlingMoves() {

@@ -2,7 +2,13 @@
   <div>
     <div class="h5 text-center">Can you guess the chess opening?</div>
     <hr :style="`border: 1px solid ${customColor};`"/>
-    <div class="text-center">Auto Rotate Slider</div>
+    <div>
+      <div class="text-center mt-3">Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
+        <label class="switch d-block mx-auto">
+          <input type="checkbox" v-model="autoRotate" @click="lockAutoRotate">
+          <span class="slider round" :style="sliderStyle"></span>
+        </label>
+    </div>
     <hr :style="`border: 1px solid ${customColor};`"/>
     <div
       v-if="openingsArray[openingsArrayIndex]"
@@ -89,6 +95,7 @@ export default {
       currentMoveString: '',
       currentMoveIndex: 0,
       openingCompleted: false,
+      autoRotate: true,
     };
   },
   mounted() {
@@ -240,10 +247,21 @@ export default {
       this.fileSelected = null;
       this.currentMoveIndex = 0;
     },
+    lockAutoRotate() {
+      if (this.autoRotate) { // turn off auto rotate
+        // this.autoRotateSide = GameBoard.side;
+      }
+    },
   },
   computed: {
     customColor() {
       return this.$store.state.customColor;
+    },
+    sliderStyle() {
+      if (this.autoRotate) {
+        return { backgroundColor: this.customColor };
+      }
+      return { boxShadow: `0 0 1px ${this.customColor}` };
     },
   },
 };

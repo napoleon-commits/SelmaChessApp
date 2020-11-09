@@ -351,25 +351,21 @@ export default {
     playSolution() {
       let playSolutionIndex = 0;
       const movesArray = this.openingsArray[this.openingsArrayIndex][3].split(' ');
-      // eslint-disable-next-line
-      console.log(movesArray[playSolutionIndex]);
+      this.currentMoveString = movesArray[playSolutionIndex];
+      this.movePiece();
       if (playSolutionIndex + 1 === movesArray.length) {
         playSolutionIndex = 0;
       } else {
         playSolutionIndex += 1;
       }
-      this.currentMoveString = movesArray[playSolutionIndex];
-      this.movePiece();
       this.playSolutionInterval = setInterval(() => {
-        // eslint-disable-next-line
-        console.log(movesArray[playSolutionIndex]);
+        this.currentMoveString = movesArray[playSolutionIndex];
+        this.movePiece();
         if (playSolutionIndex + 1 === movesArray.length) {
           playSolutionIndex = 0;
         } else {
           playSolutionIndex += 1;
         }
-        this.currentMoveString = movesArray[playSolutionIndex];
-        this.movePiece();
       }, 2000);
     },
     showSolution() {

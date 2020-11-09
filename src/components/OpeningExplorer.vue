@@ -258,6 +258,40 @@ export default {
         this.currentMoveIndex += 1;
       }
     },
+    movePiece() {
+      const currentMoveArray = this.currentMoveString.split('');
+      if (
+        this.castlingMoves() === false
+      ) { // not castling and not en passant
+        if (this.side === 0) {
+          this.chessboard[
+            8 - (Number(currentMoveArray[3]))
+          ][
+            currentMoveArray[2].charCodeAt(0) - 97
+          ] = this.chessboard[
+            8 - (Number(currentMoveArray[1]))
+          ][
+            currentMoveArray[0].charCodeAt(0) - 97
+          ];
+          this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+        } else {
+          this.chessboard[
+            7 - (8 - (Number(currentMoveArray[3])))
+          ][
+            7 - (currentMoveArray[2].charCodeAt(0) - 97)
+          ] = this.chessboard[
+            7 - (8 - (Number(currentMoveArray[1])))
+          ][
+            7 - (currentMoveArray[0].charCodeAt(0) - 97)
+          ];
+          this.chessboard[
+            7 - (8 - (Number(currentMoveArray[1])))
+          ][
+            7 - (currentMoveArray[0].charCodeAt(0) - 97)
+          ] = '.';
+        }
+      }
+    },
     squareClick(rank, file, type) {
       if (this.openingCompleted === false) {
         this.updateSquareBackground(rank, file, type);
@@ -273,38 +307,7 @@ export default {
             this.currentMoveString
           === this.openingsArray[this.openingsArrayIndex][3].split(' ')[this.currentMoveIndex]
           ) {
-            const currentMoveArray = this.currentMoveString.split('');
-            if (
-              this.castlingMoves() === false
-            ) { // not castling and not en passant
-              if (this.side === 0) {
-                this.chessboard[
-                  8 - (Number(currentMoveArray[3]))
-                ][
-                  currentMoveArray[2].charCodeAt(0) - 97
-                ] = this.chessboard[
-                  8 - (Number(currentMoveArray[1]))
-                ][
-                  currentMoveArray[0].charCodeAt(0) - 97
-                ];
-                this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
-              } else {
-                this.chessboard[
-                  7 - (8 - (Number(currentMoveArray[3])))
-                ][
-                  7 - (currentMoveArray[2].charCodeAt(0) - 97)
-                ] = this.chessboard[
-                  7 - (8 - (Number(currentMoveArray[1])))
-                ][
-                  7 - (currentMoveArray[0].charCodeAt(0) - 97)
-                ];
-                this.chessboard[
-                  7 - (8 - (Number(currentMoveArray[1])))
-                ][
-                  7 - (currentMoveArray[0].charCodeAt(0) - 97)
-                ] = '.';
-              }
-            }
+            this.movePiece();
             this.updateCurrentMoveIndex();
             if (this.autoRotate) {
               this.rotateBoard();
@@ -355,6 +358,8 @@ export default {
       } else {
         playSolutionIndex += 1;
       }
+      this.currentMoveString = movesArray[playSolutionIndex];
+      this.movePiece();
       this.playSolutionInterval = setInterval(() => {
         // eslint-disable-next-line
         console.log(movesArray[playSolutionIndex]);
@@ -363,6 +368,8 @@ export default {
         } else {
           playSolutionIndex += 1;
         }
+        this.currentMoveString = movesArray[playSolutionIndex];
+        this.movePiece();
       }, 2000);
     },
     showSolution() {

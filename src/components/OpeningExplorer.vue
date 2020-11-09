@@ -63,7 +63,6 @@
       </div> -->
     </div>
     <hr :style="`border: 1px solid ${customColor};`"/>
-    <div class="text-center">Streak: {{streak}}</div>
     <div class="row">
       <div class="col">
         <button
@@ -99,7 +98,6 @@ import { startBoard } from '@/constants/index';
 export default {
   data() {
     return {
-      streak: 0,
       openingsArray: [],
       openingsArrayIndex: 0,
       chessboard: [[], [], [], [], [], [], [], []],
@@ -152,53 +150,67 @@ export default {
       }
     },
     castlingMoves() {
+      const tempBoard = [[],[],[],[],[],[],[],[],];
+      for(let i = 0; i < 8; i+=1){
+        for(let j = 0; j < 8; j+=1){
+          tempBoard[i][j] = this.chessboard[i][j];
+        }
+      }
       if (this.currentMoveString === 'e8g8' && this.side === 0) {
-        this.chessboard[0][6] = 'k';
-        this.chessboard[0][5] = 'r';
-        this.chessboard[0][4] = '.';
-        this.chessboard[0][7] = '.';
+        tempBoard[0][6] = 'k';
+        tempBoard[0][5] = 'r';
+        tempBoard[0][4] = '.';
+        tempBoard[0][7] = '.';
+        this.chessboard = tempBoard;
         return true;
       } else if (this.currentMoveString === 'e8c8' && this.side === 0) {
-        this.chessboard[0][2] = 'k';
-        this.chessboard[0][3] = 'r';
-        this.chessboard[0][4] = '.';
-        this.chessboard[0][0] = '.';
+        tempBoard[0][2] = 'k';
+        tempBoard[0][3] = 'r';
+        tempBoard[0][4] = '.';
+        tempBoard[0][0] = '.';
+        this.chessboard = tempBoard;
         return true;
       } else if (this.currentMoveString === 'e1g1' && this.side === 0) {
-        this.chessboard[7][6] = 'K';
-        this.chessboard[7][5] = 'R';
-        this.chessboard[7][4] = '.';
-        this.chessboard[7][7] = '.';
+        tempBoard[7][6] = 'K';
+        tempBoard[7][5] = 'R';
+        tempBoard[7][4] = '.';
+        tempBoard[7][7] = '.';
+        this.chessboard = tempBoard;
         return true;
       } else if (this.currentMoveString === 'e1c1' && this.side === 0) {
-        this.chessboard[7][2] = 'K';
-        this.chessboard[7][3] = 'R';
-        this.chessboard[7][4] = '.';
-        this.chessboard[7][0] = '.';
+        tempBoard[7][2] = 'K';
+        tempBoard[7][3] = 'R';
+        tempBoard[7][4] = '.';
+        tempBoard[7][0] = '.';
+        this.chessboard = tempBoard;
         return true;
       } else if (this.currentMoveString === 'e8g8' && this.side === 1) {
-        this.chessboard[0][1] = 'k';
-        this.chessboard[0][2] = 'r';
-        this.chessboard[0][3] = '.';
-        this.chessboard[0][0] = '.';
+        tempBoard[7][1] = 'k';
+        tempBoard[7][2] = 'r';
+        tempBoard[7][3] = '.';
+        tempBoard[7][0] = '.';
+        this.chessboard = tempBoard;
         return true;
       } else if (this.currentMoveString === 'e8c8' && this.side === 1) {
-        this.chessboard[0][5] = 'k';
-        this.chessboard[0][4] = 'r';
-        this.chessboard[0][3] = '.';
-        this.chessboard[0][7] = '.';
+        tempBoard[7][5] = 'k';
+        tempBoard[7][4] = 'r';
+        tempBoard[7][3] = '.';
+        tempBoard[7][7] = '.';
+        this.chessboard = tempBoard;
         return true;
       } else if (this.currentMoveString === 'e1g1' && this.side === 1) {
-        this.chessboard[7][1] = 'K';
-        this.chessboard[7][2] = 'R';
-        this.chessboard[7][3] = '.';
-        this.chessboard[7][0] = '.';
+        tempBoard[0][1] = 'K';
+        tempBoard[0][2] = 'R';
+        tempBoard[0][3] = '.';
+        tempBoard[0][0] = '.';
+        this.chessboard = tempBoard;
         return true;
       } else if (this.currentMoveString === 'e1c1' && this.side === 1) {
-        this.chessboard[7][5] = 'K';
-        this.chessboard[7][4] = 'R';
-        this.chessboard[7][3] = '.';
-        this.chessboard[7][7] = '.';
+        tempBoard[0][5] = 'K';
+        tempBoard[0][4] = 'R';
+        tempBoard[0][3] = '.';
+        tempBoard[0][7] = '.';
+        this.chessboard = tempBoard;
         return true;
       }
       return false;
@@ -254,7 +266,6 @@ export default {
     updateCurrentMoveIndex() {
       if (this.currentMoveIndex + 1 === this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
         this.openingCompleted = true;
-        this.streak += 1;
       } else {
         this.currentMoveIndex += 1;
       }
@@ -332,7 +343,6 @@ export default {
             console.log("Incorrect");
             // eslint-disable-next-line
             console.log(this.currentMoveString.split(''));
-            this.streak = 0;
           }
         }
       }
@@ -388,9 +398,6 @@ export default {
     },
     showSolution() {
       this.savedSide = this.side;
-      if (this.currentMoveIndex + 1 !== this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
-        this.streak = 0;
-      }
       this.openingCompleted = true;
       this.currentMoveString = '';
       this.rankSelected = null;

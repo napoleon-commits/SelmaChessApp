@@ -413,13 +413,15 @@ export default {
       }, 2000);
     },
     showSolution() {
-      this.savedSide = this.side;
-      this.openingCompleted = true;
-      this.currentMoveString = '';
-      this.rankSelected = null;
-      this.fileSelected = null;
-      this.currentMoveIndex = 0;
-      this.playSolution();
+      if (this.openingCompleted === false) {
+        this.savedSide = this.side;
+        this.openingCompleted = true;
+        this.currentMoveString = '';
+        this.rankSelected = null;
+        this.fileSelected = null;
+        this.currentMoveIndex = 0;
+        this.playSolution();
+      }
     },
     toggleAutoRotate() {
       this.autoRotate = !this.autoRotate;

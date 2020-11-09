@@ -35,6 +35,15 @@
                             Home
                         </span>
                     </li>
+                    <li class="nav-item" v-if="route.path !== '/opening-explorer'">
+                        <span
+                            class="nav-link c-pointer"
+                            @click="router.push('/opening-explorer')"
+                             data-target="#navbarNavDropdown" data-toggle="collapse"
+                        >
+                            Opening Explorer
+                        </span>
+                    </li>
                     <li class="nav-item" v-if="route.path !== '/offline'">
                         <span
                             class="nav-link c-pointer"

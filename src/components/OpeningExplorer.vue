@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="h5 text-center">Can you guess the chess opening?</div>
+    <div class="h6 text-center">Can you guess the chess opening?</div>
     <hr :style="`border: 1px solid ${customColor};`"/>
     <div class="row">
       <div class="col">
@@ -52,7 +52,7 @@
           </tbody>
       </table>
       <hr :style="`border: 1px solid ${customColor};`"/>
-      <div class="text-center" style="height: 5vh">
+      <div class="text-center" style="height: 10vh">
         <div class="my-2">
           {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
         </div>
@@ -63,6 +63,7 @@
       </div> -->
     </div>
     <hr :style="`border: 1px solid ${customColor};`"/>
+    <div class="text-center">Correct Guesses: {{streak}}</div>
     <div class="row">
       <div class="col">
         <button
@@ -98,6 +99,7 @@ import { startBoard } from '@/constants/index';
 export default {
   data() {
     return {
+      streak: 0,
       openingsArray: [],
       openingsArrayIndex: 0,
       chessboard: [[], [], [], [], [], [], [], []],
@@ -266,6 +268,7 @@ export default {
     updateCurrentMoveIndex() {
       if (this.currentMoveIndex + 1 === this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
         this.openingCompleted = true;
+        this.streak += 1;
       } else {
         this.currentMoveIndex += 1;
       }

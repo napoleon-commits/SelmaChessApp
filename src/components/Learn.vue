@@ -1,16 +1,16 @@
 <template>
-  <div :class="`${this.$store.state.darkModeClass} mx-4`">
+  <div :class="`${this.$store.state.darkModeClass}`">
       <div class="mb-3">
-          <div class="h1 px-2">Getting Started</div>
+          <div class="h1">Getting Started</div>
       </div>
       <div class="mb-3">
-        <div class="px-2">
+        <div>
             {{LandingPageHeader.description}}
         </div>
       </div>
       <div class="mb-3">
           <button
-            :class="`${this.$store.state.darkModeClass} w-100 text-left px-2`"
+            :class="`${this.$store.state.darkModeClass} w-100 text-left`"
             :style="`border: 2px solid ${customColor}`"
             type="button"
             data-toggle="collapse"
@@ -21,12 +21,12 @@
               What is the goal of a chess game?
           </button>
           <div class="collapse" id="GoalOfChess">
-              <div class="px-2">{{GettingStarted[0]}}</div>
+              <div>{{GettingStarted[0]}}</div>
           </div>
       </div>
       <div class="mb-3">
           <button
-            :class="`${this.$store.state.darkModeClass} w-100 text-left px-2`"
+            :class="`${this.$store.state.darkModeClass} w-100 text-left`"
             :style="`border: 2px solid ${customColor}`"
             type="button"
             data-toggle="collapse"
@@ -37,10 +37,10 @@
             Starting Position
           </button>
           <div class="collapse" id="StartingPosition">
-              <div class="mb-3 px-2">
+              <div class="mb-3">
                   {{GettingStarted[1]}}
               </div>
-              <div class="px-2">
+              <div>
                 <StaticChessBoard :board="startBoard"/>
               </div>
           </div>
@@ -52,7 +52,7 @@
       <div v-for="(move, index) in ChessMovements" :key="'basic-moves'+index">
         <div class="mb-3">
           <button
-            class="w-100 text-left px-2"
+            class="w-100 text-left"
             :style="`border: 2px solid ${customColor}`"
             type="button"
             data-toggle="collapse"
@@ -62,7 +62,7 @@
           >
               {{move.piece}}
           </button>
-          <div class="collapse px-2" :id="String(move.piece).replace(' ', '')">
+          <div class="collapse" :id="String(move.piece).replace(' ', '')">
             <div class="mb-3">
               {{move.rules}}
             </div>
@@ -78,7 +78,7 @@
       <div v-for="(obj, index) in SpecialMoves" :key="'special-move'+index">
         <div class="mb-3">
           <button
-            class="w-100 text-left px-2"
+            class="w-100 text-left"
             :style="`border: 2px solid ${customColor}`"
             type="button"
             data-toggle="collapse"
@@ -89,7 +89,7 @@
               {{obj.move}}
           </button>
           <div
-            class="collapse px-2"
+            class="collapse"
             :id="String(obj.move).replace(' ', '')"
           >
             <div class="mb-3">

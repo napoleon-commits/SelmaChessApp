@@ -111,6 +111,7 @@ export default {
       autoRotate: true,
       turn: 0,
       side: 0,
+      playSolutionInterval: () => {},
     };
   },
   mounted() {
@@ -342,6 +343,27 @@ export default {
       this.fileSelected = null;
       // eslint-disable-next-line
       console.log(this.openingsArray[this.openingsArrayIndex][3]);
+      clearInterval(this.playSolutionInterval);
+    },
+    playSolution() {
+      let playSolutionIndex = 0;
+      const movesArray = this.openingsArray[this.openingsArrayIndex][3].split(' ');
+      // eslint-disable-next-line
+      console.log(movesArray[playSolutionIndex]);
+      if (playSolutionIndex + 1 === movesArray.length) {
+        playSolutionIndex = 0;
+      } else {
+        playSolutionIndex += 1;
+      }
+      this.playSolutionInterval = setInterval(() => {
+        // eslint-disable-next-line
+        console.log(movesArray[playSolutionIndex]);
+        if (playSolutionIndex + 1 === movesArray.length) {
+          playSolutionIndex = 0;
+        } else {
+          playSolutionIndex += 1;
+        }
+      }, 2000);
     },
     showSolution() {
       if (this.currentMoveIndex + 1 !== this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
@@ -352,6 +374,7 @@ export default {
       this.rankSelected = null;
       this.fileSelected = null;
       this.currentMoveIndex = 0;
+      this.playSolution();
     },
     toggleAutoRotate() {
       this.autoRotate = !this.autoRotate;

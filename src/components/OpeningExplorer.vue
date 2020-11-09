@@ -1,5 +1,6 @@
 <template>
-  <div>
+<div>
+    <div>
     <div class="h6 text-center">Can you guess the chess opening?</div>
     <hr :style="`border: 1px solid ${customColor};`"/>
     <div class="row">
@@ -85,6 +86,12 @@
       </div>
     </div>
   </div>
+  <div v-if="displayModal" @click="closeModal" class="c-pointer">
+    <Modal :clickable="false">
+      <div class="h1 text-white">Correct!</div>
+    </Modal>
+  </div>
+</div>
 </template>
 
 <script>
@@ -95,8 +102,12 @@ import DTSV from '@/static/eco/d';
 import ETSV from '@/static/eco/e';
 import getHTMLChessPiece from '@/utils/board';
 import { startBoard } from '@/constants/index';
+import Modal from '@/components/subcomponents/Modal';
 
 export default {
+  components: {
+    Modal,
+  },
   data() {
     return {
       streak: 0,
@@ -113,6 +124,7 @@ export default {
       side: 0,
       playSolutionInterval: () => {},
       savedSide: 0,
+      displayModal: false,
     };
   },
   mounted() {
@@ -269,6 +281,7 @@ export default {
       if (this.currentMoveIndex + 1 === this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
         this.openingCompleted = true;
         this.streak += 1;
+        this.displayModal = true;
       } else {
         this.currentMoveIndex += 1;
       }
@@ -421,6 +434,11 @@ export default {
         }
       }
       this.chessboard = rotatedBoard;
+    },
+    closeModal() {
+      this.displayModal = false;
+      this.savedSide = this.side;
+      this.next();
     },
   },
   computed: {

@@ -363,6 +363,7 @@ export default {
       clearInterval(this.playSolutionInterval);
     },
     playSolution() {
+      this.resetBoard();
       let playSolutionIndex = 0;
       const movesArray = this.openingsArray[this.openingsArrayIndex][3].split(' ');
       this.currentMoveString = movesArray[playSolutionIndex];
@@ -374,6 +375,7 @@ export default {
       }
       this.playSolutionInterval = setInterval(() => {
         this.currentMoveString = movesArray[playSolutionIndex];
+        if (playSolutionIndex === 0) this.resetBoard();
         this.movePiece();
         if (playSolutionIndex + 1 === movesArray.length) {
           playSolutionIndex = 0;

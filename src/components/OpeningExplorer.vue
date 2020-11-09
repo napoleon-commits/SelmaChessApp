@@ -112,6 +112,7 @@ export default {
       turn: 0,
       side: 0,
       playSolutionInterval: () => {},
+      savedSide: 0,
     };
   },
   mounted() {
@@ -348,6 +349,7 @@ export default {
       }
     },
     next() {
+      this.side = this.savedSide;
       if ((this.openingsArrayIndex + 1) === this.openingsArray.length) {
         this.openingsArrayIndex = 0;
       } else {
@@ -385,6 +387,7 @@ export default {
       }, 2000);
     },
     showSolution() {
+      this.savedSide = this.side;
       if (this.currentMoveIndex + 1 !== this.openingsArray[this.openingsArrayIndex][3].split(' ').length) {
         this.streak = 0;
       }

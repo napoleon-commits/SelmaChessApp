@@ -264,31 +264,45 @@ export default {
         this.castlingMoves() === false
       ) { // not castling and not en passant
         if (this.side === 0) {
-          this.chessboard[
+          const tempBoard = [[], [], [], [], [], [], [], []];
+          for (let i = 0; i < 8; i += 1) {
+            for (let j = 0; j < 8; j += 1) {
+              tempBoard[i][j] = this.chessboard[i][j];
+            }
+          }
+          tempBoard[
             8 - (Number(currentMoveArray[3]))
           ][
             currentMoveArray[2].charCodeAt(0) - 97
-          ] = this.chessboard[
+          ] = tempBoard[
             8 - (Number(currentMoveArray[1]))
           ][
             currentMoveArray[0].charCodeAt(0) - 97
           ];
-          this.chessboard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+          tempBoard[8 - (Number(currentMoveArray[1]))][currentMoveArray[0].charCodeAt(0) - 97] = '.';
+          this.chessboard = tempBoard;
         } else {
-          this.chessboard[
+          const tempBoard = [[], [], [], [], [], [], [], []];
+          for (let i = 0; i < 8; i += 1) {
+            for (let j = 0; j < 8; j += 1) {
+              tempBoard[i][j] = this.chessboard[i][j];
+            }
+          }
+          tempBoard[
             7 - (8 - (Number(currentMoveArray[3])))
           ][
             7 - (currentMoveArray[2].charCodeAt(0) - 97)
-          ] = this.chessboard[
+          ] = tempBoard[
             7 - (8 - (Number(currentMoveArray[1])))
           ][
             7 - (currentMoveArray[0].charCodeAt(0) - 97)
           ];
-          this.chessboard[
+          tempBoard[
             7 - (8 - (Number(currentMoveArray[1])))
           ][
             7 - (currentMoveArray[0].charCodeAt(0) - 97)
           ] = '.';
+          this.chessboard = tempBoard;
         }
       }
     },

@@ -53,7 +53,7 @@
 
 <script>
 import $ from 'jquery';
-import {getHTMLChessPiece} from '@/utils/vueboard';
+import { getHTMLChessPiece } from '@/utils/vueboard';
 import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '../utils/engine';
 import {
   clickedPieceJSX as computerClickedPieceJSX,

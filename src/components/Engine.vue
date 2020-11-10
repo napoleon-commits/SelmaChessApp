@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div :style="{width: `${chessboardSize+8}px`}" class="row mx-auto">
-      <div class="col text-center">
+    <div class="mx-auto">
+      <div class="text-center">
           <span>Fen: </span>
           <input
             :style="`border: 2px solid ${customColor}`"
             type="text"
             v-model="fenIn"
-            :class="`w-50 ${darkModeClass}`"
+            :class="`w-25 ${darkModeClass}`"
             placeholder="7k/p7/1R5K/6r1/6p1/6P1/8/8 w - - bm Rb7"
           />
           <button @click="vueSetFen" :style="`border: 2px solid ${customColor}`">

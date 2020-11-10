@@ -119,7 +119,7 @@ export default {
       currentMoveString: '',
       currentMoveIndex: 0,
       openingCompleted: false,
-      autoRotate: true,
+      autoRotate: false,
       turn: 0,
       side: 0,
       playSolutionInterval: () => {},

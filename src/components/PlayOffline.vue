@@ -1,5 +1,5 @@
 <template>
-<div class="mx-4 my-2">
+<div class="my-2">
   <table id="chessboard" class="m-auto">
       <tbody>
           <tr :key="rankIndex" v-for="(rank, rankIndex) in chessboard">
@@ -53,7 +53,7 @@
 
 <script>
 import $ from 'jquery';
-import getHTMLChessPiece from '../utils/board';
+import {getHTMLChessPiece} from '@/utils/vueboard';
 import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '../utils/engine';
 import {
   clickedPieceJSX as computerClickedPieceJSX,

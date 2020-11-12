@@ -30,17 +30,17 @@
         <span class="dropdown-item">
           <span
             class="custom-checkbox"
-            :style="`border: 2px solid ${customColor}`"
+            :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
             @click="toggleCustomCheckBox"
           >
-            &nbsp;
+            &#x2713;
           </span>
           <span>All openings</span>
         </span>
         <span class="dropdown-item">
           <span
             class="custom-checkbox"
-            :style="`border: 2px solid ${customColor}`"
+            :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
             @click="toggleCustomCheckBox"
           >
             &nbsp;
@@ -50,7 +50,7 @@
         <span class="dropdown-item">
           <span
             class="custom-checkbox"
-            :style="`border: 2px solid ${customColor}`"
+            :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
             @click="toggleCustomCheckBox"
           >
             &nbsp;
@@ -60,7 +60,7 @@
         <span class="dropdown-item">
           <span
             class="custom-checkbox"
-            :style="`border: 2px solid ${customColor}`"
+            :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
             @click="toggleCustomCheckBox"
           >
             &nbsp;
@@ -508,11 +508,8 @@ export default {
     toggleCustomCheckBox(e) {
       e.stopPropagation();
       if (e.target.innerHTML.includes('&nbsp;')) {
-        e.target.style.backgroundColor = this.customColor;
-        e.target.style.color = 'white';
         e.target.innerHTML = '&#x2713;';
       } else {
-        e.target.style.backgroundColor = 'white';
         e.target.innerHTML = '&nbsp;';
       }
     },
@@ -542,5 +539,6 @@ export default {
     display: inline-block;
     cursor: pointer;
     margin: 0 .25em 0 0;
+    color: white;
   }
 </style>

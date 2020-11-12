@@ -501,6 +501,7 @@ export default {
       this.next();
     },
     toggleCustomCheckBox(e) {
+      e.stopPropagation();
       if (e.target.innerHTML.includes('&nbsp;')) {
         e.target.style.backgroundColor = this.customColor;
         e.target.style.color = 'white';

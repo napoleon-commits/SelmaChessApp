@@ -3,6 +3,32 @@
     <div>
     <div class="h6 text-center">Can you guess the chess opening?</div>
     <hr :style="`border: 1px solid ${customColor};`"/>
+    <div class="dropdown text-center">
+      <button
+        :class="`dropdown-toggle w-75 ${this.$store.state.darkModeClass}`"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        :style="`border: 2px solid ${customColor}`"
+      >
+        Filter the openings
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <span class="dropdown-item">
+          <input
+            placeholder="Enter a chess opening"
+            type="text"
+            :style="`border: 2px solid ${customColor}`"
+          />
+        </span>
+        <span class="dropdown-item"><input type="checkbox" class="mr-2" checked/>All openings</span>
+        <span class="dropdown-item"><input type="checkbox" class="mr-2"/>Action</span>
+        <span class="dropdown-item"><input type="checkbox" class="mr-2"/>Another action</span>
+        <span class="dropdown-item"><input type="checkbox" class="mr-2"/>Something else here</span>
+      </div>
+    </div>
     <div class="row">
       <div class="col">
             <div>

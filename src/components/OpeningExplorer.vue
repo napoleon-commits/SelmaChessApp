@@ -30,7 +30,7 @@
         <span class="dropdown-item">
           <span
             class="custom-checkbox"
-            :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
+            :style="`backgroundColor: ${customColor}`"
             @click="toggleCustomCheckBox"
           >
             &#x2713;
@@ -41,7 +41,7 @@
           <span class="dropdown-item" v-for="i in 5" :key="i">
             <span
               class="custom-checkbox"
-              :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
+              :style="`backgroundColor: ${customColor}`"
               @click="toggleCustomCheckBox"
             >
               &nbsp;
@@ -524,5 +524,6 @@ export default {
     cursor: pointer;
     margin: 0 .25em 0 0;
     color: white;
+    border: 1px solid black;
   }
 </style>

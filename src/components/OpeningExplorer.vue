@@ -37,36 +37,18 @@
           </span>
           <span>All openings</span>
         </span>
-        <span class="dropdown-item">
-          <span
-            class="custom-checkbox"
-            :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
-            @click="toggleCustomCheckBox"
-          >
-            &nbsp;
+        <div v-if="inOrderOpeningsArray[0] && inOrderOpeningsArray[0][1]">
+          <span class="dropdown-item" v-for="i in 5" :key="i">
+            <span
+              class="custom-checkbox"
+              :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
+              @click="toggleCustomCheckBox"
+            >
+              &nbsp;
+            </span>
+            {{inOrderOpeningsArray[i-1][1]}}
           </span>
-          <span>Action</span>
-        </span>
-        <span class="dropdown-item">
-          <span
-            class="custom-checkbox"
-            :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
-            @click="toggleCustomCheckBox"
-          >
-            &nbsp;
-          </span>
-          <span>Another action</span>
-        </span>
-        <span class="dropdown-item">
-          <span
-            class="custom-checkbox"
-            :style="`border: 2px solid ${customColor}; backgroundColor: ${customColor}`"
-            @click="toggleCustomCheckBox"
-          >
-            &nbsp;
-          </span>
-          <span>Something else here</span>
-        </span>
+        </div>
       </div>
     </div>
     <div class="text-center my-2">
@@ -187,10 +169,12 @@ export default {
       playSolutionInterval: () => {},
       savedSide: 0,
       displayModal: false,
+      inOrderOpeningsArray: [],
     };
   },
   mounted() {
     this.resetBoard();
+    this.inOrderOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     this.openingsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     for (let i = 0; i < this.openingsArray.length; i += 1) {
       const randomLocation = Math.floor(Math.random() * this.openingsArray.length);

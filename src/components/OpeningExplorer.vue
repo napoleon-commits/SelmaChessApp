@@ -15,7 +15,11 @@
       >
         Filter openings
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div
+        class="dropdown-menu"
+        aria-labelledby="dropdownMenuButton"
+        @click="preventDropdownClosing"
+      >
         <span class="dropdown-item">
           <input
             placeholder="Enter a chess opening"
@@ -510,6 +514,9 @@ export default {
         e.target.style.backgroundColor = 'white';
         e.target.innerHTML = '&nbsp;';
       }
+    },
+    preventDropdownClosing(e) {
+      e.stopPropagation();
     },
   },
   computed: {

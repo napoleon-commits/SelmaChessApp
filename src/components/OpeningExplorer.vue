@@ -46,7 +46,7 @@
             >
               &nbsp;
             </span>
-            {{inOrderOpeningsArray[i-1][1]}}
+            {{inOrderOpeningsArray[i-1][0]}}: {{inOrderOpeningsArray[i-1][1]}}
           </span>
         </div>
       </div>

@@ -5,7 +5,7 @@
     <hr :style="`border: 1px solid ${customColor};`"/>
     <div class="dropdown text-center">
       <button
-        :class="`dropdown-toggle w-75 ${this.$store.state.darkModeClass}`"
+        :class="`dropdown-toggle w-50 ${this.$store.state.darkModeClass}`"
         type="button"
         id="dropdownMenuButton"
         data-toggle="dropdown"
@@ -13,7 +13,7 @@
         aria-expanded="false"
         :style="`border: 2px solid ${customColor}`"
       >
-        Filter the openings
+        Filter openings
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <span class="dropdown-item">
@@ -65,24 +65,24 @@
         </span>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-            <div>
-      <div class="text-center">Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
-        <label class="switch d-block mx-auto">
-          <input type="checkbox" v-model="autoRotate" @click="toggleAutoRotate">
-          <span class="slider round" :style="sliderStyle"></span>
-        </label>
-    </div>
-      </div>
-      <div class="col">
-        <button
-          :class="`w-100 ${this.$store.state.darkModeClass}`"
+    <div class="text-center my-2">
+      <button
+          :class="`w-50 ${this.$store.state.darkModeClass}`"
           :style="`border: 2px solid ${customColor}`"
           @click="rotateBoard"
         >
           Rotate Board
-        </button>
+      </button>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div>
+          <div class="text-center">Auto Rotate {{(autoRotate)?'On':'Off'}}</div>
+          <label class="switch d-block mx-auto">
+            <input type="checkbox" v-model="autoRotate" @click="toggleAutoRotate">
+            <span class="slider round" :style="sliderStyle"></span>
+          </label>
+        </div>
       </div>
     </div>
     <hr :style="`border: 1px solid ${customColor};`"/>
@@ -114,19 +114,15 @@
               </tr>
           </tbody>
       </table>
-      <hr :style="`border: 1px solid ${customColor};`"/>
       <div class="text-center" style="height: 10vh">
         <div class="my-2">
           {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
         </div>
       </div>
-      <!-- <hr :style="`border: 1px solid ${customColor};`"/>
-      <div class="text-center">
-        Solution: {{openingsArray[openingsArrayIndex][3]}}
-      </div> -->
     </div>
     <hr :style="`border: 1px solid ${customColor};`"/>
     <div class="text-center">Correct Guesses: {{streak}}</div>
+    <hr :style="`border: 1px solid ${customColor};`"/>
     <div class="row">
       <div class="col">
         <button

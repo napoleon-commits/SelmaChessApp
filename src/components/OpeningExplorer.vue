@@ -23,10 +23,46 @@
             :style="`border: 2px solid ${customColor}`"
           />
         </span>
-        <span class="dropdown-item"><input type="checkbox" class="mr-2" checked/>All openings</span>
-        <span class="dropdown-item"><input type="checkbox" class="mr-2"/>Action</span>
-        <span class="dropdown-item"><input type="checkbox" class="mr-2"/>Another action</span>
-        <span class="dropdown-item"><input type="checkbox" class="mr-2"/>Something else here</span>
+        <span class="dropdown-item">
+          <span
+            class="custom-checkbox"
+            :style="`border: 2px solid ${customColor}`"
+            @click="toggleCustomCheckBox"
+          >
+            &nbsp;
+          </span>
+          <span>All openings</span>
+        </span>
+        <span class="dropdown-item">
+          <span
+            class="custom-checkbox"
+            :style="`border: 2px solid ${customColor}`"
+            @click="toggleCustomCheckBox"
+          >
+            &nbsp;
+          </span>
+          <span>Action</span>
+        </span>
+        <span class="dropdown-item">
+          <span
+            class="custom-checkbox"
+            :style="`border: 2px solid ${customColor}`"
+            @click="toggleCustomCheckBox"
+          >
+            &nbsp;
+          </span>
+          <span>Another action</span>
+        </span>
+        <span class="dropdown-item">
+          <span
+            class="custom-checkbox"
+            :style="`border: 2px solid ${customColor}`"
+            @click="toggleCustomCheckBox"
+          >
+            &nbsp;
+          </span>
+          <span>Something else here</span>
+        </span>
       </div>
     </div>
     <div class="row">
@@ -468,6 +504,16 @@ export default {
       this.savedSide = this.side;
       this.next();
     },
+    toggleCustomCheckBox(e) {
+      if (e.target.innerHTML.includes('&nbsp;')) {
+        e.target.style.backgroundColor = this.customColor;
+        e.target.style.color = 'white';
+        e.target.innerHTML = '&#x2713;';
+      } else {
+        e.target.style.backgroundColor = 'white';
+        e.target.innerHTML = '&nbsp;';
+      }
+    },
   },
   computed: {
     customColor() {
@@ -483,6 +529,13 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+  .custom-checkbox{
+    height: 16px;
+    font: 16px/1em sans-serif;
+    width: 16px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 .25em 0 0;
+  }
 </style>

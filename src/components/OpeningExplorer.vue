@@ -37,7 +37,7 @@
           </span>
           <span>All openings</span>
         </span>
-        <div v-if="inOrderOpeningsArray[0] && inOrderOpeningsArray[0][1]">
+        <div v-if="searchResultOpeningsArray[0] && searchResultOpeningsArray[0][1]">
           <span class="dropdown-item" v-for="i in 5" :key="i">
             <span
               class="custom-checkbox"
@@ -46,7 +46,7 @@
             >
               &nbsp;
             </span>
-            {{inOrderOpeningsArray[i-1][0]}}: {{inOrderOpeningsArray[i-1][1]}}
+            {{searchResultOpeningsArray[i-1][0]}}: {{searchResultOpeningsArray[i-1][1]}}
           </span>
         </div>
       </div>
@@ -170,11 +170,13 @@ export default {
       savedSide: 0,
       displayModal: false,
       inOrderOpeningsArray: [],
+      searchResultOpeningsArray: [],
     };
   },
   mounted() {
     this.resetBoard();
-    this.inOrderOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
+    this.inOrderOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);``
+    this.searchResultOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     this.openingsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     for (let i = 0; i < this.openingsArray.length; i += 1) {
       const randomLocation = Math.floor(Math.random() * this.openingsArray.length);

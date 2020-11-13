@@ -368,7 +368,7 @@ C31	King's Gambit, Falkbeer Countergambit, Modern Transfer	rnbqkbnr/ppp2ppp/8/3P
 C31	King's Gambit, Falkbeer Countergambit, Nimzowitsch-Marshall Countergambit	rnbqkbnr/pp3ppp/2p5/3Pp3/5P2/8/PPPP2PP/RNBQKBNR w KQkq -	e2e4 e7e5 f2f4 d7d5 e4d5 c7c6
 C31	King's Gambit, Falkbeer Countergambit, Pickler Gambit	rnbqk1nr/pp3ppp/2P5/2b1p3/5P2/8/PPPP2PP/RNBQKBNR w KQkq -	e2e4 e7e5 f2f4 d7d5 e4d5 c7c6 d5c6 f8c5
 C31	King's Gambit, Falkbeer Countergambit, Staunton Line	rnbqkbnr/ppp2ppp/8/3P4/4pP2/8/PPPP2PP/RNBQKBNR w KQkq -	e2e4 e7e5 f2f4 d7d5 e4d5 e5e4
-C31	Van Geet Opening: Grünfeld Defense, Steiner Gambit	rnbqkbnr/ppp2ppp/8/4p3/4NP2/8/PPPP2PP/R1BQKBNR b KQkq -	e2e4 e7e5 f2f4 d7d5 b1c3 d5e4 c3e4
+C31	Van Geet Opening: Grunfeld Defense, Steiner Gambit	rnbqkbnr/ppp2ppp/8/4p3/4NP2/8/PPPP2PP/R1BQKBNR b KQkq -	e2e4 e7e5 f2f4 d7d5 b1c3 d5e4 c3e4
 C32	King's Gambit Declined: Falkbeer, Alapin Variation	rnb1k2r/ppp2ppp/8/3q4/4nP2/8/PPPNQbPP/RNBK1B1R b kq -	e2e4 e7e5 f2f4 d7d5 e4d5 e5e4 d2d3 g8f6 d3e4 f6e4 g1f3 f8c5 d1e2 c5f2 e1d1 d8d5 f3d2
 C32	King's Gambit Declined: Falkbeer, Charousek Gambit	rnbqkb1r/ppp2ppp/8/3P4/4nP2/8/PPP1Q1PP/RNB1KBNR b KQkq -	e2e4 e7e5 f2f4 d7d5 e4d5 e5e4 d2d3 g8f6 d3e4 f6e4 d1e2
 C32	King's Gambit Declined: Falkbeer, Charousek Variation	rnb1kb1r/ppp3pp/8/3q1p2/4nPP1/8/PPPNQ2P/R1B1KBNR b KQkq -	e2e4 e7e5 f2f4 d7d5 e4d5 e5e4 d2d3 g8f6 d3e4 f6e4 d1e2 d8d5 b1d2 f7f5 g2g4

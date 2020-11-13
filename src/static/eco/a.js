@@ -331,8 +331,8 @@ A15	English Opening: Anglo-Indian Defense, Scandinavian Defense	rnbqkb1r/ppp1ppp
 A15	English Opening: Anglo-Indian Defense, Slav Formation	rnbqkb1r/pp1ppp1p/2p2np1/8/2P5/5NP1/PP1PPP1P/RNBQKB1R w KQkq -	g1f3 g8f6 c2c4 g7g6 g2g3 c7c6
 A15	English Orangutan	rnbqkb1r/pppppppp/5n2/8/1PP5/8/P2PPPPP/RNBQKBNR b KQkq -	c2c4 g8f6 b2b4
 A15	Polish Opening: King's Indian Variation, Sokolsky Attack	rnbq1rk1/ppp1ppbp/3p1np1/8/1PPP4/4PN2/PB3PPP/RN1QKB1R b KQ -	g1f3 g8f6 c2c4 g7g6 b2b4 f8g7 c1b2 e8g8 e2e3 d7d6 d2d4
-A16	English Opening: Anglo-Grünfeld Defense: Korchnoi Variation	rnbqk2r/ppp2pbp/6p1/3np3/8/2N2NP1/PP1PPPBP/R1BQK2R w KQkq -	g1f3 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 g2g3 f8g7 f1g2 e7e5
-A16	English Opening: Anglo-Grünfeld Defense	rnbqkb1r/ppp1pppp/5n2/3p4/2P5/2N5/PP1PPPPP/R1BQKBNR w KQkq -	c2c4 g8f6 b1c3 d7d5
+A16	English Opening: Anglo-Grunfeld Defense: Korchnoi Variation	rnbqk2r/ppp2pbp/6p1/3np3/8/2N2NP1/PP1PPPBP/R1BQK2R w KQkq -	g1f3 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 g2g3 f8g7 f1g2 e7e5
+A16	English Opening: Anglo-Grunfeld Defense	rnbqkb1r/ppp1pppp/5n2/3p4/2P5/2N5/PP1PPPPP/R1BQKBNR w KQkq -	c2c4 g8f6 b1c3 d7d5
 A16	English Opening: Anglo-Indian Defense, Anglo-Grünfeld Variation	rnbqkb1r/ppp1pp1p/1n4p1/8/8/2N3P1/PP1PPPBP/R1BQK1NR w KQkq -	c2c4 g8f6 b1c3 d7d5 c4d5 f6d5 g2g3 g7g6 f1g2 d5b6
 A16	English Opening: Anglo-Indian Defense, Anglo-Grünfeld Variation	rnbqkb1r/ppp1pp1p/6p1/8/8/2n3P1/PP1PPPBP/R1BQK1NR w KQkq -	c2c4 g8f6 b1c3 d7d5 c4d5 f6d5 g2g3 g7g6 f1g2 d5c3
 A16	English Opening: Anglo-Indian Defense, Anglo-Grünfeld Variation	rnbqkb1r/ppp1pppp/8/3n4/8/2N2N2/PP1PPPPP/R1BQKB1R b KQkq -	c2c4 g8f6 b1c3 d7d5 c4d5 f6d5 g1f3
@@ -603,7 +603,7 @@ A56	Benoni Defense: Hromádka System	rnbqkb1r/pp2pppp/3p1n2/2pP4/2P5/8/PP2PPPP/R
 A56	Benoni Defense: King's Indian System	rnbqkb1r/pp3p1p/3p1np1/2pPp3/2P1P3/2N5/PP3PPP/R1BQKBNR w KQkq -	d2d4 g8f6 c2c4 c7c5 d4d5 e7e5 b1c3 d7d6 e2e4 g7g6
 A56	Benoni Defense	rnbqkb1r/pp1ppppp/5n2/2p5/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 c7c5
 A56	Benoni Defense: Weenink Variation	rnbqkb1r/pp1p1ppp/4pn2/2P5/2P5/8/PP2PPPP/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 c7c5 d4c5 e7e6
-A56	Grünfeld Defense: Three Knights Variation, Burille Variation, Reversed Tarrasch	r1bq1rk1/pp2ppbp/2n2np1/3p4/2PP4/2N2N2/PP2BPPP/R1BQ1RK1 w - -	d2d4 g8f6 c2c4 c7c5 e2e3 g7g6 b1c3 f8g7 g1f3 e8g8 f1e2 c5d4 e3d4 d7d5 e1g1 b8c6
+A56	Grunfeld Defense: Three Knights Variation, Burille Variation, Reversed Tarrasch	r1bq1rk1/pp2ppbp/2n2np1/3p4/2PP4/2N2N2/PP2BPPP/R1BQ1RK1 w - -	d2d4 g8f6 c2c4 c7c5 e2e3 g7g6 b1c3 f8g7 g1f3 e8g8 f1e2 c5d4 e3d4 d7d5 e1g1 b8c6
 A56	Vulture Defense	rnbqkb1r/pp1ppppp/8/2pP4/2P1n3/8/PP2PPPP/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 c7c5 d4d5 f6e4
 A57	Benko Gambit Accepted: Dlugy Variation	rnbqkb1r/3ppppp/p4n2/1PpP4/8/5P2/PP2P1PP/RNBQKBNR b KQkq -	d2d4 g8f6 c2c4 c7c5 d4d5 b7b5 c4b5 a7a6 f2f3
 A57	Benko Gambit Accepted: Modern Variation	rnbqkb1r/3ppppp/p4n2/1PpP4/8/4P3/PP3PPP/RNBQKBNR b KQkq -	d2d4 g8f6 c2c4 c7c5 d4d5 b7b5 c4b5 a7a6 e2e3

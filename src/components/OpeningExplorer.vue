@@ -53,7 +53,17 @@
             >
               &nbsp;
             </span>
-            {{searchResultOpeningsArray[i-1][0]}}: {{searchResultOpeningsArray[i-1][1]}}
+            {{
+              (
+                String(`${searchResultOpeningsArray[i-1][0]}: ${searchResultOpeningsArray[i-1][1]}`)
+                .length > 25
+              )
+              ?(
+                String(`${searchResultOpeningsArray[i-1][0]}: ${searchResultOpeningsArray[i-1][1]}`)
+                .substr(0,25)+'...'
+              )
+              :String(`${searchResultOpeningsArray[i-1][0]}: ${searchResultOpeningsArray[i-1][1]}`)
+            }}
           </span>
         </div>
         <div v-else>

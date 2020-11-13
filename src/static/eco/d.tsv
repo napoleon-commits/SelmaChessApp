@@ -59,7 +59,7 @@ D00	Queen's Pawn Game: Zurich Gambit	rnbqkbnr/ppp1pppp/8/3p4/3P2P1/8/PPP1PP1P/RN
 D00	Queen's Pawn Game: Veresov Attack, Irish Gambit	rnbqkbnr/pp2pppp/8/2pp4/3P4/2N5/PPP1PPPP/R1BQKBNR w KQkq -	d2d4 d7d5 b1c3 c7c5
 D01	Queen's Pawn Game: Veresov Attack, Boyce Defense	rnbqkb1r/ppp1pppp/8/3p2B1/3Pn3/2N5/PPP1PPPP/R2QKBNR w KQkq -	d2d4 g8f6 b1c3 d7d5 c1g5 f6e4
 D01	Queen's Pawn Game: Veresov Attack, Richter Variation	rn1qkb1r/ppp1pppp/5n2/3p1bB1/3P4/2N2P2/PPP1P1PP/R2QKBNR b KQkq -	d2d4 g8f6 b1c3 d7d5 c1g5 c8f5 f2f3
-D01	Queen's Pawn Game: Veresov Attack, Two Knights System, Grünfeld Defense	r1bqkb1r/pppnpp1p/5np1/3p2B1/3P4/2N2N2/PPP1PPPP/R2QKB1R w KQkq -	d2d4 g8f6 b1c3 d7d5 c1g5 b8d7 g1f3 g7g6
+D01	Queen's Pawn Game: Veresov Attack, Two Knights System, Grunfeld Defense	r1bqkb1r/pppnpp1p/5np1/3p2B1/3P4/2N2N2/PPP1PPPP/R2QKB1R w KQkq -	d2d4 g8f6 b1c3 d7d5 c1g5 b8d7 g1f3 g7g6
 D01	Queen's Pawn Game: Veresov Attack, Two Knights System	r1bqkb1r/pppnpppp/5n2/3p2B1/3P4/2N2N2/PPP1PPPP/R2QKB1R b KQkq -	d2d4 g8f6 b1c3 d7d5 c1g5 b8d7 g1f3
 D01	Queen's Pawn Game: Veresov Attack, Veresov Variation	rn1qkb1r/ppp1pppp/5B2/3p1b2/3P4/2N5/PPP1PPPP/R2QKBNR b KQkq -	d2d4 g8f6 b1c3 d7d5 c1g5 c8f5 g5f6
 D01	Richter-Veresov Attack	rn1qkb1r/ppp1pppp/5n2/3p1bB1/3P4/2N5/PPP1PPPP/R2QKBNR w KQkq -	d2d4 g8f6 b1c3 d7d5 c1g5 c8f5
@@ -428,71 +428,71 @@ D68	Queen's Gambit Declined: Orthodox Defense, Classical Variation	r1b2rk1/pp1nq
 D68	Queen's Gambit Declined: Orthodox Defense, Classical Variation	r1b2rk1/pp1nqppp/2p5/4p3/2BP4/2R1PN2/PP3PPP/3Q1RK1 w - -	d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b8d7 a1c1 c7c6 f1d3 d5c4 d3c4 f6d5 g5e7 d8e7 e1g1 d5c3 c1c3 e6e5
 D68	Queen's Gambit Declined: Orthodox Defense, Classical Variation	r1b2rk1/pp1nqppp/2p5/4p3/2BP4/2R1PN2/PPQ2PPP/5RK1 b - -	d2d4 g8f6 c2c4 e7e6 g1f3 d7d5 b1c3 f8e7 c1g5 e8g8 e2e3 b8d7 a1c1 c7c6 f1d3 d5c4 d3c4 f6d5 g5e7 d8e7 e1g1 d5c3 c1c3 e6e5 d1c2
 D69	Queen's Gambit Declined: Orthodox Defense, Classical Variation	r1b2rk1/pp3ppp/2p5/4q3/2B5/2R1P3/PP3PPP/3Q1RK1 w - -	d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b8d7 a1c1 c7c6 f1d3 d5c4 d3c4 f6d5 g5e7 d8e7 e1g1 d5c3 c1c3 e6e5 d4e5 d7e5 f3e5 e7e5
-D70	Neo-Grünfeld Defense: Goglidze Attack	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/5P2/PP2P1PP/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 f2f3 d7d5
-D70	Neo-Grünfeld Defense	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/6P1/PP2PP1P/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 g2g3 d7d5
-D71	Neo-Grünfeld Defense: Exchange Variation	rnbqk2r/ppp1ppbp/6p1/3n4/3P4/6P1/PP2PPBP/RNBQK1NR w KQkq -	d2d4 g8f6 c2c4 g7g6 g2g3 f8g7 f1g2 d7d5 c4d5 f6d5
-D74	Neo-Grünfeld Defense: Delayed Exchange Variation	rnbq1rk1/ppp1ppbp/6p1/3n4/3P4/5NP1/PP2PPBP/RNBQ1RK1 b - -	d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 d7d5 c4d5 f6d5 e1g1
-D75	Neo-Grünfeld Defense: Delayed Exchange Variation	rnbq1rk1/pp2ppbp/6p1/2pn4/3P4/2N2NP1/PP2PPBP/R1BQ1RK1 b - -	d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 e8g8 g2g3 d7d5 c4d5 f6d5 f1g2 c7c5 e1g1
-D75	Neo-Grünfeld Defense: Delayed Exchange Variation	rnbq1rk1/pp2ppbp/6p1/2Pn4/8/5NP1/PP2PPBP/RNBQ1RK1 b - -	d2d4 g8f6 g1f3 g7g6 c2c4 f8g7 g2g3 e8g8 f1g2 d7d5 c4d5 f6d5 e1g1 c7c5 d4c5
-D76	Neo-Grünfeld Defense: Delayed Exchange Variation	rnbq1rk1/ppp1ppbp/1n4p1/8/3P4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 d7d5 c4d5 f6d5 e1g1 d5b6
-D77	Neo-Grünfeld Defense: Classical Variation, Modern Defense	rnbq1rk1/ppp1ppbp/5np1/8/2pP4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 g1f3 g7g6 g2g3 f8g7 f1g2 e8g8 e1g1 d7d5 c2c4 d5c4
-D77	Neo-Grünfeld Defense: Classical Variation, Polgar Variation	r1bq1rk1/ppp1ppbp/2n2np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 g1f3 g7g6 g2g3 f8g7 f1g2 e8g8 e1g1 d7d5 c2c4 b8c6
-D77	Neo-Grünfeld Defense: Classical Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 b - -	d2d4 g8f6 g1f3 g7g6 g2g3 f8g7 f1g2 e8g8 e1g1 d7d5 c2c4
-D78	Neo-Grünfeld Defense: Classical Variation, Original Defense	rnbq1rk1/pp2ppbp/2p2np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 c7c6 e1g1 d7d5
-D79	Neo-Grünfeld Defense: Ultra-delayed Exchange Variation	rnbq1rk1/pp2ppbp/5np1/3p4/3P4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 c7c6 e1g1 d7d5 c4d5 c6d5
-D80	Grünfeld Defense: Gibbon Gambit	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP2P1/2N5/PP2PP1P/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g2g4
-D80	Grünfeld Defense: Lundin Variation	rnbqkb1r/pp2pp1p/6p1/2p3B1/2PPp3/8/PP1QPPPP/R3KBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1g5 f6e4 c3e4 d5e4 d1d2 c7c5
-D80	Grünfeld Defense: Lutikov Variation, Murrey Attack	rnbqkb1r/pp2pp1p/6p1/2pn4/N2P4/5P2/PP2P1PP/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 f2f3 c7c5 c4d5 f6d5 c3a4
-D80	Grünfeld Defense: Lutikov Variation	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N2P2/PP2P1PP/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 f2f3
-D80	Grünfeld Defense	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5
-D80	Grünfeld Defense: Stockholm Variation	rnbqkb1r/ppp1pp1p/5np1/3p2B1/2PP4/2N5/PP2PPPP/R2QKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1g5
-D80	Grünfeld Defense: Zaitsev Gambit	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP3P/2N5/PP2PPP1/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 h2h4
-D81	Grünfeld Defense: Russian Variation, Accelerated Variation	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/1QN5/PP2PPPP/R1B1KBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 d1b3
-D82	Grünfeld Defense: Brinckmann Attack	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP1B2/2N5/PP2PPPP/R2QKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4
-D83	Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit, Botvinnik Variation	rn1q1rk1/pp2ppbp/4bnp1/2Pp4/2P2B2/2N1P3/PP3PPP/2RQKBNR w K -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 e2e3 e8g8 a1c1 c7c5 d4c5 c8e6
-D83	Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit, Capablanca Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP1B2/2N1P3/PP3PPP/2RQKBNR b K -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 e2e3 e8g8 a1c1
-D83	Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP1B2/2N1P3/PP3PPP/R2QKBNR w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 e2e3 e8g8
-D83	Grünfeld Defense: Brinckmann Attack, Reshevsky Gambit	rnb2rk1/pp2ppbp/5np1/q1Pp4/2P2B2/2N1P3/PP3PPP/2RQKBNR w K -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 a1c1 e8g8 e2e3 c7c5 d4c5 d8a5
-D84	Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit Accepted	rnb2rk1/ppB1ppbp/6p1/3q4/3P4/4P3/PP3PPP/R2QKBNR b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 e2e3 e8g8 c4d5 f6d5 c3d5 d8d5 f4c7
-D85	Grünfeld Defense: Exchange Variation, Modern Exchange Variation, Kramnik's Line	rnbqk2r/pp2ppbp/6p1/2p5/3PP3/2P2N1P/P4PP1/R1BQKB1R b KQkq -	d2d4 g8f6 g1f3 g7g6 c2c4 f8g7 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 c7c5 h2h3
-D85	Grünfeld Defense: Exchange Variation, Modern Exchange Variation, Pawn Grab Line	r1bq1rk1/pp2pp1p/2n3p1/2pP4/4P3/2b2N2/P3BPPP/1RBQK2R w K -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 g1f3 c7c5 a1b1 e8g8 f1e2 b8c6 d4d5 g7c3
-D85	Grünfeld Defense: Exchange Variation, Modern Exchange Variation	rnbqk2r/ppp1ppbp/6p1/8/3PP3/2P2N2/P4PPP/R1BQKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 g1f3
-D85	Grünfeld Defense: Exchange Variation, Nadanian Attack	rnbqkb1r/ppp1pp1p/6p1/3n4/N2P4/8/PP2PPPP/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 c3a4
-D85	Grünfeld Defense: Exchange Variation	rnbqkb1r/ppp1pp1p/6p1/3n4/3P4/2N5/PP2PPPP/R1BQKBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5
-D86	Grünfeld Defense: Exchange, Larsen Variation	rnb2rk1/p1pqppbp/1p4p1/8/2BPP3/2P5/P3NPPP/R1BQ1RK1 w - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 e8g8 g1e2 d8d7 e1g1 b7b6
-D86	Grünfeld Defense: Exchange, Simagin's Lesser Variation	rnbq1rk1/p1p1ppbp/1p4p1/8/2BPP3/2P5/P3NPPP/R1BQK2R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 e8g8 g1e2 b7b6
-D86	Grünfeld Defense: Exchange Variation, Classical Variation	rnbqk2r/ppp1ppbp/6p1/8/2BPP3/2P5/P4PPP/R1BQK1NR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4
-D86	Grünfeld Defense: Exchange Variation, Larsen Variation	rnb2rk1/pppqppbp/6p1/8/2BPP3/2P5/P3NPPP/R1BQK2R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 e8g8 g1e2 d8d7
-D86	Grünfeld Defense: Exchange Variation, Simagin's Improved Variation	r1bq1rk1/ppp1ppbp/2n3p1/8/2BPP3/2P5/P3NPPP/R1BQK2R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 e8g8 g1e2 b8c6
-D87	Grünfeld Defense: Exchange Variation, Seville Variation	r2q1rk1/pp2pBbp/6p1/n1p5/3PP1b1/2P1BP2/P3N1PP/R2Q1RK1 b - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 b8c6 c1e3 e8g8 e1g1 c8g4 f2f3 c6a5 c4f7
-D87	Grünfeld Defense: Exchange Variation, Spassky Variation	rnbq1rk1/pp2ppbp/6p1/2p5/2BPP3/2P5/P3NPPP/R1BQK2R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 e8g8
-D88	Grünfeld Defense: Exchange Variation, Spassky Variation	r1bq1rk1/pp2ppbp/2n3p1/8/2BPP3/4B3/P3NPPP/R2Q1RK1 b - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 b8c6 c1e3 e8g8 e1g1 c5d4 c3d4
-D89	Grünfeld Defense: Exchange Variation, Sokolsky Variation	r2q1rk1/pp2ppbp/4b1p1/n2P4/4P3/3BBP2/P3N1PP/R2Q1RK1 b - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 e8g8 e1g1 b8c6 c1e3 c8g4 f2f3 c6a5 c4d3 c5d4 c3d4 g4e6 d4d5
-D89	Grünfeld Defense: Exchange Variation, Spassky Variation	r2q1rk1/pp2ppbp/4b1p1/n7/3PP3/3BBP2/P3N1PP/R2Q1RK1 w - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 b8c6 c1e3 e8g8 e1g1 c8g4 f2f3 c6a5 c4d3 c5d4 c3d4 g4e6
-D90	Grünfeld Defense: Flohr Variation	rnbqk2r/ppp1ppbp/5np1/3p4/Q1PP4/2N2N2/PP2PPPP/R1B1KB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1a4
-D90	Grünfeld Defense: Three Knights Variation	rnbqk2r/ppp1ppbp/5np1/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7
-D90	Grünfeld Defense: Three Knights Variation	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3
+D70	Neo-Grunfeld Defense: Goglidze Attack	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/5P2/PP2P1PP/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 f2f3 d7d5
+D70	Neo-Grunfeld Defense	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/6P1/PP2PP1P/RNBQKBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 g2g3 d7d5
+D71	Neo-Grunfeld Defense: Exchange Variation	rnbqk2r/ppp1ppbp/6p1/3n4/3P4/6P1/PP2PPBP/RNBQK1NR w KQkq -	d2d4 g8f6 c2c4 g7g6 g2g3 f8g7 f1g2 d7d5 c4d5 f6d5
+D74	Neo-Grunfeld Defense: Delayed Exchange Variation	rnbq1rk1/ppp1ppbp/6p1/3n4/3P4/5NP1/PP2PPBP/RNBQ1RK1 b - -	d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 d7d5 c4d5 f6d5 e1g1
+D75	Neo-Grunfeld Defense: Delayed Exchange Variation	rnbq1rk1/pp2ppbp/6p1/2pn4/3P4/2N2NP1/PP2PPBP/R1BQ1RK1 b - -	d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 e8g8 g2g3 d7d5 c4d5 f6d5 f1g2 c7c5 e1g1
+D75	Neo-Grunfeld Defense: Delayed Exchange Variation	rnbq1rk1/pp2ppbp/6p1/2Pn4/8/5NP1/PP2PPBP/RNBQ1RK1 b - -	d2d4 g8f6 g1f3 g7g6 c2c4 f8g7 g2g3 e8g8 f1g2 d7d5 c4d5 f6d5 e1g1 c7c5 d4c5
+D76	Neo-Grunfeld Defense: Delayed Exchange Variation	rnbq1rk1/ppp1ppbp/1n4p1/8/3P4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 d7d5 c4d5 f6d5 e1g1 d5b6
+D77	Neo-Grunfeld Defense: Classical Variation, Modern Defense	rnbq1rk1/ppp1ppbp/5np1/8/2pP4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 g1f3 g7g6 g2g3 f8g7 f1g2 e8g8 e1g1 d7d5 c2c4 d5c4
+D77	Neo-Grunfeld Defense: Classical Variation, Polgar Variation	r1bq1rk1/ppp1ppbp/2n2np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 g1f3 g7g6 g2g3 f8g7 f1g2 e8g8 e1g1 d7d5 c2c4 b8c6
+D77	Neo-Grunfeld Defense: Classical Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 b - -	d2d4 g8f6 g1f3 g7g6 g2g3 f8g7 f1g2 e8g8 e1g1 d7d5 c2c4
+D78	Neo-Grunfeld Defense: Classical Variation, Original Defense	rnbq1rk1/pp2ppbp/2p2np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 c7c6 e1g1 d7d5
+D79	Neo-Grunfeld Defense: Ultra-delayed Exchange Variation	rnbq1rk1/pp2ppbp/5np1/3p4/3P4/5NP1/PP2PPBP/RNBQ1RK1 w - -	d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 c7c6 e1g1 d7d5 c4d5 c6d5
+D80	Grunfeld Defense: Gibbon Gambit	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP2P1/2N5/PP2PP1P/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g2g4
+D80	Grunfeld Defense: Lundin Variation	rnbqkb1r/pp2pp1p/6p1/2p3B1/2PPp3/8/PP1QPPPP/R3KBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1g5 f6e4 c3e4 d5e4 d1d2 c7c5
+D80	Grunfeld Defense: Lutikov Variation, Murrey Attack	rnbqkb1r/pp2pp1p/6p1/2pn4/N2P4/5P2/PP2P1PP/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 f2f3 c7c5 c4d5 f6d5 c3a4
+D80	Grunfeld Defense: Lutikov Variation	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N2P2/PP2P1PP/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 f2f3
+D80	Grunfeld Defense	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5
+D80	Grunfeld Defense: Stockholm Variation	rnbqkb1r/ppp1pp1p/5np1/3p2B1/2PP4/2N5/PP2PPPP/R2QKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1g5
+D80	Grunfeld Defense: Zaitsev Gambit	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP3P/2N5/PP2PPP1/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 h2h4
+D81	Grunfeld Defense: Russian Variation, Accelerated Variation	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/1QN5/PP2PPPP/R1B1KBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 d1b3
+D82	Grunfeld Defense: Brinckmann Attack	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP1B2/2N5/PP2PPPP/R2QKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4
+D83	Grunfeld Defense: Brinckmann Attack, Grünfeld Gambit, Botvinnik Variation	rn1q1rk1/pp2ppbp/4bnp1/2Pp4/2P2B2/2N1P3/PP3PPP/2RQKBNR w K -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 e2e3 e8g8 a1c1 c7c5 d4c5 c8e6
+D83	Grunfeld Defense: Brinckmann Attack, Grünfeld Gambit, Capablanca Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP1B2/2N1P3/PP3PPP/2RQKBNR b K -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 e2e3 e8g8 a1c1
+D83	Grunfeld Defense: Brinckmann Attack, Grünfeld Gambit	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP1B2/2N1P3/PP3PPP/R2QKBNR w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 e2e3 e8g8
+D83	Grunfeld Defense: Brinckmann Attack, Reshevsky Gambit	rnb2rk1/pp2ppbp/5np1/q1Pp4/2P2B2/2N1P3/PP3PPP/2RQKBNR w K -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 a1c1 e8g8 e2e3 c7c5 d4c5 d8a5
+D84	Grunfeld Defense: Brinckmann Attack, Grünfeld Gambit Accepted	rnb2rk1/ppB1ppbp/6p1/3q4/3P4/4P3/PP3PPP/R2QKBNR b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1f4 f8g7 e2e3 e8g8 c4d5 f6d5 c3d5 d8d5 f4c7
+D85	Grunfeld Defense: Exchange Variation, Modern Exchange Variation, Kramnik's Line	rnbqk2r/pp2ppbp/6p1/2p5/3PP3/2P2N1P/P4PP1/R1BQKB1R b KQkq -	d2d4 g8f6 g1f3 g7g6 c2c4 f8g7 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 c7c5 h2h3
+D85	Grunfeld Defense: Exchange Variation, Modern Exchange Variation, Pawn Grab Line	r1bq1rk1/pp2pp1p/2n3p1/2pP4/4P3/2b2N2/P3BPPP/1RBQK2R w K -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 g1f3 c7c5 a1b1 e8g8 f1e2 b8c6 d4d5 g7c3
+D85	Grunfeld Defense: Exchange Variation, Modern Exchange Variation	rnbqk2r/ppp1ppbp/6p1/8/3PP3/2P2N2/P4PPP/R1BQKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 g1f3
+D85	Grunfeld Defense: Exchange Variation, Nadanian Attack	rnbqkb1r/ppp1pp1p/6p1/3n4/N2P4/8/PP2PPPP/R1BQKBNR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 c3a4
+D85	Grunfeld Defense: Exchange Variation	rnbqkb1r/ppp1pp1p/6p1/3n4/3P4/2N5/PP2PPPP/R1BQKBNR w KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5
+D86	Grunfeld Defense: Exchange, Larsen Variation	rnb2rk1/p1pqppbp/1p4p1/8/2BPP3/2P5/P3NPPP/R1BQ1RK1 w - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 e8g8 g1e2 d8d7 e1g1 b7b6
+D86	Grunfeld Defense: Exchange, Simagin's Lesser Variation	rnbq1rk1/p1p1ppbp/1p4p1/8/2BPP3/2P5/P3NPPP/R1BQK2R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 e8g8 g1e2 b7b6
+D86	Grunfeld Defense: Exchange Variation, Classical Variation	rnbqk2r/ppp1ppbp/6p1/8/2BPP3/2P5/P4PPP/R1BQK1NR b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4
+D86	Grunfeld Defense: Exchange Variation, Larsen Variation	rnb2rk1/pppqppbp/6p1/8/2BPP3/2P5/P3NPPP/R1BQK2R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 e8g8 g1e2 d8d7
+D86	Grunfeld Defense: Exchange Variation, Simagin's Improved Variation	r1bq1rk1/ppp1ppbp/2n3p1/8/2BPP3/2P5/P3NPPP/R1BQK2R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 e8g8 g1e2 b8c6
+D87	Grunfeld Defense: Exchange Variation, Seville Variation	r2q1rk1/pp2pBbp/6p1/n1p5/3PP1b1/2P1BP2/P3N1PP/R2Q1RK1 b - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 b8c6 c1e3 e8g8 e1g1 c8g4 f2f3 c6a5 c4f7
+D87	Grunfeld Defense: Exchange Variation, Spassky Variation	rnbq1rk1/pp2ppbp/6p1/2p5/2BPP3/2P5/P3NPPP/R1BQK2R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 e8g8
+D88	Grunfeld Defense: Exchange Variation, Spassky Variation	r1bq1rk1/pp2ppbp/2n3p1/8/2BPP3/4B3/P3NPPP/R2Q1RK1 b - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 b8c6 c1e3 e8g8 e1g1 c5d4 c3d4
+D89	Grunfeld Defense: Exchange Variation, Sokolsky Variation	r2q1rk1/pp2ppbp/4b1p1/n2P4/4P3/3BBP2/P3N1PP/R2Q1RK1 b - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 e8g8 e1g1 b8c6 c1e3 c8g4 f2f3 c6a5 c4d3 c5d4 c3d4 g4e6 d4d5
+D89	Grunfeld Defense: Exchange Variation, Spassky Variation	r2q1rk1/pp2ppbp/4b1p1/n7/3PP3/3BBP2/P3N1PP/R2Q1RK1 w - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2 b8c6 c1e3 e8g8 e1g1 c8g4 f2f3 c6a5 c4d3 c5d4 c3d4 g4e6
+D90	Grunfeld Defense: Flohr Variation	rnbqk2r/ppp1ppbp/5np1/3p4/Q1PP4/2N2N2/PP2PPPP/R1B1KB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1a4
+D90	Grunfeld Defense: Three Knights Variation	rnbqk2r/ppp1ppbp/5np1/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7
+D90	Grunfeld Defense: Three Knights Variation	rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3
 D90	Slav Defense: Schlechter Variation	rnbqkb1r/pp2pp1p/2p2np1/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -	d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 g7g6
-D91	Grünfeld Defense: Three Knights Variation, Petrosian System	rnbqk2r/ppp1ppbp/5np1/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 c1g5
-D92	Grünfeld Defense: Three Knights Variation, Hungarian Attack	rnbqk2r/ppp1ppbp/5np1/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 c1f4
-D93	Grünfeld Defense: Three Knights Variation, Hungarian Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 c1f4 e8g8 e2e3
-D94	Grünfeld Defense: Flohr Defense	rn1q1rk1/pp2ppbp/2p2np1/3p1b2/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - -	d2d4 d7d5 c2c4 c7c6 b1c3 g8f6 e2e3 g7g6 g1f3 f8g7 f1d3 e8g8 e1g1 c8f5
-D94	Grünfeld Defense: Makogonov Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/1PPP4/2N1PN2/P4PPP/R1BQKB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 b2b4
-D94	Grünfeld Defense: Opocensky Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/2N1PN2/PP1B1PPP/R2QKB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 c1d2
-D94	Grünfeld Defense: Smyslov Defense	rn1q1rk1/pp2ppbp/2p2np1/3p4/2PP2b1/2NBPN2/PP3PPP/R1BQ1RK1 w - -	d2d4 d7d5 c2c4 c7c6 b1c3 g8f6 e2e3 g7g6 g1f3 f8g7 f1d3 e8g8 e1g1 c8g4
-D94	Grünfeld Defense: Three Knights Variation, Burille Variation	rnbqk2r/ppp1ppbp/5np1/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3
-D94	Grünfeld Defense: Three Knights Variation, Paris Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 f1d3
-D95	Grünfeld Defense: Botvinnik Variation	rnbq1rk1/ppp2pbp/4pnp1/3p4/2PP4/1QN1PN2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 d1b3 e7e6
-D95	Grünfeld Defense: Pachman Variation	r1bq1rk1/pppnppbp/5np1/6N1/2BP4/1QN1P3/PP3PPP/R1B1K2R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 e2e3 f8g7 d1b3 d5c4 f1c4 e8g8 g1f3 b8d7 f3g5
-D95	Grünfeld Defense: Three Knights Variation, Vienna Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/1QN1PN2/PP3PPP/R1B1KB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 d1b3
-D96	Grünfeld Defense: Russian Variation	rnbqk2r/ppp1ppbp/5np1/3p4/2PP4/1QN2N2/PP2PPPP/R1B1KB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3
-D97	Grünfeld Defense: Russian Variation, Byrne (Simagin) Variation	r1bq1rk1/ppp1ppbp/2n2np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 b8c6
-D97	Grünfeld Defense: Russian Variation, Hungarian Variation	rnbq1rk1/1pp1ppbp/p4np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 a7a6
-D97	Grünfeld Defense: Russian Variation, Levenfish Variation	rnbq1rk1/p1p1ppbp/1p3np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 b7b6
-D97	Grünfeld Defense: Russian Variation, Prins Variation	r1bq1rk1/ppp1ppbp/n4np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 b8a6
-D97	Grünfeld Defense: Russian Variation, Szabo (Boleslavsky)	rnbq1rk1/pp2ppbp/2p2np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c7c6
-D97	Grünfeld Defense: Russian Variation	rnbq1rk1/ppp1ppbp/5np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4
-D98	Grünfeld Defense: Russian, Keres Variation	r2q1rk1/ppp1ppbp/1nn3p1/8/3PP1b1/2NQBN2/PP2BPPP/2KR3R b - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c8g4 c1e3 f6d7 f1e2 d7b6 c4d3 b8c6 e1c1
-D98	Grünfeld Defense: Russian Variation, Smyslov Variation	rn1q1rk1/ppp1ppbp/5np1/8/2QPP1b1/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c8g4
-D99	Grünfeld Defense: Russian Variation, Smyslov Variation	rn1q1rk1/pppnppbp/6p1/8/3PP1b1/1QN1BN2/PP3PPP/R3KB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c8g4 c1e3 f6d7 c4b3
-D99	Grünfeld Defense: Russian Variation, Yugoslav Variation	rn1q1rk1/pp1nppbp/6p1/2p5/3PP1b1/1QN1BN2/PP3PPP/R3KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c8g4 c1e3 f6d7 c4b3 c7c5
+D91	Grunfeld Defense: Three Knights Variation, Petrosian System	rnbqk2r/ppp1ppbp/5np1/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 c1g5
+D92	Grunfeld Defense: Three Knights Variation, Hungarian Attack	rnbqk2r/ppp1ppbp/5np1/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 c1f4
+D93	Grunfeld Defense: Three Knights Variation, Hungarian Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 c1f4 e8g8 e2e3
+D94	Grunfeld Defense: Flohr Defense	rn1q1rk1/pp2ppbp/2p2np1/3p1b2/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - -	d2d4 d7d5 c2c4 c7c6 b1c3 g8f6 e2e3 g7g6 g1f3 f8g7 f1d3 e8g8 e1g1 c8f5
+D94	Grunfeld Defense: Makogonov Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/1PPP4/2N1PN2/P4PPP/R1BQKB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 b2b4
+D94	Grunfeld Defense: Opocensky Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/2N1PN2/PP1B1PPP/R2QKB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 c1d2
+D94	Grunfeld Defense: Smyslov Defense	rn1q1rk1/pp2ppbp/2p2np1/3p4/2PP2b1/2NBPN2/PP3PPP/R1BQ1RK1 w - -	d2d4 d7d5 c2c4 c7c6 b1c3 g8f6 e2e3 g7g6 g1f3 f8g7 f1d3 e8g8 e1g1 c8g4
+D94	Grunfeld Defense: Three Knights Variation, Burille Variation	rnbqk2r/ppp1ppbp/5np1/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3
+D94	Grunfeld Defense: Three Knights Variation, Paris Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/2NBPN2/PP3PPP/R1BQK2R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 f1d3
+D95	Grunfeld Defense: Botvinnik Variation	rnbq1rk1/ppp2pbp/4pnp1/3p4/2PP4/1QN1PN2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 d1b3 e7e6
+D95	Grunfeld Defense: Pachman Variation	r1bq1rk1/pppnppbp/5np1/6N1/2BP4/1QN1P3/PP3PPP/R1B1K2R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 e2e3 f8g7 d1b3 d5c4 f1c4 e8g8 g1f3 b8d7 f3g5
+D95	Grunfeld Defense: Three Knights Variation, Vienna Variation	rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/1QN1PN2/PP3PPP/R1B1KB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 d1b3
+D96	Grunfeld Defense: Russian Variation	rnbqk2r/ppp1ppbp/5np1/3p4/2PP4/1QN2N2/PP2PPPP/R1B1KB1R b KQkq -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3
+D97	Grunfeld Defense: Russian Variation, Byrne (Simagin) Variation	r1bq1rk1/ppp1ppbp/2n2np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 b8c6
+D97	Grunfeld Defense: Russian Variation, Hungarian Variation	rnbq1rk1/1pp1ppbp/p4np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 a7a6
+D97	Grunfeld Defense: Russian Variation, Levenfish Variation	rnbq1rk1/p1p1ppbp/1p3np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 b7b6
+D97	Grunfeld Defense: Russian Variation, Prins Variation	r1bq1rk1/ppp1ppbp/n4np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 b8a6
+D97	Grunfeld Defense: Russian Variation, Szabo (Boleslavsky)	rnbq1rk1/pp2ppbp/2p2np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c7c6
+D97	Grunfeld Defense: Russian Variation	rnbq1rk1/ppp1ppbp/5np1/8/2QPP3/2N2N2/PP3PPP/R1B1KB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4
+D98	Grunfeld Defense: Russian, Keres Variation	r2q1rk1/ppp1ppbp/1nn3p1/8/3PP1b1/2NQBN2/PP2BPPP/2KR3R b - -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c8g4 c1e3 f6d7 f1e2 d7b6 c4d3 b8c6 e1c1
+D98	Grunfeld Defense: Russian Variation, Smyslov Variation	rn1q1rk1/ppp1ppbp/5np1/8/2QPP1b1/2N2N2/PP3PPP/R1B1KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c8g4
+D99	Grunfeld Defense: Russian Variation, Smyslov Variation	rn1q1rk1/pppnppbp/6p1/8/3PP1b1/1QN1BN2/PP3PPP/R3KB1R b KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c8g4 c1e3 f6d7 c4b3
+D99	Grunfeld Defense: Russian Variation, Yugoslav Variation	rn1q1rk1/pp1nppbp/6p1/2p5/3PP1b1/1QN1BN2/PP3PPP/R3KB1R w KQ -	d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 c8g4 c1e3 f6d7 c4b3 c7c5

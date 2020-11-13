@@ -502,7 +502,7 @@ B32	Sicilian Defense: Flohr Variation	r1b1kbnr/ppqppppp/2n5/8/3NP3/8/PPP2PPP/RNB
 B32	Sicilian Defense: Franco-Sicilian Variation	r1bqkbnr/pp1p1ppp/2n1p3/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 e7e6
 B32	Sicilian Defense: Godiva Variation	r1b1kbnr/pp1ppppp/1qn5/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 d8b6
 B32	Sicilian Defense: Kalashnikov Variation	r1bqkbnr/pp3ppp/2np4/1N2p3/4P3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 e7e5 d4b5 d7d6
-B32	Sicilian Defense: Löwenthal Variation	r1bqkbnr/pp1p1ppp/2n5/4p3/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 e7e5
+B32	Sicilian Defense: Lowenthal Variation	r1bqkbnr/pp1p1ppp/2n5/4p3/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 e7e5
 B32	Sicilian Defense: Nimzo-American Variation	r1bqkbnr/pp2pppp/2n5/3p4/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 d7d5
 B32	Sicilian Defense: O'Kelly Variation, Maróczy Bind, Geller Line	r1bqkbnr/1p1p1ppp/p1n5/4p3/2PNP3/8/PP3PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 a7a6 c2c4 e7e5
 B32	Sicilian Defense: Open	r1bqkbnr/pp1ppppp/2n5/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4

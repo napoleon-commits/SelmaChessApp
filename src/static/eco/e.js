@@ -33,7 +33,7 @@ E10	Blumenfeld Countergambit	rnbqkb1r/p2p1ppp/4pn2/1ppP4/2P5/5N2/PP2PPPP/RNBQKB1
 E10	Blumenfeld Countergambit	rnbqkb1r/pp1p1ppp/4pn2/2p5/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -	d2d4 g8f6 c2c4 e7e6 g1f3 c7c5
 E10	Blumenfeld Countergambit: Spielmann Variation	rnbqkb1r/p2p1pp1/5n1p/1ppP2B1/8/5N2/PP2PPPP/RN1QKB1R w KQkq -	d2d4 g8f6 g1f3 e7e6 c2c4 c7c5 d4d5 b7b5 c1g5 e6d5 c4d5 h7h6
 E10	Indian Game: Anti-Nimzo-Indian	rnbqkb1r/pppp1ppp/4pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq -	d2d4 g8f6 c2c4 e7e6 g1f3
-E10	Indian Game: Döry Indian	rnbqkb1r/pppp1ppp/4p3/8/2PPn3/5N2/PP2PPPP/RNBQKB1R w KQkq -	d2d4 g8f6 c2c4 e7e6 g1f3 f6e4
+E10	Indian Game: Dory Indian	rnbqkb1r/pppp1ppp/4p3/8/2PPn3/5N2/PP2PPPP/RNBQKB1R w KQkq -	d2d4 g8f6 c2c4 e7e6 g1f3 f6e4
 E10	Indian Game: Dzindzi-Indian Defense	rnbqkb1r/1ppp1ppp/p3pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -	d2d4 g8f6 c2c4 e7e6 g1f3 a7a6
 E10	Tarrasch Defense: Symmetrical Variation	r1bqkb1r/pp3ppp/2n1pn2/2pp4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq -	d2d4 g8f6 c2c4 e7e6 g1f3 c7c5 e2e3 d7d5 b1c3 b8c6
 E11	Bogo-Indian Defense: Exchange Variation	rnbqk2r/pppp1ppp/4pn2/8/2PP4/5N2/PP1bPPPP/RN1QKB1R w KQkq -	d2d4 g8f6 c2c4 e7e6 g1f3 f8b4 c1d2 b4d2

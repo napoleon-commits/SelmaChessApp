@@ -25,6 +25,7 @@
             placeholder="Enter a chess opening"
             type="text"
             :style="`border: 2px solid ${customColor}`"
+            v-model="searchText"
           />
         </span>
         <span class="dropdown-item">
@@ -37,7 +38,13 @@
           </span>
           <span>All openings</span>
         </span>
-        <div v-if="searchResultOpeningsArray[0] && searchResultOpeningsArray[0][1]">
+        <div
+          v-if="(
+            searchResultOpeningsArray[0]
+            && searchResultOpeningsArray[0][1]
+            && searchResultOpeningsArray.length >= 5
+          )"
+        >
           <span class="dropdown-item" v-for="i in 5" :key="i">
             <span
               class="custom-checkbox"
@@ -47,6 +54,22 @@
               &nbsp;
             </span>
             {{searchResultOpeningsArray[i-1][0]}}: {{searchResultOpeningsArray[i-1][1]}}
+          </span>
+        </div>
+        <div v-else>
+          <span
+            class="dropdown-item"
+            v-for="(opening, index) in searchResultOpeningsArray"
+            :key="index + opening"
+          >
+            <span
+              class="custom-checkbox"
+              :style="`backgroundColor: ${customColor}`"
+              @click="toggleCustomCheckBox"
+            >
+              &nbsp;
+            </span>
+            {{opening[0]}}: {{opening[1]}}
           </span>
         </div>
       </div>
@@ -170,13 +193,12 @@ export default {
       savedSide: 0,
       displayModal: false,
       inOrderOpeningsArray: [],
-      searchResultOpeningsArray: [],
+      searchText: '',
     };
   },
   mounted() {
     this.resetBoard();
-    this.inOrderOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);``
-    this.searchResultOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
+    this.inOrderOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     this.openingsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     for (let i = 0; i < this.openingsArray.length; i += 1) {
       const randomLocation = Math.floor(Math.random() * this.openingsArray.length);
@@ -512,6 +534,31 @@ export default {
         return { backgroundColor: this.customColor };
       }
       return { boxShadow: `0 0 1px ${this.customColor}` };
+    },
+    searchResultOpeningsArray() {
+      return (
+        this.inOrderOpeningsArray.length > 0
+          ? (
+            this.inOrderOpeningsArray.filter(
+              (opening) => {
+                if (
+                  opening[0]
+                  && (opening[0].toUpperCase().includes(this.searchText.toUpperCase()))
+                ) {
+                  return true;
+                }
+                if (
+                  opening[1]
+                  && (opening[1].toUpperCase().includes(this.searchText.toUpperCase()))
+                ) {
+                  return true;
+                }
+                return false;
+              },
+            )
+          )
+          : []
+      );
     },
   },
 };

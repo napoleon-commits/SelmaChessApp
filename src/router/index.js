@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import PlayOffline from '@/components/PlayOffline';
-import Learn from '@/components/Learn';
+import Introduction from '@/components/Introduction';
 import Engine from '@/components/Engine';
 import Register from '@/components/Register';
 import Login from '@/components/Login';
@@ -13,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Learn',
-      component: Learn,
+      name: 'Introduction',
+      component: Introduction,
     },
     {
       path: '/offline',

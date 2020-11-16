@@ -1,8 +1,8 @@
 /* eslint no-bitwise: ["error", { "allow": ["&","|","<<"] }] */
 
-import { BOOL, SQOFFBOARD, PIECES, LoopSlidePce, GameBoard, PceDir, DirNum, LoopSlideIndex, LoopNonSlidePce, PieceCol, PCEINDEX, SQUARES, COLOURS, MFLAGEP, LoopNonSlideIndex, MFLAGCA, MFLAGPS, RanksBrd, CASTLEBIT, RANKS, TOSQ, BRD_SQ_NUM, NOMOVE, CAPTURED, FROMSQ, MAXDEPTH } from './def';
-import { SqAttacked } from './board';
-import { MakeMove, TakeMove } from './makemove';
+import { BOOL, SQOFFBOARD, PIECES, LoopSlidePce, GameBoard, PceDir, DirNum, LoopSlideIndex, LoopNonSlidePce, PieceCol, PCEINDEX, SQUARES, COLOURS, MFLAGEP, LoopNonSlideIndex, MFLAGCA, MFLAGPS, RanksBrd, CASTLEBIT, RANKS, TOSQ, BRD_SQ_NUM, NOMOVE, CAPTURED, FROMSQ, MAXDEPTH } from '@/utils/engine/def';
+import { SqAttacked } from '@/utils/engine/board';
+import { MakeMove, TakeMove } from '@/utils/engine/makemove';
 
 const MvvLvaValue = [0, 100, 200, 300, 400, 500, 600, 100, 200, 300, 400, 500, 600];
 const MvvLvaScores = new Array(14 * 14);

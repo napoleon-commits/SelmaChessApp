@@ -1,6 +1,6 @@
-import { BOOL, GameBoard, NOMOVE, PVENTRIES } from './def';
-import { TakeMove, MakeMove } from './makemove';
-import { MoveExists } from './movegen';
+import { BOOL, GameBoard, NOMOVE, PVENTRIES } from '@/utils/engine/def';
+import { TakeMove, MakeMove } from '@/utils/engine/makemove';
+import { MoveExists } from '@/utils/engine/movegen';
 
 export function ProbePvTable() {
   const index = GameBoard.posKey % PVENTRIES;

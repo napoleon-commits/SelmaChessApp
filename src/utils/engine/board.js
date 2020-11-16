@@ -1,7 +1,7 @@
 /* eslint no-bitwise: ["error", { "allow": ["|=","^","^=","&"] }] */
 
-import { COLOURS, FR2SQ, GameBoard, CASTLEBIT, FILES, BOOL, PieceKing, KiDir, SQUARES, PieceCol, PieceBishopQueen, PIECES, BiDir, PieceRookQueen, PieceKnight, KnDir, RkDir, RANKS, SQ120, BRD_SQ_NUM, PieceVal, PceChar, CastleKeys, SideKey, PieceKeys, SideChar, RankChar, FileChar } from './def';
-import { PrSq } from './io';
+import { COLOURS, FR2SQ, GameBoard, CASTLEBIT, FILES, BOOL, PieceKing, KiDir, SQUARES, PieceCol, PieceBishopQueen, PIECES, BiDir, PieceRookQueen, PieceKnight, KnDir, RkDir, RANKS, SQ120, BRD_SQ_NUM, PieceVal, PceChar, CastleKeys, SideKey, PieceKeys, SideChar, RankChar, FileChar } from '@/utils/engine/def';
+import { PrSq } from '@/utils/engine/io';
 
 function PCEINDEX(pce, pceNum) {
   return ((pce * 10) + pceNum);

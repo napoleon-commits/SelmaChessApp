@@ -11,9 +11,9 @@ import whiteQueen from '@/images/wQ.png';
 import whiteKnight from '@/images/wN.png';
 import whiteRook from '@/images/wR.png';
 import blankSquare from '@/images/blankSquare.png';
-import { RANKS, FILES, FR2SQ, GameBoard, PceChar } from '@/utils/engine/def';
 
-export const getHTMLChessPiece = (letter) => {
+
+const getHTMLChessPiece = (letter) => {
   if (letter === 'o') {
     return '<span class="text-dark" style="font-size: 16px;">&bull;</span>';
   }
@@ -62,28 +62,4 @@ export const getHTMLChessPiece = (letter) => {
   );
 };
 
-export const get2DBoard = () => {
-  const JSXBoard = [];
-  for (let rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank -= 1) {
-    const row = [];
-    for (let file = FILES.FILE_A; file <= FILES.FILE_H; file += 1) {
-      const sq = FR2SQ(file, rank);
-      const piece = GameBoard.pieces[sq];
-      row.push(PceChar[piece]);
-    }
-    JSXBoard.push(row);
-  }
-  return (JSXBoard);
-};
-
-export const getReversedBoard = (board) => {
-  const a0Board = [];
-  for (let i = 7; i >= 0; i -= 1) {
-    const row = [];
-    for (let j = 7; j >= 0; j -= 1) {
-      row.push(board[i][j]);
-    }
-    a0Board.push(row);
-  }
-  return a0Board;
-};
+export default getHTMLChessPiece;

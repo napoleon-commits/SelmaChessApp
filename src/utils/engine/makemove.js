@@ -1,7 +1,7 @@
 /* eslint no-bitwise: ["error", { "allow": ["&=","&","^="] }] */
 
-import { PIECES, SQUARES, PROMOTED, COLOURS, MFLAGCA, GameBoard, MFLAGEP, TOSQ, FROMSQ, BOOL, PieceCol, HASH_CA, HASH_EP, PCEINDEX, Kings, MFLAGPS, PiecePawn, HASH_SIDE, CAPTURED, HASH_PCE, PieceVal, CastlePerm } from './def';
-import { SqAttacked } from './board';
+import { PIECES, SQUARES, PROMOTED, COLOURS, MFLAGCA, GameBoard, MFLAGEP, TOSQ, FROMSQ, BOOL, PieceCol, HASH_CA, HASH_EP, PCEINDEX, Kings, MFLAGPS, PiecePawn, HASH_SIDE, CAPTURED, HASH_PCE, PieceVal, CastlePerm } from '@/utils/engine/def';
+import { SqAttacked } from '@/utils/engine/board';
 
 function ClearPiece(sq) {
   const pce = GameBoard.pieces[sq];

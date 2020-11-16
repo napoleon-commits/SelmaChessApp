@@ -1,12 +1,12 @@
 /* eslint no-bitwise: ["error", { "allow": ["&","^"] }] */
 import $ from 'jquery';
-import { INFINITE, BOOL, MATE, MAXDEPTH, NOMOVE, GameBoard, BRD_SQ_NUM, TOSQ, FROMSQ, PCEINDEX, MFLAGCAP, Kings, PVENTRIES, MoveStats } from './def';
-import { GenerateMoves, GenerateCaptures } from './movegen';
-import { SqAttacked } from './board';
-import { MakeMove, TakeMove } from './makemove';
-import { PrMove } from './io';
-import { GetPvLine, ProbePvTable, StorePvMove } from './pvtable';
-import EvalPosition from './evaluate';
+import { INFINITE, BOOL, MATE, MAXDEPTH, NOMOVE, GameBoard, BRD_SQ_NUM, TOSQ, FROMSQ, PCEINDEX, MFLAGCAP, Kings, PVENTRIES, MoveStats } from '@/utils/engine/def';
+import { GenerateMoves, GenerateCaptures } from '@/utils/engine/movegen';
+import { SqAttacked } from '@/utils/engine/board';
+import { MakeMove, TakeMove } from '@/utils/engine/makemove';
+import { PrMove } from '@/utils/engine/io';
+import { GetPvLine, ProbePvTable, StorePvMove } from '@/utils/engine/pvtable';
+import EvalPosition from '@/utils/engine/evaluate';
 
 export const SearchController = {
   nodes: undefined,

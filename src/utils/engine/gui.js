@@ -1,11 +1,11 @@
 /* eslint no-bitwise: ["error", { "allow": ["^","&"] }] */
 
-import { SearchController, SearchPosition } from './search';
-import { MakeMove, TakeMove } from './makemove';
-import { BOOL, GameController, MAXDEPTH, COLOURS, GameBoard, Kings, PCEINDEX, PIECES, SQUARES, FilesBrd, RanksBrd, UserMove, TOSQ, MFLAGCA, MFLAGEP, PROMOTED, SQ120, START_FEN, CAPTURED, FR2SQ, NOMOVE } from './def';
-import { GenerateMoves } from './movegen';
-import { ParseFen, PrintBoard, SqAttacked } from './board';
-import { PrSq, ParseMove } from './io';
+import { SearchController, SearchPosition } from '@/utils/engine/search';
+import { MakeMove, TakeMove } from '@/utils/engine/makemove';
+import { BOOL, GameController, MAXDEPTH, COLOURS, GameBoard, Kings, PCEINDEX, PIECES, SQUARES, FilesBrd, RanksBrd, UserMove, TOSQ, MFLAGCA, MFLAGEP, PROMOTED, SQ120, START_FEN, CAPTURED, FR2SQ, NOMOVE } from '@/utils/engine/def';
+import { GenerateMoves } from '@/utils/engine/movegen';
+import { ParseFen, PrintBoard, SqAttacked } from '@/utils/engine/board';
+import { PrSq, ParseMove } from '@/utils/engine/io';
 
 // $("#SetFen").click(function () {
 // var fenStr = $("#fenIn").val();

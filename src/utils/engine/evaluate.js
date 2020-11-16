@@ -1,4 +1,4 @@
-import { PCEINDEX, COLOURS, MIRROR64, SQ64, GameBoard, PIECES } from './def';
+import { PCEINDEX, COLOURS, MIRROR64, SQ64, GameBoard, PIECES } from '@/utils/engine/def';
 
 const PawnTable = [
   0, 0, 0, 0, 0, 0, 0, 0,

@@ -1,7 +1,7 @@
-import { GameBoard, BOOL } from './def';
-import { MakeMove, TakeMove } from './makemove';
-import { PrintBoard } from './board';
-import { GenerateMoves } from './movegen';
+import { GameBoard, BOOL } from '@/utils/engine/def';
+import { MakeMove, TakeMove } from '@/utils/engine/makemove';
+import { PrintBoard } from '@/utils/engine/board';
+import { GenerateMoves } from '@/utils/engine/movegen';
 
 let perftLeafNodes;
 

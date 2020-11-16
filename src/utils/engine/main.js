@@ -1,6 +1,6 @@
 /* eslint no-bitwise: ["error", { "allow": ["^=","^"] }] */
 
-import { FILES, MAXGAMEMOVES, Sq120ToSq64, Sq64ToSq120, FR2SQ, RANKS, NOMOVE, PVENTRIES, GameBoard, RAND_32, SQUARES, SideKey, PieceKeys, BRD_SQ_NUM, FilesBrd, RanksBrd, CastleKeys } from './def';
+import { FILES, MAXGAMEMOVES, Sq120ToSq64, Sq64ToSq120, FR2SQ, RANKS, NOMOVE, PVENTRIES, GameBoard, RAND_32, SQUARES, SideKey, PieceKeys, BRD_SQ_NUM, FilesBrd, RanksBrd, CastleKeys } from '@/utils/engine/def';
 
 // $(function() {
 // init();

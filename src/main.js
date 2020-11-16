@@ -7,9 +7,9 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import vuetify from '@/plugins/vuetify';
-import App from './App';
-import router from './router';
-import store from './store';
+import App from '@/App';
+import router from '@/router';
+import store from '@/store';
 
 Vue.config.productionTip = false;
 

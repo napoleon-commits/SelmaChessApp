@@ -1,6 +1,6 @@
-import { PIECES, PROMOTED, BOOL, GameBoard, NOMOVE, COLOURS, FileChar, RankChar, TOSQ, FilesBrd, RanksBrd, FROMSQ, PieceKnight, PieceRookQueen, PieceBishopQueen } from './def';
-import { GenerateMoves } from './movegen';
-import { TakeMove, MakeMove } from './makemove';
+import { PIECES, PROMOTED, BOOL, GameBoard, NOMOVE, COLOURS, FileChar, RankChar, TOSQ, FilesBrd, RanksBrd, FROMSQ, PieceKnight, PieceRookQueen, PieceBishopQueen } from '@/utils/engine/def';
+import { GenerateMoves } from '@/utils/engine/movegen';
+import { TakeMove, MakeMove } from '@/utils/engine/makemove';
 
 export function PrSq(sq) {
   return (FileChar[FilesBrd[sq]] + RankChar[RanksBrd[sq]]);

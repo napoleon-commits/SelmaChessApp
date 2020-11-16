@@ -5,13 +5,13 @@
     <HR :width="`${this.$store.state.chessboardWidth}px`"/>
     <div class="dropdown text-center">
       <button
-        :class="`dropdown-toggle w-50 ${this.$store.state.darkModeClass}`"
+        :class="`dropdown-toggle ${this.$store.state.darkModeClass}`"
         type="button"
         id="dropdownMenuButton"
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
-        :style="`border: 2px solid ${customColor}`"
+        :style="`border: 2px solid ${customColor}; width: ${this.$store.state.chessboardWidth}px;`"
       >
         Filter openings
       </button>
@@ -76,8 +76,8 @@
     </div>
     <div class="text-center my-2">
       <button
-          :class="`w-50 ${this.$store.state.darkModeClass}`"
-          :style="`border: 2px solid ${customColor}`"
+          :class="`${this.$store.state.darkModeClass}`"
+          :style="`border: 2px solid ${customColor}; width: ${this.$store.state.chessboardWidth}px`"
           @click="rotateBoard"
         >
           Rotate Board

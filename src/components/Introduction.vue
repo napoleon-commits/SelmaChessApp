@@ -105,14 +105,14 @@
 </template>
 
 <script>
-import LandingPageHeader from '../static/LandingPageHeader';
-import GettingStarted from '../static/GettingStarted';
-import ChessMovements from '../static/ChessMovements';
-import SpecialMoves from '../static/SpecialMoves';
+import LandingPageHeader from '@/static/LandingPageHeader';
+import GettingStarted from '@/static/GettingStarted';
+import ChessMovements from '@/static/ChessMovements';
+import SpecialMoves from '@/static/SpecialMoves';
 
-import StaticChessBoard from './subcomponents/StaticChessBoard';
-import DynamicChessBoard from './subcomponents/DynamicChessBoard';
-import { startBoard } from '../constants';
+import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
+import DynamicChessBoard from '@/components/subcomponents/DynamicChessBoard';
+import { startBoard } from '@/constants';
 
 export default {
   components: {

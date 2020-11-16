@@ -110,8 +110,8 @@ import { SearchPosition } from '@/utils/engine/search';
 import { InitMvvLva } from '@/utils/engine/movegen';
 import { getHTMLChessPiece, get2DBoard, getReversedBoard } from '@/utils/vueboard';
 import { ClickedSpace, ClickedPiece, PreSearch, NewGame, takeBack } from '@/utils/engine/gui';
-import Modal from './subcomponents/Modal';
-import Spinner from './subcomponents/Spinner';
+import Modal from '@/components/subcomponents/Modal';
+import Spinner from '@/components/subcomponents/Spinner';
 
 export default {
   components: {

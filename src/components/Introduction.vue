@@ -1,5 +1,5 @@
 <template>
-  <div :class="`${this.$store.state.darkModeClass}`">
+  <div :class="`${darkModeClass}`">
       <div class="mb-3">
           <div class="h1">Getting Started</div>
       </div>
@@ -10,7 +10,7 @@
       </div>
       <div class="mb-3">
           <button
-            :class="`${this.$store.state.darkModeClass} w-100 text-left`"
+            :class="`${darkModeClass} w-100 text-left`"
             :style="`border: 2px solid ${customColor}`"
             type="button"
             data-toggle="collapse"
@@ -26,7 +26,7 @@
       </div>
       <div class="mb-3">
           <button
-            :class="`${this.$store.state.darkModeClass} w-100 text-left`"
+            :class="`${darkModeClass} w-100 text-left`"
             :style="`border: 2px solid ${customColor}`"
             type="button"
             data-toggle="collapse"
@@ -134,6 +134,9 @@ export default {
     },
     customColor() {
       return this.$store.state.customColor;
+    },
+    darkModeClass() {
+      return this.$store.state.darkModeClass;
     },
   },
 };

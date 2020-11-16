@@ -2,16 +2,16 @@
 <div>
     <div>
     <div class="h6 text-center">Can you guess the chess opening?</div>
-    <HR :width="`${this.$store.state.chessboardWidth}px`"/>
+    <HR :width="`${chessboardWidth}px`"/>
     <div class="dropdown text-center">
       <button
-        :class="`dropdown-toggle ${this.$store.state.darkModeClass}`"
+        :class="`dropdown-toggle ${darkModeClass}`"
         type="button"
         id="dropdownMenuButton"
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
-        :style="`border: 2px solid ${customColor}; width: ${this.$store.state.chessboardWidth}px;`"
+        :style="`border: 2px solid ${customColor}; width: ${chessboardWidth}px;`"
       >
         Filter openings
       </button>
@@ -76,8 +76,8 @@
     </div>
     <div class="text-center my-2">
       <button
-          :class="`${this.$store.state.darkModeClass}`"
-          :style="`border: 2px solid ${customColor}; width: ${this.$store.state.chessboardWidth}px`"
+          :class="`${darkModeClass}`"
+          :style="`border: 2px solid ${customColor}; width: ${chessboardWidth}px`"
           @click="rotateBoard"
         >
           Rotate Board
@@ -125,18 +125,18 @@
       <div class="text-center w-100">
         <div
           class="my-2 text-center mx-auto"
-          :style="`width: ${this.$store.state.chessboardWidth}px`"
+          :style="`width: ${chessboardWidth}px`"
         >
           {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
         </div>
       </div>
     </div>
-    <HR :width="`${this.$store.state.chessboardWidth}px`"/>
+    <HR :width="`${chessboardWidth}px`"/>
     <div class="text-center">Correct Guesses: {{streak}}</div>
     <div class="text-center mt-3">
       <button
-        :class="`${this.$store.state.darkModeClass}`"
-        :style="`border: 2px solid ${customColor}; width: ${this.$store.state.chessboardWidth}px;`"
+        :class="`${darkModeClass}`"
+        :style="`border: 2px solid ${customColor}; width: ${chessboardWidth}px;`"
         @click="showSolution"
       >
         Show Solution
@@ -144,8 +144,8 @@
     </div>
     <div class="text-center my-3">
       <button
-        :class="`${this.$store.state.darkModeClass}`"
-        :style="`border: 2px solid ${customColor}; width: ${this.$store.state.chessboardWidth}px`"
+        :class="`${darkModeClass}`"
+        :style="`border: 2px solid ${customColor}; width: ${chessboardWidth}px`"
         @click="next"
       >
         Next
@@ -572,6 +572,12 @@ export default {
           )
           : []
       );
+    },
+    chessboardWidth() {
+      return this.$store.state.chessboardWidth;
+    },
+    darkModeClass() {
+      return this.$store.state.darkModeClass;
     },
   },
 };

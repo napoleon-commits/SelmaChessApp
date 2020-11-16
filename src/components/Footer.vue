@@ -1,13 +1,13 @@
 <template>
   <div
     :class="`${
-      (this.$store.state.chessboardWidth)
+      (chessboardWidth)
       ?'mx-auto'
       :'mx-4'
-      } text-center ${this.$store.state.darkModeClass}`"
+      } text-center ${darkModeClass}`"
     :style="(()=>{
-      if(this.$store.state.chessboardWidth){
-        return {width: `${this.$store.state.chessboardWidth+8}px`}
+      if(chessboardWidth){
+        return {width: `${chessboardWidth+8}px`}
       }
     })()"
   >
@@ -35,6 +35,12 @@ export default {
   computed: {
     customColor() {
       return this.$store.state.customColor;
+    },
+    chessboardWidth() {
+      return this.$store.state.chessboardWidth;
+    },
+    darkModeClass() {
+      return this.$store.state.darkModeClass;
     },
   },
 };

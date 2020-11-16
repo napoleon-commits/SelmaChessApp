@@ -31,7 +31,7 @@
         <button
           @click="takeBack"
           type="button"
-          :class="`col ${this.$store.state.darkModeClass}`"
+          :class="`col ${darkModeClass}`"
           :style="`border: 2px solid ${customColor}`"
           v-if="type !== 'mate'"
         >
@@ -40,7 +40,7 @@
         <button
           @click="newGame"
           type="button"
-          :class="`col ${this.$store.state.darkModeClass}`"
+          :class="`col ${darkModeClass}`"
           :style="`border: 2px solid ${customColor}`"
         >
           New Game
@@ -141,6 +141,9 @@ export default {
   computed: {
     customColor() {
       return this.$store.state.customColor;
+    },
+    darkModeClass() {
+      return this.$store.state.darkModeClass;
     },
   },
 };

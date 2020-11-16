@@ -122,7 +122,7 @@
               </tr>
           </tbody>
       </table>
-      <div class="text-center w-100" style="height: 10vh">
+      <div class="text-center w-100">
         <div
           class="my-2 text-center mx-auto"
           :style="`width: ${this.$store.state.chessboardWidth}px`"

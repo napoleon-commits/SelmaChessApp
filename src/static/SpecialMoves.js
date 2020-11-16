@@ -1,4 +1,4 @@
-import createBoardArray from '../utils/CreateBoardArray';
+import createBoardArray from '@/utils/CreateBoardArray';
 
 export default [
   {

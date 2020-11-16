@@ -54,13 +54,13 @@
 <script>
 import $ from 'jquery';
 import { getHTMLChessPiece } from '@/utils/vueboard';
-import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '../utils/engine';
+import { clickedPieceJSX, clickedSquareJSX, getJSXBoard, newGame, takeBack } from '@/utils/engine';
 import {
   clickedPieceJSX as computerClickedPieceJSX,
   clickedSquareJSX as computerClickedSquareJSX,
   getJSXBoard as computerGetJSXBoard,
   NewGame as computerNewGame,
-} from '../utils/ComputerEngine';
+} from '@/utils/ComputerEngine';
 
 export default {
   props: ['type', 'mateType'],

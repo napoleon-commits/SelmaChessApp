@@ -1,4 +1,4 @@
-import { FR2SQ, RAND_32 } from '../../../../src/utils/engine';
+import { FR2SQ, RAND_32 } from '@/utils/engine';
 
 describe('the tests for the engine', () => {
   it('should test the FR2SQ function', () => {

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import getHTMLChessPiece from '@/utils/board';
+import { getHTMLChessPiece } from '@/utils/vueboard';
 
 export default {
   props: ['moves'],

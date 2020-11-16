@@ -167,7 +167,7 @@ import BTSV from '@/static/eco/b';
 import CTSV from '@/static/eco/c';
 import DTSV from '@/static/eco/d';
 import ETSV from '@/static/eco/e';
-import getHTMLChessPiece from '@/utils/board';
+import { getHTMLChessPiece } from '@/utils/vueboard';
 import { startBoard } from '@/constants/index';
 import Modal from '@/components/subcomponents/Modal';
 import HR from '@/utils/vuecomponents/HR';

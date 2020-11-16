@@ -2,7 +2,7 @@
 <div>
     <div>
     <div class="h6 text-center">Can you guess the chess opening?</div>
-    <hr :style="`border: 1px solid ${customColor};`"/>
+    <HR :width="`${this.$store.state.chessboardWidth}px`"/>
     <div class="dropdown text-center">
       <button
         :class="`dropdown-toggle w-50 ${this.$store.state.darkModeClass}`"
@@ -94,7 +94,7 @@
         </div>
       </div>
     </div>
-    <hr :style="`border: 1px solid ${customColor};`"/>
+    <HR :width="`${this.$store.state.chessboardWidth}px`"/>
     <div
       v-if="openingsArray[openingsArrayIndex]"
     >
@@ -129,9 +129,9 @@
         </div>
       </div>
     </div>
-    <hr :style="`border: 1px solid ${customColor};`"/>
+    <HR :width="`${this.$store.state.chessboardWidth}px`"/>
     <div class="text-center">Correct Guesses: {{streak}}</div>
-    <hr :style="`border: 1px solid ${customColor};`"/>
+    <HR :width="`${this.$store.state.chessboardWidth}px`"/>
     <div class="row">
       <div class="col">
         <button
@@ -162,6 +162,7 @@
 </template>
 
 <script>
+import $ from 'jquery';
 import ATSV from '@/static/eco/a';
 import BTSV from '@/static/eco/b';
 import CTSV from '@/static/eco/c';
@@ -170,10 +171,12 @@ import ETSV from '@/static/eco/e';
 import getHTMLChessPiece from '@/utils/board';
 import { startBoard } from '@/constants/index';
 import Modal from '@/components/subcomponents/Modal';
+import HR from '@/utils/vuecomponents/HR';
 
 export default {
   components: {
     Modal,
+    HR,
   },
   data() {
     return {
@@ -208,6 +211,17 @@ export default {
     }
     // eslint-disable-next-line
     console.log(this.openingsArray[this.openingsArrayIndex][3]);
+    const myInterval = setInterval(() => {
+      this.chessboardSize = $('#chessboard').width();
+      this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });
+    }, 1);
+    setTimeout(() => {
+      clearInterval(myInterval);
+    }, 3000);
+    window.addEventListener('resize', () => {
+      this.chessboardSize = $('#chessboard').width();
+      this.$store.commit('setChessBoardWidth', { chessboardWidth: this.chessboardSize });
+    });
   },
   methods: {
     getHTMLChessPiece,

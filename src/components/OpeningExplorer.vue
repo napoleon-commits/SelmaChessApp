@@ -94,7 +94,6 @@
         </div>
       </div>
     </div>
-    <HR :width="`${this.$store.state.chessboardWidth}px`"/>
     <div
       v-if="openingsArray[openingsArrayIndex]"
     >
@@ -123,34 +122,34 @@
               </tr>
           </tbody>
       </table>
-      <div class="text-center" style="height: 10vh">
-        <div class="my-2">
+      <div class="text-center w-100" style="height: 10vh">
+        <div
+          class="my-2 text-center mx-auto"
+          :style="`width: ${this.$store.state.chessboardWidth}px`"
+        >
           {{openingsArray[openingsArrayIndex][0]}}; {{openingsArray[openingsArrayIndex][1]}}
         </div>
       </div>
     </div>
     <HR :width="`${this.$store.state.chessboardWidth}px`"/>
     <div class="text-center">Correct Guesses: {{streak}}</div>
-    <HR :width="`${this.$store.state.chessboardWidth}px`"/>
-    <div class="row">
-      <div class="col">
-        <button
-          :class="`w-100 ${this.$store.state.darkModeClass}`"
-          :style="`border: 2px solid ${customColor}`"
-          @click="showSolution"
-        >
+    <div class="text-center mt-3">
+      <button
+        :class="`${this.$store.state.darkModeClass}`"
+        :style="`border: 2px solid ${customColor}; width: ${this.$store.state.chessboardWidth}px;`"
+        @click="showSolution"
+      >
         Show Solution
       </button>
-      </div>
-      <div class="col">
-        <button
-          :class="`w-100 ${this.$store.state.darkModeClass}`"
-          :style="`border: 2px solid ${customColor}`"
-          @click="next"
-        >
-          Next
-        </button>
-      </div>
+    </div>
+    <div class="text-center my-3">
+      <button
+        :class="`${this.$store.state.darkModeClass}`"
+        :style="`border: 2px solid ${customColor}; width: ${this.$store.state.chessboardWidth}px`"
+        @click="next"
+      >
+        Next
+      </button>
     </div>
   </div>
   <div v-if="displayModal" @click="closeModal" class="c-pointer">

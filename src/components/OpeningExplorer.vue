@@ -22,10 +22,11 @@
       >
         <span class="dropdown-item">
           <input
-            placeholder="Enter a chess opening"
+            placeholder="Search for a chess opening..."
             type="text"
             :style="`border: 2px solid ${customColor}`"
             v-model="searchText"
+            class="w-100"
           />
         </span>
         <span class="dropdown-item">
@@ -38,6 +39,20 @@
           </span>
           <span>All openings</span>
         </span>
+        <hr />
+        <div class="px-4">
+          <span v-for="(eco, index) in ecoCodeArray" :key="index + eco" class="mr-2">
+          <span
+              class="custom-checkbox"
+              :style="`backgroundColor: ${customColor}`"
+              @click="toggleCustomCheckBox"
+            >
+              &nbsp;
+            </span>
+            {{eco}}
+          </span>
+        </div>
+        <hr />
         <div
           v-if="(
             searchResultOpeningsArray[0]
@@ -171,7 +186,7 @@ import { getHTMLChessPiece } from '@/utils/vueboard';
 import { startBoard } from '@/constants/index';
 import Modal from '@/components/subcomponents/Modal';
 import HR from '@/utils/vuecomponents/HR';
-import { searchResultOpenings } from '@/utils/ecocode';
+import { searchResultOpenings, ecoCodeArray } from '@/utils/ecocode';
 
 export default {
   components: {
@@ -557,6 +572,11 @@ export default {
     },
     darkModeClass() {
       return this.$store.state.darkModeClass;
+    },
+    ecoCodeArray() {
+      const searchResults = searchResultOpenings(this.inOrderOpeningsArray, this.searchText);
+      if (searchResults.length > 5) searchResults.length = 5;
+      return ecoCodeArray(searchResults);
     },
   },
 };

@@ -4,8 +4,8 @@
 export const ecoCodeArray = (openingsArray) => {
   const ecoCodes = [];
   for (let i = 0; i < openingsArray.length; i += 1) {
-    if (openingsArray[0] && ecoCodes.includes(openingsArray[0]) === false) {
-      ecoCodes.push(openingsArray[0]);
+    if (openingsArray[i][0] && ecoCodes.includes(openingsArray[i][0]) === false) {
+      ecoCodes.push(openingsArray[i][0]);
     }
   }
   return ecoCodes;

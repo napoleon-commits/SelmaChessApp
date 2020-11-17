@@ -29,6 +29,7 @@
             class="w-100"
           />
         </span>
+        <hr />
         <span class="dropdown-item">
           <span
             class="custom-checkbox"

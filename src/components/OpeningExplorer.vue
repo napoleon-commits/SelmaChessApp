@@ -171,6 +171,7 @@ import { getHTMLChessPiece } from '@/utils/vueboard';
 import { startBoard } from '@/constants/index';
 import Modal from '@/components/subcomponents/Modal';
 import HR from '@/utils/vuecomponents/HR';
+import { searchResultOpenings } from '@/utils/ecocode';
 
 export default {
   components: {
@@ -549,29 +550,7 @@ export default {
       return { boxShadow: `0 0 1px ${this.customColor}` };
     },
     searchResultOpeningsArray() {
-      return (
-        this.inOrderOpeningsArray.length > 0
-          ? (
-            this.inOrderOpeningsArray.filter(
-              (opening) => {
-                if (
-                  opening[0]
-                  && (opening[0].toUpperCase().includes(this.searchText.toUpperCase()))
-                ) {
-                  return true;
-                }
-                if (
-                  opening[1]
-                  && (opening[1].toUpperCase().includes(this.searchText.toUpperCase()))
-                ) {
-                  return true;
-                }
-                return false;
-              },
-            )
-          )
-          : []
-      );
+      return searchResultOpenings(this.inOrderOpeningsArray, this.searchText);
     },
     chessboardWidth() {
       return this.$store.state.chessboardWidth;

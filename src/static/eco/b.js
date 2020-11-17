@@ -17,11 +17,11 @@ B00	Goldsmith Defense	rnbqkbnr/ppppppp1/8/7p/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -	e2
 B00	Guatemala Defense	rn1qkbnr/p1pppppp/bp6/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq -	e2e4 b7b6 d2d4 c8a6
 B00	Hippopotamus Defense	rnbqkb1r/ppppp2p/5ppn/8/2PPP3/8/PP3PPP/RNBQKBNR w KQkq -	e2e4 g8h6 d2d4 g7g6 c2c4 f7f6
 B00	Hippopotamus Defense	rnbqkb1r/pppppppp/7n/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -	e2e4 g8h6
-B00	King's Pawn Game: Nimzowitsch Defense	r1bqkbnr/pppppppp/2n5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq -	e2e4 b8c6 d2d4
-B00	King's Pawn Game: Nimzowitsch Defense, Wheeler Gambit	r1bqkbnr/pppppppp/2n5/8/3PP3/2P5/P4PPP/RNBQKBNR b KQkq -	e2e4 b8c6 b2b4 c6b4 c2c3 b4c6 d2d4
-B00	King's Pawn	rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -	e2e4
+B00	Kings Pawn Game: Nimzowitsch Defense	r1bqkbnr/pppppppp/2n5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq -	e2e4 b8c6 d2d4
+B00	Kings Pawn Game: Nimzowitsch Defense, Wheeler Gambit	r1bqkbnr/pppppppp/2n5/8/3PP3/2P5/P4PPP/RNBQKBNR b KQkq -	e2e4 b8c6 b2b4 c6b4 c2c3 b4c6 d2d4
+B00	Kings Pawn	rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -	e2e4
 B00	Lemming Defense	r1bqkbnr/pppppppp/n7/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -	e2e4 b8a6
-B00	Lion Defense: Lion's Jaw	rnbqkb1r/ppp1pppp/3p1n2/8/3PP3/5P2/PPP3PP/RNBQKBNR b KQkq -	e2e4 d7d6 d2d4 g8f6 f2f3
+B00	Lion Defense: Lions Jaw	rnbqkb1r/ppp1pppp/3p1n2/8/3PP3/5P2/PPP3PP/RNBQKBNR b KQkq -	e2e4 d7d6 d2d4 g8f6 f2f3
 B00	Nimzowitsch Defense: Breyer Variation	r1bqkb1r/pppp1ppp/2n2n2/4p3/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq -	e2e4 b8c6 b1c3 g8f6 d2d4 e7e5
 B00	Nimzowitsch Defense, Declined Variation	r1bqkbnr/pppppppp/2n5/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -	e2e4 b8c6 g1f3
 B00	Nimzowitsch Defense: El Columpio Defense, El Columpio Gambit	r1bqkb1r/ppp1pppp/2npP2n/8/3P4/5N1P/PPP2PP1/RNBQKB1R b KQkq -	e2e4 b8c6 g1f3 g8f6 e4e5 f6g4 d2d4 d7d6 h2h3 g4h6 e5e6
@@ -151,7 +151,7 @@ B02	Alekhine Defense: Two Pawn Attack	rnbqkb1r/pppppppp/8/3nP3/2P5/8/PP1P1PPP/RN
 B02	Alekhine Defense: Two Pawns Attack, Mikenas Variation	rnbqkb1r/ppp2ppp/3pp3/2PnP3/2B5/2N5/PP1P1PPP/R1BQK1NR w KQkq -	e2e4 g8f6 e4e5 f6d5 c2c4 d5b6 c4c5 b6d5 f1c4 e7e6 b1c3 d7d6
 B02	Alekhine Defense: Welling Variation	rnbqkb1r/pppppppp/8/3nP3/8/1P6/P1PP1PPP/RNBQKBNR b KQkq -	e2e4 g8f6 e4e5 f6d5 b2b3
 B02	English Opening: Achilles-Omega Gambit	rnbqkb1r/pppppppp/5n2/8/2P1P3/8/PP1P1PPP/RNBQKBNR b KQkq -	e2e4 g8f6 c2c4
-B02	King's Pawn Game: Clam Variation, Radisch Gambit	rnbqk2r/pppp1ppp/5n2/2b1p3/4PP2/3P4/PPP3PP/RNBQKBNR w KQkq -	e2e4 g8f6 d2d3 e7e5 f2f4 f8c5
+B02	Kings Pawn Game: Clam Variation, Radisch Gambit	rnbqk2r/pppp1ppp/5n2/2b1p3/4PP2/3P4/PPP3PP/RNBQKBNR w KQkq -	e2e4 g8f6 d2d3 e7e5 f2f4 f8c5
 B03	Alekhine Defense: Balogh Variation	rnbqkb1r/ppp1pppp/3p4/3nP3/2BP4/8/PPP2PPP/RNBQK1NR b KQkq -	e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 f1c4
 B03	Alekhine Defense: Exchange Variation, Karpov Variation	r2q1rk1/pp2ppbp/1nnp2p1/5b2/2PP1B2/2N2N1P/PP2BPP1/R2Q1RK1 b - -	e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 c2c4 d5b6 e5d6 c7d6 b1c3 g7g6 h2h3 f8g7 g1f3 e8g8 f1e2 b8c6 e1g1 c8f5 c1f4
 B03	Alekhine Defense: Exchange Variation	rnbqkb1r/ppp1pppp/1n1P4/8/2PP4/8/PP3PPP/RNBQKBNR b KQkq -	e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 c2c4 d5b6 e5d6
@@ -182,7 +182,7 @@ B05	Alekhine Defense: Modern Variation, Panov Variation	rn1qkb1r/ppp1pppp/3p4/3n
 B05	Alekhine Defense: Modern, Vitolins Attack	rn1qkb1r/ppp1pppp/1n1p4/3PP3/2P3b1/5N2/PP3PPP/RNBQKB1R b KQkq -	e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 g1f3 c8g4 c2c4 d5b6 d4d5
 B06	Modern Defense: Anti-Modern	rnbqk1nr/pp2ppbp/2pp2p1/8/2BPP3/2N5/PPP1QPPP/R1B1K1NR b KQkq -	e2e4 g7g6 d2d4 f8g7 b1c3 c7c6 f1c4 d7d6 d1e2
 B06	Modern Defense: Bishop Attack, Bücker Gambit	rnbqk1nr/p1ppppbp/6p1/1p6/2BPP3/8/PPP2PPP/RNBQK1NR w KQkq -	e2e4 g7g6 d2d4 f8g7 f1c4 b7b5
-B06	Modern Defense: Bishop Attack, Monkey's Bum	rnbqk1nr/pppp1p1p/4p1p1/8/2BbP3/5Q2/PPP2PPP/RNB1K1NR w KQkq -	e2e4 g7g6 f1c4 f8g7 d1f3 e7e6 d2d4 g7d4
+B06	Modern Defense: Bishop Attack, Monkeys Bum	rnbqk1nr/pppp1p1p/4p1p1/8/2BbP3/5Q2/PPP2PPP/RNB1K1NR w KQkq -	e2e4 g7g6 f1c4 f8g7 d1f3 e7e6 d2d4 g7d4
 B06	Modern Defense: Bishop Attack	rnbqk1nr/ppppppbp/6p1/8/2BPP3/8/PPP2PPP/RNBQK1NR b KQkq -	e2e4 g7g6 d2d4 f8g7 f1c4
 B06	Modern Defense: Dunworthy Variation	rnbqk1nr/pp2pp1p/2P3p1/8/2Pb4/8/PP3PPP/RNBQKBNR w KQkq -	e2e4 g7g6 d2d4 f8g7 c2c4 d7d5 e4d5 c7c6 d5c6 g7d4
 B06	Modern Defense: Fianchetto Gambit	rnbqkbnr/ppppp2p/6p1/5p2/3PP3/8/PPP2PPP/RNBQKBNR w KQkq -	e2e4 g7g6 d2d4 f7f5
@@ -228,12 +228,12 @@ B06	Pterodactyl Defense: Western, Siroccopteryx	rnb1k1nr/pp1pppbp/6p1/q7/2BNP3/8
 B06	Rat Defense: Accelerated Gurgenidze	rnbqkbnr/pp2pp1p/2pp2p1/8/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq -	e2e4 g7g6 d2d4 d7d6 b1c3 c7c6
 B06	Robatsch (Modern) Defense	rnbqk1nr/ppppppbp/6p1/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq -	e2e4 g7g6 d2d4 f8g7
 B07	Czech Defense	rnbqkb1r/pp2pppp/2pp1n2/8/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 c7c6
-B07	Lion Defense: Anti-Philidor, Lion's Cave, Lion Claw Gambit	r1bqkb1r/pp1n1ppp/2p2n2/3p4/2BQPP2/2N2N2/PPP3PP/R1B1K2R w KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 f2f4 e7e5 g1f3 e5d4 d1d4 c7c6 f1c4 d6d5
-B07	Lion Defense: Anti-Philidor, Lion's Cave	r1bqkb1r/pppn1ppp/3p1n2/4p3/3PPP2/2N5/PPP3PP/R1BQKBNR w KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 f2f4 e7e5
+B07	Lion Defense: Anti-Philidor, Lions Cave, Lion Claw Gambit	r1bqkb1r/pp1n1ppp/2p2n2/3p4/2BQPP2/2N2N2/PPP3PP/R1B1K2R w KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 f2f4 e7e5 g1f3 e5d4 d1d4 c7c6 f1c4 d6d5
+B07	Lion Defense: Anti-Philidor, Lions Cave	r1bqkb1r/pppn1ppp/3p1n2/4p3/3PPP2/2N5/PPP3PP/R1BQKBNR w KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 f2f4 e7e5
 B07	Lion Defense: Anti-Philidor	r1bqkb1r/pppnpppp/3p1n2/8/3PPP2/2N5/PPP3PP/R1BQKBNR b KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 f2f4
 B07	Lion Defense: Bayonet Attack	r1bqkb1r/pppnpppp/3p1n2/8/3PP1P1/2N5/PPP2P1P/R1BQKBNR b KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g2g4
-B07	Modern Defense: Geller's System	rnbqk1nr/ppp1ppbp/3p2p1/8/3PP3/2P2N2/PP3PPP/RNBQKB1R b KQkq -	e2e4 g7g6 d2d4 f8g7 g1f3 d7d6 c2c3
-B07	Philidor Defense: Lion Variation, Lion's Claw	r1bqk2r/pp1nbppp/2pp1n2/4p3/3PP3/2N2N2/PPP1BPPP/R1BQ1RK1 w kq -	e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 f1e2 b8d7 g1f3 e7e5 e1g1 f8e7
+B07	Modern Defense: Gellers System	rnbqk1nr/ppp1ppbp/3p2p1/8/3PP3/2P2N2/PP3PPP/RNBQKB1R b KQkq -	e2e4 g7g6 d2d4 f8g7 g1f3 d7d6 c2c3
+B07	Philidor Defense: Lion Variation, Lions Claw	r1bqk2r/pp1nbppp/2pp1n2/4p3/3PP3/2N2N2/PPP1BPPP/R1BQ1RK1 w kq -	e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 f1e2 b8d7 g1f3 e7e5 e1g1 f8e7
 B07	Pirc Defense: 150 Attack, Inner Doll Defense	rn1qkb1r/pp2pp1p/2pp1np1/8/3PP1b1/2N1B3/PPPQ1PPP/R3KBNR w KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 d1d2 c8g4
 B07	Pirc Defense: 150 Attack	rnbqkb1r/pp2pp1p/2pp1np1/8/3PP3/2N1B3/PPPQ1PPP/R3KBNR b KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 d1d2
 B07	Pirc Defense: 150 Attack, Sveshnikov-Jansa Attack	rnbqkb1r/pp2pp1p/2pp1np1/8/3PP3/2N1B2P/PPP2PP1/R2QKBNR b KQkq -	e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 h2h3
@@ -362,7 +362,7 @@ B20	Sicilian Defense: Brick Variation	rnbqkbnr/pp1ppppp/8/2p5/4P3/7N/PPPP1PPP/RN
 B20	Sicilian Defense: Gloria Variation	r1bqkbnr/pp2ppp1/2np4/2p4p/2P1P3/2N3P1/PP1P1P1P/R1BQKBNR w KQkq -	e2e4 c7c5 c2c4 d7d6 b1c3 b8c6 g2g3 h7h5
 B20	Sicilian Defense: Grob Variation	rnbqkbnr/pp1ppppp/8/2p5/4P1P1/8/PPPP1P1P/RNBQKBNR b KQkq -	e2e4 c7c5 g2g4
 B20	Sicilian Defense: Keres Variation	rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPPNPPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1e2
-B20	Sicilian Defense: King David's Opening	rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPPKPPP/RNBQ1BNR b kq -	e2e4 c7c5 e1e2
+B20	Sicilian Defense: King Davids Opening	rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPPKPPP/RNBQ1BNR b kq -	e2e4 c7c5 e1e2
 B20	Sicilian Defense: Kronberger Variation, Nemeth Gambit	r1bqkbnr/pp1ppppp/2n5/8/2BpP3/N7/PPP2PPP/R1BQK1NR b KQkq -	e2e4 c7c5 b1a3 b8c6 d2d4 c5d4 f1c4
 B20	Sicilian Defense: Kronberger Variation	rnbqkbnr/pp1ppppp/8/2p5/4P3/N7/PPPP1PPP/R1BQKBNR b KQkq -	e2e4 c7c5 b1a3
 B20	Sicilian Defense: Lasker-Dunne Attack	rnbqkbnr/pp1ppppp/8/2p5/4P3/6P1/PPPP1P1P/RNBQKBNR b KQkq -	e2e4 c7c5 g2g3
@@ -473,7 +473,7 @@ B28	Sicilian Defense: O'Kelly Variation, Normal System, Smith-Morra Line	rnbqkbn
 B28	Sicilian Defense: O'Kelly Variation, Normal System, Taimanov Line	rnbqkbnr/1p1p1ppp/p7/4p3/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 a7a6 d2d4 c5d4 f3d4 e7e5
 B28	Sicilian Defense: O'Kelly Variation, Normal System, Zagorovsky Line	rnbqkbnr/1p1ppppp/p7/8/3QP3/5N2/PPP2PPP/RNB1KB1R b KQkq -	e2e4 c7c5 g1f3 a7a6 d2d4 c5d4 d1d4
 B28	Sicilian Defense: O'Kelly Variation, Quiet System	rnbqkbnr/1p1ppppp/p7/2p5/4P3/3P1N2/PPP2PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 a7a6 d2d3
-B28	Sicilian Defense: O'Kelly Variation, Réti System	rnbqkbnr/1p1ppppp/p7/2p5/4P3/5NP1/PPPP1P1P/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 a7a6 g2g3
+B28	Sicilian Defense: O'Kelly Variation, Reti System	rnbqkbnr/1p1ppppp/p7/2p5/4P3/5NP1/PPPP1P1P/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 a7a6 g2g3
 B28	Sicilian Defense: O'Kelly Variation	rnbqkbnr/1p1ppppp/p7/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 a7a6
 B28	Sicilian Defense: O'Kelly Variation, Venice System, Barcza Line	rnbqkb1r/1p1ppppp/p4n2/2p5/4P3/2P2N2/PP1P1PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 a7a6 c2c3 g8f6
 B28	Sicilian Defense: O'Kelly Variation, Venice System, Gambit Line	rnbqkb1r/1p2pppp/p4n2/2pP4/8/2P2N2/PP1P1PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 a7a6 c2c3 d7d5 e4d5 g8f6
@@ -516,7 +516,7 @@ B33	Sicilian Defense: Lasker-Pelikan Variation, Retreat Variation	r1bqkb1r/pp1p1
 B33	Sicilian Defense: Lasker-Pelikan Variation, Schlechter Variation	r1bqkb1r/pp1p1ppp/2n2n2/4p3/4P3/1NN5/PPP2PPP/R1BQKB1R b KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b3
 B33	Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation, Chelyabinsk Variation	r1bqkb1r/5ppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R b KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 c3d5
 B33	Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation, Novosibirsk Variation	r1bqk2r/5pbp/p1np1p2/1p1Np3/4P3/N7/PPP2PPP/R2QKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5 f8g7
-B33	Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation, Peresypkin's Sacrifice	r1bqkb1r/5p1p/p1np4/1B1Npp2/4P3/N7/PPP2PPP/R2QK2R b KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5 f6f5 f1b5
+B33	Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation, Peresypkins Sacrifice	r1bqkb1r/5p1p/p1np4/1B1Npp2/4P3/N7/PPP2PPP/R2QK2R b KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5 f6f5 f1b5
 B33	Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation	r1bqkb1r/5p1p/p1np4/1p1Npp2/4P3/N7/PPP2PPP/R2QKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5 g5f6 g7f6 c3d5 f6f5
 B33	Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation	r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e5 d4b5 d7d6 c1g5 a7a6 b5a3 b7b5
 B33	Sicilian Defense: Open	r1bqkb1r/pp1ppppp/2n2n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6
@@ -552,20 +552,20 @@ B40	Sicilian Defense: Wing Gambit Deferred	rnbqkbnr/pp1p1ppp/4p3/2p5/1P2P3/5N2/P
 B41	Sicilian Defense: Kan, Maróczy Bind, Bronstein Variation	r1bqk2r/1p1p1ppp/p1n1pn2/8/1bPNP3/2N5/PPB2PPP/R1BQK2R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4 g8f6 b1c3 f8b4 f1d3 b8c6 d3c2
 B41	Sicilian Defense: Kan Variation, Maróczy Bind, Bronstein Variation	r1bqk2r/1p1p1ppp/p1n1pn2/8/1bPNP3/2NB4/PP3PPP/R1BQK2R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4 g8f6 b1c3 f8b4 f1d3 b8c6
 B41	Sicilian Defense: Kan Variation, Maróczy Bind, Hedgehog Variation	rnbqkbnr/1p1p1p1p/p3p1p1/8/2PNP3/8/PP3PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4 g7g6
-B41	Sicilian Defense: Kan Variation, Maróczy Bind, Réti Variation	rnbqkbnr/1p1p1ppp/p3p3/8/2PNP3/8/PP3PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4
+B41	Sicilian Defense: Kan Variation, Maróczy Bind, Reti Variation	rnbqkbnr/1p1p1ppp/p3p3/8/2PNP3/8/PP3PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4
 B41	Sicilian Defense: Kan Variation	rnbqkbnr/1p1p1ppp/p3p3/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6
 B42	Sicilian Defense: Kan, Gipslis Variation	rnbqkb1r/1p3p1p/p2ppnp1/8/2PNP3/3B4/PP3PPP/RNBQ1RK1 w kq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3 g8f6 e1g1 d7d6 c2c4 g7g6
 B42	Sicilian Defense: Kan Variation, Modern Variation	rnbqkbnr/1p1p1ppp/p3p3/8/3NP3/3B4/PPP2PPP/RNBQK2R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3
 B42	Sicilian Defense: Kan Variation, Polugaevsky Variation	rnbqk1nr/1p1p1ppp/p3p3/2b5/3NP3/3B4/PPP2PPP/RNBQK2R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3 f8c5
 B42	Sicilian Defense: Kan Variation, Swiss Cheese Variation	rnbqkbnr/1p1p1p1p/p3p1p1/8/3NP3/3B4/PPP2PPP/RNBQK2R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3 g7g6
 B43	Sicilian Defense: Kan Variation, Knight Variation	rnbqkbnr/1p1p1ppp/p3p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 b1c3
-B43	Sicilian Defense: Kan Variation, Wing Attack, Christiansen's Dream	rnb1k1nr/3p1ppp/pq2p3/1pb5/3NP1Q1/2NBB3/PPP2PPP/R3K2R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 b1c3 b7b5 f1d3 d8b6 c1e3 f8c5 d1g4
+B43	Sicilian Defense: Kan Variation, Wing Attack, Christiansens Dream	rnb1k1nr/3p1ppp/pq2p3/1pb5/3NP1Q1/2NBB3/PPP2PPP/R3K2R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 b1c3 b7b5 f1d3 d8b6 c1e3 f8c5 d1g4
 B43	Sicilian Defense: Kan Variation, Wing Attack	rnbqkbnr/3p1ppp/p3p3/1p6/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 b1c3 b7b5
 B43	Sicilian Defense: Kan Variation, Wing Attack, Spraggett Attack	rnb1kbnr/3p1ppp/pq2p3/1p6/4P3/2NB1N2/PPP2PPP/R1BQK2R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 b1c3 b7b5 f1d3 d8b6 d4f3
 B44	Sicilian Defense: Paulsen Variation, Gary Gambit	r1bqkb1r/1p3ppp/p1n1pn2/3p4/2P1P3/N1N5/PP3PPP/R1BQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5 d7d6 c2c4 g8f6 b1c3 a7a6 b5a3 d6d5
 B44	Sicilian Defense: Paulsen Variation, Modern Line	r1bq1rk1/4bppp/ppnppn2/8/2P1P3/N1N5/PP2BPPP/R1BQ1RK1 w - -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5 d7d6 c2c4 g8f6 b1c3 a7a6 b5a3 f8e7 f1e2 e8g8 e1g1 b7b6
 B44	Sicilian Defense: Paulsen Variation	r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6
-B44	Sicilian Defense: Paulsen Variation, Szén Variation	r1bqkbnr/pp1p1ppp/2n1p3/1N6/4P3/8/PPP2PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5
+B44	Sicilian Defense: Paulsen Variation, Szen Variation	r1bqkbnr/pp1p1ppp/2n1p3/1N6/4P3/8/PPP2PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5
 B45	Sicilian Defense: Paulsen Variation, American Attack	r1bqk2r/pp1p1ppp/2nNpn2/8/1b2P3/2N5/PPP2PPP/R1BQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4b5 f8b4 b5d6
 B45	Sicilian Defense: Paulsen Variation, Normal Variation	r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3
 B46	Sicilian Defense: Paulsen Variation	r1bqkbnr/1p1p1ppp/p1n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 a7a6

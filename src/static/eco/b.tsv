@@ -470,7 +470,7 @@ B28	Sicilian Defense: O'Kelly Variation, Normal System, Smith-Morra Line	rnbqkbn
 B28	Sicilian Defense: O'Kelly Variation, Normal System, Taimanov Line	rnbqkbnr/1p1p1ppp/p7/4p3/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 a7a6 d2d4 c5d4 f3d4 e7e5
 B28	Sicilian Defense: O'Kelly Variation, Normal System, Zagorovsky Line	rnbqkbnr/1p1ppppp/p7/8/3QP3/5N2/PPP2PPP/RNB1KB1R b KQkq -	e2e4 c7c5 g1f3 a7a6 d2d4 c5d4 d1d4
 B28	Sicilian Defense: O'Kelly Variation, Quiet System	rnbqkbnr/1p1ppppp/p7/2p5/4P3/3P1N2/PPP2PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 a7a6 d2d3
-B28	Sicilian Defense: O'Kelly Variation, Réti System	rnbqkbnr/1p1ppppp/p7/2p5/4P3/5NP1/PPPP1P1P/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 a7a6 g2g3
+B28	Sicilian Defense: O'Kelly Variation, Reti System	rnbqkbnr/1p1ppppp/p7/2p5/4P3/5NP1/PPPP1P1P/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 a7a6 g2g3
 B28	Sicilian Defense: O'Kelly Variation	rnbqkbnr/1p1ppppp/p7/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 a7a6
 B28	Sicilian Defense: O'Kelly Variation, Venice System, Barcza Line	rnbqkb1r/1p1ppppp/p4n2/2p5/4P3/2P2N2/PP1P1PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 a7a6 c2c3 g8f6
 B28	Sicilian Defense: O'Kelly Variation, Venice System, Gambit Line	rnbqkb1r/1p2pppp/p4n2/2pP4/8/2P2N2/PP1P1PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 a7a6 c2c3 d7d5 e4d5 g8f6
@@ -549,7 +549,7 @@ B40	Sicilian Defense: Wing Gambit Deferred	rnbqkbnr/pp1p1ppp/4p3/2p5/1P2P3/5N2/P
 B41	Sicilian Defense: Kan, Maróczy Bind, Bronstein Variation	r1bqk2r/1p1p1ppp/p1n1pn2/8/1bPNP3/2N5/PPB2PPP/R1BQK2R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4 g8f6 b1c3 f8b4 f1d3 b8c6 d3c2
 B41	Sicilian Defense: Kan Variation, Maróczy Bind, Bronstein Variation	r1bqk2r/1p1p1ppp/p1n1pn2/8/1bPNP3/2NB4/PP3PPP/R1BQK2R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4 g8f6 b1c3 f8b4 f1d3 b8c6
 B41	Sicilian Defense: Kan Variation, Maróczy Bind, Hedgehog Variation	rnbqkbnr/1p1p1p1p/p3p1p1/8/2PNP3/8/PP3PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4 g7g6
-B41	Sicilian Defense: Kan Variation, Maróczy Bind, Réti Variation	rnbqkbnr/1p1p1ppp/p3p3/8/2PNP3/8/PP3PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4
+B41	Sicilian Defense: Kan Variation, Maróczy Bind, Reti Variation	rnbqkbnr/1p1p1ppp/p3p3/8/2PNP3/8/PP3PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 c2c4
 B41	Sicilian Defense: Kan Variation	rnbqkbnr/1p1p1ppp/p3p3/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6
 B42	Sicilian Defense: Kan, Gipslis Variation	rnbqkb1r/1p3p1p/p2ppnp1/8/2PNP3/3B4/PP3PPP/RNBQ1RK1 w kq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3 g8f6 e1g1 d7d6 c2c4 g7g6
 B42	Sicilian Defense: Kan Variation, Modern Variation	rnbqkbnr/1p1p1ppp/p3p3/8/3NP3/3B4/PPP2PPP/RNBQK2R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3
@@ -562,7 +562,7 @@ B43	Sicilian Defense: Kan Variation, Wing Attack, Spraggett Attack	rnb1kbnr/3p1p
 B44	Sicilian Defense: Paulsen Variation, Gary Gambit	r1bqkb1r/1p3ppp/p1n1pn2/3p4/2P1P3/N1N5/PP3PPP/R1BQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5 d7d6 c2c4 g8f6 b1c3 a7a6 b5a3 d6d5
 B44	Sicilian Defense: Paulsen Variation, Modern Line	r1bq1rk1/4bppp/ppnppn2/8/2P1P3/N1N5/PP2BPPP/R1BQ1RK1 w - -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5 d7d6 c2c4 g8f6 b1c3 a7a6 b5a3 f8e7 f1e2 e8g8 e1g1 b7b6
 B44	Sicilian Defense: Paulsen Variation	r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6
-B44	Sicilian Defense: Paulsen Variation, Szén Variation	r1bqkbnr/pp1p1ppp/2n1p3/1N6/4P3/8/PPP2PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5
+B44	Sicilian Defense: Paulsen Variation, Szen Variation	r1bqkbnr/pp1p1ppp/2n1p3/1N6/4P3/8/PPP2PPP/RNBQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5
 B45	Sicilian Defense: Paulsen Variation, American Attack	r1bqk2r/pp1p1ppp/2nNpn2/8/1b2P3/2N5/PPP2PPP/R1BQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4b5 f8b4 b5d6
 B45	Sicilian Defense: Paulsen Variation, Normal Variation	r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3
 B46	Sicilian Defense: Paulsen Variation	r1bqkbnr/1p1p1ppp/p1n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -	e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 a7a6

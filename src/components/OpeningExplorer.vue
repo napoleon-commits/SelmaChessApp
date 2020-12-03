@@ -34,7 +34,7 @@
           <span
             class="custom-checkbox"
             :style="`backgroundColor: ${customColor}`"
-            @click="toggleCustomCheckBox"
+            @click="toggleAllCheckbox"
           >
             &#x2713;
           </span>
@@ -46,7 +46,7 @@
           <span
               class="custom-checkbox"
               :style="`backgroundColor: ${customColor}`"
-              @click="toggleCustomCheckBox"
+              @click="toggleCustomCheckBox($event, eco)"
             >
               &nbsp;
             </span>
@@ -65,7 +65,7 @@
             <span
               class="custom-checkbox"
               :style="`backgroundColor: ${customColor}`"
-              @click="toggleCustomCheckBox"
+              @click="toggleCustomCheckBox($event, searchResultOpeningsArray[i-1][1])"
             >
               &nbsp;
             </span>
@@ -81,7 +81,7 @@
             <span
               class="custom-checkbox"
               :style="`backgroundColor: ${customColor}`"
-              @click="toggleCustomCheckBox"
+              @click="toggleCustomCheckBox($event, opening)"
             >
               &nbsp;
             </span>
@@ -213,12 +213,18 @@ export default {
       displayModal: false,
       inOrderOpeningsArray: [],
       searchText: '',
+      displayAllOpenings: true,
+      checkedOpenings: [],
     };
   },
   mounted() {
     this.resetBoard();
     this.inOrderOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     this.openingsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
+    for (let i = 0; i < this.inOrderOpeningsArray.length; i += 1) {
+      this.inOrderOpeningsArray[i].checked = false;
+      this.openingsArray[i].checked = false;
+    }
     for (let i = 0; i < this.openingsArray.length; i += 1) {
       const randomLocation = Math.floor(Math.random() * this.openingsArray.length);
       const randomOpening = this.openingsArray[randomLocation];
@@ -543,13 +549,37 @@ export default {
       this.savedSide = this.side;
       this.next();
     },
-    toggleCustomCheckBox(e) {
+    toggleAllCheckbox(e) {
+      this.displayAllOpenings = !this.displayAllOpenings;
+      // if (this.displayAllOpenings === false) this.checkedOpenings = [];
+      // eslint-disable-next-line
+      // console.log(this.displayAllOpenings);
       e.stopPropagation();
       if (e.target.innerHTML.includes('&nbsp;')) {
         e.target.innerHTML = '&#x2713;';
       } else {
         e.target.innerHTML = '&nbsp;';
       }
+      // eslint-disable-next-line
+      // console.log(this.checkedOpenings);
+    },
+    toggleCustomCheckBox(e, opening) {
+      // eslint-disable-next-line
+      console.log(`opening: ${opening}`);
+      if (this.checkedOpenings.includes(opening)) {
+        const index = this.checkedOpenings.indexOf(opening);
+        this.checkedOpenings.splice(index, 1);
+      } else {
+        this.checkedOpenings.push(opening);
+      }
+      e.stopPropagation();
+      if (e.target.innerHTML.includes('&nbsp;')) {
+        e.target.innerHTML = '&#x2713;';
+      } else {
+        e.target.innerHTML = '&nbsp;';
+      }
+      // eslint-disable-next-line
+      console.log(this.checkedOpenings);
     },
     preventDropdownClosing(e) {
       e.stopPropagation();
@@ -578,6 +608,13 @@ export default {
       const searchResults = searchResultOpenings(this.inOrderOpeningsArray, this.searchText);
       if (searchResults.length > 5) searchResults.length = 5;
       return ecoCodeArray(searchResults);
+    },
+    filteredOpeningsArray() {
+      let temp1 = this.inOrderOpeningsArray;
+      if (this.displayAllOpenings === false) {
+        temp1 = temp1.filter(opening => opening.checked);
+      }
+      return temp1;
     },
   },
 };

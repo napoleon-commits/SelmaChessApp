@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>Selma Chess App</h1>
     <h2>
-      An intuitive open-sourced chess app that includes features
+      An intuitive open-sourced chess app which contains features
       that on the market chess apps don't provide
     </h2>
   </div>

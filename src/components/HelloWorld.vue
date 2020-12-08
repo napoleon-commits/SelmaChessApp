@@ -1,6 +1,5 @@
 <template>
   <div :class="`hello ${modeClass}`">
-    <Toolbar />
     <h1>Selma Chess App</h1>
     <h2>
       An intuitive open-sourced chess app which contains features
@@ -10,12 +9,7 @@
 </template>
 
 <script>
-import Toolbar from '@/components/Toolbar';
-
 export default {
-  components: {
-    Toolbar,
-  },
   computed: {
     modeClass() {
       return this.$store.state.modeClass;

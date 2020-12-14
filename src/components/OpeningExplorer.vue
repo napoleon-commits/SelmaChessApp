@@ -227,8 +227,8 @@ export default {
       return false;
     });
     for (let i = 0; i < this.inOrderOpeningsArray.length; i += 1) {
-      this.inOrderOpeningsArray[i].checked = false;
-      this.openingsArray[i].checked = false;
+      // this.inOrderOpeningsArray[i].checked = false;
+      // this.openingsArray[i].checked = false;
     }
     for (let i = 0; i < this.openingsArray.length; i += 1) {
       const randomLocation = Math.floor(Math.random() * this.openingsArray.length);
@@ -615,9 +615,9 @@ export default {
       return ecoCodeArray(searchResults);
     },
     filteredOpeningsArray() {
-      let temp1 = this.inOrderOpeningsArray;
+      const temp1 = this.inOrderOpeningsArray;
       if (this.displayAllOpenings === false) {
-        temp1 = temp1.filter(opening => opening.checked);
+        // temp1 = temp1.filter(opening => opening.checked);
       }
       return temp1;
     },

@@ -188,6 +188,7 @@ import { startBoard } from '@/constants/index';
 import Modal from '@/components/subcomponents/Modal';
 import HR from '@/utils/vuecomponents/HR';
 import { searchResultOpenings, ecoCodeArray } from '@/utils/ecocode';
+import OpeningsUsedPersnally from '@/static/OpeningsUsedPersonally';
 
 export default {
   components: {
@@ -221,6 +222,10 @@ export default {
     this.resetBoard();
     this.inOrderOpeningsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
     this.openingsArray = ATSV.concat(BTSV).concat(CTSV).concat(DTSV).concat(ETSV);
+    this.openingsArray = this.openingsArray.filter((opening) => {
+      if (OpeningsUsedPersnally.includes(opening[0])) return true;
+      return false;
+    });
     for (let i = 0; i < this.inOrderOpeningsArray.length; i += 1) {
       this.inOrderOpeningsArray[i].checked = false;
       this.openingsArray[i].checked = false;

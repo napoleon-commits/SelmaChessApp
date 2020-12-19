@@ -226,6 +226,8 @@ export default {
       if (OpeningsUsedPersnally.includes(opening[0])) return true;
       return false;
     });
+    // eslint-disable-next-line
+    console.log('Number of openings: ' + this.openingsArray.length);
     for (let i = 0; i < this.inOrderOpeningsArray.length; i += 1) {
       // this.inOrderOpeningsArray[i].checked = false;
       // this.openingsArray[i].checked = false;

@@ -14,4 +14,5 @@ export default [
   'D14',
   'A43',
   'B21',
+  'D02',
 ];

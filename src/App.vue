@@ -40,13 +40,19 @@
     <v-main>
       <router-view/>
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <script>
+import Footer from '@/components/subcomponents/Footer';
+
 export default {
   name: 'App',
 
+  components: {
+    Footer,
+  },
 
   data: () => ({
     //

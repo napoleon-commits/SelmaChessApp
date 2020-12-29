@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HelloWorld from '@/components/HelloWorld';
+import LandingPage from '@/components/LandingPage';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'HelloWorld',
-    component: HelloWorld,
+    name: 'LandingPage',
+    component: LandingPage,
   },
   // {
   //   path: '/about',

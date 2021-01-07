@@ -20,6 +20,7 @@
                         fab
                         v-on="on"
                         @click="toggleTheme"
+                        class="mt-3 ml-5"
                     >
                         mdi-moon-waxing-crescent
                     </v-icon>
@@ -35,6 +36,7 @@
                         fab
                         v-on="on"
                         @click="toggleTheme"
+                        class="mt-3 ml-5"
                     >
                         mdi-white-balance-sunny
                     </v-icon>

@@ -1,0 +1,27 @@
+{
+    "Default...":{
+        "red": 127,
+        "green": 127,
+        "blue": 127
+    },
+    "Dallas County": {
+        "red": 70,
+        "green": 165,
+        "blue": 81
+    },
+    "Selma": {
+        "red": 155,
+        "green": 221,
+        "blue": 255
+    },
+    "Southside": {
+        "red": 255,
+        "green": 5,
+        "blue": 5
+    },
+    "Keith": {
+        "red": 0,
+        "green": 110,
+        "blue": 156
+    }
+}

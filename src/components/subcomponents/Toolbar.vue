@@ -4,7 +4,12 @@
         tile
     >
         <v-toolbar>
-            <v-toolbar-title>Custom Color</v-toolbar-title>
+            <v-select
+                class="mt-5"
+                :items="Object.keys(SchoolColors)"
+                label="School Color"
+                @input="updateColor"
+            ></v-select>
             <v-spacer></v-spacer>
             <v-tooltip
                 v-if="!$vuetify.theme.dark"
@@ -41,10 +46,21 @@
 </template>
 
 <script>
+import SchoolColors from '@/static/SchoolColors.json';
+
 export default {
+    data(){
+        return {
+            SchoolColors,
+        }
+    },
     methods: {
         toggleTheme(){
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+        },
+        updateColor(color){
+            this.$store.state.customColor = SchoolColors[color];
+            return true;
         }
     }
 }

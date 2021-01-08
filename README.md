@@ -52,4 +52,3 @@ Notable Features:
 
 A toolbar that displays different color themes.<br />
 This includes a dark/light mode and a secondary color that's relative to the four high schools in Selma, Alabama. <br />
-Also the secondary color can be customized using an RGB model.

@@ -1,16 +1,20 @@
 <template>
     <v-footer padless>
         <v-row justify="center" no-gutters>
-            <v-btn
-                v-for="object in iconObjects"
-                :key="object.icon"
-                class="mx-4 my-4"
-                icon
-                :href="object.href"
-                target="_blank"
-            >
-                <v-icon size="24px">{{ object.icon }}</v-icon>
-            </v-btn>
+            <v-tooltip bottom v-for="object in iconObjects" :key="object.icon">
+                <template v-slot:activator="{ on }">
+                    <v-btn
+                        class="mx-4 my-4"
+                        icon
+                        :href="object.href"
+                        target="_blank"
+                        v-on="on"
+                    >
+                        <v-icon size="24px">{{ object.icon }}</v-icon>
+                    </v-btn>
+                </template>
+                <span>{{object.tooltip}}</span>
+            </v-tooltip>
             <v-col class="py-4 text-center" cols="12">
                 "We must make sure that chess will not be like a dead language; very intersting but for a small group."
             </v-col>
@@ -29,11 +33,13 @@ export default {
         iconObjects: [
             {
                 icon: 'mdi-email',
-                href: 'mailto: selmachessapp@gmail.com'
+                href: 'mailto: selmachessapp@gmail.com',
+                tooltip: 'Send An Email',
             },
             {
                 icon: 'mdi-github',
-                href: 'https://github.com/napoleon-commits/selmachess'
+                href: 'https://github.com/napoleon-commits/selmachess',
+                tooltip: 'View GitHub Repository',
             },
         ],
     }),

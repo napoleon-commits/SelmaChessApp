@@ -1,7 +1,7 @@
 export default {
     customColor: {
-        red: 255,
-        green: 255,
-        blue: 255,
+        red: 127,
+        green: 127,
+        blue: 127,
     },
 }

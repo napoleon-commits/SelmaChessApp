@@ -1,5 +1,5 @@
 <template>
-    <table class="ma-auto">
+    <table class="ma-auto" :style="`border: 2px solid ${borderColor};`">
         <tr v-for="(n, rank) in 8" :key="rank">
             <td
                 v-for="(n, file) in 8" 
@@ -39,6 +39,13 @@ export default {
     },
     computed: {
         customColor(){
+            const {red, green, blue} = this.$store.state.customColor;
+            return `rgb(${red},${green},${blue})`;
+        },
+        borderColor(){
+            if(this.$vuetify.theme.dark){
+                return 'white';
+            }
             const {red, green, blue} = this.$store.state.customColor;
             return `rgb(${red},${green},${blue})`;
         }

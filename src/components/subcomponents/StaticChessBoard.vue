@@ -12,8 +12,8 @@
             >
                 <ChessPieceImage
                     :letter="pieceString[rank*8+file]"
-                    :maxWidth="windowWidth/2/8"
-                    :maxHeight="windowHeight/2/8"
+                    :maxWidth="windowWidth*(goldenRatio)/8"
+                    :maxHeight="windowHeight*goldenRatio/8"
                 />
             </td>
         </tr>
@@ -22,6 +22,7 @@
 
 <script>
 import ChessPieceImage from '@/components/subcomponents/ChessPieceImage';
+import goldenRatio from '@/static/GoldenRatio';
 
 export default {
     name: 'StaticChessBoard',
@@ -33,6 +34,7 @@ export default {
         return {
             windowHeight: window.innerHeight,
             windowWidth: window.innerWidth,
+            goldenRatio,
         }
     },
     computed: {

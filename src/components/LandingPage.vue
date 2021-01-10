@@ -9,7 +9,7 @@
       In many battles, when the King dies or is captured the battle ends.
       And so it is in the game of chess.
     </div>
-    <v-menu offset-y :close-on-content-click="false">
+    <v-dialog>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
@@ -29,9 +29,9 @@
           </v-list-item-title>
         </v-list-item>
       </v-list>
-    </v-menu>
+    </v-dialog>
     <div class="my-3">
-      <v-menu offset-y :close-on-content-click="false">
+      <v-dialog>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             v-bind="attrs"
@@ -56,7 +56,7 @@
             </v-list-item-title>
           </v-list-item>
         </v-list>
-      </v-menu>
+      </v-dialog>
     </div>
   </div>
 </template>

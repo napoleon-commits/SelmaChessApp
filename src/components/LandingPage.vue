@@ -23,7 +23,7 @@
       </template>
       <v-list>
         <v-list-item>
-          <v-list-item-title>
+          <v-list-item-title class="text-wrap">
             The goal in chess is to checkmate your opponent's King.
             When a king cannot avoid capture, then it is checkmated and the game is over.
           </v-list-item-title>
@@ -45,7 +45,7 @@
         </template>
         <v-list>
           <v-list-item>
-            <v-list-item-title>
+            <v-list-item-title class="text-wrap">
               The chessboard is places with the light square at the right-hand corner nearest to each player.
               The rows are referred to as ranks. The columns are referred to as files.
               <div class="mt-3">

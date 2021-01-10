@@ -18,7 +18,7 @@
           :color="customColor"
           outlined
         >
-          <span :style="`color: ${textColor}`">What is the goal of a chess game?</span>
+          <span :style="`color: ${textColor}`">What is the goal?</span>
         </v-btn>
       </template>
       <v-list>

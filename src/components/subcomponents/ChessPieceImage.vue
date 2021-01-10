@@ -1,8 +1,8 @@
 <template>
     <v-img
     :lazy-src="require('@/images/blankSquare.png')"
-    max-height="150"
-    max-width="250"
+    :max-height="maxHeight"
+    :max-width="maxWidth"
     :src="imageSrc"
     ></v-img>
 </template>
@@ -10,7 +10,7 @@
 <script>
 export default {
     name: 'ChessPieceImage',
-    props: ['letter'],
+    props: ['letter', 'maxWidth', 'maxHeight'],
     computed: {
         imageSrc(){
             if(['r','n','b','q','k','p'].includes(this.letter)){

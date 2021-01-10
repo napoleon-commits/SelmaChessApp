@@ -10,7 +10,11 @@
                 } !important;
                 `"
             >
-                <ChessPieceImage :letter="pieceString[rank*8+file]"/>
+                <ChessPieceImage
+                    :letter="pieceString[rank*8+file]"
+                    :maxWidth="30"
+                    :maxHeight="30"
+                />
             </td>
         </tr>
     </table>

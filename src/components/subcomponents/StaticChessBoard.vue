@@ -5,15 +5,24 @@
                 v-for="(n, file) in 8" 
                 :key="file" 
                 :style="`
-                backgroundColor: ${
-                ((rank+file)%2===1)?'#FFF':customColor
-                } !important;
+                    backgroundColor: ${
+                    ((rank+file)%2===1)?'#FFF':customColor
+                    } !important;
                 `"
             >
+                <div
+                    v-if="pieceString[rank*8+file]==='x' || pieceString[rank*8+file]==='o'"
+                    class="text-xl-h3 text-lg-h3 text-md-h3 text-sm-h3 text-subtitle-2"
+                    style="color: rgba(0,0,0,0.87); text-align: center;"
+                >
+                    <span v-if="pieceString[rank*8+file]==='x'">&times;</span>
+                    <span v-else>&bull;</span>
+                </div>
                 <ChessPieceImage
                     :letter="pieceString[rank*8+file]"
                     :maxWidth="windowWidth*(goldenRatio)/8"
-                    :maxHeight="windowHeight*goldenRatio/8"
+                    :maxHeight="windowHeight*(goldenRatio)/8"
+                    v-else
                 />
             </td>
         </tr>

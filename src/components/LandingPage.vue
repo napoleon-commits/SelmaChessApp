@@ -78,6 +78,11 @@
           <v-list-item>
             <v-list-item-title class="text-wrap">
               {{item.modalText}}
+              <div class="mt-3" v-if="item.staticBoard">
+                <StaticChessBoard
+                  :piece-string="item.moves[0]"
+                />
+              </div>
             </v-list-item-title>
           </v-list-item>
         </v-list>

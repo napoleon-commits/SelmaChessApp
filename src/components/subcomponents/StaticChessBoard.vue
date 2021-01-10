@@ -3,7 +3,7 @@
       <table class="ma-auto">
           <tr v-for="(n, rank) in 8" :key="rank">
               <td v-for="(n, file) in 8" :key="file">
-                  {{pieceString[rank*8+file]}}
+                  <ChessPieceImage :letter="pieceString[rank*8+file]"/>
               </td>
           </tr>
       </table>
@@ -11,9 +11,14 @@
 </template>
 
 <script>
+import ChessPieceImage from '@/components/subcomponents/ChessPieceImage';
+
 export default {
     name: 'StaticChessBoard',
     props: ['pieceString'],
+    components:{
+        ChessPieceImage,
+    }
 }
 </script>
 

@@ -52,3 +52,11 @@ Notable Features:
 
 A toolbar that displays different color themes.<br />
 This includes a dark/light mode and a secondary color that's relative to the four high schools in Selma, Alabama. <br />
+
+```
+Issues:
+```
+
+January 10th, 2021:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;The leftmost column of a table that appears inside a v-dialog is misaligned.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Possible Solution: Implement the table using the dataTables module; https://datatables.net/<br />

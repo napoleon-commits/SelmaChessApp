@@ -48,6 +48,11 @@
             <v-list-item-title>
               The chessboard is places with the light square at the right-hand corner nearest to each player.
               The rows are referred to as ranks. The columns are referred to as files.
+              <div class="mt-3">
+                <StaticChessBoard
+                  piece-string="rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR"
+                />
+              </div>
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -57,8 +62,14 @@
 </template>
 
 <script>
+  import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
+
   export default {
     name: 'LandingPage',
+
+    components:{
+      StaticChessBoard
+    },
 
     data: () => ({
 

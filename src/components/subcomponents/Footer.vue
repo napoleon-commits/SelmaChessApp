@@ -38,7 +38,7 @@ export default {
             },
             {
                 icon: 'mdi-github',
-                href: 'https://github.com/napoleon-commits/selmachess',
+                href: 'https://github.com/napoleon-commits/selmachessapp',
                 tooltip: 'View GitHub Repository',
             },
         ],

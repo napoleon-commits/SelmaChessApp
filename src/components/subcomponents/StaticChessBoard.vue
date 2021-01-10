@@ -12,8 +12,8 @@
             >
                 <ChessPieceImage
                     :letter="pieceString[rank*8+file]"
-                    :maxWidth="30"
-                    :maxHeight="30"
+                    :maxWidth="windowWidth/2/8"
+                    :maxHeight="windowHeight/2/8"
                 />
             </td>
         </tr>
@@ -29,12 +29,33 @@ export default {
     components:{
         ChessPieceImage,
     },
+    data(){
+        return {
+            windowHeight: window.innerHeight,
+            windowWidth: window.innerWidth,
+        }
+    },
     computed: {
         customColor(){
             const {red, green, blue} = this.$store.state.customColor;
             return `rgb(${red},${green},${blue})`;
         }
-    }
+    },
+    methods: {
+        onResize() {
+            this.windowHeight = window.innerHeight;
+            this.windowWidth = window.innerWidth;
+        }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            window.addEventListener('resize', this.onResize);
+        });
+    },
+
+    beforeDestroy() { 
+        window.removeEventListener('resize', this.onResize); 
+    },
 }
 </script>
 

@@ -58,11 +58,37 @@
         </v-list>
       </v-dialog>
     </div>
+    <div class="my-3" v-for="object in LandingPageText" :key="object.header">
+      <div class="text-xl-h2 text-lg-h2 text-md-h3 text-sm-h4 text-h5 mb-3">
+        {{object.header}}
+      </div>
+      <v-dialog v-for="item in object.items" :key="item.buttonText">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            v-bind="attrs"
+            v-on="on"
+            block
+            :color="customColor"
+            outlined
+          >
+            <span :style="`color: ${textColor}`">{{item.buttonText}}</span>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item>
+            <v-list-item-title class="text-wrap">
+              {{item.modalText}}
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-dialog>
+    </div>
   </div>
 </template>
 
 <script>
   import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
+  import LandingPageText from '@/static/LandingPageText';
 
   export default {
     name: 'LandingPage',
@@ -72,7 +98,7 @@
     },
 
     data: () => ({
-
+      LandingPageText,
     }),
     computed:{
       customColor(){

@@ -1,21 +1,19 @@
 <template>
-  <div>
-      <table class="ma-auto">
-          <tr v-for="(n, rank) in 8" :key="rank">
-              <td
+    <table class="ma-auto">
+        <tr v-for="(n, rank) in 8" :key="rank">
+            <td
                 v-for="(n, file) in 8" 
                 :key="file" 
                 :style="`
-                    backgroundColor: ${
-                        ((rank+file)%2===1)?'#FFF':customColor
-                    } !important;
+                backgroundColor: ${
+                ((rank+file)%2===1)?'#FFF':customColor
+                } !important;
                 `"
-              >
-                  <ChessPieceImage :letter="pieceString[rank*8+file]"/>
-              </td>
-          </tr>
-      </table>
-  </div>
+            >
+                <ChessPieceImage :letter="pieceString[rank*8+file]"/>
+            </td>
+        </tr>
+    </table>
 </template>
 
 <script>

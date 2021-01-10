@@ -2,7 +2,15 @@
   <div>
       <table class="ma-auto">
           <tr v-for="(n, rank) in 8" :key="rank">
-              <td v-for="(n, file) in 8" :key="file">
+              <td
+                v-for="(n, file) in 8" 
+                :key="file" 
+                :style="`
+                    backgroundColor: ${
+                        ((rank+file)%2===1)?'#FFF':customColor
+                    } !important;
+                `"
+              >
                   <ChessPieceImage :letter="pieceString[rank*8+file]"/>
               </td>
           </tr>
@@ -18,6 +26,12 @@ export default {
     props: ['pieceString'],
     components:{
         ChessPieceImage,
+    },
+    computed: {
+        customColor(){
+            const {red, green, blue} = this.$store.state.customColor;
+            return `rgb(${red},${green},${blue})`;
+        }
     }
 }
 </script>

@@ -46,7 +46,7 @@
         <v-list>
           <v-list-item>
             <v-list-item-title class="text-wrap">
-              The chessboard is places with the light square at the right-hand corner nearest to each player.
+              The chessboard is placed with the light square at the right-hand corner nearest to each player.
               The rows are referred to as ranks. The columns are referred to as files.
               <div class="mt-3">
                 <StaticChessBoard

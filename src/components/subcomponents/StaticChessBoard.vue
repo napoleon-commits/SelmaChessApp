@@ -1,5 +1,5 @@
 <template>
-    <table class="ma-auto" :style="`border: 2px solid ${borderColor};`">
+    <table class="ma-auto" :style="`border: 2px solid ${borderColor}; backgroundColor: rgba(0,0,0,0.87);`">
         <tr v-for="(n, rank) in 8" :key="rank">
             <td
                 v-for="(n, file) in 8" 

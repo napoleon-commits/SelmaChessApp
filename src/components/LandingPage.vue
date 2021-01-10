@@ -30,6 +30,29 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <div class="my-3">
+      <v-menu offset-y :close-on-content-click="false">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            v-bind="attrs"
+            v-on="on"
+            block
+            :color="customColor"
+            outlined
+          >
+            <span :style="`color: ${textColor}`">Starting Position</span>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item>
+            <v-list-item-title>
+              The chessboard is places with the light square at the right-hand corner nearest to each player.
+              The rows are referred to as ranks. The columns are referred to as files.
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </div>
   </div>
 </template>
 

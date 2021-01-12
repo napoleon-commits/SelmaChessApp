@@ -36,7 +36,7 @@ Tech Stack:
 Frontend: <br />
 &nbsp;&nbsp;&nbsp;&nbsp;Vue <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notable Node Dependencies:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vuetify, Vuex, datatables.net <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vuetify, Vuex<br />
 
 Testing: <br />
 &nbsp;&nbsp;&nbsp;&nbsp;Unit:<br />
@@ -60,4 +60,5 @@ Issues:
 January 10th, 2021:<br />
 &nbsp;&nbsp;&nbsp;&nbsp;The leftmost column of a table that appears inside a v-dialog is misaligned.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;Possible Solution: Implement the table using the dataTables module; https://datatables.net/<br />
-&nbsp;&nbsp;&nbsp;&nbsp;FIXED: January 10th, 2021. TODO: there is still a latency that could be fixed.
+&nbsp;&nbsp;&nbsp;&nbsp;FIXED: January 10th, 2021. TODO: there is still a latency that could be fixed.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;FIXED: January 12th, 2021. Used v-row and v-col instead of table tag

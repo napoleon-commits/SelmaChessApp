@@ -3,7 +3,7 @@
         class="ma-auto"
         :style="`
             width: ${windowWidth < 842 ? (windowWidth*goldenRatio)+4: (842*goldenRatio)+4}px;
-            border: 2px solid rgba(0,0,0,0.87);
+            border: 2px solid ${$vuetify.theme.dark?'#fff':'rgba(0,0,0,0.87)'};
         `"
     >
         <v-row no-gutters v-for="(n, rank) in 8" :key="rank">

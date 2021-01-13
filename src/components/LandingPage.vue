@@ -78,9 +78,14 @@
           <v-list-item>
             <v-list-item-title class="text-wrap">
               {{item.modalText}}
-              <div class="mt-3" v-if="item.staticBoard">
+              <div class="mt-3">
                 <StaticChessBoard
+                  v-if="item.staticBoard"
                   :piece-string="item.moves[0]"
+                />
+                <DynamicChessBoard
+                  v-else
+                  :moves="item.moves"
                 />
               </div>
             </v-list-item-title>
@@ -94,12 +99,14 @@
 <script>
   import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
   import LandingPageText from '@/static/LandingPageText';
+  import DynamicChessBoard from '@/components/subcomponents/DynamicChessBoard';
 
   export default {
     name: 'LandingPage',
 
     components:{
-      StaticChessBoard
+      StaticChessBoard,
+      DynamicChessBoard,
     },
 
     data: () => ({

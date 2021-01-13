@@ -46,12 +46,12 @@
         <v-list>
           <v-list-item>
             <v-list-item-title class="text-wrap">
-              The chessboard is placed with the light square at the right-hand corner nearest to each player.
-              The rows are referred to as ranks. The columns are referred to as files.
+              <StaticChessBoard
+                piece-string="rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR"
+              />
               <div class="mt-3">
-                <StaticChessBoard
-                  piece-string="rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR"
-                />
+                The chessboard is placed with the light square at the right-hand corner nearest to each player.
+                The rows are referred to as ranks. The columns are referred to as files.
               </div>
             </v-list-item-title>
           </v-list-item>
@@ -77,17 +77,15 @@
         <v-list>
           <v-list-item>
             <v-list-item-title class="text-wrap">
-              {{item.modalText}}
-              <div class="mt-3">
-                <StaticChessBoard
-                  v-if="item.staticBoard"
-                  :piece-string="item.moves[0]"
-                />
-                <DynamicChessBoard
-                  v-else
-                  :moves="item.moves"
-                />
-              </div>
+              <StaticChessBoard
+                v-if="item.staticBoard"
+                :piece-string="item.moves[0]"
+              />
+              <DynamicChessBoard
+                v-else
+                :moves="item.moves"
+              />
+              <div class="mt-3">{{item.modalText}}</div>
             </v-list-item-title>
           </v-list-item>
         </v-list>

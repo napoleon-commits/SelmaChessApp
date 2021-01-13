@@ -114,7 +114,7 @@ export default [
                 modalText: `
                     When a pawn moves forward two squares and there is an opponent's pawn next to it,
                     the opponent can capture the pawn by moving to the square the first pawn skipped.
-                    Thic an only be done only on the very next turn.
+                    This an only be done only on the very next turn.
                 `,
                 staticBoard: false,
                 moves: [

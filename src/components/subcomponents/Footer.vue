@@ -16,11 +16,15 @@
                 <span>{{object.tooltip}}</span>
             </v-tooltip>
             <v-col class="py-4 text-center" cols="12">
-                "We must make sure that chess will not be like a dead language; very intersting but for a small group."
+                <div class="mx-3">
+                    "We must make sure that chess will not be like a dead language; very intersting but for a small group."
+                </div>
             </v-col>
             <v-divider></v-divider>
             <v-col class="py-4 text-center" cols="12">
-                {{ new Date().getFullYear() }} — a Byron J-Mil Hall production
+                <div class="mx-3">
+                    {{ new Date().getFullYear() }} — a Byron J-Mil Hall production
+                </div>
             </v-col>
         </v-row>
     </v-footer>

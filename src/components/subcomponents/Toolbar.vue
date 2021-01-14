@@ -9,6 +9,7 @@
                 :items="Object.keys(SchoolColors)"
                 label="School Color"
                 @input="updateColor"
+                v-model="school"
             ></v-select>
             <v-spacer></v-spacer>
             <v-tooltip
@@ -49,20 +50,32 @@
 
 <script>
 import SchoolColors from '@/static/SchoolColors.json';
+import {setCookie, getCookie} from '@/utils/cookies';
 
 export default {
     data(){
         return {
             SchoolColors,
+            school: '',
         }
     },
     methods: {
         toggleTheme(){
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            setCookie('dark', this.$vuetify.theme.dark);
         },
         updateColor(color){
             this.$store.state.customColor = SchoolColors[color];
+            setCookie('red', this.$store.state.customColor.red);
+            setCookie('green', this.$store.state.customColor.green);
+            setCookie('blue', this.$store.state.customColor.blue);
+            setCookie('school', color);
             return true;
+        }
+    },
+    mounted(){
+        if(getCookie('school')){
+            this.school = getCookie('school');
         }
     }
 }

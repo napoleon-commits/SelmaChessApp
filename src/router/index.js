@@ -10,6 +10,11 @@ const routes = [
     name: 'LandingPage',
     component: LandingPage,
   },
+  {
+    path: '/elementary-checkmates',
+    name: 'ElementaryCheckmates',
+    component: () => import(/* webpackChunkName: "elementary-checkmates" */ '@/components/ElementaryCheckmates.vue'),
+  },
   // {
   //   path: '/about',
   //   name: 'About',

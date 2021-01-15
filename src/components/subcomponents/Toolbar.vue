@@ -66,9 +66,11 @@ export default {
         },
         updateColor(color){
             this.$store.state.customColor = SchoolColors[color];
-            setCookie('red', this.$store.state.customColor.red);
-            setCookie('green', this.$store.state.customColor.green);
-            setCookie('blue', this.$store.state.customColor.blue);
+            if(this.$store.state.customColor){
+                setCookie('red', this.$store.state.customColor.red);
+                setCookie('green', this.$store.state.customColor.green);
+                setCookie('blue', this.$store.state.customColor.blue);
+            }
             setCookie('school', color);
             return true;
         }

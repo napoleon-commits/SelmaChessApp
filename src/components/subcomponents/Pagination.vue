@@ -2,6 +2,7 @@
     <v-pagination
         v-model="page"
         :length="length"
+        :color="customColor"
     ></v-pagination>
 </template>
 
@@ -17,6 +18,12 @@ export default {
             page: LearnPagesPagination.indexOf(this.componentName) + 1,
         };
     },
+    computed: {
+        customColor() {
+            const {red, green, blue} = this.$store.state.customColor;
+            return `rgb(${red},${green},${blue})`;
+        }
+    }
 }
 </script>
 

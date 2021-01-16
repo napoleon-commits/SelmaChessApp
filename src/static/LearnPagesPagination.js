@@ -1,4 +1,16 @@
 export default [
     'LandingPage',
     'ElementaryCheckmates',
+    'AttackingTheKing',
+    'IntroductionToEndgames',
+    'RookStrategy',
+    'KnightStrategy',
+    'BishopStrategy',
+    'PawnStrategy',
+    'KingAndQueenStrategy',
+    'MiddlegameStrategy',
+    'OpeningStrategy',
+    'OpeningVariations',
+    'CommonOpeningFormations',
+    'AttackingThemesAndCommonSacrifices',
 ]

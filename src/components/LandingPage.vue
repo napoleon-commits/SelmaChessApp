@@ -49,7 +49,7 @@
               <StaticChessBoard
                 piece-string="rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR"
               />
-              <div class="mt-3">
+              <div class="mt-3 text-center">
                 The chessboard is placed with the light square at the right-hand corner nearest to each player.
                 The rows are referred to as ranks. The columns are referred to as files.
               </div>
@@ -85,7 +85,7 @@
                 v-else
                 :moves="item.moves"
               />
-              <div class="mt-3">{{item.modalText}}</div>
+              <div class="mt-3 text-center">{{item.modalText}}</div>
             </v-list-item-title>
           </v-list-item>
         </v-list>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LandingPage from '@/components/LandingPage';
+import ElementaryCheckmates from '@/components/ElementaryCheckmates';
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,7 @@ const routes = [
   {
     path: '/elementary-checkmates',
     name: 'ElementaryCheckmates',
-    component: () => import(/* webpackChunkName: "elementary-checkmates" */ '@/components/ElementaryCheckmates.vue'),
+    component: ElementaryCheckmates,
   },
   // {
   //   path: '/about',

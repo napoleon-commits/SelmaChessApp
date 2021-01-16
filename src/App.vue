@@ -3,6 +3,7 @@
     <Toolbar />
     <v-main>
       <router-view/>
+      <Pagination :componentName="$route.name" />
     </v-main>
     <Footer />
   </v-app>
@@ -12,6 +13,7 @@
 import Footer from '@/components/subcomponents/Footer';
 import Toolbar from '@/components/subcomponents/Toolbar';
 import {setCookie, getCookie} from '@/utils/cookies';
+import Pagination from '@/components/subcomponents/Pagination';
 
 export default {
   name: 'App',
@@ -19,6 +21,7 @@ export default {
   components: {
     Footer,
     Toolbar,
+    Pagination,
   },
 
   data: () => ({

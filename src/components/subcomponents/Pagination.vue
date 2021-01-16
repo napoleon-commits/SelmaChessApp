@@ -3,6 +3,7 @@
         v-model="page"
         :length="length"
         :color="customColor"
+        @input="input"
     ></v-pagination>
 </template>
 
@@ -23,6 +24,13 @@ export default {
             const {red, green, blue} = this.$store.state.customColor;
             return `rgb(${red},${green},${blue})`;
         }
+    },
+    methods: {
+        input(number){
+            if(number !== LearnPagesPagination.indexOf(this.componentName) + 1){
+                this.$router.push({name: LearnPagesPagination[number-1]})
+            }
+        },
     }
 }
 </script>

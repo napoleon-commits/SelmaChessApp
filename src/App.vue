@@ -3,7 +3,9 @@
     <Toolbar />
     <v-main>
       <router-view/>
-      <Pagination :componentName="$route.name" />
+      <div class="ma-3">
+        <Pagination :componentName="$route.name" />
+      </div>
     </v-main>
     <Footer />
   </v-app>

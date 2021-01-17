@@ -10,7 +10,7 @@
             <v-col
                 v-for="(n, file) in 8"
                 :key="file"
-                :style="`background-color: ${((rank+file)%2===1)?'#FFF':customColor} !important;`"
+                :style="`background-color: ${((rank+file)%2===0)?'#FFF':customColor} !important;`"
             >
                 <div
                     v-if="pieceString[rank*8+file]==='x' || pieceString[rank*8+file]==='o'"

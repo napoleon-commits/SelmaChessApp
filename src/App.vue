@@ -3,7 +3,7 @@
     <Toolbar />
     <v-main>
       <router-view/>
-      <div class="ma-3">
+      <div class="ma-3" v-if="LearnPagesPagination.includes($route.name)">
         <Pagination :componentName="$route.name" />
       </div>
     </v-main>
@@ -16,6 +16,7 @@ import Footer from '@/components/subcomponents/Footer';
 import Toolbar from '@/components/subcomponents/Toolbar';
 import {setCookie, getCookie} from '@/utils/cookies';
 import Pagination from '@/components/subcomponents/Pagination';
+import LearnPagesPagination from '@/static/LearnPagesPagination';
 
 export default {
   name: 'App',
@@ -27,7 +28,7 @@ export default {
   },
 
   data: () => ({
-    //
+    LearnPagesPagination,
   }),
 
   mounted() {

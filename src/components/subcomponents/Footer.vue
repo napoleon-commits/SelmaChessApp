@@ -42,7 +42,7 @@ export default {
             },
             {
                 icon: 'mdi-github',
-                href: 'https://github.com/napoleon-commits/selmachessapp',
+                href: 'https://github.com/napoleon-commits/SelmaChessApp/tree/fivemonths',
                 tooltip: 'View GitHub Repository',
             },
         ],

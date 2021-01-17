@@ -36,7 +36,7 @@ Tech Stack:
 Frontend: <br />
 &nbsp;&nbsp;&nbsp;&nbsp;Vue <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notable Node Dependencies:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vuetify, Vuex<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vuetify, Vuex, BootstrapVue<br />
 
 Testing: <br />
 &nbsp;&nbsp;&nbsp;&nbsp;Unit:<br />

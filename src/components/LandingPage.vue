@@ -51,7 +51,10 @@
               />
               <div class="mt-3 text-center">
                 The chessboard is placed with the light square at the right-hand corner nearest to each player.
-                The rows are referred to as ranks. The columns are referred to as files.
+                The white pieces always has the first move. To decide who gets white and who gets black,
+                it is customary for one player to hide a white and black pawn in each hand.
+                The other player then picks a hand. Whoever picks or is left with the white pawn will
+                get the white pieces and will move first.
               </div>
             </v-list-item-title>
           </v-list-item>

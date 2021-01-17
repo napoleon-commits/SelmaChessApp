@@ -16,13 +16,18 @@ export default {
     data() {
         return {
             length: LearnPagesPagination.length,
-            page: LearnPagesPagination.indexOf(this.componentName) + 1,
         };
     },
     computed: {
         customColor() {
             const {red, green, blue} = this.$store.state.customColor;
             return `rgb(${red},${green},${blue})`;
+        },
+        page: {
+            get(){
+                return LearnPagesPagination.indexOf(this.componentName) + 1;
+            },
+            set(){},
         }
     },
     methods: {

@@ -11,6 +11,6 @@ export default {
     "Middlegame Strategy" : "MiddlegameStrategy",
     "Opening Strategy" : "OpeningStrategy",
     "Opening Variations" : "OpeningVariations",
-    "Common Opening Formations" : "CommonOpeningFormations",
-    "Attacking Themes And CommonSacrifices" : "AttackingThemesAndCommonSacrifices"
+    "Opening Formations" : "CommonOpeningFormations",
+    "Themes And Sacrifices" : "AttackingThemesAndCommonSacrifices"
 };

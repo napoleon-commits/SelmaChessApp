@@ -62,3 +62,21 @@ export default {
   },
 };
 </script>
+
+<style>
+  .btn-default {
+    border-color: rgb(127,127,127);
+  }
+  .btn-southside {
+    border-color: rgb(255,5,5);
+  }
+  .btn-selma {
+    border-color: rgb(155,221,255);
+  }
+  .btn-dallas-county{
+    border-color: rgb(70,165,81);
+  }
+  .btn-keith{
+    border-color: rgb(0,110,156);
+  }
+</style>

@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Navbar />
     <Toolbar />
     <v-main>
       <router-view/>
@@ -17,6 +18,7 @@ import Toolbar from '@/components/subcomponents/Toolbar';
 import {setCookie, getCookie} from '@/utils/cookies';
 import Pagination from '@/components/subcomponents/Pagination';
 import LearnPagesPagination from '@/static/LearnPagesPagination';
+import Navbar from '@/components/subcomponents/Navbar';
 
 export default {
   name: 'App',
@@ -25,6 +27,7 @@ export default {
     Footer,
     Toolbar,
     Pagination,
+    Navbar,
   },
 
   data: () => ({

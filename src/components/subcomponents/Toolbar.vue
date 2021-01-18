@@ -4,13 +4,15 @@
         tile
     >
         <v-toolbar>
-            <v-select
-                class="mt-5"
-                :items="Object.keys(SchoolColors)"
-                label="School Color"
-                @input="updateColor"
-                v-model="school"
-            ></v-select>
+            <div id="school-color-select">
+                <v-select
+                    class="mt-5"
+                    :items="Object.keys(SchoolColors)"
+                    label="School Color"
+                    @input="updateColor"
+                    v-model="school"
+                ></v-select>
+            </div>
             <v-spacer></v-spacer>
             <v-tooltip
                 v-if="!$vuetify.theme.dark"
@@ -84,5 +86,7 @@ export default {
 </script>
 
 <style>
-
+    #school-color-select > div > div > div.v-input__slot {
+        width: 156.375px;
+    }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div :style="`background-color: ${$vuetify.theme.dark?'#272727':''};`">
         <b-navbar toggleable="lg" :type="`${$vuetify.theme.dark?'dark':'light'}`">
-            <b-navbar-brand href="#">Selma Chess App</b-navbar-brand>
+            <b-navbar-brand @click="goToHome">Selma Chess App</b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -54,9 +54,17 @@ export default {
     },
     methods: {
         goTo(index) {
-            this.$router.push({name: TrainingLinks[index]});
-            document.body.scrollTop = document.documentElement.scrollTop = 0;
+            if(this.$route.name !== TrainingLinks[index]){
+                this.$router.push({name: TrainingLinks[index]});
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+            }
         },
+        goToHome(){
+            if(this.$route.name !== 'LandingPage'){
+                this.$router.push({name: 'LandingPage'});
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+            }
+        }
     }
 }
 </script>

@@ -3,7 +3,7 @@
         <b-navbar toggleable="lg" :type="`${$vuetify.theme.dark?'dark':'light'}`">
             <b-navbar-brand @click="goToHome">Selma Chess App</b-navbar-brand>
 
-            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+            <b-navbar-toggle :style="`border-color: ${$vuetify.theme.dark?'white':'rgba(0, 0, 0, 0.87)'};`" :id="`${($vuetify.theme.dark)?'dark-mode-toggler':'light-mode-toggler'}`" target="nav-collapse"></b-navbar-toggle>
 
             <b-collapse id="nav-collapse" is-nav>
             <!-- <b-navbar-nav>
@@ -70,5 +70,16 @@ export default {
 </script>
 
 <style>
-
+    #dark-mode-toggler > span {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgb%28255, 255, 255%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    #light-mode-toggler > span {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.87%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .navbar-dark .navbar-nav .nav-link{
+      color: white !important
+    }
+    .navbar-light .navbar-nav .nav-link{
+      color: rgba(0,0,0,0.87) !important
+    }
 </style>

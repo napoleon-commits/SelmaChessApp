@@ -89,4 +89,7 @@ export default {
     #school-color-select > div > div > div.v-input__slot {
         width: 156.375px;
     }
+    .theme--light.v-icon {
+        color: rgba(0, 0, 0, 0.87) !important
+    }
 </style>

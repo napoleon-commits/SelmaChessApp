@@ -14,6 +14,7 @@ describe('Toolbar.vue', () => {
         mocks: {
             $store: {
               state,
+              commit: () => {}
             },
         },
     });

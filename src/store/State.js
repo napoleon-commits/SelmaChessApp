@@ -4,4 +4,6 @@ export default {
         green: 127,
         blue: 127,
     },
+    textColor: '#FFF',
+    btnClass: '',
 }

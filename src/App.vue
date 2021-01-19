@@ -39,9 +39,11 @@ export default {
     if(cookieTheme){
       if(cookieTheme === 'true'){
         this.$vuetify.theme.dark = true;
+        this.$store.commit('setTextColor', {dark: this.$vuetify.theme.dark})
       }
       else if(cookieTheme === 'false'){
         this.$vuetify.theme.dark = false;
+        this.$store.commit('setTextColor', {dark: this.$vuetify.theme.dark})
       }
     }
     else {
@@ -54,6 +56,11 @@ export default {
       this.$store.state.customColor.red = customColorRed;
       this.$store.state.customColor.green = customColorGreen;
       this.$store.state.customColor.blue = customColorBlue;
+      this.$store.commit('setBtnClass',{
+        red: this.$store.state.customColor.red,
+        green: this.$store.state.customColor.green,
+        blue: this.$store.state.customColor.blue,
+      })
     } else {
       setCookie('red', this.$store.state.customColor.red);
       setCookie('green', this.$store.state.customColor.green);

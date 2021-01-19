@@ -15,10 +15,10 @@
           v-bind="attrs"
           v-on="on"
           block
-          :class="btnClass"
+          :class="$store.state.btnClass"
           outlined
         >
-          <span :style="`color: ${textColor}`">What is the goal?</span>
+          <span :style="`color: ${$store.state.textColor}`">What is the goal?</span>
         </v-btn>
       </template>
       <v-list>
@@ -30,17 +30,17 @@
         </v-list-item>
       </v-list>
     </v-dialog>
-    <div class="my-3">
+    <div class="mb-3">
       <v-dialog>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             v-bind="attrs"
             v-on="on"
             block
-            :class="btnClass"
+            :class="$store.state.btnClass"
             outlined
           >
-            <span :style="`color: ${textColor}`">Starting Position</span>
+            <span :style="`color: ${$store.state.textColor}`">Starting Position</span>
           </v-btn>
         </template>
         <v-list>
@@ -71,10 +71,10 @@
             v-bind="attrs"
             v-on="on"
             block
-            :class="btnClass"
+            :class="$store.state.btnClass"
             outlined
           >
-            <span :style="`color: ${textColor}`">{{item.buttonText}}</span>
+            <span :style="`color: ${$store.state.textColor}`">{{item.buttonText}}</span>
           </v-btn>
         </template>
         <v-list>
@@ -113,36 +113,5 @@
     data: () => ({
       LandingPageText,
     }),
-    computed:{
-      customColor(){
-        const {red, green, blue} = this.$store.state.customColor;
-        return `rgb(${red},${green},${blue})`
-      },
-      textColor(){
-        if(this.$vuetify.theme.dark){
-          return '#FFF';
-        }
-        return 'rgba(0,0,0,0.87)';
-      },
-      btnClass(){
-        const {red, green, blue} = this.$store.state.customColor;
-        if(red==127 && green==127 && blue==127){
-          return 'btn-default';
-        }
-        if(red==70 && green==165 && blue==81){
-          return 'btn-dallas-county';
-        }
-        if(red==155 && green==221 && blue==255){
-          return 'btn-selma';
-        }
-        if(red==255 && green==5 && blue==5){
-          return 'btn-southside';
-        }
-        if(red==0 && green==110 && blue==156){
-          return 'btn-keith';
-        }
-        return '';
-      }
-    }
   }
 </script>

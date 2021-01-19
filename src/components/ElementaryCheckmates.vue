@@ -20,10 +20,10 @@
                             v-bind="attrs"
                             v-on="on"
                             block
-                            :class="btnClass"
+                            :class="$store.state.btnClass"
                             outlined
                         >
-                            <span :style="`color: ${textColor}`">{{item.buttonText}}</span>
+                            <span :style="`color: ${$store.state.textColor}`">{{item.buttonText}}</span>
                         </v-btn>
                     </template>
                     <v-list>
@@ -55,37 +55,6 @@ export default {
         return {
             ElementaryCheckmatesText,
         };
-    },
-    computed: {
-        textColor(){
-            if(this.$vuetify.theme.dark){
-                return '#FFF';
-            }
-                return 'rgba(0,0,0,0.87)';
-        },
-        btnClass(){
-            const {red, green, blue} = this.$store.state.customColor;
-            if(red==127 && green==127 && blue==127){
-                return 'btn-default';
-            }
-            if(red==70 && green==165 && blue==81){
-                return 'btn-dallas-county';
-            }
-            if(red==155 && green==221 && blue==255){
-                return 'btn-selma';
-            }
-            if(red==255 && green==5 && blue==5){
-                return 'btn-southside';
-            }
-            if(red==0 && green==110 && blue==156){
-                return 'btn-keith';
-            }
-            return '';
-        },
-        customColor(){
-            const {red, green, blue} = this.$store.state.customColor;
-            return `rgb(${red},${green},${blue})`
-        },
     },
 }
 </script>

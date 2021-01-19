@@ -65,6 +65,7 @@ export default {
         toggleTheme(){
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
             setCookie('dark', this.$vuetify.theme.dark);
+            this.$store.commit('setTextColor', {dark: this.$vuetify.theme.dark});
         },
         updateColor(color){
             this.$store.state.customColor = SchoolColors[color];
@@ -72,6 +73,11 @@ export default {
                 setCookie('red', this.$store.state.customColor.red);
                 setCookie('green', this.$store.state.customColor.green);
                 setCookie('blue', this.$store.state.customColor.blue);
+                this.$store.commit('setBtnClass', {
+                    red: this.$store.state.customColor.red,
+                    green: this.$store.state.customColor.green,
+                    blue: this.$store.state.customColor.blue,
+                });
             }
             setCookie('school', color);
             return true;

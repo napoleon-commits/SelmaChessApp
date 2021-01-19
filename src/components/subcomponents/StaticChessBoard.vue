@@ -10,7 +10,7 @@
             <v-col
                 v-for="(n, file) in 8"
                 :key="file"
-                :style="`background-color: ${((rank+file)%2===0)?'#FFF':customColor} !important;`"
+                :style="`background-color: ${((rank+file)%2===0)?'#FFF':`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`} !important;`"
             >
                 <div
                     v-if="pieceString[rank*8+file]==='x' || pieceString[rank*8+file]==='o'"
@@ -46,19 +46,6 @@ export default {
             windowHeight: window.innerHeight,
             windowWidth: window.innerWidth,
             goldenRatio,
-        }
-    },
-    computed: {
-        customColor(){
-            const {red, green, blue} = this.$store.state.customColor;
-            return `rgb(${red},${green},${blue})`;
-        },
-        borderColor(){
-            if(this.$vuetify.theme.dark){
-                return 'white';
-            }
-            const {red, green, blue} = this.$store.state.customColor;
-            return `rgb(${red},${green},${blue})`;
         }
     },
     methods: {

@@ -2,7 +2,7 @@
     <v-pagination
         v-model="page"
         :length="length"
-        :color="customColor"
+        :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
         @input="input"
     ></v-pagination>
 </template>
@@ -19,10 +19,6 @@ export default {
         };
     },
     computed: {
-        customColor() {
-            const {red, green, blue} = this.$store.state.customColor;
-            return `rgb(${red},${green},${blue})`;
-        },
         page: {
             get(){
                 return LearnPagesPagination.indexOf(this.componentName) + 1;

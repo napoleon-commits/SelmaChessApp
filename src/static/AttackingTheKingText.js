@@ -237,7 +237,7 @@ export default {
                     ],
                 },
                 {
-                    buttonText: 'A MORE DIFFICULT BACK RANK MATE',
+                    buttonText: 'A MORE DIFFICULT MATE',
                     moves: [
                         ReplaceString(
                             ReplaceString(

@@ -17,7 +17,7 @@
             </v-tooltip>
             <v-col class="py-4 text-center" cols="12">
                 <div class="mx-3">
-                    "We must make sure that chess will not be like a dead language; very intersting but for a small group."
+                    "A book cannot by itself teach how to play. It can only serve as a guide, and the rest must be learned by experience."
                 </div>
             </v-col>
             <v-divider></v-divider>

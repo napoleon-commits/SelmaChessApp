@@ -13,14 +13,7 @@
             <div class="text-body-1 my-3">
                 {{object.body}}
             </div>
-            <hr :style="`border: 1px solid ${$vuetify.theme.dark?'white':'rgba(0,0,0,0.87)'};`"/>
-            <div class="text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3">
-                The Magic Position
-            </div>
-            <div>
-                <ChessLesson :demo="KingAndPawnLesson.demo"/>
-            </div>
-            <hr :style="`border: 1px solid ${$vuetify.theme.dark?'white':'rgba(0,0,0,0.87)'};`"/>
+            <ChessLesson :header="'The Magic Position'" :demo="KingAndPawnLesson.demo"/>
         </div>
     </div>
 </template>

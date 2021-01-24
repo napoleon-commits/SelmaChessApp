@@ -1,13 +1,18 @@
 <template>
+  <div>
+    <CustomHR />
     <v-row no-gutters>
         <v-col>
-            <v-pagination
-                v-model="page"
-                :length="demo.length"
-                @input="pageChange"
-                :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
-            ></v-pagination>
-            {{demo[page-1].text}}
+          <div class="text-center text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3">
+              {{header}}
+          </div>
+          <v-pagination
+              v-model="page"
+              :length="demo.length"
+              @input="pageChange"
+              :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
+          ></v-pagination>
+          {{demo[page-1].text}}
         </v-col>
         <v-col>
             <div :id="`${$store.state.school}-chess-board`">
@@ -17,16 +22,20 @@
             </div>
         </v-col>
     </v-row>
+    <CustomHR />
+  </div>
 </template>
 
 <script>
 import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
+import CustomHR from '@/components/subcomponents/CustomHR';
 
 export default {
     name: 'ChessLesson',
-    props: ['demo'],
+    props: ['header', 'demo',],
     components: {
         StaticChessBoard,
+        CustomHR,
     },
     data() {
         return {

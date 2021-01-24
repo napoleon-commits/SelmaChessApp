@@ -1,5 +1,3 @@
-import CreateBoardStringFromObject from '@/utils/CreateBoardStringFromObject';
-
 export default {
     header: 'An Introduction to Endgames',
     body: `
@@ -25,11 +23,6 @@ export default {
                         {
                             staticBoard: true,
                             moves: [
-                                CreateBoardStringFromObject({
-                                    'k': [4],
-                                    'P': [20],
-                                    'K': [28],
-                                }),
                             ],
                             text: `
                                 The first position is worth remembering because, no matter whose move it is,
@@ -44,21 +37,6 @@ export default {
                         {
                             staticBoard: false,
                             moves: [
-                                CreateBoardStringFromObject({
-                                    'k': [4],
-                                    'P': [20],
-                                    'K': [28],
-                                }),
-                                CreateBoardStringFromObject({
-                                    'k': [3],
-                                    'P': [20],
-                                    'K': [28],
-                                }),
-                                CreateBoardStringFromObject({
-                                    'k': [3],
-                                    'P': [20],
-                                    'K': [28],
-                                }),
                             ],
                             text: `
                                 In this position, after just one move, the situation has become completely clear.

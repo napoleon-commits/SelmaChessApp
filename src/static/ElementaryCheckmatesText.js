@@ -1,6 +1,3 @@
-import ReplaceString from '@/utils/ReplaceString';
-import EmptyChessBoardString from '@/static/EmptyChessBoardString';
-
 export default {
     header: 'Elementary Checkmates',
     body: `
@@ -205,20 +202,6 @@ export default {
                 {
                     buttonText: 'How to Get There',
                     moves: [
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 4, 'k'), 20, 'K'), 28, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 4, 'k'), 20, 'K'), 21, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 5, 'k'), 20, 'K'), 21, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 5, 'k'), 20, 'K'), 12, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 6, 'k'), 20, 'K'), 12, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 6, 'k'), 21, 'K'), 12, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 15, 'k'), 21, 'K'), 12, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 15, 'k'), 13, 'K'), 12, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 7, 'k'), 13, 'K'), 12, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 7, 'k'), 22, 'K'), 12, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 6, 'k'), 22, 'K'), 12, 'B'), 29, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 6, 'k'), 22, 'K'), 12, 'B'), 23, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 7, 'k'), 22, 'K'), 12, 'B'), 23, 'N'),
-                        ReplaceString(ReplaceString(ReplaceString(ReplaceString(EmptyChessBoardString, 7, 'k'), 22, 'K'), 21, 'B'), 23, 'N'),
                     ],
                 }
             ]

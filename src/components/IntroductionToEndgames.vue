@@ -29,10 +29,6 @@
                     <v-list>
                         <v-list-item>
                             <v-list-item-title class="text-wrap">
-                                <!-- <DynamicChessBoard
-                                    :moves="item.moves"
-                                    v-if="item.moves"
-                                /> -->
                                 <v-row>
                                     <v-col>
                                         <div>{{item.demo[0].text}}</div>
@@ -43,14 +39,6 @@
                                         ></v-pagination>
                                     </v-col>
                                     <v-col>
-                                        <StaticChessBoard 
-                                            v-if="item.demo[0].staticBoard"
-                                            :pieceString="item.demo[0].moves[0]"
-                                        />
-                                        <DynamicChessBoard
-                                            :moves="item.demo[0].moves"
-                                            v-if="item.demo[0].staticBoard===false"
-                                        />
                                     </v-col>
                                 </v-row>
                             </v-list-item-title>
@@ -64,15 +52,9 @@
 
 <script>
 import IntroductionToEndgamesText from '@/static/IntroductionToEndgamesText.js';
-import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
-import DynamicChessBoard from '@/components/subcomponents/DynamicChessBoard';
 
 export default {
     name: 'IntroductionToEndgames',
-    components: {
-        StaticChessBoard,
-        DynamicChessBoard,
-    },
     data() {
         return {
             IntroductionToEndgamesText,

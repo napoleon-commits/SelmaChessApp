@@ -29,10 +29,6 @@
                     <v-list>
                     <v-list-item>
                         <v-list-item-title class="text-wrap">
-                            <DynamicChessBoard
-                                :moves="item.moves"
-                                v-if="item.moves"
-                            />
                         </v-list-item-title>
                     </v-list-item>
                     </v-list>
@@ -44,13 +40,9 @@
 
 <script>
 import ElementaryCheckmatesText from '@/static/ElementaryCheckmatesText';
-import DynamicChessBoard from '@/components/subcomponents/DynamicChessBoard';
 
 export default {
     name: 'ElementaryCheckmates',
-    components: {
-        DynamicChessBoard,
-    },
     data(){
         return {
             ElementaryCheckmatesText,

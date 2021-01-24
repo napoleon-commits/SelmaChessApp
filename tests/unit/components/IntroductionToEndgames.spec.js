@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import IntroductionToEndgames from '@/components/IntroductionToEndgames.vue'
 import state from '@/store/State';
+import Vuetify from 'vuetify';
 
 describe('IntroductionToEndgames.vue', () => {
   it('renders component', () => {
@@ -10,6 +11,11 @@ describe('IntroductionToEndgames.vue', () => {
           state,
         },
       },
+      vuetify: new Vuetify({
+        breakpoint: {
+            mobileBreakpoint: 'sm',
+        }
+    }),
     });
     expect(wrapper);
   })

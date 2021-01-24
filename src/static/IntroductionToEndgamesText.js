@@ -50,17 +50,17 @@ export default {
                 }
             ],
         },
-        {
-            header: 'Rook and Pawn',
-        },
-        {
-            header: 'Bishop and Pawn',
-        },
-        {
-            header: 'Knight and Pawn',
-        },
-        {
-            header: 'Queen and Pawn',
-        },
+        // {
+        //     header: 'Rook and Pawn',
+        // },
+        // {
+        //     header: 'Bishop and Pawn',
+        // },
+        // {
+        //     header: 'Knight and Pawn',
+        // },
+        // {
+        //     header: 'Queen and Pawn',
+        // },
     ],
 }

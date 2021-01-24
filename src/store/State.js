@@ -6,4 +6,5 @@ export default {
     },
     textColor: '#FFF',
     btnClass: '',
+    school: 'Default',
 }

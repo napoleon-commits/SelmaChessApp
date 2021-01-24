@@ -69,6 +69,7 @@ export default {
         },
         updateColor(color){
             this.$store.state.customColor = SchoolColors[color];
+            this.$store.state.school = color;
             if(this.$store.state.customColor){
                 setCookie('red', this.$store.state.customColor.red);
                 setCookie('green', this.$store.state.customColor.green);
@@ -86,6 +87,7 @@ export default {
     mounted(){
         if(getCookie('school')){
             this.school = getCookie('school');
+            this.$store.state.school = getCookie('school');
         }
     }
 }

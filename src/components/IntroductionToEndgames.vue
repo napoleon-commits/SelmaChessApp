@@ -13,52 +13,32 @@
             <div class="text-body-1 my-3">
                 {{object.body}}
             </div>
-            <div v-for="item in object.buttons" :key="item.buttonText">
-                <v-dialog>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                            v-bind="attrs"
-                            v-on="on"
-                            block
-                            :class="$store.state.btnClass"
-                            outlined
-                        >
-                            <span :style="`color: ${$store.state.textColor}`">{{item.buttonText}}</span>
-                        </v-btn>
-                    </template>
-                    <v-list>
-                        <v-list-item>
-                            <v-list-item-title class="text-wrap">
-                                <v-row>
-                                    <v-col>
-                                        <div>{{item.demo[0].text}}</div>
-                                        <v-pagination
-                                            v-model="page"
-                                            :length="6"
-                                            :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
-                                        ></v-pagination>
-                                    </v-col>
-                                    <v-col>
-                                    </v-col>
-                                </v-row>
-                            </v-list-item-title>
-                        </v-list-item>
-                    </v-list>
-                </v-dialog>
+            <hr :style="`border: 1px solid ${$vuetify.theme.dark?'white':'rgba(0,0,0,0.87)'};`"/>
+            <div class="text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3">
+                The Magic Position
             </div>
+            <div>
+                <ChessLesson :demo="KingAndPawnLesson.demo"/>
+            </div>
+            <hr :style="`border: 1px solid ${$vuetify.theme.dark?'white':'rgba(0,0,0,0.87)'};`"/>
         </div>
     </div>
 </template>
 
 <script>
 import IntroductionToEndgamesText from '@/static/IntroductionToEndgamesText.js';
+import KingAndPawnLesson from '@/static/KingAndPawnLesson';
+import ChessLesson from '@/components/subcomponents/ChessLesson';
 
 export default {
     name: 'IntroductionToEndgames',
+    components: {
+        ChessLesson,
+    },
     data() {
         return {
             IntroductionToEndgamesText,
-            page: 1,
+            KingAndPawnLesson
         };
     },
 }

@@ -3,7 +3,7 @@
     <CustomHR />
     <v-row no-gutters>
         <v-col>
-          <div class="text-center text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3">
+          <div class="text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3">
               {{header}}
           </div>
           <v-pagination

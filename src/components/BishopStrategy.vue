@@ -10,15 +10,28 @@
             <div class="text-xl-h2 text-lg-h2 text-md-h3 text-sm-h4 text-h5 mb-3">
                 {{object.header}}
             </div>
+            <div v-if="object.subtitle" class="mb-3">
+                {{object.subtitle}}
+            </div>
+            <div v-if="object.demo" class="mb-3">
+                <ChessLesson 
+                    :header="object.lessonHeader"
+                    :demo="object.demo"
+                />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import BishopStrategyText from '@/static/BishopStrategyText';
+import ChessLesson from '@/components/subcomponents/ChessLesson';
 
 export default {
     name: 'BishopStrategy',
+    components: {
+        ChessLesson,
+    },
     data() {
         return {
             BishopStrategyText,

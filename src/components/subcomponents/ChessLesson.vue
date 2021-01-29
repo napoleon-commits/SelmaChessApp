@@ -66,12 +66,6 @@ export default {
 </script>
 
 <style>
-    .theme--light .cg-board-wrap {
-        border: 2px solid rgba(0,0,0,0.87);
-    }
-    .theme--dark .cg-board-wrap {
-        border: 2px solid white;
-    }
   .cg-board-wrap {
     margin: auto;
   }

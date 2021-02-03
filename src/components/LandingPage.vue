@@ -1,9 +1,9 @@
 <template>
   <div class="mt-3 mx-3">
-    <div class="text-xl-h1 text-lg-h1 text-md-h2 text-sm-h3 text-h4 mb-1">
+    <div class="text-xl-h1 text-lg-h1 text-md-h2 text-sm-h3 text-h4 mb-3">
       Introduction
     </div>
-    <div class="text-body-1 mb-3">
+    <div class="text-body-1 mb-3 text-justify">
       Successfully lead an empire! Imagine soldiers on foot leading the charge.
       Imagine the mounted troops on horseback. Imagine the King with the Queen at his side.
       In many battles, when the King dies or is captured the battle ends.

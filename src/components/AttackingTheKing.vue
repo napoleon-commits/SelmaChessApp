@@ -1,9 +1,9 @@
 <template>
     <div class="mt-3 mx-3">
-        <div class="text-xl-h1 text-lg-h1 text-md-h2 text-sm-h3 text-h4 mb-1">
+        <div class="text-xl-h1 text-lg-h1 text-md-h2 text-sm-h3 text-h4 mb-3">
             {{AttackingTheKingText.header}}
         </div>
-        <div class="text-body-1 mb-3">
+        <div class="text-body-1 mb-3 text-justify">
             {{AttackingTheKingText.body}}
         </div>
         <div class="my-3" v-for="object in AttackingTheKingText.items" :key="object.header">

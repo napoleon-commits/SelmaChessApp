@@ -12,7 +12,7 @@
               @input="pageChange"
               :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
           ></v-pagination>
-          {{demo[page-1].text}}
+          <div class="text-justify">{{demo[page-1].text}}</div>
         </v-col>
         <v-col>
             <div :id="`${$store.state.school}-chess-board`">

@@ -209,24 +209,179 @@ export default {
         },
         {
             header: `Isolated Pawns`,
+            subtitle: `
+                Simply put, isolated pawns are single pawn islands that have no pawns on either side. Such pawns therefore cannot be defended by a pawn. Even without help, such pawns can advance aggressively, but all too often, isolated pawns are blocked, attacked, and captured.
+            `,
+            lessonHeader: ``,
+            demo: [
+                {
+                    fens: ['8/ppp3pp/4p3/8/3P4/8/PP3PPP/8 w - - 0 1'],
+                    text: `
+                        In this position, white and black both have three pawn islands. Black’s smallest island, the e6-pawn, is an isolated pawn. Notice there are no black pawns on the d-file or on the f-file. If a white piece was to attack the black e6-pawn, black would have to defend the iso- lated e-pawn with a piece because there are no pawns to do the job. To try to eliminate the isolated pawn, black might try to push it to e5 in an effort to exchange it.
+                        Similarly, one of white’s island is the isolated pawn on d4. Faced with a lasting weakness, white might consider advancing the pawn
+                        to d5 in an effort to exchange it for black’s e6-pawn. Isolated pawns like these play an important role in shaping strategy. Here, black might try to double Rooks. For example,
+                        black might place a Rook or two on the d-file to place pressure on or perhaps capture the isolated white d-pawn. White could try a simi- lar strategy, doubling the white Rooks on the e-file to attack black’s weak e6-pawn.
+                    `,
+                },
+                {
+                    fens: ['8/ppp3pp/4p3/3nN3/3P4/8/PP3PPP/6K1 w - - 0 1'],
+                    text: `
+                        In this next position, white and black have both succeeded in blockading each other’s isolated pawns. The white Knight on e5 occu- pies a key square, right in the center of the board where the black pawns will not be able to attack it.
+                        Similarly, the black Knight on d5 blockades white’s isolated d-pawn. From these key squares, the Knights will often have opportu- nities to lash out with forks or to assist in the attacks on each other’s Kings.
+                    `,
+                }
+            ],
         },
         {
             header: `Backward Pawns`,
+            subtitle: `
+                The pawn in the rear of a pawn chain is called a backward pawn. There are many situations in which backward pawns are very weak and especially open to attack.
+            `,
+            lessonHeader: ``,
+            demo: [
+                {
+                    fens: ['8/p7/1p6/1P3p2/6p1/6P1/5P1P/8 w - - 0 1'],
+                    text: `
+                        There are several backward pawns in the fol- lowing position. Black’s a7-pawn is a glaring example. If black moves the a7-pawn forward, white will be able to capture it on a6. Note that white would be able to capture en pas- sant if black advanced the a-pawn two squares to a5. For a refresher on en passant captures, see Chapter 2, “Special Moves.”
+                        There are three other backward pawns in this position: f5, f2, and h2. Imagine blockading these pawns with a Knight, or mounting an attack on them with your Bishops, Rooks, and Queen.
+                    `,
+                },
+                {
+                    fens: ['8/p7/Rp6/1P3p2/6p1/6P1/5P1P/R7 w - - 0 1'],
+                    text: `
+                        In this position, white has succeeded in fixing and attacking black’s backward a7-pawn with both Rooks. Because no pawns can defend the backward pawn, black will either have
+                        to defend the pawn with a piece or else
+                        let white capture it. Try to imagine how to defend the a7-pawn. Perhaps you would move a Bishop to b8. Or perhaps, you would use two Rooks along the 7th rank.
+                    `,
+                }
+            ],
         },
         {
             header: `Hanging Pawns`,
+            subtitle: `
+                Pawn islands that have two pawns side by side are often called hanging pawns. Hanging pawns are sometimes weak and sometimes strong. If you are on the attack, try to get your opponent to move one of the pawns and then blockade the pawn chain that emerges.
+            `,
+            lessonHeader: ``,
+            demo: [
+                {
+                    fens: ['8/p4ppp/8/2pp4/8/6P1/PP2PP1P/8 w - - 0 1'],
+                    text: `
+                        In this position, black’s pawns on c5 and d5 are said to be “hanging.” The word suggests danger, and as you will see, such pawns can bring about wonderful attacking chances or be the cause of defeat. With white to play, imagine how you might organize your pieces to attack either the c5- or the d5-pawn. Perhaps you might double your Rooks on the c- or d-file. Perhaps you might use your Knights to attack one of the pawns. In this section, there are several examples that will illustrate the potential strength and weakness of hanging pawns.
+                    `,
+                },
+                {
+                    fens: ['4r3/p3rppp/b7/2p5/3p4/6P1/PP2PP1P/8 w - - 0 1'],
+                    text: `
+                        In this position, the hanging pawns have helped black to attack the white pawn on e2 (d5-d4). Notice that the advanced black pawn on d4 helps to control the key e3 square. White cannot advance the e2-pawn without black having an opportunity to capture with the d-pawn on e3. Notice that black has assembled a massive amount of pressure on the white e2-pawn. The two Rooks and the black Bishop on a6 are all combining to pres- sure white’s e2-pawn. It should be clear that black’s hanging pawns are assisting in the attack. The most meaningful weakness in the position is on e2.
+                    `,
+                },
+                {
+                    fens: ['1r6/pr3ppp/5b2/3p4/2p5/6P1/PP2PP1P/8 w - - 0 1'],
+                    text: `
+                        Similarly, in this position, the hanging pawns have helped black to attack the white pawn on b2. In this case, black has advanced the c-pawn to c4 (c5-c4), helping to fix and attack the key white pawn on b2. Black’s pieces are poised here for the attack, with both Rooks and the black Bishop joining in the attack on the b2-pawn. In this case, the most meaning- ful pawn weakness is on b2.
+                    `,
+                },
+                {
+                    fens: ['8/p4ppp/8/2p5/2Rp4/BP1N2P1/P3PP1P/2R5 w - - 0 1'],
+                    text: `
+                        In this position, the hanging pawns are very weak. Black has advanced the d-pawn to d4 (d5-d4), creating a “hole” in the pawn struc- ture on c4. Rather than play passively and per- mit an attack on the e2-pawn, white has responded aggressively by fixing and then attacking the backward pawn on c5. As you can see, all four of the white pieces have joined in on the attack on black’s c5-pawn.
+                    `,
+                },
+                {
+                    fens: ['8/p4ppp/8/3p4/2p5/2N1B1P1/PP1RPPBP/3R4 w - - 0 1'],
+                    text: `
+                        Here, the hanging pawns are also very weak. This time, black has pushed the c-pawn to c4 (c5-c4), leaving a backward pawn on d5. White has again responded aggressively by mounting a huge attack on the backward d5- pawn. As you can see, the white Knight, the two white Rooks, and white’s light-squared Bishop have all joined in the attack.
+                    `,
+                }
+            ],
         },
         {
             header: `Pawn Masses`,
+            subtitle: `
+                Obviously, pawns can become more and more powerful as they advance toward the end of the board. By them- selves, however, they can be vulnera- ble, blocked, and then captured.
+                Instead, imagine a group or mass of pawns advancing in tandem. Such pawn masses are especially strong and can overwhelm your opponent’s position.
+            `,
+            lessonHeader: `A Powerful Pawn Mass`,
+            demo: [
+                {
+                    fens: [
+                        'r3k2r/pb2q3/3b1np1/1P5p/1PpppP2/P6N/4B1PP/R1BQ1RK1 w Qkq - 0 1',
+                        'r3k2r/pb2q3/3b1np1/1P5p/1Pp1pP2/P2p3N/4B1PP/R1BQ1RK1 w Qkq - 0 1'
+                    ],
+                    text: `
+                        In this position, three black pawns have crashed through the enemy lines and together, threaten to overwhelm the white army. The simplest way for black to proceed is to advance the black d-pawn forward from d4 to d3 (d4-d3). On d3, the well- protected pawn attacks the white Bishop on e2. Note that the Bishop, once attacked, would have no safe retreats.
+                        As you might imagine, pawn masses are fun to have. Make sure, of course, that you protect your pawns carefully. For exam- ple, in this position, if it were white’s move, the white Bishop could capture the undefended black c4-pawn or the white Queen could safely capture the d4-pawn.
+                    `,
+                }
+            ],
         },
         {
             header: `Pawns Can Fork, Too!`,
+            subtitle: `
+                The lowly pawn will occasionally have a chance to show off some power. Look for opportunities to attack two pieces at the same time with your pawns. These pawn forks will almost always result in a significant gain of material, the capture of a piece worth much more than a single pawn.
+            `,
+            lessonHeader: `Pawn Forks`,
+            demo: [
+                {
+                    fens: [
+                        '8/8/3r1n2/8/4P3/8/8/8 w - - 0 1',
+                        '8/8/3r1n2/4P3/8/8/8/8 w - - 0 1'
+                    ],
+                    text: `
+                        Here’s a simple example. By advancing the white e-pawn to e5, the little white pawn will be attacking the black Rook and Knight at the same time. Be on the lookout for such moves because they often result in the gain of material.
+                    `,
+                },
+                {
+                    fens: ['1qr1r1k1/1b1nbppp/pp1ppn2/8/2PNPB2/1PN5/P1Q1BPPP/2RR2K1 w - - 0 1'],
+                    text: `
+                        In this position, white has just moved the dark-squared Bishop to f4. By advancing the black e-pawn from e6 to e5 (e6-e5), black can fork the white Bishop and the white Knight
+                        on d4.
+                        If white responds by moving the Knight, black could capture the Bishop. And of course, if white were to retreat the Bishop, black could capture the Knight.
+                    `,
+                }
+            ],
         },
         {
             header: `Passed Pawn Blockaders`,
+            subtitle: `
+                How do you stop a passed pawn? Placing a Queen or a Rook in the path of a passed pawn may not be the solu- tion because it’s too easy to force such a valuable piece to move. To prevent your opponent’s passed pawn from advancing, try blockading it with a Knight.
+                In the position at the right, the white h2-pawn is the only passed pawn because it can proceed down the h-file, all the way to the h8 Queening square without any black pawn ever being able to capture it.
+            `,
+            lessonHeader: `Stopping Passed Pawns`,
+            demo: [
+                {
+                    fens: ['8/P1n5/8/8/8/8/8/R7 w - - 0 1'],
+                    text: `
+                        In this position, with black to move, the Knight can prevent the white a-pawn from promoting into a Queen by blockading the pawn. Move the Knight into the corner at a8, and you will prevent the further advance of the a-pawn.
+                        Knights usually make the best blockaders. If you block a passed pawn with a more powerful piece, a Queen for example, the Queen would have to move off its blockading square if attacked by a piece of lesser value. The Knight makes the best block- ader because it is the least valuable among the major (Queen and Rook) and minor (Bishop and Knight) pieces.
+                    `,
+                },
+            ],
         },
         {
             header: `Every Pawn Move Creates a Weakness`,
+            subtitle: `
+                As you have seen, pawn moves can be very strong. Pawns can fork, and they can promote into Queens. However, every pawn move also creates a weak- ness. As pawns move forward, they give up control over squares that can often become important bases for the opponent’s pieces. Always consider whether your advance of a pawn is more important than the weakness that you will create.
+            `,
+            lessonHeader: `The Advance of a Pawn Creates a Weakness`,
+            demo: [
+                {
+                    fens: [
+                        '1qr1r1k1/1b1nbppp/pp1ppn2/8/2PNP3/1PN1B3/P1Q1BPPP/2RR2K1 w - - 0 1',
+                        '1qr1r1k1/1b1nbppp/pp1p1n2/4p3/2PNP3/1PN1B3/P1Q1BPPP/2RR2K1 w - - 0 1'
+                    ],
+                    text: `
+                        In this position, with black to move, black is considering the possibility of advancing the pawn on e6 to e5. The pawn move makes some sense. The pawn will move forward and force the white Knight on d4 to move. However, the pawn on e6 cur- rently defends the d5 and f5 squares. If black advances the e-pawn to e5, both the d5 and f5 squares will become weak.
+                    `,
+                },
+                {
+                    fens: ['1qr1r1k1/1b1nbppp/pp1p1n2/4p3/2PNP3/1PN1B3/P1Q1BPPP/2RR2K1 w - - 0 1'],
+                    text: `
+                        Here is the position after the advance of the black e-pawn. It is true that the white Knight on d4 must move, but white has the strong move Knight d4 to f5 (Nd4-f5). On f5, the white Knight attacks the black Bishop on e7 and places more pressure on what is now a backward black pawn on d6.
+                        More important, perhaps, the advance of the black e-pawn has created a hole in the black pawn structure on the key central d5-square. For example, white is likely, within a few moves, to move the Knight on c3 into the hole on d5. Both of these key moves, Knight to f5 (Nd4-f5) and Knight to d5 (Nc3-d5), are possible because black decided to advance the e-pawn to e5. So keep in mind, all pawn moves create such weaknesses. Be sure to locate the weaknesses and consider their importance before you lash out with pawn moves.
+                    `,
+                }
+            ],
         },
     ],
 };

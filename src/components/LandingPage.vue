@@ -6,6 +6,11 @@
     <div class="text-body-1 mb-3 text-justify">
             {{IntroductionText.body}}
     </div>
+    <v-pagination
+        v-model="page"
+        :length="IntroductionText.items.length"
+        :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
+    ></v-pagination>
     <CustomHR />
     <div class="my-3">
       <div v-if="IntroductionText.items[page-1].demo" class="mb-3">
@@ -15,11 +20,6 @@
         />
       </div>
     </div>
-    <v-pagination
-        v-model="page"
-        :length="IntroductionText.items.length"
-        :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
-    ></v-pagination>
     <CustomHR />
   </div>
 </template>

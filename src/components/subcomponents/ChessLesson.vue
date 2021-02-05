@@ -11,7 +11,7 @@
               @input="pageChange"
               :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
           ></v-pagination>
-          <div class="text-xl-h4 text-lg-h4 text-md-h5 text-sm-h6 text-subtitle-1 mb-3" v-if="demo[page-1].lessonHeader">
+          <div class="text-xl-h4 text-lg-h4 text-md-h5 text-sm-h6 text-subtitle-1 mb-3 text-center" v-if="demo[page-1].lessonHeader">
               {{demo[page-1].lessonHeader}}
           </div>
           <div class="text-justify">{{demo[page-1].text}}</div>

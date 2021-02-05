@@ -1,9 +1,8 @@
 <template>
   <div>
-    <CustomHR />
     <v-row no-gutters>
         <v-col>
-          <div class="text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3">
+          <div class="text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3 text-center">
               {{header}}
           </div>
           <v-pagination
@@ -25,20 +24,17 @@
             </div>
         </v-col>
     </v-row>
-    <CustomHR />
   </div>
 </template>
 
 <script>
 import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
-import CustomHR from '@/components/subcomponents/CustomHR';
 
 export default {
     name: 'ChessLesson',
     props: ['header', 'demo',],
     components: {
         StaticChessBoard,
-        CustomHR,
     },
     data() {
         return {

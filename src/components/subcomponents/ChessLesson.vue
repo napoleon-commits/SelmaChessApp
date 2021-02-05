@@ -64,6 +64,7 @@ export default {
     watch: { 
       demo() {
         this.page = 1;
+        this.fenIndex = 0;
       }
     }
 }

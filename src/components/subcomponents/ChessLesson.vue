@@ -56,7 +56,7 @@ export default {
         }
     },
     mounted() {
-        setInterval(this.incrementFenIndex, 1000);
+        setInterval(this.incrementFenIndex, 1500);
     },
     beforeDestroy() {
         clearInterval(this.incrementFenIndex);

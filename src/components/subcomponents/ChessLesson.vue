@@ -61,6 +61,11 @@ export default {
     beforeDestroy() {
         clearInterval(this.incrementFenIndex);
     },
+    watch: { 
+      demo() {
+        this.page = 1;
+      }
+    }
 }
 </script>
 

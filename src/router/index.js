@@ -14,6 +14,7 @@ import CommonOpeningFormations from '@/components/CommonOpeningFormations';
 import AttackingThemesAndCommonSacrifices from '@/components/AttackingThemesAndCommonSacrifices';
 import OpeningStrategy from '@/components/OpeningStrategy';
 import OpeningVariations from '@/components/OpeningVariations';
+import SpecialMoves from '@/components/SpecialMoves';
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/',
     name: 'LandingPage',
     component: LandingPage,
+  },
+  {
+    path: '/special-moves',
+    name: 'SpecialMoves',
+    component: SpecialMoves,
   },
   {
     path: '/elementary-checkmates',

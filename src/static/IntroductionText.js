@@ -20,6 +20,12 @@ export default {
                     text: `
                         This chessboard is typical of those on which you will play. To set up the board correctly, place it so that a dark square is in the lower-left corner. Or, as chess players like to say, “It’s white on the right.”
                         Some boards are labeled with letters (a–h) and numbers (1–8) in the margins. Others are blank. It is perfectly fine to play with a board that does not have these letters and numbers in the margins. They are there to help you talk about the board, to name each square, and to emphasize certain features. In this book, we use a labeled board so you can easily identify the pieces and moves discussed.
+                    `,
+                },
+                {
+                    lessonHeader: ``,
+                    fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
+                    text: `
                         For example, every board has eight ranks (rows) and eight files (columns). The 1st rank consists of the eight squares directly in front of you. The 8th rank contains the eight squares that are farthest from you. As you can see, ranks are horizontal. Try to visualize each rank in turn: the 2nd rank, the 3rd rank, and so on.
                         Files are vertical. The eight squares on the left side of the board are called the a-file. The eight squares on the right side of the board are called the h-file.
                         The alternating colors of the squares are another wonderful visual aid. For the moment, simply note that there are alternating light and dark squares and light and dark diagonals. As you will soon see, some pieces move along the ranks and files, while others move diagonally.
@@ -272,7 +278,14 @@ export default {
                     lessonHeader: ``,
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
-                        Notation also permits us to talk about the movement of pieces. Remember, pieces are abbreviated as follows: K for King, Q for Queen, B for Bishop, N for Knight, and R for Rook (there isn’t an abbreviation for pawn). For a refresher on these abbreviations, see “Pieces and Pawns at a Glance” on page 8. In this position, white has just moved the Queen from d1 to b1. In this book, I use the long form of the notation, “Qd1-b1,” but many chess players abbreviate the move with “Qb1.” As a result of white’s move, the white Queen on b1 is suddenly attacking the black pawn on b6. As you can see, it’s not very hard to find the black b6-pawn. To defend the b6-pawn, black might now play Re8-b8, moving the black Rook from the e8-square to b8.
+                        Notation also permits us to talk about the movement of pieces. Remember, pieces are abbreviated as follows: K for King, Q for Queen, B for Bishop, N for Knight, and R for Rook (there isn’t an abbreviation for pawn). 
+                    `,
+                },
+                {
+                    lessonHeader: ``,
+                    fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
+                    text: `
+                        For a refresher on these abbreviations, see “Pieces and Pawns at a Glance” on page 8. In this position, white has just moved the Queen from d1 to b1. In this book, I use the long form of the notation, “Qd1-b1,” but many chess players abbreviate the move with “Qb1.” As a result of white’s move, the white Queen on b1 is suddenly attacking the black pawn on b6. As you can see, it’s not very hard to find the black b6-pawn. To defend the b6-pawn, black might now play Re8-b8, moving the black Rook from the e8-square to b8.
                     `,
                 },
                 {

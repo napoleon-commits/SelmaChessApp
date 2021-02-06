@@ -30,7 +30,7 @@ export default {
         input(number){
             if(number !== LearnPagesPagination.indexOf(this.componentName) + 1){
                 this.$router.push({name: LearnPagesPagination[number-1]});
-                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                // document.body.scrollTop = document.documentElement.scrollTop = 0;
             }
         },
     }

@@ -62,7 +62,7 @@ export default {
                     lessonHeader: 'A TYPICAL STALEMATE',
                     fens: ['3k4/3P4/3K4/8/8/8/8/8 w - - 0 1'],
                     text: `
-                        The most exciting form of a draw is the stale- mate. On a player’s turn, if he or she is not in check and cannot make a legal move, this is a stalemate—neither side wins.In this position, it is black’s move. The black King is not in check, and it has no legal moves.
+                        The most exciting form of a draw is the stalemate. On a player’s turn, if he or she is not in check and cannot make a legal move, this is a stalemate—neither side wins.In this position, it is black’s move. The black King is not in check, and it has no legal moves.
                     `,
                 },
                 {
@@ -80,7 +80,7 @@ export default {
                         '8/8/8/8/6p1/5n1k/R7/6rK w - - 0 1'
                     ],
                     text: `
-                        White appears to be well behind in this posi- tion. In fact, black is threatening to move the Rook on g3 to g1 (Rg3-g1#), checkmate. (The Knight on f3 would defend the Rook.)
+                        White appears to be well behind in this position. In fact, black is threatening to move the Rook on g3 to g1 (Rg3-g1#), checkmate. (The Knight on f3 would defend the Rook.)
                     `,
                 },
                 {
@@ -91,7 +91,7 @@ export default {
                         '8/8/8/8/6p1/6rk/7n/7K w - - 0 1'
                     ],
                     text: `
-                        However, it is white’s move. White surprises black by moving the Rook on a2 to h2, check (Ra2-h2+). At first glance, the move looks ter- rible because black can simply capture the white Rook with the Knight. But after the Knight on f3 captures the Rook (Nf3xh2), the result is a stalemate. The white King is not in check but cannot move.
+                        However, it is white’s move. White surprises black by moving the Rook on a2 to h2, check (Ra2-h2+). At first glance, the move looks terrible because black can simply capture the white Rook with the Knight. But after the Knight on f3 captures the Rook (Nf3xh2), the result is a stalemate. The white King is not in check but cannot move.
                     `,
                 },
                 {
@@ -100,7 +100,7 @@ export default {
                         '8/8/8/8/8/8/8/8 w - - 0 1'
                     ],
                     text: `
-                        The most common type of draw is by agree- ment. At any time in a game, you can offer a draw to your opponent. Be mindful of good etiquette, however. Don’t offer a draw on every move! Most chess players consider that to be rude.
+                        The most common type of draw is by agreement. At any time in a game, you can offer a draw to your opponent. Be mindful of good etiquette, however. Don’t offer a draw on every move! Most chess players consider that to be rude.
                     `,
                 },
                 {
@@ -109,7 +109,7 @@ export default {
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
                     text: `
-                        In this position, white appears to have an overwhelming advantage and the prospect of a quick win, perhaps with a Rook-from-e4-to- h4 checkmate. But black on the move draws in one of two interesting ways. 
+                        In this position, white appears to have an overwhelming advantage and the prospect of a quick win, perhaps with a Rook-from-e4-to-h4 checkmate. But black on the move draws in one of two interesting ways. 
                     `,
                 },
                 {
@@ -118,7 +118,7 @@ export default {
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
                     text: `
-                        The most spectacular is Qb8-h2 check because, after white captures the black Queen, the result is a stalemate!Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check (Qb8-g3+). White cannot cap- ture the Queen or block the attack. White therefore must move the King into the corner at h1 (Kg1-h1).
+                        The most spectacular is Qb8-h2 check because, after white captures the black Queen, the result is a stalemate!Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check (Qb8-g3+). White cannot capture the Queen or block the attack. White therefore must move the King into the corner at h1 (Kg1-h1).
                     `,
                 },
                 {
@@ -127,7 +127,7 @@ export default {
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
                     text: `
-                        To draw, black will simply check the white King on h3 (Qg3-h3+) and then again on g3 (Qh3-g3+). Reaching the same position three times in a row is an auto- matic draw. For a play-by-play of this draw scenario, see the next page.
+                        To draw, black will simply check the white King on h3 (Qg3-h3+) and then again on g3 (Qh3-g3+). Reaching the same position three times in a row is an automatic draw. For a play-by-play of this draw scenario, see the next page.
                     `,
                 },
                 {
@@ -136,7 +136,7 @@ export default {
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
                     text: `
-                        Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check (Qb8-g3+). White cannot cap- ture the Queen or block the attack. White therefore must move the King into the corner at h1 (Kg1-h1).
+                        Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check (Qb8-g3+). White cannot capture the Queen or block the attack. White therefore must move the King into the corner at h1 (Kg1-h1).
                     `,
                 },
                 {
@@ -145,7 +145,7 @@ export default {
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
                     text: `
-                        To draw, black will simply check the white King on h3 (Qg3-h3+) and then again on g3 (Qh3-g3+). Reaching the same position three times in a row is an auto- matic draw. For a play-by-play of this draw scenario, see the next page.
+                        To draw, black will simply check the white King on h3 (Qg3-h3+) and then again on g3 (Qh3-g3+). Reaching the same position three times in a row is an automatic draw. For a play-by-play of this draw scenario, see the next page.
                     `,
                 },
                 {
@@ -211,7 +211,7 @@ export default {
                         'rnbqkb1r/pppp1ppp/2N2n2/8/8/8/PPPPQPPP/RNB1KB1R w KQkq - 0 1'
                     ],
                     text: `
-                        In this first position, the black King would be in check from the white Queen except that, for the moment, the white Knight on e5 is block- ing the attack. With white to move, any move by the Knight will expose the attack from the Queen and place black in check, thus the dis- covered check.
+                        In this first position, the black King would be in check from the white Queen except that, for the moment, the white Knight on e5 is blocking the attack. With white to move, any move by the Knight will expose the attack from the Queen and place black in check, thus the discovered check.
                     `,
                 },
                 {
@@ -230,7 +230,7 @@ export default {
                         '1kr5/pp2nq2/8/8/5P2/6P1/6BP/1R3K2 w - - 0 1'
                     ],
                     text: `
-                        In this second position, black has more mate- rial than white has, but white can quickly win the black Knight and the Queen by using a discovered check. White begins by moving the Rook on b1 to b7, capturing the black b7-pawn. The Rook on b7 would place the black King in check because the Rook on b7 attacks the b8 square. The white Bishop on g2 defends the Rook on b7 (in other words, the black King cannot capture the Rook because it would then be in check from the white Bishop).
+                        In this second position, black has more material than white has, but white can quickly win the black Knight and the Queen by using a discovered check. White begins by moving the Rook on b1 to b7, capturing the black b7-pawn. The Rook on b7 would place the black King in check because the Rook on b7 attacks the b8 square. The white Bishop on g2 defends the Rook on b7 (in other words, the black King cannot capture the Rook because it would then be in check from the white Bishop).
                     `,
                 },
                 {
@@ -296,7 +296,7 @@ export default {
                         'rnbQkb1r/pp3ppp/2p5/4q3/8/8/PPPB1nPP/2KR1BNR w Kkq - 0 1',
                     ],
                     text: `
-                        At first glance, it appears that black has a sig- nificant advantage in this game. The Knight on f2 is attacking the white Queen and both of the white Rooks. Note also that black has two Knights while white has only one.
+                        At first glance, it appears that black has a significant advantage in this game. The Knight on f2 is attacking the white Queen and both of the white Rooks. Note also that black has two Knights while white has only one.
                     `,
                 },
                 {
@@ -333,7 +333,7 @@ export default {
                         '6QQ/8/1kp5/2q1p3/2PpP3/2nP2P1/8/q4BK1 w - - 0 1',
                     ],
                     text: `
-                        Advance a pawn to the 8th rank and a wonderful transformation will occur. The rules require that you convert the pawn to a Knight, Bishop, Rook, or Queen. As the most powerful piece, the Queen is the most obvious choice, and most players pro- mote to a Queen.
+                        Advance a pawn to the 8th rank and a wonderful transformation will occur. The rules require that you convert the pawn to a Knight, Bishop, Rook, or Queen. As the most powerful piece, the Queen is the most obvious choice, and most players promote to a Queen.
                     `,
                 },
                 {
@@ -357,7 +357,7 @@ export default {
                         '6QQ/8/1kp5/2q1p3/2PpP3/2nP2P1/8/q4BK1 w - - 0 1',
                     ],
                     text: `
-                        With eight pawns at the beginning of the game, you can, in theory, have a total of nine Queens on the board. It is rare, of course, to have more than two Queens. Some modern sets come with two Queens. If you have only one in your set, it is cus- tomary to use an upside-down Rook as the second Queen.
+                        With eight pawns at the beginning of the game, you can, in theory, have a total of nine Queens on the board. It is rare, of course, to have more than two Queens. Some modern sets come with two Queens. If you have only one in your set, it is customary to use an upside-down Rook as the second Queen.
                     `,
                 },
                 {
@@ -449,7 +449,7 @@ export default {
                         '8/8/8/8/8/3p4/8/8 w - - 0 1',
                     ],
                     text: `
-                        In this diagram, the white pawn on d2 has not yet moved. It has the option of moving one or two squares. If it moved ahead a single square to d3, the black pawn would clearly be able to capture it. If the white pawn moves ahead two squares, how- ever, the black pawn on the neighboring e-file would like to have the chance to capture it before the white pawn can advance toward its Queening square, d8. The en passant rule applies here. For one move only, the black pawn can respond by capturing the white pawn as if it had moved only a single square.
+                        In this diagram, the white pawn on d2 has not yet moved. It has the option of moving one or two squares. If it moved ahead a single square to d3, the black pawn would clearly be able to capture it. If the white pawn moves ahead two squares, however, the black pawn on the neighboring e-file would like to have the chance to capture it before the white pawn can advance toward its Queening square, d8. The en passant rule applies here. For one move only, the black pawn can respond by capturing the white pawn as if it had moved only a single square.
                     `,
                 },
                 {
@@ -484,7 +484,7 @@ export default {
                         '7k/7P/pP5K/8/8/8/8/8 w - - 0 1',
                     ],
                     text: `
-                        Without the en passant capture, black might actually win the game by advancing the b-pawn and promoting it to a Queen on b1. With the en passant capture, white will quickly advance the b6-pawn all the way to b8, pro- moting to a Queen (or Rook) with checkmate!
+                        Without the en passant capture, black might actually win the game by advancing the b-pawn and promoting it to a Queen on b1. With the en passant capture, white will quickly advance the b6-pawn all the way to b8, promoting to a Queen (or Rook) with checkmate!
                     `,
                 },
             ],

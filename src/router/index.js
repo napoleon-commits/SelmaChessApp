@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import LandingPage from '@/components/LandingPage';
+import Introduction from '@/components/Introduction';
 import ElementaryCheckmates from '@/components/ElementaryCheckmates';
 import AttackingTheKing from '@/components/AttackingTheKing';
 import IntroductionToEndgames from '@/components/IntroductionToEndgames';
@@ -15,14 +15,20 @@ import AttackingThemesAndCommonSacrifices from '@/components/AttackingThemesAndC
 import OpeningStrategy from '@/components/OpeningStrategy';
 import OpeningVariations from '@/components/OpeningVariations';
 import SpecialMoves from '@/components/SpecialMoves';
+import OfflineChess from '@/components/OfflineChess';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'LandingPage',
-    component: LandingPage,
+    name: 'OfflineChess',
+    component: OfflineChess,
+  },
+  {
+    path: '/introduction',
+    name: 'Introduction',
+    component: Introduction,
   },
   {
     path: '/special-moves',

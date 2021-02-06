@@ -1,5 +1,5 @@
 export default {
-    "An Introduction to Chess" : "LandingPage",
+    "An Introduction to Chess" : "Introduction",
     "Special Moves" : "SpecialMoves",
     "Rook Strategy" : "RookStrategy",
     "Knight Strategy" : "KnightStrategy",

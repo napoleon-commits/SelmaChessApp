@@ -1,40 +1,44 @@
 <template>
-    <div class="mt-3 mx-3">
-        <div class="text-xl-h1 text-lg-h1 text-md-h2 text-sm-h3 text-h4 mb-3">
+  <div class="mt-3">
+    <div class="text-xl-h1 text-lg-h1 text-md-h2 text-sm-h3 text-h4 mb-3">
             {{PawnStrategyText.header}}
-        </div>
-        <div class="text-body-1 mb-3 text-justify">
-            {{PawnStrategyText.body}}
-        </div>
-        <div class="my-3" v-for="object in PawnStrategyText.items" :key="object.header">
-            <div class="text-xl-h2 text-lg-h2 text-md-h3 text-sm-h4 text-h5 mb-3">
-                {{object.header}}
-            </div>
-            <div v-if="object.subtitle" class="mb-3 text-justify">
-                {{object.subtitle}}
-            </div>
-            <div v-if="object.demo" class="mb-3">
-                <ChessLesson 
-                    :header="object.lessonHeader"
-                    :demo="object.demo"
-                />
-            </div>
-        </div>
     </div>
+    <div class="text-body-1 mb-3 text-justify">
+            {{PawnStrategyText.body}}
+    </div>
+    <v-pagination
+        v-model="page"
+        :length="PawnStrategyText.items.length"
+        :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
+    ></v-pagination>
+    <CustomHR />
+    <div class="my-3">
+      <div v-if="PawnStrategyText.items[page-1].demo" class="mb-3">
+        <ChessLesson 
+          :header="PawnStrategyText.items[page-1].lessonHeader"
+          :demo="PawnStrategyText.items[page-1].demo"
+        />
+      </div>
+    </div>
+    <CustomHR />
+  </div>
 </template>
 
 <script>
 import PawnStrategyText from '@/static/PawnStrategyText';
 import ChessLesson from '@/components/subcomponents/ChessLesson';
+import CustomHR from '@/components/subcomponents/CustomHR';
 
 export default {
     name: 'PawnStrategy',
     components: {
         ChessLesson,
+        CustomHR,
     },
     data() {
         return {
             PawnStrategyText,
+            page: 1,
         };
     },
 }

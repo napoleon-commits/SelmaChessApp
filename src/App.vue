@@ -5,6 +5,9 @@
     <v-main>
       <router-view/>
       <div class="ma-3" v-if="LearnPagesPagination.includes($route.name)">
+        <div class="text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3 text-center">
+          Chapters
+        </div>
         <Pagination :componentName="$route.name" />
       </div>
     </v-main>

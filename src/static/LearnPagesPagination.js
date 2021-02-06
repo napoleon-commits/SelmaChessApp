@@ -1,5 +1,5 @@
 export default [
-    'LandingPage',
+    'Introduction',
     'SpecialMoves',
     'RookStrategy',
     'KnightStrategy',

@@ -5,7 +5,7 @@ export default {
     `,
     items: [
         {
-            lessonHeader: `The Weaknesses of Doubled (and Tripled) Pawns`,
+            lessonHeader: `Don’t Double Your Pawns`,
             demo: [
                 {
                     fens: [
@@ -31,7 +31,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `The Fewer Pawn Islands the Better`,
+            lessonHeader: `Pawn Islands`,
             demo: [
                 {
                     fens: ['8/p1p1pp1p/8/8/8/8/PPP2PPP/8 w - - 0 1'],
@@ -49,7 +49,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Doubled Pawns Supporting the Center`,
+            lessonHeader: `Some Doubled Pawns Are Strong`,
             demo: [
                 {
                     fens: ['3qk2r/rbp1bppp/pp2pn2/8/P1BPP3/2N1nQ2/1P2NPPP/3R1RK1 w k - 0 1'],
@@ -66,7 +66,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Introducing Pawn Chains`,
+            lessonHeader: `Pawn Chains`,
             demo: [
                 {
                     fens: ['8/8/8/4P3/3P4/2P5/8/8 w - - 0 1'],
@@ -214,7 +214,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `A Powerful Pawn Mass`,
+            lessonHeader: `Pawn Masses`,
             demo: [
                 {
                     fens: [
@@ -229,7 +229,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Pawn Forks`,
+            lessonHeader: `Pawns Can Fork, Too!`,
             demo: [
                 {
                     fens: [
@@ -251,7 +251,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Stopping Passed Pawns`,
+            lessonHeader: `Passed Pawn Blockaders`,
             demo: [
                 {
                     fens: ['8/P1n5/8/8/8/8/8/R7 w - - 0 1'],

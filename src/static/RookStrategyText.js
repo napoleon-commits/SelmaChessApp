@@ -5,7 +5,7 @@ export default {
     `,
     items: [
         {
-            lessonHeader: 'Rooks Are Powerful on Open Files',
+            lessonHeader: 'Rooks Belong on Open Files',
             demo: [
                 {
                     fens: [
@@ -52,7 +52,7 @@ export default {
             ]
         },
         {
-            lessonHeader: '7th Rank Advances',
+            lessonHeader: 'Advance Your Rooks to the 7th Rank',
             demo: [
                 {
                     fens: [
@@ -74,7 +74,7 @@ export default {
             ]
         },
         {
-            lessonHeader: 'Rook Checkmates',
+            lessonHeader: 'Simple Back-Rank Checkmates',
             demo: [
                 {
                     fens: [
@@ -99,7 +99,7 @@ export default {
             ],
         },
         {
-            lessonHeader: 'Active Rooks Can Assist Mating Attacks',
+            lessonHeader: 'Fun with Active Rooks',
             demo: [
                 {
                     fens: [
@@ -130,7 +130,7 @@ export default {
             ],
         },
         {
-            lessonHeader: 'Rooks and Passed Pawns',
+            lessonHeader: 'Rooks Belong Behind Passed Pawns',
             demo: [
                 {
                     fens: [

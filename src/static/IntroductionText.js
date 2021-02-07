@@ -8,7 +8,7 @@ export default {
     `,
     items: [
         {
-            lessonHeader: `The Chessboard Setup`,
+            lessonHeader: `Viewing the Chessboard`,
             demo:[
                 {
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
@@ -98,7 +98,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `How to Move the King`,
+            lessonHeader: `How the King Moves and Captures`,
             demo: [
                 {
                     fens: ['k7/8/8/8/4K3/8/8/8 w - - 0 1'],
@@ -122,7 +122,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `How to Move a Rook`,
+            lessonHeader: `How Rooks Move and Capture`,
             demo: [
                 {
                     fens: ['8/3K4/8/8/3R2n1/8/3b4/8 w - - 0 1'],
@@ -133,7 +133,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `How to Move a Bishop`,
+            lessonHeader: `How Bishops Move and Capture`,
             demo: [
                 {
                     fens: ['8/8/5n2/8/3B4/8/1N3r2/8 w - - 0 1'],
@@ -144,7 +144,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `How to Move the Queen`,
+            lessonHeader: `How the Queen Moves and Captures`,
             demo: [
                 {
                     fens: ['8/5r2/8/3Q4/8/1P6/3b2n1/8 w - - 0 1'],
@@ -155,7 +155,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `How to Move a Knight`,
+            lessonHeader: `How Knights Move and Capture`,
             demo: [
                 {
                     fens: [
@@ -177,7 +177,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Pawn Dynamics`,
+            lessonHeader: `How Pawns Move and Capture`,
             demo: [
                 {
                     fens: ['8/8/2p5/8/8/8/5P2/8 w - - 0 1'],
@@ -204,7 +204,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Reading and Writing Chess Moves`,
+            lessonHeader: `Chess Notation`,
             demo: [
                 {
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
@@ -248,7 +248,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Protection Strategies`,
+            lessonHeader: `Protect Your Pieces`,
             demo: [
                 {
                     fens: [

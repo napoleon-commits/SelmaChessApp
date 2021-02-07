@@ -7,7 +7,7 @@ export default {
     items: [
         {
             lessonHeader: `
-                Two Common Opening Moves for White
+                Fight for the Center of the Board
             `,
             demo: [
                 {
@@ -74,7 +74,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Advantages to Developing Knights First`,
+            lessonHeader: `Knights Before Bishops`,
             demo: [
                 {
                     fens: ['rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1'],
@@ -127,7 +127,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Avoid Early Maneuvers on the Flank`,
+            lessonHeader: `Limit Your Early Pawn Moves`,
             demo: [
                 {
                     fens: ['rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR w KQkq - 0 1'],
@@ -166,7 +166,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Develop First`,
+            lessonHeader: `Complete Your Development Before You Attack`,
             demo: [
                 {
                     fens: ['r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 0 1'],
@@ -218,7 +218,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Avoid Early Exchanges`,
+            lessonHeader: `Limit Exchanges`,
             demo: [
                 {
                     fens: ['r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 1'],

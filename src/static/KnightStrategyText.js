@@ -5,7 +5,7 @@ export default {
     `,
     items: [
         {
-            lessonHeader: 'Attack from the Center',
+            lessonHeader: 'Move the Knights to the Center of the Board',
             demo: [
                 {
                     fens: [
@@ -45,7 +45,7 @@ export default {
             ],
         },
         {
-            lessonHeader: 'Avoid Pawn Attacks',
+            lessonHeader: 'Place Your Knights Where the Enemy Pawns Can’t Attack Them',
             demo: [
                 {
                     fens: [
@@ -72,7 +72,7 @@ export default {
             ],
         },
         {
-            lessonHeader: 'Family Fork',
+            lessonHeader: 'Knight Forks Are Fun!',
             demo: [
                 {
                     fens: [

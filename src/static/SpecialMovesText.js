@@ -5,7 +5,7 @@ export default {
     `,
     items: [
         {
-            lessonHeader: `When the King Is Under Attack`,
+            lessonHeader: `Checks and Checkmate`,
             demo: [
                 {
                     fens: ['8/8/1Q6/3n4/8/8/8/b5k1 w - - 0 1'],
@@ -51,7 +51,7 @@ export default {
             ],
         },
         {
-            lessonHeader: `Types of Draws`,
+            lessonHeader: `Stalemates and Other Draws`,
             demo: [
                 {
                     fens: ['3k4/3P4/3K4/8/8/8/8/8 w - - 0 1'],

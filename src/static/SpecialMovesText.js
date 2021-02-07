@@ -8,21 +8,18 @@ export default {
             lessonHeader: `When the King Is Under Attack`,
             demo: [
                 {
-                    lessonHeader: ``,
                     fens: ['8/8/1Q6/3n4/8/8/8/b5k1 w - - 0 1'],
                     text: `
                         Check simply means that a King is under attack. In this position, the black King is in check because the white Queen is attacking it along the diagonal.
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['8/8/1Q6/3n4/8/8/8/b5k1 w - - 0 1'],
                     text: `
                         On the very next move, black must make sure to stop the attack. There are three possibilities. First, the King can move out of check to any square that is not being attacked (f1, g2, h1, or h2). Note that the King cannot move to f2 because that would still be check. Simply put, the King cannot move into check.
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: [
                         '8/8/1Q6/3n4/8/8/8/b5k1 w - - 0 1',
                         '8/8/1n6/8/8/8/8/b5k1 w - - 0 1'
@@ -32,7 +29,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: [
                         '8/8/1Q6/3n4/8/8/8/b5k1 w - - 0 1',
                         '8/8/1Q6/8/8/4n3/8/b5k1 w - - 0 1',
@@ -45,7 +41,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: [
                         '6k1/8/1b6/8/8/8/6PP/5BKR w - - 0 1',
                     ],
@@ -59,14 +54,12 @@ export default {
             lessonHeader: `Types of Draws`,
             demo: [
                 {
-                    lessonHeader: 'A TYPICAL STALEMATE',
                     fens: ['3k4/3P4/3K4/8/8/8/8/8 w - - 0 1'],
                     text: `
                         The most exciting form of a draw is the stalemate. On a player’s turn, if he or she is not in check and cannot make a legal move, this is a stalemate—neither side wins.In this position, it is black’s move. The black King is not in check, and it has no legal moves.
                     `,
                 },
                 {
-                    lessonHeader: 'A TYPICAL STALEMATE',
                     fens: ['3k4/3P4/3K4/8/8/8/8/8 w - - 0 1'],
                     text: `
                         It cannot capture the white pawn or move
@@ -74,7 +67,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'A TYPICAL STALEMATE',
                     fens: [
                         '8/8/8/8/6p1/5nrk/R7/7K w - - 0 1',
                         '8/8/8/8/6p1/5n1k/R7/6rK w - - 0 1'
@@ -84,7 +76,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'A TYPICAL STALEMATE',
                     fens: [
                         '8/8/8/8/6p1/5nrk/R7/7K w - - 0 1',
                         '8/8/8/8/6p1/5nrk/7R/7K w - - 0 1',
@@ -95,7 +86,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '8/8/8/8/8/8/8/8 w - - 0 1'
                     ],
@@ -104,7 +94,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
@@ -113,7 +102,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
@@ -122,7 +110,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
@@ -131,7 +118,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
@@ -140,7 +126,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
@@ -149,7 +134,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
@@ -158,7 +142,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1',
                         '7k/5Q2/8/8/4R3/6q1/8/5RK1 w - - 0 1'
@@ -168,7 +151,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1',
                         '7k/5Q2/8/8/4R3/6q1/8/5RK1 w - - 0 1',
@@ -179,7 +161,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1',
                         '7k/5Q2/8/8/4R3/6q1/8/5RK1 w - - 0 1',
@@ -191,7 +172,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: 'OTHER TYPES OF DRAWS',
                     fens: [
                         '8/8/8/8/8/8/8/8 w - - 0 1'
                     ],
@@ -205,7 +185,6 @@ export default {
             lessonHeader: `Discovered Checks and Double Checks`,
             demo: [
                 {
-                    lessonHeader: `Discovered Checks`,
                     fens: [
                         'rnbqkb1r/pppp1ppp/5n2/4N3/8/8/PPPPQPPP/RNB1KB1R w KQkq - 0 1',
                         'rnbqkb1r/pppp1ppp/2N2n2/8/8/8/PPPPQPPP/RNB1KB1R w KQkq - 0 1'
@@ -215,7 +194,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Discovered Checks`,
                     fens: [
                         'rnbqkb1r/pppp1ppp/5n2/4N3/8/8/PPPPQPPP/RNB1KB1R w KQkq - 0 1',
                         'rnbqkb1r/pppp1ppp/2N2n2/8/8/8/PPPPQPPP/RNB1KB1R w KQkq - 0 1'
@@ -225,7 +203,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Discovered Checks`,
                     fens: [
                         '1kr5/pp2nq2/8/8/5P2/6P1/6BP/1R3K2 w - - 0 1'
                     ],
@@ -234,7 +211,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Discovered Checks`,
                     fens: [
                         '1kr5/pp2nq2/8/8/5P2/6P1/6BP/1R3K2 w - - 0 1'
                     ],
@@ -243,7 +219,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Discovered Checks`,
                     fens: [
                         '1kr5/pp2nq2/8/8/5P2/6P1/6BP/1R3K2 w - - 0 1',
                         '1kr5/pR2nq2/8/8/5P2/6P1/6BP/5K2 w - - 0 1',
@@ -253,7 +228,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Discovered Checks`,
                     fens: [
                         '1kr5/pp2nq2/8/8/5P2/6P1/6BP/1R3K2 w - - 0 1',
                         '1kr5/pR2nq2/8/8/5P2/6P1/6BP/5K2 w - - 0 1',
@@ -264,7 +238,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Discovered Checks`,
                     fens: [
                         '1kr5/pp2nq2/8/8/5P2/6P1/6BP/1R3K2 w - - 0 1',
                         '1kr5/pR2nq2/8/8/5P2/6P1/6BP/5K2 w - - 0 1',
@@ -276,7 +249,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Discovered Checks`,
                     fens: [
                         '1kr5/pp2nq2/8/8/5P2/6P1/6BP/1R3K2 w - - 0 1',
                         '1kr5/pR2nq2/8/8/5P2/6P1/6BP/5K2 w - - 0 1',
@@ -290,7 +262,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Double Checks`,
                     fens: [
                         'rnb1kb1r/pp3ppp/2p5/4q3/8/3Q4/PPPB1nPP/2KR1BNR w Kkq - 0 1',
                         'rnbQkb1r/pp3ppp/2p5/4q3/8/8/PPPB1nPP/2KR1BNR w Kkq - 0 1',
@@ -300,7 +271,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Double Checks`,
                     fens: [
                         'rnbk1b1r/pp3ppp/2p5/4q3/8/8/PPPB1nPP/2KR1BNR w Kkq - 0 1',
                         'rnbk1b1r/pp3ppp/2p5/4q1B1/8/8/PPP2nPP/2KR1BNR w Kkq - 0 1',
@@ -310,7 +280,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Double Checks`,
                     fens: [
                         'rnbk1b1r/pp3ppp/2p5/4q3/8/8/PPPB1nPP/2KR1BNR w Kkq - 0 1',
                         'rnbk1b1r/pp3ppp/2p5/4q1B1/8/8/PPP2nPP/2KR1BNR w Kkq - 0 1',
@@ -325,7 +294,6 @@ export default {
             lessonHeader: `Promoting (and Under-Promoting) Your Pawns`,
             demo: [
                 {
-                    lessonHeader: `Promoting Your Pawns`,
                     fens: [
                         '6Q1/8/1kp4P/2q1p3/2PpP3/2nP2P1/p7/5BK1 w - - 0 1',
                         '6Q1/7P/1kp5/2q1p3/2PpP3/2nP2P1/p7/5BK1 w - - 0 1',
@@ -337,7 +305,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Promoting Your Pawns`,
                     fens: [
                         '6Q1/8/1kp4P/2q1p3/2PpP3/2nP2P1/p7/5BK1 w - - 0 1',
                         '6Q1/7P/1kp5/2q1p3/2PpP3/2nP2P1/p7/5BK1 w - - 0 1',
@@ -349,7 +316,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Promoting Your Pawns`,
                     fens: [
                         '6Q1/8/1kp4P/2q1p3/2PpP3/2nP2P1/p7/5BK1 w - - 0 1',
                         '6Q1/7P/1kp5/2q1p3/2PpP3/2nP2P1/p7/5BK1 w - - 0 1',
@@ -361,7 +327,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Under-Promoting Your Pawns`,
                     fens: [
                         '2R5/8/8/4kpp1/8/1P3KP1/r3pP2/8 w - - 0 1',
                     ],
@@ -370,7 +335,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Under-Promoting Your Pawns`,
                     fens: [
                         '2R5/8/8/4kpp1/8/1P3KP1/r3pP2/8 w - - 0 1',
                         '2R5/8/8/4kpp1/8/1P3KP1/r4P2/4n3 w - - 0 1',
@@ -381,7 +345,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `Under-Promoting Your Pawns`,
                     fens: [
                         '2R5/8/8/4kpp1/8/1P3KP1/r3pP2/8 w - - 0 1',
                         '2R5/8/8/4kpp1/8/1P3KP1/r4P2/4n3 w - - 0 1',
@@ -397,7 +360,6 @@ export default {
             lessonHeader: `Castling`,
             demo: [
                 {
-                    lessonHeader: `How to Castle`,
                     fens: [
                         '8/8/8/8/8/8/PPP2PPP/R3K2R w KQ - 0 1',
                         '8/8/8/8/8/8/PPP2PPP/R4RK1 w Q - 0 1',
@@ -409,7 +371,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `The Rules of Castling`,
                     fens: [
                         '8/6bq/8/8/8/7b/8/R3K2R w - - 0 1'
                     ],
@@ -418,7 +379,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `The Rules of Castling`,
                     fens: [
                         '8/6bq/8/8/8/7b/8/R3K2R w - - 0 1'
                     ],
@@ -428,7 +388,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `The Rules of Castling`,
                     fens: [
                         '8/6bq/8/8/8/7b/8/R3K2R w - - 0 1'
                     ],
@@ -442,7 +401,6 @@ export default {
             lessonHeader: `The En Passant Capture`,
             demo: [
                 {
-                    lessonHeader: `How to Capture En Passant`,
                     fens: [
                         '8/8/8/8/4p3/8/3P4/8 w - - 0 1',
                         '8/8/8/8/3Pp3/8/8/8 w - - 0 1',
@@ -453,7 +411,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `How to Capture En Passant`,
                     fens: [
                         '8/8/8/8/4p3/8/3P4/8 w - - 0 1',
                         '8/8/8/8/3Pp3/8/8/8 w - - 0 1',
@@ -464,7 +421,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `EN PASSANT CAPTURE IN ACTION`,
                     fens: [
                         '7k/1p5P/p6K/P7/8/8/8/8 w - - 0 1',
                         '7k/7P/p6K/Pp6/8/8/8/8 w - - 0 1',
@@ -477,7 +433,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `EN PASSANT CAPTURE IN ACTION`,
                     fens: [
                         '7k/1p5P/p6K/P7/8/8/8/8 w - - 0 1',
                         '7k/7P/p6K/Pp6/8/8/8/8 w - - 0 1',

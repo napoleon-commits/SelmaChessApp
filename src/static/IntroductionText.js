@@ -21,7 +21,13 @@ export default {
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
                         For example, every board has eight ranks (rows) and eight files (columns). The 1st rank consists of the eight squares directly in front of you. The 8th rank contains the eight squares that are farthest from you. As you can see, ranks are horizontal. Try to visualize each rank in turn: the 2nd rank, the 3rd rank, and so on.
-                        Files are vertical. The eight squares on the left side of the board are called the a-file. The eight squares on the right side of the board are called the h-file.
+                        Files are vertical.
+                    `,
+                },
+                {
+                    fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
+                    text: `
+                        The eight squares on the left side of the board are called the a-file. The eight squares on the right side of the board are called the h-file.
                         The alternating colors of the squares are another wonderful visual aid. For the moment, simply note that there are alternating light and dark squares and light and dark diagonals. As you will soon see, some pieces move along the ranks and files, while others move diagonally.
                     `,
                 },
@@ -32,7 +38,9 @@ export default {
             demo: [
                 {
                     fens: ['8/8/8/8/3K4/8/8/8 w - - 0 1'],
-                    text: `The King is truly the most important piece because you lose the game if your King is attacked and cannot escape. Kings are abbreviated with the letter K.`,
+                    text: `
+                        The King is truly the most important piece because you lose the game if your King is attacked and cannot escape. Kings are abbreviated with the letter K.
+                    `,
                 },
                 {
                     fens: ['8/8/8/8/3Q4/8/8/8 w - - 0 1'],

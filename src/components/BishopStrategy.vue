@@ -11,7 +11,7 @@
         :length="BishopStrategyText.items.length"
         :color="`rgb(${$store.state.customColor.red},${$store.state.customColor.green},${$store.state.customColor.blue})`"
     ></v-pagination>
-    <CustomHR />
+    <CustomHR v-if="$vuetify.breakpoint.smAndUp === true" />
     <div class="my-3">
       <div v-if="BishopStrategyText.items[page-1].demo" class="mb-3">
         <ChessLesson 
@@ -20,7 +20,7 @@
         />
       </div>
     </div>
-    <CustomHR />
+    <CustomHR v-if="$vuetify.breakpoint.smAndUp === true" />
   </div>
 </template>
 

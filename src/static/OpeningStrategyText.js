@@ -1,12 +1,8 @@
 export default {
     header: 'Opening Strategy',
     body: `
-        Now that you know how to set up the board and how to move and activate the pieces and pawns,
-        it's time to start putting it all together. Playing chess is very much like being a commander in a war.
-        You are in control of all the pices. Some beginners make the mistake of bringing out only or two pieces,
-        while leaving the rest
-        of their army on their original squares. To play a good game,
-        it's important to try to coordinate all of the pieces in your army.
+        Now that you know how to set up the board and how to move and activate the pieces and pawns, it’s time to start putting it all together. Playing chess is very much like being a commander in a war. You are in control of all your pieces. Some beginners make the mistake of bringing out only one or two pieces, while leaving the rest of their army on their original squares. To play a good game, it’s important to try to coordinate all of the pieces in your army.
+        In this chapter, you will learn about using all of your pieces to fight for the center the board. You will see why it’s important to develop your Knights before your Bishops and why you should limit the number of early pawn moves. If you place your pieces on active squares, you will find that your attacks succeed more often.
     `,
     items: [
         {

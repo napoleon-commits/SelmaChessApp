@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="my-5">
         <div :id="`${$store.state.school}-chess-board`">
             <OfflineChessExtended 
                 :fen="currentFen"

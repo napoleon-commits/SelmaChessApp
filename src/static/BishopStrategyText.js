@@ -11,215 +11,106 @@ export default {
     `,
     items: [
         {
-            header: 'Bad Bishops and Good Bishops',
-            subtitle: `
-                Just as there are good Rooks (on open files) and good Knights
-                (in the center where the enemy pawns can't attack them),
-                there are good Bishops and bad Bishops.
-                Bishops are good as long as you don't limit their mobility behind
-                pawns that are fixed (set on the same color as the Bishop).
-            `,
-            lessonHeader: ``,
+            lessonHeader: `Bad Bishops and Good Bishops`,
             demo: [
                 {
                     fens: ['8/8/7p/6pP/5pP1/4pP2/4P3/5B2 w - - 0 1'],
                     text: `
-                        In this situation, the white Bishop on f1 can safely move around to g2, h3,
-                        and even h1. You can immediately see that, while the Bishop remains on the board,
-                        it will have no meaningful effect on the rest of the game. In a real sense,
-                        white's pawns on e2, f3, and g4 have imprisoned or trapped their own
-                        light-squared Bishop. The simplest advice: Don't let this happen to you!
+                        In this situation, the white Bishop on f1 can safely move around to g2, h3, and even h1. You can immediately see that, while the Bishop remains on the board, it will have no meaningful effect on the rest of the game. In a real sense, white’s pawns on e2, f3, and g4 have imprisoned or trapped their own light-squared Bishop. The simplest advice: Don’t let this happen to you!
                     `,
                 },
                 {
                     fens: ['8/6b1/8/3p4/3P4/8/1B6/8 w - - 0 1'],
                     text: `
-                        Most of the time, Bishops are not wuite that bad,
-                        but the principle remains important. Do not fix pawns on the
-                        same color as your Bishop. In this example, the two pawns are
-                        considered fixed because they cannot advance. The Bishop on b2
-                        is considered "bad" because the white pawn on d4 is fixed on its color.
-                        By contrast, the black Bishop on g7 is considered "good" because it is
-                        attacking a fixed white pawn.
+                        Most of the time, Bishops are not quite that bad, but the principle remains important.
+                        Do not fix pawns on the same color as your Bishop. In this example, the two pawns are considered fixed because they cannot advance. The Bishop on b2 is considered “bad” because the white pawn on d4 is fixed on its color. By contrast, the black Bishop on g7 is considered “good” because it is attacking a fixed white pawn.
                     `,
                 }
             ],
         },
         {
-            header: 'Bishops Can Dominate Knights',
-            subtitle: `
-                One reason that Bishops are worth slightly more than Knights is that the
-                Bishop can dominate a Knight on the open board.
-            `,
-            lessonHeader: ``,
+            lessonHeader: `Bishops Can Dominate Knights`,
             demo: [
                 {
                     fens: ['8/8/8/4B2n/8/8/8/8 w - - 0 1'],
                     text: `
-                        In this position, the white Bishop on e5 controls all four squares to
-                        which the black Knight on h5 can move.
-                        To improve your play, you should play against others and also play
-                        through the games of some the world's greatest players.
-                        As you play through master games, time and again, you will observe
-                        the same pattern: Bishops three squares away from enemy Knights,
-                        dominating them just as they do in this example.
+                        In this position, the white Bishop on e5 controls all four of the squares to which the black Knight on h5 can move.
+                        To improve your play, you should play against others and also play through the games of some the world’s greatest players. As you play through master games, time and again, you will observe the same pattern: Bishops three squares away from enemy Knights, dominating them just as they do in this example.
                     `,
                 }
             ],
         },
         {
-            header: 'Fianchettos',
-            subtitle: `
-                Fianchetto is Italian for "on the flank." In chess,
-                a fianchetto is a special formation of pawns that give the Bishop
-                an opportunity to take control over the longest diagonal on the chessboard.
-                White can fianchetto the Bishop on the Queenside by playing b2-b3 and then
-                Bc1-b2. On the Kingside, white can play g2-g3 and then Bf1-g2.
-                Many players enjoy these formations because fianchettoed Bishops
-                have such sweeping control through the board.
-            `,
-            lessonHeader: `The Formation`,
+            lessonHeader: `Fianchettos`,
             demo: [
                 {
                     fens: ['8/8/8/8/8/6P1/5P1P/4KBNR w - - 0 1'],
                     text: `
-                        At the beginning of a game, you have an opportunity to
-                        place you Bishop quickly on the board's longest diagonal,
-                        setting up a fianchetto. In this position, after advancing
-                        the g-pawn to g3 (g2-g3), white can play Bishop f1 to g2 (Bf1-g2).
-                        Many players like this manuever, but white must be careful when
-                        advancing the g-pawn that black is not able to capture the white Rook
-                        on h1 with a Bishop or a Queen coming straight down the long diagonal.
+                        At the beginning of a game, you have an opportunity to place your Bishop quickly on the board’s longest diagonal, setting up a fianchetto. In this position, after advancing the g-pawn to g3 (g2-g3), white can play Bishop f1 to g2 (Bf1-g2). Many players like this maneuver, but white must be careful when advancing the g-pawn that black is not able to capture the white Rook on h1 with a Bishop or a Queen coming straight down the long diagonal.
                     `,
                 },
                 {
                     fens: ['rn1qk2r/pbppppbp/1p3np1/8/8/1P3NP1/PBPPPPBP/RN1QK2R w KQkq - 0 1'],
                     text: `
-                        Here, all of the Bishops have been fianchettoed (blanked by their pawns).
-                        Note that both sides have been very careful, developing the Knights to f3
-                        and f6 to prevent any of the Bishops from capturing another Bishop.
+                        Here, all of the Bishops have been fianchet- toed (flanked by their pawns). Note that both sides have been very careful, developing the Knights to f3 and f6 to prevent any of the Bishops from capturing another Bishop.
                     `,
                 }
             ],
         },
         {
-            header: 'Bishops of Opposite Color',
-            subtitle: `
-                Light-squared Bishops and dark-squared Bishops can never capture one another.
-                That simple fact usually means that games ending with opposite-colored Bishops
-                result in draws.
-            `,
-            lessonHeader: `Opposite-Colored Bishops Often Result in a Draw`,
+            lessonHeader: `Bishops of Opposite Color`,
             demo: [
                 {
                     fens: ['8/8/8/4k3/3p1b2/3Bp3/4K3/8 w - - 0 1'],
                     text: `
-                        In this position, black appears to have a significant two-pawn advantage.
-                        However, white has a light-squared Bishop, while black's Bishop can travel
-                        only on the dark squars. The two can never come into direct conflict. White
-                        can effectively blockade the black pawns by moving its Bishop to light squares
-                        that stay contact with the d3 square. For example, white could simply shuttle
-                        the Bishop back and forth between d3 and c2. If black moved the King around to
-                        c3 in order to prevent Bishop to c2, the white Bishop could move instead of e4.
-                        Simply put, there's no safe way for black to advance the pawns.
+                        In this position, black appears to have a significant two-pawn advantage. However, white has a light-squared Bishop, while black’s Bishop can travel only on the dark squares. The two can never come into direct conflict. White can effectively blockade the black pawns by moving its Bishop to light squares that stay in contact with the d3 square. For example, white could simply shuttle the Bishop back and forth between d3 and c2. If black moved the King around to c3 in order to prevent Bishop to c2, the white Bishop could move instead to e4. Simply put, there’s no safe way for black to advance the pawns.
                     `,
                 }
             ],
         },
         {
-            header: 'Skewers and Pins',
-            subtitle: `
-                Skewers are dramitc attacks by the Bishop, usually involving a check,
-                that often net a Rook or a Queen. Pins are mich more common meneuvers.
-                A pin begins with a Bishop attacking a piece, usually a Knight. In some
-                cases, a movement by the Knight would expose the Queen to attack. In other
-                cases, the Knights cannot move, because the Bishop would then be attacking
-                the King. The Knight is this, pinned by the Bishop.
-            `,
-            lessonHeader: ``,
+            lessonHeader: `Skewers and Pins`,
             demo: [
                 {
                     fens: ['r5q1/8/8/3k4/8/8/8/3B4 w - - 0 1'],
                     text: `
-                        In this position, it is white's move. White can carry out a
-                        skewer in two different ways. First, white could attack or check
-                        the black King by playing Bishop on d1 to f3 (BD1-f3). The black
-                        King on d5 would have to move, permitting white to capture the Rook
-                        on a8 (Bf3xa8). Better still, white could play Bishop to b3, check
-                        (Bd1-b3+). Here, the skewer will net the Queen on g8 (Bb3xg8).
+                        In this position, it is white’s move. White can carry out a skewer in two different ways. First, white could attack or check the black King by playing Bishop on d1 to f3 (Bd1-f3). The black King on d5 would have to move, permitting white to capture the Rook on a8 (Bf3xa8). Better still, white could play Bishop to b3, check (Bd1-b3+). Here, the skewer will net the Queen on g8 (Bb3xg8).
                     `,
                 },
                 {
                     fens: ['r2qkbnr/ppp2ppp/2np4/1B2p3/4P1b1/5N2/PPPP1PPP/RNBQ1RK1 w Qkq - 0 1'],
                     text: `
-                        In this position, there are two pins. Note that the white Bishop on b5
-                        is pinning the black Knight on c6 to the black King. This is called an
-                        absolute pin because the Knight on c6 cannot legally move (remember, you
-                            cannot make a move that results in putting your King in check).
-                        By contrast, the black Bishop on g4 is pinning the white Knight on f3 to
-                        the white Queen. This is called a relative pin because the Knight on f3 is
-                        permitted to move. Such moves are often unwise though, because moving the
-                        Knight would result in the loss of the white Queen.
-                        It is far more common, in the master play, for players to "unpin" with a
-                        move like Bishop f1 to e2 (Bf1-e2), as seen in the photo at the top of this
-                        page. Or white could simply challenge the black Bishop by moving the pawn
-                        from h2 to h3 (h2-h3); masters call such pawn maneuvers "putting the queston
-                        to" or "kicking" the Bishop.
+                        In this position, there are two pins. Note that the white Bishop on b5 is pinning the black Knight on c6 to the black King. This is called an absolute pin because the Knight on c6 cannot legally move (remember, you cannot make a move that results in putting your King in check).
+                    `,
+                },
+                {
+                    fens: ['r2qkbnr/ppp2ppp/2np4/1B2p3/4P1b1/5N2/PPPP1PPP/RNBQ1RK1 w Qkq - 0 1'],
+                    text: `
+                        By contrast, the black Bishop on g4 is pinning the white Knight on f3 to the white Queen. This is called a relative pin because the Knight on f3 is permitted to move. Such moves are often unwise though, because mov- ing the Knight would result in the loss of the white Queen.
+                        It is far more common, in master play, for players to “unpin” with a move like Bishop f1 to e2 (Bf1-e2), as seen in the photo at the top of this page. Or, white could simply challenge the black Bishop by moving the pawn from h2 to h3 (h2-h3); masters call such pawn maneuvers “putting the question to” or “kicking” the Bishop.
                     `,
                 }
             ],
         },
         {
-            header: 'Bad Bishops Against Good Knights',
-            subtitle: `
-                While Bishops are often better than Knights,
-                there are exception to the rule. A good Knight
-                (in the center of the board where the enemy pawns cannot attack it)
-                is almost always better than a bad Bishop (locked in by its own pawns).
-            `,
-            lessonHeader: ``,
+            lessonHeader: `Bad Bishops Against Good Knights`,
             demo: [
                 {
                     fens: ['8/8/2p5/p1k1p1p1/P1PnPpP1/2K2P2/8/3B4 w - - 0 1'],
                     text: `
-                        In this example, material is even --
-                        black and white are evenly matched in the number and value of
-                        their pieces. However, black's Knight is wonderfully posted, while
-                        the white Bishop has little scope. In this position, it is white's
-                        turn to move, but every move that white can make will result in a
-                        winning advantage for black. If, for example, white moves the Bishop,
-                        black will be able to capture it with its Knight and then infiltrate with the King.
+                        In this example, material is even—black and white are evenly matched in the number and value of their pieces. However, black’s Knight is wonderfully posted, while the white Bishop has little scope. In this position, it is white’s turn to move, but every move that white can make will result in a winning advantage for black. If, for example, white moves the Bishop, black will be able to capture it with its Knight and then infiltrate with the King.
                     `,
                 },
             ],
         },
         {
-            header: 'Bishops Can Dominate Rooks',
-            subtitle: `
-                In almost all situations, Rooks are stronger than Bishops.
-                Perhaps you will be fortunate to skewer a Rook or to pin
-                a Rook to a Queen or a King.
-                There is another way for a Bishop to dominate a Rook. It
-                simply requires some help, in this case from an advanced pawn.
-            `,
-            lessonHeader: ``,
+            lessonHeader: `Bishops Can Dominate Rooks`,
             demo: [
                 {
                     fens: ['5Br1/6P1/8/8/8/p7/Rb6/8 w - - 0 1'],
                     text: `
-                        In this example, both Bishops are dominating a Rook.
-                        The white Bishop on f8, for example, has trapped the
-                        black Rook on g8 with help from the pawn on g7. If the
-                        Rook moves to h8, the pawn will capture it. If the Rook
-                        capture the Bishop on f8, the pawn will then capture it.
-                        If the Rook captures the pawn on g7, the Bf8 will capture it.
-                        Similarly, the black Bishop on b2, with the help from
-                        the advance black a-pawn, has trapped the white Rook.
-                        If the Rook moves to a1 or captures the a3-pawn, the
-                        Bishop can capture it. And if the Rook on a2 captures
-                        the Bishop on b2, the a3-pawn will be able to recapture.
-                        Imagine trapping a Rook in this way and then bringing up
-                        another pawn or piece to attack it.
+                        In this example, both Bishops are dominating a Rook. The white Bishop on f8, for example, has trapped the black Rook on g8 with help from the pawn on g7. If the Rook moves to h8, the pawn will capture it. If the Rook captures the Bishop on f8, the pawn will then capture it. If the Rook captures the pawn on g7, the Bf8 will capture it.
+                        Similarly, the black Bishop on b2, with help from the advanced black a-pawn, has trapped the white Rook. If the Rook moves to a1 or captures the a3-pawn, the Bishop can capture it. And if the Rook on a2 captures the Bishop on b2, the a3-pawn will be able to recapture. Imagine trapping a Rook in this way and then bringing up another pawn or piece to attack it.
                     `,
                 },
                 {
@@ -229,14 +120,7 @@ export default {
                         '5Br1/6P1/8/1k3p2/1pp5/7p/p2K4/R7 w - - 0 1',
                     ],
                     text: `
-                        This position was reached in the famous 1972 World Championship
-                        match between Bobby Fischer and the Russin Boris Spassky. Spassky,
-                        playing white, had just played Bishop to e7 and was threatening to
-                        play Bishop e7 to f8 (Be7-f8) and then pawn g7 to g8 (g7-g8) to promote
-                        to Queen (g7-g8=Q)! Fischer had no choice but to prevent the threat with
-                        Rook a8 to g8 (Ra8-g8). Naturally, Spassky followed up with Bishop e7 to
-                        f8 (Be7-f8), trapping Fischer's Rook. In spite of having his Rook trapped,
-                        Fischer nonetheless went on to win the game and the match.
+                        This position was reached in the famous 1972 World Championship match between Bobby Fischer and the Russian Boris Spassky. Spassky, playing white, had just played Bishop to e7 and was threatening to play Bishop e7 to f8 (Be7-f8) and then pawn g7 to g8 (g7-g8) to promote to Queen (g7-g8=Q)! Fischer had no choice but to prevent that threat with Rook a8 to g8 (Ra8-g8). Naturally, Spassky followed up with Bishop e7 to f8 (Be7-f8), trapping Fischer’s Rook. In spite of having his Rook trapped, Fischer nonetheless went on to win the game and the match.
                     `,
                 },
             ],

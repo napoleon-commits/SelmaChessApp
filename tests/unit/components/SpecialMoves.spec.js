@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
-import MiddlegameStrategy from '@/components/MiddlegameStrategy.vue'
+import SpecialMoves from '@/components/SpecialMoves.vue'
 import state from '@/store/State';
 
-describe('MiddlegameStrategy.vue', () => {
+describe('SpecialMoves.vue', () => {
   it('renders component', () => {
-    const wrapper = shallowMount(MiddlegameStrategy, {
+    const wrapper = shallowMount(SpecialMoves, {
       mocks: {
         $store: {
           state,

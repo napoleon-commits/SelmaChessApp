@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row no-gutters>
+    <v-row no-gutters :style="smallScreenBackgroundStyle">
         <v-col>
           <div class="text-xl-h3 text-lg-h3 text-md-h4 text-sm-h5 text-h6 mb-3 text-center">
               {{header}}
@@ -66,7 +66,21 @@ export default {
         this.page = 1;
         this.fenIndex = 0;
       }
-    }
+    },
+    computed: {
+        smallScreenBackgroundStyle(){
+            let style = '';
+            if(this.$vuetify.breakpoint.smAndUp === false){
+                if(this.$store.state.school === 'Selma'){
+                    style += 'color: rgba(0, 0, 0, 0.87) !important;';
+                } else {
+                    style += 'color: white !important;';
+                }
+                style += `background-color: rgb(${this.$store.state.customColor.red},${this.$store.state.customColor.green},${this.$store.state.customColor.blue});`;
+            }
+            return style;
+        }
+    },
 }
 </script>
 

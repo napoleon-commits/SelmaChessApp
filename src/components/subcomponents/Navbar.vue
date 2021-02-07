@@ -1,7 +1,7 @@
 <template>
     <div :style="`background-color: ${$vuetify.theme.dark?'#272727':''};`">
         <b-navbar toggleable="lg" :type="`${$vuetify.theme.dark?'dark':'light'}`">
-            <b-navbar-brand @click="goToHome">Selma Chess App</b-navbar-brand>
+            <b-navbar-brand style="cursor: pointer;" @click="goToHome">Selma Chess App</b-navbar-brand>
 
             <b-navbar-toggle :style="`border-color: ${$vuetify.theme.dark?'white':'rgba(0, 0, 0, 0.87)'};`" :id="`${($vuetify.theme.dark)?'dark-mode-toggler':'light-mode-toggler'}`" target="nav-collapse"></b-navbar-toggle>
 

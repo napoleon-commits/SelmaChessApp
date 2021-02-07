@@ -16,12 +16,18 @@ import OpeningStrategy from '@/components/OpeningStrategy';
 import OpeningVariations from '@/components/OpeningVariations';
 import SpecialMoves from '@/components/SpecialMoves';
 import OfflineChess from '@/components/OfflineChess';
+import LandingPage from '@/components/LandingPage';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'LandingPage',
+    component: LandingPage,
+  },
+  {
+    path: '/offline',
     name: 'OfflineChess',
     component: OfflineChess,
   },

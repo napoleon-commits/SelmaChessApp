@@ -8,14 +8,9 @@ export default {
     `,
     items: [
         {
-            header: 'Viewing the Chessboard',
-            subtitle: `
-                Chess is played on a board with 64 squares. To make it easier to view the board and move the pieces, the board has alternating light and dark squares. As you will see, it is useful to think of the board in terms of its ranks, files, and diagonals.
-            `,
             lessonHeader: `The Chessboard Setup`,
             demo:[
                 {
-                    lessonHeader: ``,
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
                         This chessboard is typical of those on which you will play. To set up the board correctly, place it so that a dark square is in the lower-left corner. Or, as chess players like to say, “It’s white on the right.”
@@ -23,7 +18,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
                         For example, every board has eight ranks (rows) and eight files (columns). The 1st rank consists of the eight squares directly in front of you. The 8th rank contains the eight squares that are farthest from you. As you can see, ranks are horizontal. Try to visualize each rank in turn: the 2nd rank, the 3rd rank, and so on.
@@ -34,46 +28,37 @@ export default {
             ],
         },
         {
-            header: `Introducing the Pieces`,
-            subtitle: `
-                Your chess “team” is made up of five types of pieces: one King, one Queen, two Bishops, two Knights, and two Rooks. Each player also has eight pawns. The pieces can look different from chess set to chess set, but you will always be playing with these same chessmen.
-            `,
+            lessonHeader: `Introducing the Pieces`,
             demo: [
                 {
-                    lessonHeader: `The Five Types of Pieces`,
                     fens: ['8/8/8/8/3K4/8/8/8 w - - 0 1'],
                     text: `The King is truly the most important piece because you lose the game if your King is attacked and cannot escape. Kings are abbreviated with the letter K.`,
                 },
                 {
-                    lessonHeader: `The Five Types of Pieces`,
                     fens: ['8/8/8/8/3Q4/8/8/8 w - - 0 1'],
                     text: `
                         The Queen is considered the most powerful piece in terms of its ability to move around the board. Each player has one at the beginning of the game, though you will see, it’s possible to get more! Queens are abbreviated with the letter Q.
                     `,
                 },
                 {
-                    lessonHeader: `The Five Types of Pieces`,
                     fens: ['8/8/8/8/3B4/8/8/8 w - - 0 1'],
                     text: `
                         Bishops usually have a nice, tapered appearance. At the beginning of the game, each player starts with two Bishops. They are abbreviated with the letter B.
                     `,
                 },
                 {
-                    lessonHeader: `The Five Types of Pieces`,
                     fens: ['8/8/8/8/3N4/8/8/8 w - - 0 1'],
                     text: `
                         Knights, like the cavalry, can jump into action. Each player starts with two Knights. They are abbreviated with the letter N.
                     `,
                 },
                 {
-                    lessonHeader: `The Five Types of Pieces`,
                     fens: ['8/8/8/8/3R4/8/8/8 w - - 0 1'],
                     text: `
                         Rooks are sometimes called towers or castles because they resemble the tower of a castle. Each player starts with two of them. They are abbreviated with the letter R.
                     `,
                 },
                 {
-                    lessonHeader: `The Pawns`,
                     fens: ['8/8/8/8/3P4/8/8/8 w - - 0 1'],
                     text: `
                         The pawns are the smallest unit on the chessboard. They can seem small and unimportant, but they are often very useful in helping to control territory and to launch attacks on your opponent.
@@ -82,14 +67,9 @@ export default {
             ],
         },
         {
-            header: `Setting Up the Board`,
-            subtitle: `
-                The chessboard setup for the start of a game is always the same. In fact, one of the great charms of chess is that you start from the same position as others have done for centuries.
-            `,
             lessonHeader: `Where to Place the Pieces`,
             demo: [
                 {
-                    lessonHeader: ``,
                     fens: ['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'],
                     text: `
                         The Rooks begin the game in the corners. The Knights (many beginning players call them horses) are next. The Bishops start the game next to the Knights. Finally, the Queen and King fill in the remaining squares on the 1st and 8th ranks. The Queen will always start on its own color. Note that the white Queen is on a white square. The black Queen is on a dark square.
@@ -97,7 +77,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: [
                         'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
                         'rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1'
@@ -111,21 +90,15 @@ export default {
             ],
         },
         {
-            header: `How the King Moves and Captures`,
-            subtitle: `
-                The King can move one square in any direction, horizontally, vertically, or diagonally. It can move forward and then back, but only one square at a time. The King can also capture any opponent’s piece if it is on one of those squares. However, the King is not permitted to move into an attack. If you make a mistake and move your King into an attack, you will be required to take back your move. In other words, the King is not permitted to move so that it could then itself be captured on the next move.
-            `,
             lessonHeader: `How to Move the King`,
             demo: [
                 {
-                    lessonHeader: ``,
                     fens: ['k7/8/8/8/4K3/8/8/8 w - - 0 1'],
                     text: `
                         A King in the center of the board can move to a total of eight different squares, assuming that your opponent does not control any of those squares. By contrast, the black King in the corner can move to only three squares.
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['8/8/8/4P3/3pK3/5p2/8/8 w - - 0 1'],
                     text: `
                         Here, only two squares are forbidden to the white King. The King cannot move to a square already occupied by its own pawn, and the King cannot move to the square marked with a red X. The white King is not permitted to move there because one of the black pawns controls that square (see page 16 to learn how the pawns move and capture).
@@ -133,7 +106,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['8/8/4k3/8/4K3/8/8/8 w - - 0 1'],
                     text: `
                         In this position, both Kings are facing each other. Neither King can move next to the other King. Simply put, a King may never move next to another King. To do so would be illegal because the other King controls those squares. It’s an important point. Both Kings “control” the same three squares!
@@ -142,14 +114,9 @@ export default {
             ],
         },
         {
-            header: `How Rooks Move and Capture`,
-            subtitle: `
-                Unlike the King, a Rook can move more than one square at a time. A Rook can move any number of squares in a straight line, either horizontally or vertically, but only in one direction at a time per move. Note that a Rook cannot jump a piece of either color.
-            `,
             lessonHeader: `How to Move a Rook`,
             demo: [
                 {
-                    lessonHeader: ``,
                     fens: ['8/3K4/8/8/3R2n1/8/3b4/8 w - - 0 1'],
                     text: `
                         The white Rook can move toward the black Knight or capture it by replacing the Knight on the square on which the Knight stood. Similarly, you might decide to capture the black Bishop, again simply by taking the Rook and placing it on the square that the Bishop occupied, being sure to remove the Bishop from the board as part of the move. A Rook is not permitted to jump either white or black pieces, so it cannot move on the other side of the white King.
@@ -158,14 +125,9 @@ export default {
             ],
         },
         {
-            header: `How Bishops Move and Capture`,
-            subtitle: `
-                Like a Rook, a Bishop can move more than one square at a time. As opposed to a Rook, which always moves in straight lines, a Bishop can move any number of squares diagonally. A Bishop will therefore always remain on a square of the same color on which it started the game. Like a Rook, a Bishop can move forward or backward, but in only one direction at a time per move.
-            `,
             lessonHeader: `How to Move a Bishop`,
             demo: [
                 {
-                    lessonHeader: ``,
                     fens: ['8/8/5n2/8/3B4/8/1N3r2/8 w - - 0 1'],
                     text: `
                         The white Bishop can move toward the black Knight or capture it. Similarly, you might decide here to capture the black Rook, again simply by replacing the black Rook with the white Bishop. The white Bishop is not permitted to jump either the white or black pieces.
@@ -174,14 +136,9 @@ export default {
             ],
         },
         {
-            header: `How the Queen Moves and Captures`,
-            subtitle: `
-                The Queen is a very powerful chess piece. It combines the powers of both a Rook and a Bishop. As such, the Queen can move horizontally, vertically, and diagonally. Like the King, it can move in any direction. Unlike the King, however, it can move far in one direction if there are no pieces in its path. As you might expect, the Queen cannot jump another piece.
-            `,
             lessonHeader: `How to Move the Queen`,
             demo: [
                 {
-                    lessonHeader: ``,
                     fens: ['8/5r2/8/3Q4/8/1P6/3b2n1/8 w - - 0 1'],
                     text: `
                         Clearly the Queen has many, many options. For example, the Queen can move toward or capture the black Knight. Similarly, you might decide here to capture the black Rook or the black Bishop. The Queen is not permitted to jump either the white or black pieces.
@@ -190,15 +147,9 @@ export default {
             ],
         },
         {
-            header: `How Knights Move and Capture`,
-            subtitle: `
-                A Knight is the only piece that can jump over other pieces. Some players visualize the Knight moving in an L-shape—two squares horizontally and then one square vertically (or two squares vertically and then one square horizontally). More experienced players understand the move is a straight line from the starting square to the destination. As you practice your Knight moves, notice that a Knight starting on a dark square will land on a light square. And of course, a Knight starting on
-                a light square will land on a dark square.
-            `,
             lessonHeader: `How to Move a Knight`,
             demo: [
                 {
-                    lessonHeader: ``,
                     fens: [
                         '8/8/8/5r2/3N4/1B6/8/8 w - - 0 1',
                         '8/8/8/5N2/8/1B6/8/8 w - - 0 1'
@@ -208,7 +159,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `KNIGHTS CAN JUMP`,
                     fens: [
                         'rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 0 1'
                     ],
@@ -219,14 +169,9 @@ export default {
             ],
         },
         {
-            header: `How Pawns Move and Capture`,
-            subtitle: `
-                The pawns are often called the “soul of chess.” They are the only chessmen that move differently from how they capture. A pawn, like a foot soldier in war, marches ever forward, one square at a time. Unlike the other pieces, the pawn can never retreat. Pawns that have not yet moved have the option of making their first move two squares forward instead of just one square; but after this initial two-square move, it’s one square at a time.
-            `,
             lessonHeader: `Pawn Dynamics`,
             demo: [
                 {
-                    lessonHeader: `HOW TO MOVE A PAWN`,
                     fens: ['8/8/2p5/8/8/8/5P2/8 w - - 0 1'],
                     text: `
                         In this position, the white pawn can move forward one or two squares. The white pawn has that additional two-move option because it has not yet moved. It does not matter how many moves have been played. A pawn that has never moved will have the additional option to move ahead two squares on its first move.
@@ -234,7 +179,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `HOW PAWNS CAPTURE`,
                     fens: [
                         '8/8/2p5/1N1B4/8/4B1n1/5P2/8 w - - 0 1',
                         '8/8/8/1p1B4/8/4B1n1/5P2/8 w - - 0 1',
@@ -252,14 +196,9 @@ export default {
             ],
         },
         {
-            header: `Chess Notation`,
-            subtitle: `
-                In order to discuss and write about chess, chess players have invented a written language that, as languages go, is the easiest language you will ever learn.
-            `,
             lessonHeader: `Reading and Writing Chess Moves`,
             demo: [
                 {
-                    lessonHeader: ``,
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
                         Just as each piece has a name, so too does every square. In each chess diagram, you will notice that there are eight letters along the top and bottom of every board (a–h) and eight num- bers along each side (1–8). To identify any square, locate its letter and then its number.
@@ -267,7 +206,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
                         Using the names of the squares helps us to discuss the board in a very simple, clear manner. For example, in this position, the white Queen is on b1, the black Queen is on e5, and a black Bishop is on d7. White has pawns on c3 and c4. Take a moment to locate them. As you will see, it’s very easy.
@@ -275,21 +213,18 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
                         Notation also permits us to talk about the movement of pieces. Remember, pieces are abbreviated as follows: K for King, Q for Queen, B for Bishop, N for Knight, and R for Rook (there isn’t an abbreviation for pawn). 
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
                         For a refresher on these abbreviations, see “Pieces and Pawns at a Glance” on page 8. In this position, white has just moved the Queen from d1 to b1. In this book, I use the long form of the notation, “Qd1-b1,” but many chess players abbreviate the move with “Qb1.” As a result of white’s move, the white Queen on b1 is suddenly attacking the black pawn on b6. As you can see, it’s not very hard to find the black b6-pawn. To defend the b6-pawn, black might now play Re8-b8, moving the black Rook from the e8-square to b8.
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
                         Captures are simply recorded with an “x.” And so in this position, if black were to move the black Queen on e5 to capture the white pawn on e4, you would write: Qe5xe4. Of course, that awful Queen move would result in losing the black Queen to the white Bishop (Bc2xe4).
@@ -297,7 +232,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: ``,
                     fens: ['8/4P3/8/8/8/8/8/8 w - - 0 1'],
                     text: `
                         In this second position, white is about to promote a pawn. Promoting the e7-pawn to a Queen on e8 would be written e7-e8=Q or simply e8=Q.
@@ -306,14 +240,9 @@ export default {
             ],
         },
         {
-            header: `Protect Your Pieces`,
-            subtitle: `
-                Many beginners make the same simple mistake. After their opponent captures a piece or a pawn, they fail to recapture or “take back.” A good rule of thumb is if your opponent captures one of your pieces, try to recapture a piece of equal or greater value. Generally speaking, if one side has more material than the other, they will have the advantage and will be more likely to win the game.
-            `,
             lessonHeader: `Protection Strategies`,
             demo: [
                 {
-                    lessonHeader: `BE SURE TO RECAPTURE`,
                     fens: [
                         'rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPPN1PPP/R1BQKBNR w KQkq - 0 1',
                         'rnbqkbnr/pp2pppp/2p5/8/3Pp3/8/PPPN1PPP/R1BQKBNR w KQkq - 0 1',
@@ -324,7 +253,6 @@ export default {
                     `,
                 },
                 {
-                    lessonHeader: `PRESERVE THE BALANCE`,
                     fens: [
                         '1rb2rk1/ppq1bppp/3p1n2/nPp1p3/2B1P3/P1PP1N1P/4QPP1/RNB2RK1 w Q - 0 1',
                         '1rb2rk1/ppq1bppp/3p1n2/1Pp1p3/2n1P3/P1PP1N1P/4QPP1/RNB2RK1 w Q - 0 1',

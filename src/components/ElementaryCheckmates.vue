@@ -1,14 +1,16 @@
 <template>
-    <div class="mt-3 mx-3">
-        ElementaryCheckmates
-    </div>
+  <Training :json="ElementaryCheckmatesText"/>
 </template>
 
 <script>
 import ElementaryCheckmatesText from '@/static/ElementaryCheckmatesText';
+import Training from '@/components/subcomponents/Training';
 
 export default {
     name: 'ElementaryCheckmates',
+    components: {
+      Training,
+    },
     data(){
         return {
             ElementaryCheckmatesText,

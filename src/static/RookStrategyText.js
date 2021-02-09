@@ -46,7 +46,7 @@ export default {
                         '1k2r3/pppprppp/8/8/8/8/8/8 w - - 0 1'
                     ],
                     text: `
-                        Once you control an open file with a Rook, you can often use the Rook to infiltrate your opponent’s position. The Rook is especially effective when it is attacking undefended pawns deep in the enemy’s position.
+                        Once you control an open file with a Rook, you can often use the Rook to infiltrate your opponent's position. The Rook is especially effective when it is attacking undefended pawns deep in the enemy's position.
                     `,
                 }
             ]
@@ -60,7 +60,7 @@ export default {
                         'k7/pppp1ppp/8/8/8/8/PPPPrPPP/KR6 w - - 0 1',
                     ],
                     text: `
-                        In this example, the enemy pawns rest on their original squares. And so, masters often talk about advancing their Rooks to the 7th rank where the enemy pawns usually are. The key for black is to advance the Rook on e8 to e2 (Re8-e2). White will then have a problem. The black Rook on e2 will be attacking undefended white pawns on d2 and f2. White can respond by moving its Rook on b1 to d1 (Rb1-d1) or f1 (Rb1-f1), but there’s clearly no way to move the Rook on b1 to defend both pawns.
+                        In this example, the enemy pawns rest on their original squares. And so, masters often talk about advancing their Rooks to the 7th rank where the enemy pawns usually are. The key for black is to advance the Rook on e8 to e2 (Re8-e2). White will then have a problem. The black Rook on e2 will be attacking undefended white pawns on d2 and f2. White can respond by moving its Rook on b1 to d1 (Rb1-d1) or f1 (Rb1-f1), but there's clearly no way to move the Rook on b1 to defend both pawns.
                     `,
                 },
                 {
@@ -68,7 +68,7 @@ export default {
                         '1k6/1pp2ppp/p7/8/8/8/PPPrrPPP/1KR2R2 w - - 0 1'
                     ],
                     text: `
-                        In this example, the black Rooks are dominating black’s 7th rank. Black has succeeded in doubling the Rooks on the 7th rank, a catastrophe for white. On the 7th rank, the Rooks combine to place tremendous pressure on the white pawns. White has succeeded with the King on b1 and the Rook on c1 to defend the c2-pawn adequately. However, the white f2-pawn is in jeopardy. White could push the f2-pawn forward, but the black Rook on e2 would then capture the g2-pawn instead, and then go on to threaten the h2-pawn.
+                        In this example, the black Rooks are dominating black's 7th rank. Black has succeeded in doubling the Rooks on the 7th rank, a catastrophe for white. On the 7th rank, the Rooks combine to place tremendous pressure on the white pawns. White has succeeded with the King on b1 and the Rook on c1 to defend the c2-pawn adequately. However, the white f2-pawn is in jeopardy. White could push the f2-pawn forward, but the black Rook on e2 would then capture the g2-pawn instead, and then go on to threaten the h2-pawn.
                     `,
                 }
             ]
@@ -82,7 +82,7 @@ export default {
                         '1k6/ppp2pp1/7p/8/8/7R/PPP2PPP/1K2r3 w - - 0 1',
                     ],
                     text: `
-                        One of the reasons that Rooks belong on open files is that they can often deliver checkmate all by themselves. In this example, black has an active Rook on an open file. Moreover, white has no defense along the 1st rank. Black simply moves the Rook forward all the way to e1 (Re8-e1) to attack the white King. White cannot move its King, capture the Rook on e1, or place a piece between the King and the attacking Rook. It’s checkmate! Experienced players will often head off this attack by moving a pawn forward in front of their Kings; you will be surprised how often this simple attack works.
+                        One of the reasons that Rooks belong on open files is that they can often deliver checkmate all by themselves. In this example, black has an active Rook on an open file. Moreover, white has no defense along the 1st rank. Black simply moves the Rook forward all the way to e1 (Re8-e1) to attack the white King. White cannot move its King, capture the Rook on e1, or place a piece between the King and the attacking Rook. It's checkmate! Experienced players will often head off this attack by moving a pawn forward in front of their Kings; you will be surprised how often this simple attack works.
                     `,
                 },
                 {
@@ -111,7 +111,7 @@ export default {
                         '1k6/ppp2ppQ/3p4/8/8/3P1P2/PPP3PP/1K2r3 w - - 0 1',
                     ],
                     text: `
-                        Here’s another example of why it is so important to double your Rooks on an open file. The black Rooks are dominating the only open file on the board. As you have seen in previous examples, the Rooks will advance to the 7th rank to attack the enemy pawns. Here, however, black has a much stronger plan. The two black Rooks combine to attack the key e1 square.
+                        Here's another example of why it is so important to double your Rooks on an open file. The black Rooks are dominating the only open file on the board. As you have seen in previous examples, the Rooks will advance to the 7th rank to attack the enemy pawns. Here, however, black has a much stronger plan. The two black Rooks combine to attack the key e1 square.
                     `,
                 },
                 {
@@ -124,7 +124,7 @@ export default {
                         '1k6/ppp2ppQ/3p4/8/8/3P1P2/PPP3PP/1K2r3 w - - 0 1',
                     ],
                     text: `
-                        White is defending the square with two Rooks. The attack will work if black can eliminate one of white’s defending Rooks. Black therefore begins with the aggressive Queen sacrifice: The black Queen captures the white Rook on g1, check (Qc5xg1+). White must recapture with the Rook on h1 (Rh1xg1). The result is a simple two-on-one attack on the e1 square. Black moves its e7 Rook to e1 (Re7-e1). White then captures it with its remaining Rook (Rg1xe1). Then black advances its e8 Rook to e1 (Re8-e1#). The white King cannot escape from the final check by the e1-Rook; it’s checkmate.
+                        White is defending the square with two Rooks. The attack will work if black can eliminate one of white's defending Rooks. Black therefore begins with the aggressive Queen sacrifice: The black Queen captures the white Rook on g1, check (Qc5xg1+). White must recapture with the Rook on h1 (Rh1xg1). The result is a simple two-on-one attack on the e1 square. Black moves its e7 Rook to e1 (Re7-e1). White then captures it with its remaining Rook (Rg1xe1). Then black advances its e8 Rook to e1 (Re8-e1#). The white King cannot escape from the final check by the e1-Rook; it's checkmate.
                     `,
                 },
             ],

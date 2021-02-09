@@ -37,7 +37,7 @@ export default {
                         'r1bqkbnr/pppp1ppp/2n5/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR w KQkq - 0 1'
                     ],
                     text: `
-                        In this position, white has broken the rule and posted the white Queen very aggressively on just the second move of the game. At first glance, you might wonder why the move is so bad. After all, the Queen attacks the undefended black pawn on e5. The Queen’s move, however, offers black a simple way to develop effectively. First, black can defend the e5-pawn by developing the Knight on b8 to c6 (Nb8-c6). On the next move, black can simply advance the g-pawn to g6, gaining time by attacking the Queen and getting ready to develop the Knight from g8 to f6 and the Bishop from f8 to g7.
+                        In this position, white has broken the rule and posted the white Queen very aggressively on just the second move of the game. At first glance, you might wonder why the move is so bad. After all, the Queen attacks the undefended black pawn on e5. The Queen's move, however, offers black a simple way to develop effectively. First, black can defend the e5-pawn by developing the Knight on b8 to c6 (Nb8-c6). On the next move, black can simply advance the g-pawn to g6, gaining time by attacking the Queen and getting ready to develop the Knight from g8 to f6 and the Bishop from f8 to g7.
                     `,
                 },
             ],
@@ -64,7 +64,7 @@ export default {
                         'rn1qkbnr/pbppp1pp/1p6/5p2/3PP3/3B4/PPP2PPP/RNBQK1NR w KQkq - 0 1',
                     ],
                     text: `
-                        In this position, white has dominated the center quickly with pawns on d4 and e4 and developed a Bishop, while black has preferred to fianchetto the Queen’s Bishop (see Chapter 5 for more on fianchettos). Seeing an opportunity for a quick attack, black advances the f-pawn to f5 (f7-f5).
+                        In this position, white has dominated the center quickly with pawns on d4 and e4 and developed a Bishop, while black has preferred to fianchetto the Queen's Bishop (see Chapter 5 for more on fianchettos). Seeing an opportunity for a quick attack, black advances the f-pawn to f5 (f7-f5).
                     `,
                 },
                 {
@@ -75,7 +75,7 @@ export default {
                         'rn1qkbnr/p1ppp2p/1p4p1/5P1Q/3P4/3B4/PPP2PbP/RNB1K1NR w KQkq - 0 1'
                     ],
                     text: `
-                        White takes advantage of black’s poor development by capturing the pawn on f5 (e4xf5). At first glance, it would appear that white has made a terrible mistake. After all, black can now capture the white pawn on g2 with the light-squared Bishop (Bb7xg2). That move certainly looks like it will win the white Rook on h1.
+                        White takes advantage of black's poor development by capturing the pawn on f5 (e4xf5). At first glance, it would appear that white has made a terrible mistake. After all, black can now capture the white pawn on g2 with the light-squared Bishop (Bb7xg2). That move certainly looks like it will win the white Rook on h1.
                         However, white has a very powerful response that takes advantage of the undeveloped black King. White plays the Queen to h5, giving check (Qd1-h5+). As you can see, the King cannot move. Black has no choice but to block the check by advancing the g-pawn (g7-g6).
                     `,
                 },
@@ -110,7 +110,7 @@ export default {
                     ],
                     text: `
                         Here, white has castled on the Queenside, while black has castled on the Kingside. White gains an advantage because the white Rook lands on an open file. But the white King has a bit more space to defend. An attack by black on the white a-pawn might require white to move the King again or to advance the a-pawn. And, of course, after castling on the Queenside, the white King is exposed on the c1-h6 diagonal
-                        By contrast, black’s King is slightly safer. The King is not exposed to any checks, and all of black’s Kingside pawns are defended. However, unlike the white Rook, the black Rook is usually not on an open file after castling on the Kingside.
+                        By contrast, black's King is slightly safer. The King is not exposed to any checks, and all of black's Kingside pawns are defended. However, unlike the white Rook, the black Rook is usually not on an open file after castling on the Kingside.
                     `,
                 },
                 {
@@ -128,7 +128,7 @@ export default {
                         'r4rk1/1bqnbppp/p1npp3/6PP/1p1NP3/2N1BP2/PPPQ4/2KR1B1R w Kq - 0 1'
                     ],
                     text: `
-                        Black has castled Kingside here, and is not without possibilities. With black to move, black would likely advance the b-pawn to attack the white Knight (b5-b4). There are good attacking chances for both sides in this position. White will be attempting to coordinate an attack on black’s Kingside with moves like g5-g6 and Qd2-h2. Black must not wait for the attack, but rather move aggressively against the white King with moves such as b5-b4, Rf8-c8, and perhaps Nc6-e5-c4.
+                        Black has castled Kingside here, and is not without possibilities. With black to move, black would likely advance the b-pawn to attack the white Knight (b5-b4). There are good attacking chances for both sides in this position. White will be attempting to coordinate an attack on black's Kingside with moves like g5-g6 and Qd2-h2. Black must not wait for the attack, but rather move aggressively against the white King with moves such as b5-b4, Rf8-c8, and perhaps Nc6-e5-c4.
                     `,
                 },
             ],
@@ -158,7 +158,7 @@ export default {
                         '5rk1/5pp1/5P1p/8/6PP/8/3Q4/6R1 w - - 0 1'
                     ],
                     text: `
-                        In this second example, black has weakened the Kingside by advancing the h-pawn to h6. As a result, white has at least two plans for breaking through. First, white could simply challenge the black h6-pawn by playing g4 to g5. Note that the white h-pawn, the Rook, and the Queen all support the g4 to g5 advance. But let’s consider an interesting alternative. The advance of the black h-pawn has created a short pawn chain. The black h6-pawn is the strong pawn in the chain. By contrast, the black pawn on g7 is the weak pawn in the chain. White might therefore consider the pawn move f5 to f6.
+                        In this second example, black has weakened the Kingside by advancing the h-pawn to h6. As a result, white has at least two plans for breaking through. First, white could simply challenge the black h6-pawn by playing g4 to g5. Note that the white h-pawn, the Rook, and the Queen all support the g4 to g5 advance. But let's consider an interesting alternative. The advance of the black h-pawn has created a short pawn chain. The black h6-pawn is the strong pawn in the chain. By contrast, the black pawn on g7 is the weak pawn in the chain. White might therefore consider the pawn move f5 to f6.
                     `,
                 },
                 {
@@ -167,7 +167,7 @@ export default {
                         '5rk1/5pp1/5P1p/8/6PP/8/3Q4/6R1 w - - 0 1'
                     ],
                     text: `
-                        Black’s movement of the black g7-pawn to g6 or f6 would permit white to capture the h6-pawn with the Queen. If, instead, black advanced the g-pawn to g5, white could pry apart the Kingside with the h4 to g5 pawn capture (h4xg5). And black’s third option of leaving the pawn on g7 would, of course, permit the f6 to g7 pawn capture, (f6xg7). Things don’t look good for black.
+                        Black's movement of the black g7-pawn to g6 or f6 would permit white to capture the h6-pawn with the Queen. If, instead, black advanced the g-pawn to g5, white could pry apart the Kingside with the h4 to g5 pawn capture (h4xg5). And black's third option of leaving the pawn on g7 would, of course, permit the f6 to g7 pawn capture, (f6xg7). Things don't look good for black.
                     `,
                 },
                 {
@@ -175,7 +175,7 @@ export default {
                         '5rk1/5p2/7p/6p1/8/8/4Q2P/1B5R w - - 0 1'
                     ],
                     text: `
-                        In this last example, black has advanced two pawns in front of the King. Again, the weakness of black’s Kingside creates many good options for white. For example, the white Queen might move to d3 or e4 in order to threaten Queen to h7 checkmate. Or the white Queen might move to h5 in order to attack the backward black h-pawn. Or white could simply advance the h-pawn to h4 in an effort to break apart black’s pawn structure.
+                        In this last example, black has advanced two pawns in front of the King. Again, the weakness of black's Kingside creates many good options for white. For example, the white Queen might move to d3 or e4 in order to threaten Queen to h7 checkmate. Or the white Queen might move to h5 in order to attack the backward black h-pawn. Or white could simply advance the h-pawn to h4 in an effort to break apart black's pawn structure.
                     `,
                 },
                 {
@@ -183,7 +183,7 @@ export default {
                         '5rk1/5p2/7p/6p1/8/8/4Q2P/1B5R w - - 0 1'
                     ],
                     text: `
-                        You don’t need to remember all of the details. However, you should remember that moving the pawns in front of a castled King exposes the King to many dangers. Advance those pawns at your own peril.
+                        You don't need to remember all of the details. However, you should remember that moving the pawns in front of a castled King exposes the King to many dangers. Advance those pawns at your own peril.
                     `,
                 },
             ],

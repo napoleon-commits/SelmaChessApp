@@ -4,7 +4,7 @@ export default {
         Many players memorize long opening variations but have little or no
         idea how to proceed once they get to the middle of a game. You already
         know about having good and bad pieces, placing Rooks on open files,
-        placing the Knights in the center where the enemy pawns can’t attack
+        placing the Knights in the center where the enemy pawns can't attack
         them, and trying to avoid bad Bishops. In this chapter, I offer four basic
         principles and strategies that will help you integrate many of these
         ideas.
@@ -16,7 +16,7 @@ export default {
         In the second section, I introduce two important ways of approaching
         your thought process in every chess game. The first, the idea of
         selecting and considering options, at least three “candidate moves,” was
-        popularized in Alexander’s Kotov’s 1971 classic Think Like a Grandmaster.
+        popularized in Alexander's Kotov's 1971 classic Think Like a Grandmaster.
         The idea is simple enough. In every position, consider not one move but
         at least three. Or, as the great player Emanuel Lasker put it, “When you
         see a good move, look for a better one.”
@@ -36,13 +36,13 @@ export default {
                     text: `
                     The first step is simple enough. You will win
                     many games if you train yourself to be aware
-                    of and to quickly identify all of your opponent’s
+                    of and to quickly identify all of your opponent's
                     pawn weaknesses. In this example, the
                     two central black pawns on d6 and e5 form a
                     pawn chain. As you saw in Chapter 6, “Pawn
                     Strategy,” the backward pawn at d6 is the
                     weaker of the two pawns because no pawn
-                    can defend it. Black’s d6-pawn represents a
+                    can defend it. Black's d6-pawn represents a
                     key weakness in the black pawn structure.
                     Having identified the key weakness on d6,
                     you are ready for step 2.
@@ -56,11 +56,11 @@ export default {
                     text: `
                         The second step is quite simple. To prevent
                         black from pushing the d6-pawn to d5, white
-                        must fix black’s weakness by occupying or
+                        must fix black's weakness by occupying or
                         controlling the d5-square.
                         In Chapter 4, “Knight Strategy,” you learned
                         that it is advantageous to place Knights in the
-                        center of the board where they can’t be
+                        center of the board where they can't be
                         attacked by pawns. Here, you can see that it
                         would be helpful to place a Knight—or another
                         piece, for that matter—in the “hole” at d5.
@@ -73,26 +73,26 @@ export default {
                         black were to push the d6-pawn to d5, white
                         would be able to win it. With the Knight on
                         e3, the pawn on d6 has been fixed because
-                        it can’t successfully move without being lost.
+                        it can't successfully move without being lost.
                     `,
                 },
                 {
                     fens: ['8/pp3ppp/3p4/4p3/2P1P3/BP1R4/P2R1PPP/3Q4 w - - 0 1'],
                     text: `
                         Once you have identified and fixed the weakness,
-                        it’s time for step 3: Attack the weakness
+                        it's time for step 3: Attack the weakness
                         with your pieces—not your pawns. In this
                         position, it is clear that white has successfully
-                        arranged an attack on black’s d6-pawn with
+                        arranged an attack on black's d6-pawn with
                         four different pieces, the doubled Rooks on
                         d2 and d3, the Queen on d1, and even the
                         dark-squared Bishop on a3. Notice that
-                        white’s attack has been patient in that the
+                        white's attack has been patient in that the
                         Queen is not leading the charge on d3 but
                         rather is attacking from the rear on d1. Strong
-                        players know that it’s often more effective to
+                        players know that it's often more effective to
                         have the less valuable pieces lead the attack.
-                        As they say in boxing, “Don’t lead with your
+                        As they say in boxing, “Don't lead with your
                         nose.”
                     `,
                 },
@@ -108,16 +108,16 @@ export default {
                         target-pawn first “with the little thing.” What
                         “little thing,” you ask? It depends on the position
                         but it is often a Knight or a Bishop.
-                        In this position, white is still attacking black’s
+                        In this position, white is still attacking black's
                         d6-pawn with four pieces, and black has
                         responded by defending the poor d6-pawn
                         with four pieces—Rd8, Rd7, Be7, and Qb8. As
-                        a result, these pieces aren’t very active.
+                        a result, these pieces aren't very active.
                         Note that, as a result of the first four steps,
                         white has two active Rooks on a semi-open
-                        file, while black’s Rooks are stuck defending
+                        file, while black's Rooks are stuck defending
                         the d6-pawn. White has a good Bishop on a3,
-                        attacking the d6-pawn, while black’s Be7 is
+                        attacking the d6-pawn, while black's Be7 is
                         bad, stuck behind the fixed d6-pawn. Even
                         the white Queen on d1 is more active than its
                         black counterpart on b8.
@@ -126,17 +126,17 @@ export default {
                 {
                     fens: ['1q1r2k1/pp1rbppp/3p4/2P1p3/4P3/BP1R4/P2R1PPP/3Q2K1 w - - 0 1'],
                     text: `
-                        By the time your opponent has completed step 4, he’ll know that there’s trouble ahead. Most or all of your pieces will be
-                        active by focusing their energy on a single fixed point. By contrast, your opponent’s pieces will be relatively weak, defending
+                        By the time your opponent has completed step 4, he'll know that there's trouble ahead. Most or all of your pieces will be
+                        active by focusing their energy on a single fixed point. By contrast, your opponent's pieces will be relatively weak, defending
                         rather than attacking a weakness.
                         For the final step, attack the weakness with a pawn. As you can see in this position, white has simply advanced the c4-pawn
                         to c5 and black is in a quandary. The black d6-pawn has three options. It can capture on c5, push forward to d5, or remain
-                        where it is. We know that the pawn can’t push forward to d5 because it is fixed. On d5, white would have four attacks on the
+                        where it is. We know that the pawn can't push forward to d5 because it is fixed. On d5, white would have four attacks on the
                         pawn while black would have only two defenses (the Rooks).
                         Instead, if black were to capture with d6xc5, white would suddenly have three attacks on the Rd7. Capturing the white pawn
                         would lose a black Rook.
                         Black could do nothing, but white would still have five attacks on the d6-pawn, and black would have only four defenses. On
-                        white’s next move, white would continue with c5xd6, winning the key black pawn.
+                        white's next move, white would continue with c5xd6, winning the key black pawn.
                     `,
                 },
                 {
@@ -156,7 +156,7 @@ export default {
                         Black continues with the strategy by playing Rb8-b4,
                         helping to fix the pawn and preparing to bring the Rc8
                         into the strategy by doubling the Rooks on the b-file.
-                        Understanding black’s strategy, white attempts to bring
+                        Understanding black's strategy, white attempts to bring
                         the King closer to the b-pawn by playing Kf1-e1.
                     `,
                 },
@@ -207,7 +207,7 @@ export default {
                         Finally, the fifth step. Black plays c5-c4, making the
                         fourth attack on the white b-pawn. A pawn capture on
                         c4 not only weakens the white pawn structure, but also
-                        permits Na5xc4+: a Knight fork that attacks white’s Kd2
+                        permits Na5xc4+: a Knight fork that attacks white's Kd2
                         and Ra3. If white does nothing, black will be able to
                         capture and win the b3-pawn.
                     `,
@@ -238,7 +238,7 @@ export default {
                         to weaken the Kingside with h7-h5. White
                         could also try Ng5-e4, which is a strong
                         looking move with the idea of both Ne4-f6
-                        check as well as opening the Bc1’s path to
+                        check as well as opening the Bc1's path to
                         the h6 square.
                         Both plans are legitimate. Although you
                         should keep in mind the principle that
@@ -283,15 +283,15 @@ export default {
                         directly to h6, or white could play Bc1-g5.
                         Both Bishop moves take advantage of the
                         weak dark squares around the King.
-                        White’s move Ne4xBd6 is very tempting
+                        White's move Ne4xBd6 is very tempting
                         because, in the open board, the Bishop has
                         considerable sway. However, the Knight is
                         a powerful piece in the center of the board
                         where, to drive it away, black would have to
-                        play f7-f5, further weakening black’s Kingside.
-                        The most tempting move is white’s Bc1-h6,
+                        play f7-f5, further weakening black's Kingside.
+                        The most tempting move is white's Bc1-h6,
                         but white would lose quickly after this move
-                        with black’s Bb7-c8 attacking the white Queen.
+                        with black's Bb7-c8 attacking the white Queen.
                         In that position, the Queen would be quickly
                         trapped in the center of the board after Qh3-f3 and Bc8-g4.
                         Having seen the trap, white avoids it by first
@@ -303,7 +303,7 @@ export default {
                 {
                     fens: ['r2q1rk1/pb2bp2/1p4p1/3n2Bp/3PN3/3B3Q/P4PPP/R4RK1 w - - 0 1'],
                     text: `
-                        After black’s Bd6-e7, black is threatening
+                        After black's Bd6-e7, black is threatening
                         simply to capture the white Bg5. White therefore
                         has two options: capture the black Be7
                         or play the move Bg5-h6. Fortunately, after
@@ -344,13 +344,13 @@ export default {
                         hard to know exactly where the Rooks belong.
                         White decides to play Qg3-e5, in part because
                         the move is very difficult to meet. After Qg3-e5
-                        black can’t respond with Be7-f6. White would
+                        black can't respond with Be7-f6. White would
                         then play the amazing Qe5xNd5, seeing that
-                        after black’s Qd8xd5, white plays Ne4xBf6
+                        after black's Qd8xd5, white plays Ne4xBf6
                         check, forking the King, the e8-Rook, and the
                         black Queen on d5.
                         Black therefore must block the checkmate
-                        by white’s Queen on g7 by advancing the
+                        by white's Queen on g7 by advancing the
                         f7-pawn to f6, yet another weakening of the
                         black Kingside. In this case, the f7-f6 move
                         weakens the now undefended g6-pawn.
@@ -370,13 +370,13 @@ export default {
                 {
                     fens: ['r1bqr1k1/p3b3/1p3p1B/3n2pp/3PN3/3B2Q1/P4PPP/R4RK1 w - - 0 1'],
                     text: `
-                        White’s strategy has worked very well. As a
-                        result of carefully timed maneuvers, black’s
+                        White's strategy has worked very well. As a
+                        result of carefully timed maneuvers, black's
                         Kingside is in shambles. However, black does
                         suddenly emerge with the idea of trapping
                         the Bh6 behind enemy lines. White could
                         develop one of its Rooks, but to take advantage
-                        of the Bh6’s advanced position, white
+                        of the Bh6's advanced position, white
                         decides to play h2-h4. Note that the pawn on
                         h4 represents the fourth attack on the black
                         g5-pawn. Under such pressure, black has no
@@ -387,7 +387,7 @@ export default {
                     fens: ['r1bqr1k1/p3b3/1p3p1B/3n3p/3PN1pP/3B2Q1/P4PP1/R4RK1 w - - 0 1'],
                     text: `
                         This position represents the culmination of
-                        white’s initial strategy of forcing the black
+                        white's initial strategy of forcing the black
                         Kingside pawns to advance. Having caused
                         the damage, white now considers the next
                         phase: how best to take advantage of the
@@ -400,7 +400,7 @@ export default {
                         such as Bd3-c4 and Qg3-b3. Alternatively,
                         white could begin with Ra1-c1 or Rf1-e1.
                         Another interesting option is Ra1-e1, with the
-                        idea of advancing the f-pawn against black’s
+                        idea of advancing the f-pawn against black's
                         weak pawn structure.
                         White decides on the first plan of Bd3-c4,
                         putting pressure on the white center, pinning
@@ -425,7 +425,7 @@ export default {
                         to retreat the Bishop to d2 where, three
                         squares away from the centralized black
                         Nd5, the Bishop dominates the black Knight.
-                        Fearful of white’s activity and mindful of the
+                        Fearful of white's activity and mindful of the
                         Kingside weaknesses, black responds with
                         Bc8-f5, attacking the undefended Ne4 and
                         immediately taking control over the b1-h7
@@ -439,8 +439,8 @@ export default {
                         white will need to defend it. Qg3-d3 is unacceptable
                         because white would not want to
                         walk into a pin. Retreating the Bc4-d3 blocks
-                        the Queen’s access to the b3 square and the
-                        Bc4’s real idea is to pressure the a2-g8 diagonal.
+                        the Queen's access to the b3 square and the
+                        Bc4's real idea is to pressure the a2-g8 diagonal.
                         White therefore needs to choose between
                         Ra1-e1 or Rf1-e1. Ra1-e1 would probably
                         commit white to using the Rf1 to push the
@@ -454,7 +454,7 @@ export default {
                 {
                     fens: ['r2qr3/p3b2k/1p3pb1/3n3p/2BPN1pP/6Q1/P2B1PP1/R3R1K1 w - - 0 1'],
                     text: `
-                        White’s move is relatively easy this time, with
+                        White's move is relatively easy this time, with
                         Qg3-b3—the most logical move. On b3, the
                         Queen augments the pressure along the a2-g8 diagonal. Black is simply unable to defend
                         the Knight a second time. If, for example, black
@@ -464,7 +464,7 @@ export default {
                         would fall.
                         Black therefore retreats the Nd5 to c7, three
                         squares away from the c4-Bishop, in an effort
-                        to limit the Bishop’s scope.
+                        to limit the Bishop's scope.
                     `,
                 },
                 {
@@ -473,12 +473,12 @@ export default {
                         After 12 moves in this middlegame, white has
                         a substantial advantage. You might imagine
                         continuing with Ra1-c1 or Bc4-f7. Both are
-                        excellent moves. Ra1-c1 places white’s final
-                        undeveloped piece on an open file. White’s
+                        excellent moves. Ra1-c1 places white's final
+                        undeveloped piece on an open file. White's
                         Bc4-f7 takes advantage of the entry square
                         on f7. Note that after Bg6xf7, the white Queen
                         would powerfully infiltrate the black Kingside
-                        on the f7 square. White’s strategy has resulted
+                        on the f7 square. White's strategy has resulted
                         in a nice range of options that gives white by
                         far the best chances to win the game.
                         In the actual game (J. Edwards vs. W. Jones,
@@ -509,14 +509,14 @@ export default {
                     text: `
                         This scenario occurred in the Sicilian Defense
                         after the moves 1.e2-e4 c7-c5, 2.Ng1-f3 Nb8-c6, 3.d2-d4 c5xd4, 4.Nf3xd4 Ng8-f6, 5.Nb1-c3
-                        e7-e5. Black’s last move, e7-e5, threatens on
-                        the next move to capture white’s Nd4. White
+                        e7-e5. Black's last move, e7-e5, threatens on
+                        the next move to capture white's Nd4. White
                         has many options for the Knight, including the
                         retreat to f3, but white prefers to play Nd4-b5,
                         where the Knight will threaten the move
                         Nb5-d6 check. Black responds by stopping
                         that threat with the move d7-d6.
-                        You might recognize that black’s central pawn
+                        You might recognize that black's central pawn
                         structure contains a weakness on d6 and a
                         central hole on d5. White would like to play
                         the move Nc3-d5 but the Nd5 would be captured
@@ -548,7 +548,7 @@ export default {
                 {
                     fens: ['r1bqkb1r/1p3ppp/p1np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 1'],
                     text: `
-                        White’s Nb5 is now under attack and has only
+                        White's Nb5 is now under attack and has only
                         one logical retreat. White could play Bg5xf6,
                         meeting the threat on the Nb5 with a larger
                         threat, but black might simply recapture with
@@ -580,10 +580,10 @@ export default {
                         Nd5. To advance in chess, watch carefully for
                         such threats. Strong chess players develop
                         a finely honed sense of danger. Before you
-                        move, always ask: “Does my opponent’s
+                        move, always ask: “Does my opponent's
                         last move contain a threat?” If so, your move
                         should either stop the threat or, even better,
-                        you should look for a threat that’s even bigger.
+                        you should look for a threat that's even bigger.
                     `,
                 },
                 {
@@ -606,7 +606,7 @@ export default {
                     fens: ['r1b1k2r/ppp2pp1/2np2qp/2bNp3/2B1P3/3P1N2/PPP2PPP/R2QK2R w KQkq - 0 1'],
                     text: `
                         The move Qf6-g6 may surprise you, and you
-                        might wonder where black’s threat is. Let’s
+                        might wonder where black's threat is. Let's
                         take a look. If white is insensitive to the danger,
                         white might continue with Nd5xc7 check.
                         In check, black would move the King to d8.
@@ -625,12 +625,12 @@ export default {
                 {
                     fens: ['N1b1k2r/pp3pp1/2np3p/2b1p3/2B1P3/3P1N2/PPP2PqP/R2QK2R w KQk - 0 1'],
                     text: `
-                        The power of black’s idea is now clear. On g2,
+                        The power of black's idea is now clear. On g2,
                         the Queen threatens both the white Rh1 as
                         well as Qg2xf2 checkmate! To prevent both
                         threats, white must move the Rh1-f1. Black
                         would likely respond with the powerful move
-                        Bc8-g4, pinning and soon winning white’s Nf3.
+                        Bc8-g4, pinning and soon winning white's Nf3.
                     `,
                 },
                 {
@@ -650,14 +650,14 @@ export default {
                 {
                     fens: ['3b2rk/1p5p/p1p1p2q/2Pn1pr1/PPBPp3/4P1PP/3B1Q1K/3R2R1 w - - 0 1'],
                     text: `
-                        In this position, black’s advantage is pronounced.
+                        In this position, black's advantage is pronounced.
                         The Nd5 is in the center the board
-                        where it can’t be attacked by white’s pawns.
-                        White’s dark-squared Bishop on d2 is bad,
+                        where it can't be attacked by white's pawns.
+                        White's dark-squared Bishop on d2 is bad,
                         locked in by its own pawns. By contrast, the
                         black Bishop on d8 will have an important
-                        role to play in black’s attack on the Kingside.
-                        Note that black’s Rooks are actively doubled
+                        role to play in black's attack on the Kingside.
+                        Note that black's Rooks are actively doubled
                         on the g-file and the Qh6 is bearing down on
                         the white Kingside.
                         In an effort to relieve some of the pressure in

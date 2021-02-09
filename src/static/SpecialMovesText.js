@@ -1,7 +1,7 @@
 export default {
     header: `Special Moves`,
     body: `
-        Like many other games, chess has some special moves. There are checks that attack the enemy King, checkmates that are checks from which the enemy King cannot escape, and stalemates—an end to the game in which the enemy is not in check but has no legal moves. There are discovered checks and double checks. You can transform (promote) your pawns into Queens or even under-promote your pawns to become Knights, Bishops, or Rooks. Castling permits you to move your King and Rook at the same time. And there’s a special capture called en passant reserved just for the pawns. This chapter explains all these moves and helps you understand how you can use them to improve your play.
+        Like many other games, chess has some special moves. There are checks that attack the enemy King, checkmates that are checks from which the enemy King cannot escape, and stalemates—an end to the game in which the enemy is not in check but has no legal moves. There are discovered checks and double checks. You can transform (promote) your pawns into Queens or even under-promote your pawns to become Knights, Bishops, or Rooks. Castling permits you to move your King and Rook at the same time. And there's a special capture called en passant reserved just for the pawns. This chapter explains all these moves and helps you understand how you can use them to improve your play.
     `,
     items: [
         {
@@ -56,7 +56,7 @@ export default {
                 {
                     fens: ['3k4/3P4/3K4/8/8/8/8/8 w - - 0 1'],
                     text: `
-                        The most exciting form of a draw is the stalemate. On a player’s turn, if he or she is not in check and cannot make a legal move, this is a stalemate—neither side wins.In this position, it is black’s move. The black King is not in check, and it has no legal moves.
+                        The most exciting form of a draw is the stalemate. On a player's turn, if he or she is not in check and cannot make a legal move, this is a stalemate—neither side wins.In this position, it is black's move. The black King is not in check, and it has no legal moves.
                     `,
                 },
                 {
@@ -82,7 +82,7 @@ export default {
                         '8/8/8/8/6p1/6rk/7n/7K w - - 0 1'
                     ],
                     text: `
-                        However, it is white’s move. White surprises black by moving the Rook on a2 to h2, check (Ra2-h2+). At first glance, the move looks terrible because black can simply capture the white Rook with the Knight. But after the Knight on f3 captures the Rook (Nf3xh2), the result is a stalemate. The white King is not in check but cannot move.
+                        However, it is white's move. White surprises black by moving the Rook on a2 to h2, check (Ra2-h2+). At first glance, the move looks terrible because black can simply capture the white Rook with the Knight. But after the Knight on f3 captures the Rook (Nf3xh2), the result is a stalemate. The white King is not in check but cannot move.
                     `,
                 },
                 {
@@ -90,7 +90,7 @@ export default {
                         '8/8/8/8/8/8/8/8 w - - 0 1'
                     ],
                     text: `
-                        The most common type of draw is by agreement. At any time in a game, you can offer a draw to your opponent. Be mindful of good etiquette, however. Don’t offer a draw on every move! Most chess players consider that to be rude.
+                        The most common type of draw is by agreement. At any time in a game, you can offer a draw to your opponent. Be mindful of good etiquette, however. Don't offer a draw on every move! Most chess players consider that to be rude.
                     `,
                 },
                 {
@@ -138,7 +138,7 @@ export default {
                         '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
                     ],
                     text: `
-                        White is considering a Rook move from e4 to h4, putting black in checkmate, but it’s black’s move.
+                        White is considering a Rook move from e4 to h4, putting black in checkmate, but it's black's move.
                     `,
                 },
                 {
@@ -176,7 +176,7 @@ export default {
                         '8/8/8/8/8/8/8/8 w - - 0 1'
                     ],
                     text: `
-                        And then there’s the merciful 50-move rule. If both players have made their last 50 consecutive moves without moving a pawn and without making a capture, either player can claim a draw. Obviously, you will need to have kept an accurate score sheet to make this claim! In this example from a real game, white just moved the Rook from e3 to e4 (Re3-e4) and used the 50-rule move to claim a draw. This particular game lasted a total of 170 moves.
+                        And then there's the merciful 50-move rule. If both players have made their last 50 consecutive moves without moving a pawn and without making a capture, either player can claim a draw. Obviously, you will need to have kept an accurate score sheet to make this claim! In this example from a real game, white just moved the Rook from e3 to e4 (Re3-e4) and used the 50-rule move to claim a draw. This particular game lasted a total of 170 moves.
                     `,
                 },
             ],
@@ -331,7 +331,7 @@ export default {
                         '2R5/8/8/4kpp1/8/1P3KP1/r3pP2/8 w - - 0 1',
                     ],
                     text: `
-                        Under-promotion is rare, but it’s always fun when it occurs. Here, with black to move, black dares not promote the pawn on e2 to a Queen because white will quickly respond by moving its Rook on b8 to e8 (Rb8-e8+), checking the black King, and, on the next move, capturing the new Queen on e1.
+                        Under-promotion is rare, but it's always fun when it occurs. Here, with black to move, black dares not promote the pawn on e2 to a Queen because white will quickly respond by moving its Rook on b8 to e8 (Rb8-e8+), checking the black King, and, on the next move, capturing the new Queen on e1.
                     `,
                 },
                 {
@@ -351,7 +351,7 @@ export default {
                         '2R5/8/8/4kpp1/8/1P2K1P1/r4P2/4n3 w - - 0 1',
                     ],
                     text: `
-                        The Rook on a2 controls the squares on the 2nd rank. And the black King controls d4, e4, and f4. Black should therefore attack the trapped King by advancing the f-pawn from f5 to f4 (f5-f4). That’s check, with mate to follow on the next move (after two pawn captures on f4)!
+                        The Rook on a2 controls the squares on the 2nd rank. And the black King controls d4, e4, and f4. Black should therefore attack the trapped King by advancing the f-pawn from f5 to f4 (f5-f4). That's check, with mate to follow on the next move (after two pawn captures on f4)!
                     `,
                 },
             ],
@@ -392,7 +392,7 @@ export default {
                         '8/6bq/8/8/8/7b/8/R3K2R w - - 0 1'
                     ],
                     text: `
-                        In this diagram, white is not in check but cannot castle on the Kingside because the black Bishop on h3 controls the f1 square through which the King would have to move. White is permitted to castle Queenside despite the fact that black’s Bishop on g7 is attacking the Rook on a1 and the black Queen on h7 is attacking the b1 square through which the white Rook would move.
+                        In this diagram, white is not in check but cannot castle on the Kingside because the black Bishop on h3 controls the f1 square through which the King would have to move. White is permitted to castle Queenside despite the fact that black's Bishop on g7 is attacking the Rook on a1 and the black Queen on h7 is attacking the b1 square through which the white Rook would move.
                     `,
                 },
             ],
@@ -427,8 +427,8 @@ export default {
                         '7k/7P/pP5K/8/8/8/8/8 w - - 0 1',
                     ],
                     text: `
-                    In this position, it is black’s move. The black King
-                    has no legal moves. In fact, black’s only legal move
+                    In this position, it is black's move. The black King
+                    has no legal moves. In fact, black's only legal move
                     is with the black b7-pawn. If black advances its pawn two squares from b7 to b5, white has a very strong response with the en passant capture, a5xb6.
                     `,
                 },

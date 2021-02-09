@@ -13,7 +13,7 @@ export default {
                 {
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
-                        This chessboard is typical of those on which you will play. To set up the board correctly, place it so that a dark square is in the lower-left corner. Or, as chess players like to say, “It’s white on the right.”
+                        This chessboard is typical of those on which you will play. To set up the board correctly, place it so that a dark square is in the lower-left corner. Or, as chess players like to say, “It's white on the right.”
                         Some boards are labeled with letters (a–h) and numbers (1–8) in the margins. Others are blank. It is perfectly fine to play with a board that does not have these letters and numbers in the margins. They are there to help you talk about the board, to name each square, and to emphasize certain features. In this book, we use a labeled board so you can easily identify the pieces and moves discussed.
                     `,
                 },
@@ -45,7 +45,7 @@ export default {
                 {
                     fens: ['8/8/8/8/3Q4/8/8/8 w - - 0 1'],
                     text: `
-                        The Queen is considered the most powerful piece in terms of its ability to move around the board. Each player has one at the beginning of the game, though you will see, it’s possible to get more! Queens are abbreviated with the letter Q.
+                        The Queen is considered the most powerful piece in terms of its ability to move around the board. Each player has one at the beginning of the game, though you will see, it's possible to get more! Queens are abbreviated with the letter Q.
                     `,
                 },
                 {
@@ -81,7 +81,7 @@ export default {
                     fens: ['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'],
                     text: `
                         The Rooks begin the game in the corners. The Knights (many beginning players call them horses) are next. The Bishops start the game next to the Knights. Finally, the Queen and King fill in the remaining squares on the 1st and 8th ranks. The Queen will always start on its own color. Note that the white Queen is on a white square. The black Queen is on a dark square.
-                        Don’t forget the pawns; all eight of them are ready to start the charge. At the beginning of the game, the eight white and eight black pawns form a line just in front of the white and black pieces, across the 2nd and 7th ranks, respectively.
+                        Don't forget the pawns; all eight of them are ready to start the charge. At the beginning of the game, the eight white and eight black pawns form a line just in front of the white and black pieces, across the 2nd and 7th ranks, respectively.
                     `,
                 },
                 {
@@ -92,7 +92,7 @@ export default {
                     text: `
                         Chess is played between two players, one in control of the white pieces and one in control of the black pieces. White always has the first move.
                         To decide who gets white and who gets black, it is customary for one player to hide a white and black pawn in each hand. The other player then picks a hand. Whoever picks or is left with the white pawn will get the white pieces and will move first.
-                        In the second diagram, white is advancing one of its pawns by moving it forward two squares. As you will soon see, this pawn move helps control the key squares in the very center of the chessboard and permits one of white’s Bishops as well as the white Queen to move out.
+                        In the second diagram, white is advancing one of its pawns by moving it forward two squares. As you will soon see, this pawn move helps control the key squares in the very center of the chessboard and permits one of white's Bishops as well as the white Queen to move out.
                     `,
                 },
             ],
@@ -110,13 +110,13 @@ export default {
                     fens: ['8/8/8/4P3/3pK3/5p2/8/8 w - - 0 1'],
                     text: `
                         Here, only two squares are forbidden to the white King. The King cannot move to a square already occupied by its own pawn, and the King cannot move to the square marked with a red X. The white King is not permitted to move there because one of the black pawns controls that square (see page 16 to learn how the pawns move and capture).
-                        White has several interesting options. White can capture either black pawn (to capture, white would simply remove the pawn from the board, placing the King on the square that the pawn occupied). It’s fun to practice such captures. Masters have become adept at moving and snatching a piece in one fluid motion.
+                        White has several interesting options. White can capture either black pawn (to capture, white would simply remove the pawn from the board, placing the King on the square that the pawn occupied). It's fun to practice such captures. Masters have become adept at moving and snatching a piece in one fluid motion.
                     `,
                 },
                 {
                     fens: ['8/8/4k3/8/4K3/8/8/8 w - - 0 1'],
                     text: `
-                        In this position, both Kings are facing each other. Neither King can move next to the other King. Simply put, a King may never move next to another King. To do so would be illegal because the other King controls those squares. It’s an important point. Both Kings “control” the same three squares!
+                        In this position, both Kings are facing each other. Neither King can move next to the other King. Simply put, a King may never move next to another King. To do so would be illegal because the other King controls those squares. It's an important point. Both Kings “control” the same three squares!
                     `,
                 },
             ],
@@ -163,7 +163,7 @@ export default {
                         '8/8/8/5N2/8/1B6/8/8 w - - 0 1'
                     ],
                     text: `
-                        As you can see, the white Knight can capture the black Rook but cannot occupy the same square as the white Bishop. Remember, two pieces can never occupy the same square. Some players have some difficulty with a Knight’s movement. Keep in mind that a Knight on a dark square, as in this diagram, will only be able to move to light squares. And of course, a Knight on a light square will only be able to move to dark squares.
+                        As you can see, the white Knight can capture the black Rook but cannot occupy the same square as the white Bishop. Remember, two pieces can never occupy the same square. Some players have some difficulty with a Knight's movement. Keep in mind that a Knight on a dark square, as in this diagram, will only be able to move to light squares. And of course, a Knight on a light square will only be able to move to dark squares.
                     `,
                 },
                 {
@@ -216,20 +216,20 @@ export default {
                 {
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
-                        Using the names of the squares helps us to discuss the board in a very simple, clear manner. For example, in this position, the white Queen is on b1, the black Queen is on e5, and a black Bishop is on d7. White has pawns on c3 and c4. Take a moment to locate them. As you will see, it’s very easy.
-                        A numeral and period at the beginning of a notation indicates the move number. For example, in the game shown here, white’s first move was pawn e2 to e4. This is notated 1.e2-e4. You will see this type of notation starting in Chapter 8, “Opening Strategy.”
+                        Using the names of the squares helps us to discuss the board in a very simple, clear manner. For example, in this position, the white Queen is on b1, the black Queen is on e5, and a black Bishop is on d7. White has pawns on c3 and c4. Take a moment to locate them. As you will see, it's very easy.
+                        A numeral and period at the beginning of a notation indicates the move number. For example, in the game shown here, white's first move was pawn e2 to e4. This is notated 1.e2-e4. You will see this type of notation starting in Chapter 8, “Opening Strategy.”
                     `,
                 },
                 {
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
-                        Notation also permits us to talk about the movement of pieces. Remember, pieces are abbreviated as follows: K for King, Q for Queen, B for Bishop, N for Knight, and R for Rook (there isn’t an abbreviation for pawn). 
+                        Notation also permits us to talk about the movement of pieces. Remember, pieces are abbreviated as follows: K for King, Q for Queen, B for Bishop, N for Knight, and R for Rook (there isn't an abbreviation for pawn). 
                     `,
                 },
                 {
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
-                        For a refresher on these abbreviations, see “Pieces and Pawns at a Glance” on page 8. In this position, white has just moved the Queen from d1 to b1. In this book, I use the long form of the notation, “Qd1-b1,” but many chess players abbreviate the move with “Qb1.” As a result of white’s move, the white Queen on b1 is suddenly attacking the black pawn on b6. As you can see, it’s not very hard to find the black b6-pawn. To defend the b6-pawn, black might now play Re8-b8, moving the black Rook from the e8-square to b8.
+                        For a refresher on these abbreviations, see “Pieces and Pawns at a Glance” on page 8. In this position, white has just moved the Queen from d1 to b1. In this book, I use the long form of the notation, “Qd1-b1,” but many chess players abbreviate the move with “Qb1.” As a result of white's move, the white Queen on b1 is suddenly attacking the black pawn on b6. As you can see, it's not very hard to find the black b6-pawn. To defend the b6-pawn, black might now play Re8-b8, moving the black Rook from the e8-square to b8.
                     `,
                 },
                 {

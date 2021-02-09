@@ -2,17 +2,17 @@ export default {
     header: 'Elementary Checkmates',
     body: `
         To win a chess game, you must deliver a checkmate (or mate, for
-        short)—placing your opponent’s King in check with the King having no
+        short)—placing your opponent's King in check with the King having no
         legal move. In this chapter, you will be able to explore all the most basic
         checkmates. As you will see, some of these checkmates are very simple.
-        In fact, if you’re clever enough to Queen a pawn, the checkmate with
+        In fact, if you're clever enough to Queen a pawn, the checkmate with
         two Queens against a lone King is easy and fun to do. The other checkmates
         in this chapter are somewhat more challenging, but with a bit of
-        practice, you’ll be able to deliver checkmate with just a Rook or even
+        practice, you'll be able to deliver checkmate with just a Rook or even
         with a King, Bishop, and Knight.
         You will also learn to recognize when there is insufficient material
-        to deliver a checkmate. That way, you won’t play on and on, trying to do
-        the impossible. Or perhaps when you’re trailing, you will be able to
+        to deliver a checkmate. That way, you won't play on and on, trying to do
+        the impossible. Or perhaps when you're trailing, you will be able to
         reach such an endgame and avoid a loss.
     `,
     items: [
@@ -152,7 +152,7 @@ export default {
                         check, driving the King to the edge on h4. White then
                         follows with the Qe5-g5 checkmate. The Queen and
                         Rook are defending each other while covering all of the
-                        King’s possible retreats.
+                        King's possible retreats.
                     `,
                 },
             ],
@@ -225,7 +225,7 @@ export default {
                     ],
                     text: `
                         Here is the simplest of the checkmates with a Queen and a King. Notice that the Qd7 is smothering the black King against
-                        the top edge of the board. Simply put, the Queen is attacking the King and covering all the black King’s possible retreats.
+                        the top edge of the board. Simply put, the Queen is attacking the King and covering all the black King's possible retreats.
                         Moreover, the black King cannot capture the Queen because the Qd7 is defended by the white King.
                     `,
                 },
@@ -346,11 +346,11 @@ export default {
                         '6k1/8/6K1/8/8/8/8/5R2 w - - 0 1',
                     ],
                     text: `
-                        Here, if it were black’s move, the black
+                        Here, if it were black's move, the black
                         King would have only one move—Kg8-h8.
                         White would then checkmate with Rf7-f8 as
                         we have seen.
-                        But if it is white’s move, white wants to make
+                        But if it is white's move, white wants to make
                         sure that the black King does not escape to
                         the Queenside. White therefore plays Rf7-f1.
                         Actually, any backward movement of the Rook
@@ -378,7 +378,7 @@ export default {
                     ],
                     text: `
                         Checkmating with a King and Rook is easy once the King is in the corner.
-                        Here’s how you can force the enemy King into the corner. Notice that the
+                        Here's how you can force the enemy King into the corner. Notice that the
                         white Re5 has already placed the black King in a box. The Rook controls
                         e6, e7, and e8, as well as the key squares on the 5th rank: f5, g5, and h5.
                         The black King is trapped inside those squares and has only nine squares
@@ -466,7 +466,7 @@ export default {
                     text: `
                         There are many ways to proceed in this position. White would like to drive
                         the black King toward the top edge of the board and then walk the King
-                        into one of the corners. Black would like to try to run away from white’s
+                        into one of the corners. Black would like to try to run away from white's
                         King and Bishop and therefore might try Ke7-d7. White therefore begins
                         with 1.Be4-f5 to prevent black from moving to d7. Black continues to try
                         to escape toward the a-file with Ke7-d8.
@@ -491,7 +491,7 @@ export default {
                         '8/5k2/3K4/5BB1/8/8/8/8 w - - 0 1',
                     ],
                     text: `
-                        Here, white’s move Bf4-g5 captures control over the d8-square and prevents
+                        Here, white's move Bf4-g5 captures control over the d8-square and prevents
                         the black King from moving toward the Queenside. Black responds
                         by moving off the 8th rank with Ke8-f7 to try to hold on to as much territory
                         as possible.
@@ -528,7 +528,7 @@ export default {
                     ],
                     text: `
                         White regains control over the e8-square, forcing the black King toward
-                        the corner with Bf5-g6+. To get out of check, black’s King makes its only
+                        the corner with Bf5-g6+. To get out of check, black's King makes its only
                         legal move, Ke8-f8.
                     `,
                 },
@@ -539,7 +539,7 @@ export default {
                         '6k1/8/4K1BB/8/8/8/8/8 w - - 0 1',
                     ],
                     text: `
-                        White’s dark-squared Bishop moves aggressively to h6 to control both the
+                        White's dark-squared Bishop moves aggressively to h6 to control both the
                         f8 and g7 squares. Black again makes the only legal move it has, Kf8-g8.
                     `,
                 },
@@ -575,7 +575,7 @@ export default {
                     ],
                     text: `
                         The movement back and forth is not a threefold repetition because
-                        white’s moves have been different. Indeed, white continues to make
+                        white's moves have been different. Indeed, white continues to make
                         progress, with the King having reached the key g6-square. Black retreats
                         again to h8.
                     `,
@@ -587,7 +587,7 @@ export default {
                         '6k1/6B1/6K1/8/4B3/8/8/8 w - - 0 1',
                     ],
                     text: `
-                        White moves Bh6-g7 for check and is very close to checkmate. White’s
+                        White moves Bh6-g7 for check and is very close to checkmate. White's
                         Bg7+ move forces the black King back to g8 where, suddenly, it has no
                         moves.
                     `,
@@ -598,7 +598,7 @@ export default {
                         '6k1/6B1/6K1/3B4/8/8/8/8 w - - 0 1',
                     ],
                     text: `
-                        White’s Be4-d5 is a pretty checkmate.
+                        White's Be4-d5 is a pretty checkmate.
                     `,
                 },
             ],
@@ -625,7 +625,7 @@ export default {
                     ],
                     text: `
                         Be5-f6 prevents the black King from moving to d8 and toward the wrong
-                        corner. Black’s response to f8 is black’s only legal move.
+                        corner. Black's response to f8 is black's only legal move.
                     `,
                 },
                 {

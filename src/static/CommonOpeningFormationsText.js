@@ -103,7 +103,7 @@ export default {
                 {
                     fens: ['q1r3k1/1brnbppp/pp1ppn2/8/2PNP3/1PN2P2/P3QBPP/1BR1R1K1 w - - 0 1'],
                     text: `
-                        One of the best features of the Hedgehog is that there are no meaningful pawn weaknesses in the black camp. To reach the Hedgehog structure, black can play a Sicilian against 1.e2-e4. When white plays d2-d4, black should capture the pawn so long as a Knight or a Queen will recapture. Black usually begins to set up the Hedgehog structure with e7-e6, a7-a6, d7-d6, Ng8-f6, Nb8-d7, and often Qd8-c7. The Bishops then move to e7 and b7 and, after castling, black will play Ra8-c8. The Queen on c7 “tucks” to b8 and perhaps to a8, where it is very safe from attack, and plays an important role in attacking the white center.
+                        One of the best features of the Hedgehog is that there are no meaningful pawn weaknesses in the black camp. To reach the Hedgehog structure, black can play a Sicilian against 1.e2-e4. When white plays d2-d4, black should capture the pawn so long as a Knight or a Queen will recapture. Black usually begins to set up the Hedgehog structure with e7-e6, a7-a6, d7-d6, Ng8-f6, Nb8-d7, and often Qd8-c7. The Bishops then move to e7 and b7 and, after castling, black will play Ra8-c8. The Queen on c7 "tucks" to b8 and perhaps to a8, where it is very safe from attack, and plays an important role in attacking the white center.
                     `,
                 },
                 {
@@ -151,7 +151,7 @@ export default {
                 {
                     fens: ['r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/2KR1B1R w Kq - 0 1'],
                     text: `
-                        The position is “double-edged” because
+                        The position is "double-edged" because
                         white also has a plan to slay the Dragon. White has two ideas here. The pawn-led attack involves g2-g4 and then h2-h4-h5, an effort to pry open the h-file for the Rook on h1 and perhaps also the Queen after Qd2-h2.
                     `,
                 },
@@ -187,7 +187,7 @@ export default {
                     ],
                     text: `
                         White prefers to push with 4.e4-e5 in order
-                        to imprison black's bad light-squared Bishop on c8. The pawn chain that emerges has the strong pawn on e5 but also the weak pawn on d4. Black therefore plays the move 4.c7-c5 in an effort to disrupt white's pawn chain. White now “puts the question” to the black Bb4 with 5.a2-a3. After all, the Bishop moved early and is now being forced to move again.
+                        to imprison black's bad light-squared Bishop on c8. The pawn chain that emerges has the strong pawn on e5 but also the weak pawn on d4. Black therefore plays the move 4.c7-c5 in an effort to disrupt white's pawn chain. White now "puts the question" to the black Bb4 with 5.a2-a3. After all, the Bishop moved early and is now being forced to move again.
                     `,
                 },
                 {

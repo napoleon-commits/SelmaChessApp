@@ -3,7 +3,7 @@ export default {
     body: `
         The beginning moves of a chess game, the first phase of the game, are called the opening. Some players spend years memorizing long opening variations, but you can get far in chess with a firm understanding of just a few key principles. Make sure that you fight for control of the center of the board. In your fight for the center, try to limit the number of your pawn moves. Before you attack, try to develop most of your pieces on squares that help control the center and from which they can't easily be attacked. In other words, pick safe, good squares for your pieces, and don't keep moving one piece if you have many other pieces that have not been moved.
         Of course, don't play like a robot. You can have a good plan or idea for where all your pieces may go, but carefully watch the moves that your opponent makes. If your opponent makes a move that threatens something, it's often best to eliminate that threat before you continue with your development. Most of the openings in this section conform to these principles. I have also included a set of bad openings that break these rules. As you will see, there are good reasons to avoid such moves.
-        One more thing: In previous chapters, I described moves with both text (move the Knight on b4 to c2) and with chess notation (Nb4-c2). In this chapter through the end of the book, you'll see that I mainly use chess notation to identify pieces and to describe moves. Review the “Chess Notation” section in Chapter 1 for a refresher on this notation.
+        One more thing: In previous chapters, I described moves with both text (move the Knight on b4 to c2) and with chess notation (Nb4-c2). In this chapter through the end of the book, you'll see that I mainly use chess notation to identify pieces and to describe moves. Review the "Chess Notation" section in Chapter 1 for a refresher on this notation.
     `,
     items: [
         {
@@ -126,7 +126,7 @@ export default {
                         'r1bqkbnr/2pp1ppp/p1n5/1p2p3/3PP3/1BP2NN1/PP3PPP/R1BQK2R w KQkq - 0 1',
                     ],
                     text: `
-                        To get to the g3 square, the Knight followed the interesting path Nb1-d2-f1-g3, a very common maneuver in the Ruy Lopez. Finally, note that black “kicked” the white Bishop on b5 back to b3 with both a7 to a6 and then with b7 to b5. This Bishop is sometimes called the Ruy Bishop. If white succeeds in advancing the center pawns, this Bishop can become a very powerful force in assisting attacks on black's Kingside. If the central pawns become fixed, this “Ruy Bishop” could remain bad.
+                        To get to the g3 square, the Knight followed the interesting path Nb1-d2-f1-g3, a very common maneuver in the Ruy Lopez. Finally, note that black "kicked" the white Bishop on b5 back to b3 with both a7 to a6 and then with b7 to b5. This Bishop is sometimes called the Ruy Bishop. If white succeeds in advancing the center pawns, this Bishop can become a very powerful force in assisting attacks on black's Kingside. If the central pawns become fixed, this "Ruy Bishop" could remain bad.
                     `,
                 },
                 {
@@ -317,7 +317,7 @@ export default {
                         'rn1qkbnr/pp2pppp/2p3b1/8/3P4/6N1/PPP2PPP/R1BQKBNR w KQkq - 0 1',
                     ],
                     text: `
-                        Note that, in this position after the white Knight plays Ne4-g3 and the black Bishop moves Bf5-g6, the black Bishop winds up three squares away from the white Knight. As you saw in Chapter 5, “Bishop Strategy,” Bishops can dominate Knights in this manner. A typical white plan from this position involves the idea of a quick flank attack with h2-h4, threatening to trap the Bg6 with h4-h5. Black can respond by making “luft” (the German word for space) for its Bishop with h7-h6.
+                        Note that, in this position after the white Knight plays Ne4-g3 and the black Bishop moves Bf5-g6, the black Bishop winds up three squares away from the white Knight. As you saw in Chapter 5, "Bishop Strategy," Bishops can dominate Knights in this manner. A typical white plan from this position involves the idea of a quick flank attack with h2-h4, threatening to trap the Bg6 with h4-h5. Black can respond by making "luft" (the German word for space) for its Bishop with h7-h6.
                     `,
                 },
                 {

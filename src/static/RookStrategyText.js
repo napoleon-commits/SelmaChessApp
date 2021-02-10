@@ -38,7 +38,7 @@ export default {
                         '1k2r3/pppprppp/8/8/8/8/8/8 w - - 0 1',
                     ],
                     text: `
-                        In this final example, black has both Rooks but only a single open file. You can begin by moving one of the Rooks to the e-file. Of course, that Rook will be a “good” Rook, while the other will remain “bad.” To make both Rooks good, move the Rook at e8 forward, perhaps to e7 or e6. This advance will make room for the other Rook. Complete your Rook maneuver by moving the other Rook to e8. This is called “doubling Rooks” (see the next photo for the resulting doubling Rook position).
+                        In this final example, black has both Rooks but only a single open file. You can begin by moving one of the Rooks to the e-file. Of course, that Rook will be a "good" Rook, while the other will remain "bad." To make both Rooks good, move the Rook at e8 forward, perhaps to e7 or e6. This advance will make room for the other Rook. Complete your Rook maneuver by moving the other Rook to e8. This is called "doubling Rooks" (see the next photo for the resulting doubling Rook position).
                     `,
                 },
                 {

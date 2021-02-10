@@ -33,13 +33,13 @@ export default {
                 {
                     fens: ['3N4/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
-                        By contrast, if you place the Knight on the side of the board, the Knight will have access to only four squares. In this case, the Knight on d8 can move only to b7, c6, e6, and f7. That's why we say that “a Knight on the rim is grim.”
+                        By contrast, if you place the Knight on the side of the board, the Knight will have access to only four squares. In this case, the Knight on d8 can move only to b7, c6, e6, and f7. That's why we say that "a Knight on the rim is grim."
                     `,
                 },
                 {
                     fens: ['7n/8/8/8/8/8/N7/8 w - - 0 1'],
                     text: `
-                        In this position, the white Knight on the a2 square has access to only three squares: b4, c3, and c1. The black Knight in the corner on h8 can move only to two light squares: f7 and g6. There's a rhyme for that too: “A Knight in the corner makes you a mourner.”
+                        In this position, the white Knight on the a2 square has access to only three squares: b4, c3, and c1. The black Knight in the corner on h8 can move only to two light squares: f7 and g6. There's a rhyme for that too: "A Knight in the corner makes you a mourner."
                     `,
                 }
             ],
@@ -66,7 +66,7 @@ export default {
                         '8/8/3p4/3Np3/4P3/8/8/8 w - - 0 1',
                     ],
                     text: `
-                        In this example , the white Knight is on its starting g1-square. The advance of black's central pawns has created a “hole” in black's pawn structure on the d5 square. Note that the black pawns will not be able to attack or capture the white Knight if it's on d5, and from the d5 hole, the Knight would help to control eight squares. On d5, the Knight would be able to assist a Kingside attack or possibly deliver forks on the c7 square (imagine a black Rook on a8 and the black King on e8). To learn about forks, see “Knight Forks Are Fun!,” on the next page. The arrows show the fastest and safest path for the Knight to follow to reach the key d5 square in this scenario: g1-e2-c3-d5.
+                        In this example , the white Knight is on its starting g1-square. The advance of black's central pawns has created a "hole" in black's pawn structure on the d5 square. Note that the black pawns will not be able to attack or capture the white Knight if it's on d5, and from the d5 hole, the Knight would help to control eight squares. On d5, the Knight would be able to assist a Kingside attack or possibly deliver forks on the c7 square (imagine a black Rook on a8 and the black King on e8). To learn about forks, see "Knight Forks Are Fun!," on the next page. The arrows show the fastest and safest path for the Knight to follow to reach the key d5 square in this scenario: g1-e2-c3-d5.
                     `,
                 }
             ],

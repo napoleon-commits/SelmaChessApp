@@ -189,7 +189,7 @@ export default {
                 {
                     fens: ['r1bq4/pppp1kpp/2n2n2/2b1p3/4P3/3P4/PPP2PPP/RNBQK2R w KQ - 0 1'],
                     text: `
-                        By clear contrast, white's development has suffered. Both Rooks, the Knight, the Bishop, and the Queen are—as masters like to say— still “in the box;” they haven't moved from their starting positions. White has made very little progress, while black has an excellent plan to activate every piece.
+                        By clear contrast, white's development has suffered. Both Rooks, the Knight, the Bishop, and the Queen are—as masters like to say— still "in the box;" they haven't moved from their starting positions. White has made very little progress, while black has an excellent plan to activate every piece.
                         The cause of this catastrophe for white was the premature attack on f7. Rather than lash out by moving the same piece three times in the opening, white should simply have tried to develop slowly, bringing out all or most of the pieces before commencing the attack.
                     `,
                 },

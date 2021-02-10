@@ -25,7 +25,7 @@ export default {
                 {
                     fens: ['3r1rk1/p1p2p1p/2p2p2/8/8/4P3/PPR2PPP/2R3K1 w - - 0 1'],
                     text: `
-                        It is worth noting that there are many situations in which you need not be in rush to attack such weaknesses. By all means do so if you see a clear win as a result, as in this situa- tion, but keep in mind that weaknesses such as doubled pawns are “structural” in that the weaknesses will usually be there for the whole game, and you will easily be able to capture such pawns once all of your pieces are well developed.
+                        It is worth noting that there are many situations in which you need not be in rush to attack such weaknesses. By all means do so if you see a clear win as a result, as in this situa- tion, but keep in mind that weaknesses such as doubled pawns are "structural" in that the weaknesses will usually be there for the whole game, and you will easily be able to capture such pawns once all of your pieces are well developed.
                     `,
                 },
             ],
@@ -119,7 +119,7 @@ export default {
                         '8/pp6/8/PPP5/6p1/7p/6P1/8 w - - 0 1'
                     ],
                     text: `
-                        Black, of course, has a useful pawn majority on the Kingside. Knowing that it is not possible to prevent white from Queening a pawn, black might instead seek a Queen by advancing the h-pawn forward to h3 (h4-h3). Here too, white can delay the advance with a capture (g2xh3), but the majority will succeed in making a passed pawn (remember, “passed pawn” is just another term for a pawn that can't be opposed by an enemy pawn).
+                        Black, of course, has a useful pawn majority on the Kingside. Knowing that it is not possible to prevent white from Queening a pawn, black might instead seek a Queen by advancing the h-pawn forward to h3 (h4-h3). Here too, white can delay the advance with a capture (g2xh3), but the majority will succeed in making a passed pawn (remember, "passed pawn" is just another term for a pawn that can't be opposed by an enemy pawn).
                     `,
                 },
                 {
@@ -164,7 +164,7 @@ export default {
                 {
                     fens: ['8/p7/1p6/1P3p2/6p1/6P1/5P1P/8 w - - 0 1'],
                     text: `
-                        There are several backward pawns in the following position. Black's a7-pawn is a glaring example. If black moves the a7-pawn forward, white will be able to capture it on a6. Note that white would be able to capture en passant if black advanced the a-pawn two squares to a5. For a refresher on en passant captures, see Chapter 2, “Special Moves.”
+                        There are several backward pawns in the following position. Black's a7-pawn is a glaring example. If black moves the a7-pawn forward, white will be able to capture it on a6. Note that white would be able to capture en passant if black advanced the a-pawn two squares to a5. For a refresher on en passant captures, see Chapter 2, "Special Moves."
                         There are three other backward pawns in this position: f5, f2, and h2. Imagine blockading these pawns with a Knight, or mounting an attack on them with your Bishops, Rooks, and Queen.
                     `,
                 },
@@ -184,7 +184,7 @@ export default {
                 {
                     fens: ['8/p4ppp/8/2pp4/8/6P1/PP2PP1P/8 w - - 0 1'],
                     text: `
-                        In this position, black's pawns on c5 and d5 are said to be “hanging.” The word suggests danger, and as you will see, such pawns can bring about wonderful attacking chances or be the cause of defeat. With white to play, imagine how you might organize your pieces to attack either the c5- or the d5-pawn. Perhaps you might double your Rooks on the c- or d-file. Perhaps you might use your Knights to attack one of the pawns. In this section, there are several examples that will illustrate the potential strength and weakness of hanging pawns.
+                        In this position, black's pawns on c5 and d5 are said to be "hanging." The word suggests danger, and as you will see, such pawns can bring about wonderful attacking chances or be the cause of defeat. With white to play, imagine how you might organize your pieces to attack either the c5- or the d5-pawn. Perhaps you might double your Rooks on the c- or d-file. Perhaps you might use your Knights to attack one of the pawns. In this section, there are several examples that will illustrate the potential strength and weakness of hanging pawns.
                     `,
                 },
                 {
@@ -202,7 +202,7 @@ export default {
                 {
                     fens: ['8/p4ppp/8/2p5/2Rp4/BP1N2P1/P3PP1P/2R5 w - - 0 1'],
                     text: `
-                        In this position, the hanging pawns are very weak. Black has advanced the d-pawn to d4 (d5-d4), creating a “hole” in the pawn struc- ture on c4. Rather than play passively and permit an attack on the e2-pawn, white has responded aggressively by fixing and then attacking the backward pawn on c5. As you can see, all four of the white pieces have joined in on the attack on black's c5-pawn.
+                        In this position, the hanging pawns are very weak. Black has advanced the d-pawn to d4 (d5-d4), creating a "hole" in the pawn struc- ture on c4. Rather than play passively and permit an attack on the e2-pawn, white has responded aggressively by fixing and then attacking the backward pawn on c5. As you can see, all four of the white pieces have joined in on the attack on black's c5-pawn.
                     `,
                 },
                 {

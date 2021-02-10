@@ -19,7 +19,7 @@ export default {
                     fens: ['8/6b1/8/3p4/3P4/8/1B6/8 w - - 0 1'],
                     text: `
                         Most of the time, Bishops are not quite that bad, but the principle remains important.
-                        Do not fix pawns on the same color as your Bishop. In this example, the two pawns are considered fixed because they cannot advance. The Bishop on b2 is considered “bad” because the white pawn on d4 is fixed on its color. By contrast, the black Bishop on g7 is considered “good” because it is attacking a fixed white pawn.
+                        Do not fix pawns on the same color as your Bishop. In this example, the two pawns are considered fixed because they cannot advance. The Bishop on b2 is considered "bad" because the white pawn on d4 is fixed on its color. By contrast, the black Bishop on g7 is considered "good" because it is attacking a fixed white pawn.
                     `,
                 }
             ],
@@ -83,7 +83,7 @@ export default {
                     fens: ['r2qkbnr/ppp2ppp/2np4/1B2p3/4P1b1/5N2/PPPP1PPP/RNBQ1RK1 w Qkq - 0 1'],
                     text: `
                         By contrast, the black Bishop on g4 is pinning the white Knight on f3 to the white Queen. This is called a relative pin because the Knight on f3 is permitted to move. Such moves are often unwise though, because mov- ing the Knight would result in the loss of the white Queen.
-                        It is far more common, in master play, for players to “unpin” with a move like Bishop f1 to e2 (Bf1-e2), as seen in the photo at the top of this page. Or, white could simply challenge the black Bishop by moving the pawn from h2 to h3 (h2-h3); masters call such pawn maneuvers “putting the question to” or “kicking” the Bishop.
+                        It is far more common, in master play, for players to "unpin" with a move like Bishop f1 to e2 (Bf1-e2), as seen in the photo at the top of this page. Or, white could simply challenge the black Bishop by moving the pawn from h2 to h3 (h2-h3); masters call such pawn maneuvers "putting the question to" or "kicking" the Bishop.
                     `,
                 }
             ],

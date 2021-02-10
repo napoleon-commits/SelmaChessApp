@@ -15,13 +15,13 @@ export default {
         easy-to-understand manner.
         In the second section, I introduce two important ways of approaching
         your thought process in every chess game. The first, the idea of
-        selecting and considering options, at least three “candidate moves,” was
+        selecting and considering options, at least three "candidate moves," was
         popularized in Alexander's Kotov's 1971 classic Think Like a Grandmaster.
         The idea is simple enough. In every position, consider not one move but
-        at least three. Or, as the great player Emanuel Lasker put it, “When you
-        see a good move, look for a better one.”
+        at least three. Or, as the great player Emanuel Lasker put it, "When you
+        see a good move, look for a better one."
         In the third section, I offer an important way of thinking about
-        “threats.” Before every move, consider whether your opponent is threatening
+        "threats." Before every move, consider whether your opponent is threatening
         to do something important. In response, you must either turn off
         the threat or else find a threat that is more significant. And finally, in the
         fourth section, I emphasize the importance of recapturing after someone
@@ -39,8 +39,8 @@ export default {
                     of and to quickly identify all of your opponent's
                     pawn weaknesses. In this example, the
                     two central black pawns on d6 and e5 form a
-                    pawn chain. As you saw in Chapter 6, “Pawn
-                    Strategy,” the backward pawn at d6 is the
+                    pawn chain. As you saw in Chapter 6, "Pawn
+                    Strategy," the backward pawn at d6 is the
                     weaker of the two pawns because no pawn
                     can defend it. Black's d6-pawn represents a
                     key weakness in the black pawn structure.
@@ -58,12 +58,12 @@ export default {
                         black from pushing the d6-pawn to d5, white
                         must fix black's weakness by occupying or
                         controlling the d5-square.
-                        In Chapter 4, “Knight Strategy,” you learned
+                        In Chapter 4, "Knight Strategy," you learned
                         that it is advantageous to place Knights in the
                         center of the board where they can't be
                         attacked by pawns. Here, you can see that it
                         would be helpful to place a Knight—or another
-                        piece, for that matter—in the “hole” at d5.
+                        piece, for that matter—in the "hole" at d5.
                         By moving the Knight to d5, or even by using
                         the Knight to control d5, you will prevent
                         black from eliminating the d6-pawn weakness
@@ -92,8 +92,8 @@ export default {
                         rather is attacking from the rear on d1. Strong
                         players know that it's often more effective to
                         have the less valuable pieces lead the attack.
-                        As they say in boxing, “Don't lead with your
-                        nose.”
+                        As they say in boxing, "Don't lead with your
+                        nose."
                     `,
                 },
                 {
@@ -105,8 +105,8 @@ export default {
                         pawn weakness, your opponent will have
                         to find a defender. If your opponent fails to
                         defend the pawn adequately, look to take the
-                        target-pawn first “with the little thing.” What
-                        “little thing,” you ask? It depends on the position
+                        target-pawn first "with the little thing." What
+                        "little thing," you ask? It depends on the position
                         but it is often a Knight or a Bishop.
                         In this position, white is still attacking black's
                         d6-pawn with four pieces, and black has
@@ -530,8 +530,8 @@ export default {
                 {
                     fens: ['r1bqkb1r/pp3ppp/2np1n2/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 1'],
                     text: `
-                        Strong players often say that “the threat
-                        is stronger than the execution.” They mean
+                        Strong players often say that "the threat
+                        is stronger than the execution." They mean
                         that preparing the threat correctly (in this
                         position with Bc1-g5) is better than playing
                         the threat immediately (with Nc3-d5) as you
@@ -580,8 +580,8 @@ export default {
                         Nd5. To advance in chess, watch carefully for
                         such threats. Strong chess players develop
                         a finely honed sense of danger. Before you
-                        move, always ask: “Does my opponent's
-                        last move contain a threat?” If so, your move
+                        move, always ask: "Does my opponent's
+                        last move contain a threat?" If so, your move
                         should either stop the threat or, even better,
                         you should look for a threat that's even bigger.
                     `,
@@ -677,7 +677,7 @@ export default {
                         and then winning the white Qf2 with check
                         when the King retreats to f1. Masters achieve
                         their strength in part because they consistently
-                        look for such “in-between” moves.
+                        look for such "in-between" moves.
                     `,
                 }
             ],

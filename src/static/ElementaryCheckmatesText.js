@@ -284,7 +284,7 @@ export default {
                         not in check. Note that stalemate applies only
                         when one side has no legal move whatsoever.
                         For more on stalemates, see the section
-                        “Stalemates and Other Draws” in Chapter 2.
+                        "Stalemates and Other Draws" in Chapter 2.
                         There are many positions in which the King
                         or another piece cannot move. It is only a
                         stalemate if one side is not in check and has
@@ -613,7 +613,7 @@ export default {
                     text: `
                         Here is the final checkmate. Note that the white King controls the g7 and h7 escape squares. The Nh6 plays a key role in controlling
                         g8. And of course, the Bd4 is delivering the final check. The key to this endgame is that the checkmate can be forced
-                        only in the corner that the Bishop can control. Players with the lone King should therefore run into the “wrong” corner and
+                        only in the corner that the Bishop can control. Players with the lone King should therefore run into the "wrong" corner and
                         see if their opponent can figure out how to force the checkmate.
                     `,
                 },
@@ -658,7 +658,7 @@ export default {
                         '7k/4BK2/8/5N2/8/8/8/8 w - - 0 1',
                     ],
                     text: `
-                        White makes a “waiting move” with Kf6-f7, knowing that black will have
+                        White makes a "waiting move" with Kf6-f7, knowing that black will have
                         no choice but to leave the h7-square, moving Kh7-h8.
                     `,
                 },

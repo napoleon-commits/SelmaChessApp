@@ -13,9 +13,9 @@ export default {
         rule. When they reach positions in which their opponent's King cannot
         move, they know that they can safely sacrifice considerable material if
         they can find a way to deliver the final blow.
-        Note: As I did in the later sections of Chapter 12, “Elementary
-        Checkmates,” I again show these checkmates move by move, starting
-        the move numbering with “1.” Again, these move numbers are not
+        Note: As I did in the later sections of Chapter 12, "Elementary
+        Checkmates," I again show these checkmates move by move, starting
+        the move numbering with "1." Again, these move numbers are not
         indicative of a start-to-finish game, but are instead used to easily illustrate
         the order of the moves necessary to achieve these checkmates.
     `,

@@ -10,7 +10,7 @@ export default {
         sense that successful attacks require careful coordination among many
         pieces, not just one or two.
         Sacrifices are special kinds of attacks in which one player gives
-        up or “sacrifices” material, perhaps as little as a pawn or as much as a
+        up or "sacrifices" material, perhaps as little as a pawn or as much as a
         Queen, in order to generate an attack. This chapter will review a number
         of common sacrifices that can occur in your own games.
         In almost every case, attacks and sacrifices occur because one
@@ -131,7 +131,7 @@ export default {
                     ],
                     text: `
                         Here, two moves later, black has moved the
-                        Bc8-b7, while white has “swung” the Nc3-e2
+                        Bc8-b7, while white has "swung" the Nc3-e2
                         and then on to g3, where it attacks the undefended
                         Nh5. Black dare not defend the Knight
                         with g7-g6 because, after Ng3xh5, the resulting

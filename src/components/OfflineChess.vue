@@ -1,13 +1,17 @@
 <template>
     <div class="my-5">
         <div :id="`${$store.state.school}-chess-board`">
-            <OfflineChessExtended 
+            <OfflineChessExtended
                 :fen="currentFen"
+                @onMove="onMove"
             />
         </div>
         <div class="d-flex justify-center">
             <v-btn outlined :class="$store.state.btnClass" @click="reset">
-                Reset
+                New Game
+            </v-btn>
+            <v-btn outlined :class="$store.state.btnClass" @click="takeBack">
+                Take Back
             </v-btn>
         </div>
     </div>
@@ -23,13 +27,26 @@ export default {
     },
     data(){
         return {
-            initialFen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+            fens: [],
             currentFen: '',
         };
     },
     methods: {
+        onMove(data){
+            if(this.fens[this.fens.length - 1] !== data.fen){
+                this.fens.push(data.fen);
+                this.currentFen = data.fen;
+            }
+        },
+        takeBack(){
+            if(this.fens.length > 1){
+                this.fens.length -= 1;
+            }
+            this.currentFen = this.fens[this.fens.length - 1];
+        },
         reset(){
-            this.currentFen = this.initialFen;
+            this.fens.length = 1;
+            this.currentFen = this.fens[this.fens.length - 1];
         }
     },
 }

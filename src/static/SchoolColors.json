@@ -5,9 +5,9 @@
         "blue": 127
     },
     "DC": {
-        "red": 70,
-        "green": 165,
-        "blue": 81
+        "red": 71,
+        "green": 119,
+        "blue": 1
     },
     "Selma": {
         "red": 155,
@@ -15,13 +15,13 @@
         "blue": 255
     },
     "Southside": {
-        "red": 255,
+        "red": 254,
         "green": 5,
-        "blue": 5
+        "blue": 3
     },
     "Keith": {
-        "red": 0,
-        "green": 110,
-        "blue": 156
+        "red": 255,
+        "green": 210,
+        "blue": 2
     }
 }

@@ -28,6 +28,8 @@
                             </span>
                         </b-dropdown-item>
                     </b-nav-item-dropdown>
+                    <b-nav-item>Online Chess</b-nav-item>
+                    <b-nav-item>Sign In / Register</b-nav-item>
 
                     <!-- <b-nav-item-dropdown right>
                         <template #button-content>

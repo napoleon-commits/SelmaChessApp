@@ -10,6 +10,16 @@
             Training
         </v-btn>
       </div>
+      <div class="col d-flex justify-center">
+        <v-btn block outlined :class="$store.state.btnClass">
+            Online Chess
+        </v-btn>
+      </div>
+      <div class="col d-flex justify-center">
+        <v-btn block outlined :class="$store.state.btnClass">
+            Sign In / Register
+        </v-btn>
+      </div>
   </div>
 </template>
 

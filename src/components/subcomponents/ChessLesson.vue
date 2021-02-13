@@ -72,7 +72,7 @@ export default {
         smallScreenBackgroundStyle(){
             let style = '';
             if(this.$vuetify.breakpoint.smAndUp === false){
-                if(this.$store.state.school === 'Selma'){
+                if(this.$store.state.school === 'Selma' || this.$store.state.school === 'Keith'){
                     style += 'color: rgba(0, 0, 0, 0.87) !important;';
                 } else {
                     style += 'color: white !important;';

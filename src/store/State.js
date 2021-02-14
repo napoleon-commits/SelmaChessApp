@@ -5,6 +5,6 @@ export default {
         blue: 127,
     },
     textColor: '#FFF',
-    btnClass: '',
+    btnClass: 'btn-default',
     school: 'Default',
 }

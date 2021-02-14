@@ -17,6 +17,8 @@ import OpeningVariations from '@/components/OpeningVariations';
 import SpecialMoves from '@/components/SpecialMoves';
 import OfflineChess from '@/components/OfflineChess';
 import LandingPage from '@/components/LandingPage';
+import OnlineChess from '@/components/OnlineChess';
+import SignIn from '@/components/SignIn';
 
 Vue.use(VueRouter)
 
@@ -30,6 +32,16 @@ const routes = [
     path: '/offline',
     name: 'OfflineChess',
     component: OfflineChess,
+  },
+  {
+    path: '/online',
+    name: 'OnlineChess',
+    component: OnlineChess,
+  },
+  {
+    path: '/signin',
+    name: 'SignIn',
+    component: SignIn,
   },
   {
     path: '/introduction',

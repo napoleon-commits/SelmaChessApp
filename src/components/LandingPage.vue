@@ -11,12 +11,12 @@
         </v-btn>
       </div>
       <div class="col d-flex justify-center">
-        <v-btn block outlined :class="$store.state.btnClass">
+        <v-btn @click="goToOnlineChess" block outlined :class="$store.state.btnClass">
             Online Chess
         </v-btn>
       </div>
       <div class="col d-flex justify-center">
-        <v-btn block outlined :class="$store.state.btnClass">
+        <v-btn @click="goToSignIn" block outlined :class="$store.state.btnClass">
             Sign In / Register
         </v-btn>
       </div>
@@ -32,6 +32,12 @@ export default {
         },
         goToTraining(){
             this.$router.push({name: 'Introduction'});
+        },
+        goToOnlineChess(){
+          this.$router.push({name: 'OnlineChess'});
+        },
+        goToSignIn(){
+          this.$router.push({name: 'SignIn'});
         }
     }
 }

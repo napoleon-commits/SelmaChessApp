@@ -4,6 +4,7 @@
             <OfflineChessExtended
                 :fen="currentFen"
                 @onMove="onMove"
+                :orientation="orientation"
             />
         </div>
         <div class="d-flex justify-center">
@@ -29,6 +30,8 @@ export default {
         return {
             fens: [],
             currentFen: '',
+            orientation: 'white',
+            moveCount: 0,
         };
     },
     methods: {
@@ -37,16 +40,33 @@ export default {
                 this.fens.push(data.fen);
                 this.currentFen = data.fen;
             }
+            if(this.fens.length > 1 && this.fens.length - 1 > this.moveCount){
+                if(this.orientation === 'white'){
+                    this.orientation = 'black';
+                } else {
+                    this.orientation = 'white';
+                }
+                this.moveCount += 1;
+            }
         },
         takeBack(){
             if(this.fens.length > 1){
                 this.fens.length -= 1;
+                if(this.fens.length + 1 > this.moveCount){
+                    if(this.orientation === 'white'){
+                        this.orientation = 'black';
+                    } else {
+                        this.orientation = 'white';
+                    }
+                    this.moveCount -= 1;
+                }
             }
             this.currentFen = this.fens[this.fens.length - 1];
         },
         reset(){
             this.fens.length = 1;
             this.currentFen = this.fens[this.fens.length - 1];
+            this.orientation = 'white';
         }
     },
 }

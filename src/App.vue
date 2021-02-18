@@ -140,4 +140,34 @@ export default {
   .merida .cg-board piece.king.white {
     background-color: initial !important;
   }
+  #Default-chess-board > div > div > coords.ranks.black {
+      background-color: initial !important;
+  }
+  #Default-chess-board > div > div > coords.files.black {
+      background-color: initial !important;
+  }
+  #DC-chess-board > div > div > coords.ranks.black {
+      background-color: initial !important;
+  }
+  #DC-chess-board > div > div > coords.files.black {
+      background-color: initial !important;
+  }
+  #Selma-chess-board > div > div > coords.ranks.black {
+      background-color: initial !important;
+  }
+  #Selma-chess-board > div > div > coords.files.black {
+      background-color: initial !important;
+  }
+  #Keith-chess-board > div > div > coords.ranks.black {
+      background-color: initial !important;
+  }
+  #Keith-chess-board > div > div > coords.files.black {
+      background-color: initial !important;
+  }
+  #Southside-chess-board > div > div > coords.ranks.black {
+      background-color: initial !important;
+  }
+  #Southside-chess-board > div > div > coords.files.black {
+      background-color: initial !important;
+  }
 </style>

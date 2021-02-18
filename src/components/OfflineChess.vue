@@ -67,6 +67,7 @@ export default {
             this.fens.length = 1;
             this.currentFen = this.fens[this.fens.length - 1];
             this.orientation = 'white';
+            this.moveCount = 0;
         }
     },
 }

@@ -74,6 +74,10 @@ export default {
 </script>
 
 <style>
+  @font-face {
+    font-family: Roboto;
+    src: url('./assets/Roboto.woff2');
+  }
   .btn-default {
     border-color: rgb(127,127,127);
   }

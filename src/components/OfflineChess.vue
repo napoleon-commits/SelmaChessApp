@@ -32,6 +32,7 @@ export default {
             currentFen: '',
             orientation: 'white',
             moveCount: 0,
+            lastToMove: null,
         };
     },
     methods: {
@@ -39,6 +40,23 @@ export default {
             if(this.fens[this.fens.length - 1] !== data.fen){
                 this.fens.push(data.fen);
                 this.currentFen = data.fen;
+                if(data.turn !== undefined){
+                    this.lastToMove = data.turn;
+                } else {
+                    console.log(`CheckMate, ${this.lastToMove} wins!`);
+                }
+                if(data.fen.split(' ')[4] === "100") console.log("Fifty-Move Draw");
+                for(let i = 1; i < this.fens.length; i+=1){ // O(n^2)
+                    const position = this.fens[i].split(' ')[0];
+                    let positionCount = 0;
+                    for(let j = 1; j < this.fens.length; j +=1) {
+                        if(this.fens[j].split(' ')[0] === position) positionCount += 1;
+                    }
+                    if(positionCount === 3){
+                        console.log("Threefold Draw");
+                        i = this.fens.length; // end for loop
+                    }
+                }
             }
             if(this.fens.length > 1 && this.fens.length - 1 > this.moveCount){
                 if(this.orientation === 'white'){

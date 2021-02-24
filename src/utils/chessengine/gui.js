@@ -247,12 +247,9 @@ function MoveGUIPiece(move) {
   }
 }
 
-function StartSearch(thinkTimeChoice) {
+function StartSearch() {
   SearchController.depth = MAXDEPTH;
-  // var t = $.now();
-  const tt = thinkTimeChoice;
-
-  SearchController.time = parseInt(tt, 10) * 1000;
+  SearchController.time = 1;
   SearchPosition();
 
   MakeMove(SearchController.best);
@@ -260,10 +257,10 @@ function StartSearch(thinkTimeChoice) {
   CheckAndSet();
 }
 
-export function PreSearch(thinkingTime) {
+export function PreSearch() {
   if (GameController.GameOver === BOOL.FALSE) {
     SearchController.thinking = BOOL.TRUE;
-    StartSearch(thinkingTime);
+    StartSearch();
   }
 }
 

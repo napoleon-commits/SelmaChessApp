@@ -44,7 +44,7 @@ export default (
         return GameStatusEnum[4];
     }
     GameController.PlayerSide = GameController.side ^ 1;
-    PreSearch("1");
+    PreSearch();
     if(!MoveStats.BestMove){
         return GameStatusEnum[3];
     }

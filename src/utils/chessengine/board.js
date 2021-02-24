@@ -371,8 +371,6 @@ console.log('FEN error');
   if (fen[fenCnt] !== '-') {
     file = fen[fenCnt].charCodeAt() - 'a'.charCodeAt();
     rank = fen[fenCnt + 1].charCodeAt() - '1'.charCodeAt();
-    // eslint-disable-next-line
-console.log(`fen[fenCnt]:${fen[fenCnt]} File:${file} Rank:${rank}`);
     GameBoard.enPas = FR2SQ(file, rank);
   }
 

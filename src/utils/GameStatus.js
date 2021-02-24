@@ -1,3 +1,9 @@
+import { ParseFen, } from '@/utils/chessengine/board';
+import { DrawMaterial, PreSearch } from '@/utils/chessengine/gui';
+import { BOOL, MoveStats, GameController } from '@/utils/chessengine/def';
+import { InitFilesRanksBrd, InitHashKeys, InitSq120To64, InitBoardVars } from '@/utils/chessengine/main';
+import { InitMvvLva } from '@/utils/chessengine/movegen';
+
 const GameStatusEnum = {
     0: (winningColor) => `Checkmate, ${winningColor} wins!`,
     1: "Fifty-Move Draw",
@@ -28,6 +34,20 @@ export default (
     currentFen,
     allFens,
 ) => {
+    InitFilesRanksBrd();
+    InitHashKeys();
+    InitSq120To64();
+    InitBoardVars();
+    InitMvvLva();
+    ParseFen(currentFen);
+    if (DrawMaterial() === BOOL.TRUE) {
+        return GameStatusEnum[4];
+    }
+    GameController.PlayerSide = GameController.side ^ 1;
+    PreSearch("1");
+    if(!MoveStats.BestMove){
+        return GameStatusEnum[3];
+    }
     if(turn === undefined){
         return GameStatusEnum[0](lastToMove);
     }

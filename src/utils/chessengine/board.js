@@ -1,7 +1,6 @@
 /* eslint no-bitwise: ["error", { "allow": ["|=","^","^=","&"] }] */
 
-import { COLOURS, FR2SQ, GameBoard, CASTLEBIT, FILES, BOOL, PieceKing, KiDir, SQUARES, PieceCol, PieceBishopQueen, PIECES, BiDir, PieceRookQueen, PieceKnight, KnDir, RkDir, RANKS, SQ120, BRD_SQ_NUM, PieceVal, PceChar, CastleKeys, SideKey, PieceKeys, SideChar, RankChar, FileChar } from './def';
-import { PrSq } from './io';
+import { COLOURS, FR2SQ, GameBoard, CASTLEBIT, FILES, BOOL, PieceKing, KiDir, SQUARES, PieceCol, PieceBishopQueen, PIECES, BiDir, PieceRookQueen, PieceKnight, KnDir, RkDir, RANKS, SQ120, BRD_SQ_NUM, PieceVal, CastleKeys, SideKey, PieceKeys, } from './def';
 
 function PCEINDEX(pce, pceNum) {
   return ((pce * 10) + pceNum);
@@ -30,120 +29,6 @@ function GeneratePosKey() {
   finalKey ^= CastleKeys[GameBoard.castlePerm];
 
   return finalKey;
-}
-
-export function CheckBoard() {
-  const tPceNumArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  const tMaterial = [0, 0];
-  let sq64;
-  let tPiece;
-  let tPceNum;
-  let sq120;
-
-  for (tPiece = PIECES.wP; tPiece <= PIECES.bK; tPiece += 1) {
-    for (tPceNum = 0; tPceNum < GameBoard.pceNum[tPiece]; tPceNum += 1) {
-      sq120 = GameBoard.pList[PCEINDEX(tPiece, tPceNum)];
-      if (GameBoard.pieces[sq120] !== tPiece) {
-        // eslint-disable-next-line
-        console.log('Error Pce Lists');
-        return BOOL.FALSE;
-      }
-    }
-  }
-
-  for (sq64 = 0; sq64 < 64; sq64 += 1) {
-    sq120 = SQ120(sq64);
-    tPiece = GameBoard.pieces[sq120];
-    tPceNumArr[tPiece] += 1;
-    tMaterial[PieceCol[tPiece]] += PieceVal[tPiece];
-  }
-
-  for (tPiece = PIECES.wP; tPiece <= PIECES.bK; tPiece += 1) {
-    if (tPceNumArr[tPiece] !== GameBoard.pceNum[tPiece]) {
-      // eslint-disable-next-line
-      console.log('Error tPceNumArr');
-      return BOOL.FALSE;
-    }
-  }
-
-  if (
-    tMaterial[COLOURS.WHITE] !== GameBoard.material[COLOURS.WHITE] ||
-        tMaterial[COLOURS.BLACK] !== GameBoard.material[COLOURS.BLACK]
-  ) {
-    // eslint-disable-next-line
-        console.log('Error tMaterial');
-    return BOOL.FALSE;
-  }
-
-  if (GameBoard.side !== COLOURS.WHITE && GameBoard.side !== COLOURS.BLACK) {
-    // eslint-disable-next-line
-    console.log('Error GameBoard.side');
-    return BOOL.FALSE;
-  }
-
-  if (GeneratePosKey() !== GameBoard.posKey) {
-    // eslint-disable-next-line
-    console.log('Error GameBoard.posKey');
-    return BOOL.FALSE;
-  }
-  return BOOL.TRUE;
-}
-
-export function PrintBoard() {
-  let sq;
-  let file;
-  let rank;
-  let piece;
-  let line;
-
-  // eslint-disable-next-line
-  console.log('\nGame Board:\n');
-  for (rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank -= 1) {
-    line = (`${RankChar[rank]}  `);
-    for (file = FILES.FILE_A; file <= FILES.FILE_H; file += 1) {
-      sq = FR2SQ(file, rank);
-      piece = GameBoard.pieces[sq];
-      line += (` ${PceChar[piece]} `);
-    }
-    // eslint-disable-next-line
-    console.log(line);
-  }
-
-  // eslint-disable-next-line
-  console.log('');
-  line = '   ';
-  for (file = FILES.FILE_A; file <= FILES.FILE_H; file += 1) {
-    line += (` ${FileChar[file]} `);
-  }
-
-  // eslint-disable-next-line
-  console.log(line);
-  // eslint-disable-next-line
-  console.log(`side:${SideChar[GameBoard.side]}`);
-  // eslint-disable-next-line
-  console.log(`enPas:${GameBoard.enPas}`);
-  line = '';
-
-  if (GameBoard.castlePerm & CASTLEBIT.WKCA) line += 'K';
-  if (GameBoard.castlePerm & CASTLEBIT.WQCA) line += 'Q';
-  if (GameBoard.castlePerm & CASTLEBIT.BKCA) line += 'k';
-  if (GameBoard.castlePerm & CASTLEBIT.BQCA) line += 'q';
-  //   eslint-disable-next-line
-  console.log(`castle:${line}`);
-  //   eslint-disable-next-line
-  console.log(`key:${GameBoard.posKey.toString(16)}`);
-}
-
-export function PrintPieceLists() {
-  let piece;
-  let pceNum;
-
-  for (piece = PIECES.wP; piece <= PIECES.bK; piece += 1) {
-    for (pceNum = 0; pceNum < GameBoard.pceNum[piece]; pceNum += 1) {
-      // eslint-disable-next-line
-            console.log(`Piece ${PceChar[piece]} on ${PrSq(GameBoard.pList[PCEINDEX(piece, pceNum)])}`);
-    }
-  }
 }
 
 function UpdateListsMaterial() {
@@ -260,31 +145,6 @@ export function SqAttacked(sq, side) {
   }
 
   return BOOL.FALSE;
-}
-
-export function PrintSqAttacked() {
-  let sq;
-  let file;
-  let rank;
-  let piece;
-
-  // eslint-disable-next-line
-console.log('\nAttacked:\n');
-
-  for (rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank -= 1) {
-    let line = (`${rank + 1}  `);
-    for (file = FILES.FILE_A; file <= FILES.FILE_H; file += 1) {
-      sq = FR2SQ(file, rank);
-      if (SqAttacked(sq, GameBoard.side ^ 1) === BOOL.TRUE) piece = 'X';
-      else piece = '-';
-      line += (` ${piece} `);
-    }
-    // eslint-disable-next-line
-console.log(line);
-  }
-
-  // eslint-disable-next-line
-console.log('');
 }
 
 // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1

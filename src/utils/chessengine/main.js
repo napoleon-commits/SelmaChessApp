@@ -2,12 +2,6 @@
 
 import { FILES, MAXGAMEMOVES, Sq120ToSq64, Sq64ToSq120, FR2SQ, RANKS, NOMOVE, PVENTRIES, GameBoard, RAND_32, SQUARES, SideKey, PieceKeys, BRD_SQ_NUM, FilesBrd, RanksBrd, CastleKeys } from './def';
 
-// $(function() {
-// init();
-// console.log("Main Init Called");
-// NewGame(START_FEN);
-// });
-
 export function InitFilesRanksBrd() {
   let index = 0;
   let file = FILES.FILE_A;

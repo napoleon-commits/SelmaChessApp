@@ -1,6 +1,5 @@
 import { GameBoard, BOOL } from './def';
 import { MakeMove, TakeMove } from './makemove';
-import { PrintBoard } from './board';
 import { GenerateMoves } from './movegen';
 
 let perftLeafNodes;
@@ -32,7 +31,6 @@ function Perft(depth) {
 }
 
 export default function PerftTest(depth) {
-  PrintBoard();
   //   eslint-disable-next-line
   console.log(`Starting Test To Depth:${depth}`);
   perftLeafNodes = 0;

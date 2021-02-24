@@ -2,46 +2,9 @@
 
 import { SearchController, SearchPosition } from './search';
 import { MakeMove, TakeMove } from './makemove';
-import { BOOL, GameController, MAXDEPTH, COLOURS, GameBoard, Kings, PCEINDEX, PIECES, SQUARES, FilesBrd, RanksBrd, UserMove, TOSQ, MFLAGCA, MFLAGEP, PROMOTED, SQ120, START_FEN, CAPTURED, FR2SQ, NOMOVE } from './def';
+import { BOOL, GameController, MAXDEPTH, COLOURS, GameBoard, Kings, PCEINDEX, PIECES, SQUARES, TOSQ, MFLAGCA, MFLAGEP, PROMOTED, CAPTURED, } from './def';
 import { GenerateMoves } from './movegen';
-import { ParseFen, PrintBoard, SqAttacked } from './board';
-import { PrSq, ParseMove } from './io';
-
-// $("#SetFen").click(function () {
-// var fenStr = $("#fenIn").val();
-// NewGame(fenStr);
-// });
-
-function ClearAllPieces() {
-  // $(".Piece").remove();
-}
-function AddGUIPiece() {
-
-  // var file = FilesBrd[sq];
-  // var rank = RanksBrd[sq];
-  // var rankName = "rank" + (rank+1);
-  // var fileName = "file" + (file+1);
-  // var pieceFileName = "images/" +
-// SideChar[PieceCol[pce]] + PceChar[pce].toUpperCase() + ".png";
-  // var imageString = "<image src=\"" +
-//   pieceFileName + "\" class=\"Piece " + rankName + " " + fileName + "\"/>";
-  // $("#Board").append(imageString);
-}
-function SetInitialBoardPieces() {
-  let sq;
-  let sq120;
-  let pce;
-
-  ClearAllPieces();
-
-  for (sq = 0; sq < 64; sq += 1) {
-    sq120 = SQ120(sq);
-    pce = GameBoard.pieces[sq120];
-    if (pce >= PIECES.wP && pce <= PIECES.bK) {
-      AddGUIPiece(sq120, pce);
-    }
-  }
-}
+import { SqAttacked } from './board';
 
 function ThreeFoldRep() {
   let i = 0;
@@ -135,115 +98,26 @@ function CheckAndSet() {
   }
 }
 
-export function NewGame(fenStr) {
-  ParseFen(fenStr);
-  PrintBoard();
-  SetInitialBoardPieces();
-  CheckAndSet();
-}
-
-export function setFen(fenStr) {
-  NewGame(fenStr);
-}
-
-// $('#TakeButton').click( function () {
-// if(GameBoard.hisPly > 0) {
-// TakeMove();
-// GameBoard.ply = 0;
-// SetInitialBoardPieces();
-// }
-// });
-
-
-export function takeBack() {
-  if (GameBoard.hisPly > 0) {
-    TakeMove();
-    GameBoard.ply = 0;
-    SetInitialBoardPieces();
-  }
-}
-
-// $('#NewGameButton').click( function () {
-// NewGame(START_FEN);
-// });
-
-export function newGameButton() {
-  NewGame(START_FEN);
-}
-
-function DeSelectSq() {
-// $('.Square').each( function(index) {
-// if(PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
-// $(this).removeClass('SqSelected');
-// }
-// } );
-}
-
-export function SetSqSelected() {
-// $('.Square').each( function(index) {
-// if(PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
-// $(this).addClass('SqSelected');
-// }
-// } );
-}
-
-export function ClickedSquare(file, rank) {
-  const sq = FR2SQ(file, rank);
-  // eslint-disable-next-line
-  console.log(`Clicked sq:${PrSq(sq)}`);
-  SetSqSelected(sq);
-  return sq;
-}
-
-function RemoveGUIPiece() {
-
-  // $('.Piece').each( function(index) {
-  // if(PieceIsOnSq(sq, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
-  // $(this).remove();
-  // }
-  // } );
-
-}
-
 function MoveGUIPiece(move) {
   // var from = FROMSQ(move);
   const to = TOSQ(move);
 
   if (move & MFLAGEP) {
-    let epRemove;
-    if (GameBoard.side === COLOURS.BLACK) {
-      epRemove = to - 10;
-    } else {
-      epRemove = to + 10;
-    }
-    RemoveGUIPiece(epRemove);
+    //
   } else if (CAPTURED(move)) {
-    RemoveGUIPiece(to);
+    // 
   }
-
-  // var file = FilesBrd[to];
-  // var rank = RanksBrd[to];
-  // var rankName = "rank" + (rank+1);
-  // var fileName = "file" + (file+1);
-
-  // $('.Piece').each( function(index) {
-  // if(PieceIsOnSq(from, $(this).position().top, $(this).position().left) === BOOL.TRUE) {
-  // $(this).removeClass();
-  // $(this).addClass("Piece " + rankName + " " + fileName);
-  // }
-  // } );
 
   if (move & MFLAGCA) {
     switch (to) {
-      case SQUARES.G1: RemoveGUIPiece(SQUARES.H1); AddGUIPiece(SQUARES.F1, PIECES.wR); break;
-      case SQUARES.C1: RemoveGUIPiece(SQUARES.A1); AddGUIPiece(SQUARES.D1, PIECES.wR); break;
-      case SQUARES.G8: RemoveGUIPiece(SQUARES.H8); AddGUIPiece(SQUARES.F8, PIECES.bR); break;
-      case SQUARES.C8: RemoveGUIPiece(SQUARES.A8); AddGUIPiece(SQUARES.D8, PIECES.bR); break;
+      case SQUARES.G1: break;
+      case SQUARES.C1: break;
+      case SQUARES.G8: break;
+      case SQUARES.C8: break;
       default:
     }
   } else if (PROMOTED(move)) {
-    RemoveGUIPiece(to);
-    AddGUIPiece(to, PROMOTED(move));
+    //
   }
 }
 
@@ -262,90 +136,4 @@ export function PreSearch() {
     SearchController.thinking = BOOL.TRUE;
     StartSearch();
   }
-}
-
-export function MakeUserMove(thinkingTime) {
-  if (UserMove.from !== SQUARES.NO_SQ && UserMove.to !== SQUARES.NO_SQ) {
-    //   eslint-disable-next-line
-    console.log(`User Move:${PrSq(UserMove.from)}${PrSq(UserMove.to)}`);
-
-    const parsed = ParseMove(UserMove.from, UserMove.to);
-
-    if (parsed !== NOMOVE) {
-      MakeMove(parsed);
-      PrintBoard();
-      MoveGUIPiece(parsed);
-      CheckAndSet();
-      PreSearch(thinkingTime);
-    }
-
-    DeSelectSq(UserMove.from);
-    DeSelectSq(UserMove.to);
-
-    UserMove.from = SQUARES.NO_SQ;
-    UserMove.to = SQUARES.NO_SQ;
-  }
-}
-
-export function ClickedPiece(file, rank, thinkingTime) {
-  // eslint-disable-next-line
-  console.log('Piece Click');
-
-  if (UserMove.from === SQUARES.NO_SQ) {
-    UserMove.from = ClickedSquare(file, rank);
-  } else {
-    UserMove.to = ClickedSquare(file, rank);
-  }
-
-  MakeUserMove(thinkingTime);
-}
-
-export function ClickedSpace(file, rank, thinkingTime) {
-  // eslint-disable-next-line
-  console.log('Square Click');
-  if (UserMove.from !== SQUARES.NO_SQ) {
-    UserMove.to = ClickedSquare(file, rank);
-    MakeUserMove(thinkingTime);
-  }
-}
-
-// $(document).on('click','.Piece', function (e) {
-// console.log('Piece Click');
-
-// if(UserMove.from === SQUARES.NO_SQ) {
-// UserMove.from = ClickedSquare(e.pageX, e.pageY);
-// } else {
-// UserMove.to = ClickedSquare(e.pageX, e.pageY);
-// }
-
-// MakeUserMove();
-
-// });
-
-// $(document).on('click','.Square', function (e) {
-// console.log('Square Click');
-// if(UserMove.from !== SQUARES.NO_SQ) {
-// UserMove.to = ClickedSquare(e.pageX, e.pageY);
-// MakeUserMove();
-// }
-
-// });
-
-export function PieceIsOnSq(sq, top, left) {
-  if ((RanksBrd[sq] === 7 - Math.round(top / 60)) &&
-        FilesBrd[sq] === Math.round(left / 60)) {
-    return BOOL.TRUE;
-  }
-
-  return BOOL.FALSE;
-}
-
-// $('#SearchButton').click( function () {
-// GameController.PlayerSide = GameController.side ^ 1;
-// PreSearch();
-// });
-
-export function searchButton(thinkingTime) {
-  GameController.PlayerSide = GameController.side ^ 1;
-  PreSearch(thinkingTime);
 }

@@ -20,7 +20,7 @@
 
 <script>
 import OfflineChessExtended from '@/components/subcomponents/OfflineChessExtended';
-import GameStatus from '@/utils/GameStatus';
+import {GameStatus} from '@/utils/GameStatus';
 
 export default {
     name: 'OfflineChess',

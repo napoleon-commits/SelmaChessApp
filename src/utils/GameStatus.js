@@ -4,7 +4,7 @@ import { BOOL, MoveStats, GameController } from '@/utils/chessengine/def';
 import { InitFilesRanksBrd, InitHashKeys, InitSq120To64, InitBoardVars } from '@/utils/chessengine/main';
 import { InitMvvLva } from '@/utils/chessengine/movegen';
 
-const GameStatusEnum = {
+export const GameStatusEnum = {
     0: (winningColor) => `Checkmate, ${winningColor} wins!`,
     1: "Fifty-Move Draw",
     2: "Threefold Draw",
@@ -14,10 +14,10 @@ const GameStatusEnum = {
 
 const checkForThreeFold = (allFens) => {
     let threeFoldBool = false;
-    for(let i = 1; i < allFens.length; i+=1){ // O(n^2)
+    for(let i = 0; i < allFens.length; i+=1){ // O(n^2)
         const position = allFens[i].split(' ')[0];
         let positionCount = 0;
-        for(let j = 1; j < allFens.length; j +=1) {
+        for(let j = 0; j < allFens.length; j +=1) {
             if(allFens[j].split(' ')[0] === position) positionCount += 1;
         }
         if(positionCount === 3){
@@ -28,7 +28,7 @@ const checkForThreeFold = (allFens) => {
     return threeFoldBool;
 }
 
-export default (
+export const GameStatus = (
     lastToMove,
     turn,
     currentFen,
@@ -51,7 +51,7 @@ export default (
     if(turn === undefined){
         return GameStatusEnum[0](lastToMove);
     }
-    if(currentFen.split(' ')[currentFen.split(' ').length-2] === "100"){
+    if(currentFen.split(' ')[currentFen.split(' ').length-2] >= Number(100)){
         return GameStatusEnum[1];
     }
     if(checkForThreeFold(allFens)){

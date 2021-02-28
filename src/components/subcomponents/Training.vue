@@ -4,7 +4,15 @@
             {{json.header}}
         </div>
         <div class="text-body-1 mb-3">
+            <span
+                :style="`cursor: pointer;`"
+                @click="textToSpeech(json.body)"
+              >&#128264;</span>
             {{json.body}}
+            <span
+                :style="`cursor: pointer;`"
+                @click="textToSpeech(json.body)"
+              >&#128264;</span>
         </div>
         <v-pagination
             v-model="page"
@@ -27,6 +35,7 @@
 <script>
 import ChessLesson from '@/components/subcomponents/ChessLesson';
 import CustomHR from '@/components/subcomponents/CustomHR';
+import TextToSpeech from '@/utils/TextToSpeech';
 
 export default {
     name: 'Training',
@@ -40,6 +49,11 @@ export default {
             page: 1,
         };
     },
+    methods: {
+        textToSpeech(text){
+            TextToSpeech(text);
+        }
+    }
 }
 </script>
 

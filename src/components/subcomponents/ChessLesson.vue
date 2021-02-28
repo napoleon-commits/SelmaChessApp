@@ -15,7 +15,17 @@
           <div class="text-xl-h4 text-lg-h4 text-md-h5 text-sm-h6 text-subtitle-1 mb-3 text-center" v-if="demo[page-1].lessonHeader">
               {{demo[page-1].lessonHeader}}
           </div>
-          <div>{{demo[page-1].text}}</div>
+          <div>
+              <span
+                :style="`cursor: pointer;`"
+                @click="textToSpeech(demo[page-1].text)"
+              >&#128264;</span>
+              {{demo[page-1].text}}
+              <span
+                :style="`cursor: pointer;`"
+                @click="textToSpeech(demo[page-1].text)"
+              >&#128264;</span>
+          </div>
         </v-col>
         <v-col>
             <div :id="`${$store.state.school}-chess-board`">
@@ -30,6 +40,7 @@
 
 <script>
 import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
+import TextToSpeech from '@/utils/TextToSpeech';
 
 export default {
     name: 'ChessLesson',
@@ -54,6 +65,9 @@ export default {
         },
         pageChange(){
             this.fenIndex = 0;
+        },
+        textToSpeech(text){
+            TextToSpeech(text);
         }
     },
     mounted() {

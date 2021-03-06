@@ -51,7 +51,7 @@ export default {
                     this.fens,
                 );
                 if(gameStatus !== undefined){
-                    console.log(gameStatus);
+                    alert(gameStatus);
                 }
             }
             if(this.fens.length > 1 && this.fens.length - 1 > this.moveCount){

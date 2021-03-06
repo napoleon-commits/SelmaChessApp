@@ -2,16 +2,18 @@ const synth = window.speechSynthesis;
 let voices = [];
 
 function PopulateVoices() {
-  voices = synth.getVoices();
+  if(synth && synth.getVoices){
+    voices = synth.getVoices();
+  }
 }
 PopulateVoices();
 
-if (speechSynthesis !== undefined) {
-  speechSynthesis.onvoiceschanged = PopulateVoices;
+if (synth !== undefined) {
+  synth.onvoiceschanged = PopulateVoices;
 }
 
 export default (text) => {
-  if (speechSynthesis === undefined) {
+  if (synth === undefined) {
     alert("Sorry, your browser doesn't support text to speech!");
   } else {
     const sentences = text.split(new RegExp('[.!?]'));
@@ -24,7 +26,7 @@ export default (text) => {
             }
         });
         // toSpeak.onstart = () => console.log(toSpeak.text);
-        speechSynthesis.speak(toSpeak);
+        synth.speak(toSpeak);
     }
   }
 };

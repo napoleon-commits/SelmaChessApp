@@ -1,33 +1,54 @@
 <template>
-  <div>
-      <div :class="`text-xl-h1 text-lg-h1 text-md-h2 text-sm-h3 text-h4 mb-3 text-center`">
-          Coming Soon
-      </div>
-      <ComingSoonIcon />
-      <div>
-          <Timer :totalSeconds="blackSeconds"/>
-      </div>
-      <hr />
-        <v-btn @click="startWhiteClock">Start Game</v-btn>
-        <v-btn @click="endGame">End Game</v-btn>
-        <v-btn @click="makeMove">Make Move</v-btn>
-      <hr />
-      <div>
-          <Timer :totalSeconds="whiteSeconds"/>
-      </div>
-      <hr />
-  </div>
+    <div class="my-5">
+        <div class="d-flex justify-center">
+            <div class="mr-5">
+                <Timer :totalSeconds="blackSeconds"/>
+            </div>
+            <div class="ml-5">
+                El_Verdugo_Del_GM : 2410
+            </div>
+        </div>
+        <div :id="`${$store.state.school}-chess-board`">
+            <OfflineChessExtended
+            :fen="''"
+            @onMove="''"
+            :orientation="'white'"
+            />
+        </div>
+        <div class="d-flex justify-center">
+            <div class="mr-5">
+                <Timer :totalSeconds="whiteSeconds"/>
+            </div>
+            <div class="ml-5">
+                PresidentoftheUSA : 2518
+            </div>
+        </div>
+        <div class="d-flex justify-center mt-3">
+            <div>
+                <v-btn outlined :class="$store.state.btnClass">
+                    <span :style="`color: ${$vuetify.theme.dark?'rgba(0, 0, 0, 0.87)':'white'};`">__</span>
+                    <span>Resign</span>
+                    <span :style="`color: ${$vuetify.theme.dark?'rgba(0, 0, 0, 0.87)':'white'};`">__</span>
+                </v-btn>
+            </div>
+            <div>
+            <v-btn outlined :class="$store.state.btnClass">
+                Offer Draw
+            </v-btn>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-import ComingSoonIcon from '@/components/subcomponents/ComingSoonIcon';
 import Timer from '@/components/subcomponents/Timer';
+import OfflineChessExtended from '@/components/subcomponents/OfflineChessExtended';
 
 export default {
     name: 'OnlineChess',
     components: {
-        ComingSoonIcon,
         Timer,
+        OfflineChessExtended,
     },
     data(){
         return{

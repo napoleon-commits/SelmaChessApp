@@ -34,7 +34,7 @@ export default {
             this.$router.push({name: 'Introduction'});
         },
         goToOnlineChess(){
-          this.$router.push({name: 'OnlineChess'});
+          this.$router.push({name: 'OnlineChessSelectionPage'});
         },
         goToSignIn(){
           this.$router.push({name: 'SignIn'});

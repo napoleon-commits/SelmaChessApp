@@ -17,7 +17,7 @@ import OpeningVariations from '@/components/OpeningVariations';
 import SpecialMoves from '@/components/SpecialMoves';
 import OfflineChess from '@/components/OfflineChess';
 import LandingPage from '@/components/LandingPage';
-import OnlineChess from '@/components/OnlineChess';
+import OnlineChessSelectionPage from '@/components/OnlineChessSelectionPage';
 import SignIn from '@/components/SignIn';
 
 Vue.use(VueRouter)
@@ -35,8 +35,8 @@ const routes = [
   },
   {
     path: '/online',
-    name: 'OnlineChess',
-    component: OnlineChess,
+    name: 'OnlineChessSelectionPage',
+    component: OnlineChessSelectionPage,
   },
   {
     path: '/signin',

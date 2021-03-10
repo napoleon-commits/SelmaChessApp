@@ -73,8 +73,8 @@ export default {
             }
         },
         goToOnlineChess(){
-            if(this.$route.name !== 'OnlineChess'){
-                this.$router.push({name: 'OnlineChess'});
+            if(this.$route.name !== 'OnlineChessSelectionPage'){
+                this.$router.push({name: 'OnlineChessSelectionPage'});
             }
         },
         goToSignIn(){

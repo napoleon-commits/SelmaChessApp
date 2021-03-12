@@ -25,6 +25,8 @@ export default {
     data(){
         return {
             isSearching: false,
+            mockSearchTimer: 0,
+            mockSearchInterval: null
         };
     },
     computed: {
@@ -39,15 +41,20 @@ export default {
         searchForOpponent(){
             this.isSearching = !this.isSearching;
             if(this.isSearching){
-                setTimeout(
-                    ()=>{
+                this.mockSearchInterval = setInterval(()=>{
+                    this.mockSearchTimer += 1;
+                    if(this.mockSearchTimer >= 2500){
+                        clearInterval(this.mockSearchInterval);
+                        this.isSearching = false;
                         this.$router.push({
                             name: 'OnlineChess',
-                            params: {orientation: 'black' },
+                            params: {orientation: (Math.floor(Math.random() * 100) % 2 === 0)?'white':'black' },
                         });
-                    },
-                    5000
-                );
+                    }
+                },1);
+            } else {
+                clearInterval(this.mockSearchInterval);
+                this.mockSearchTimer = 0;
             }
         }
     },

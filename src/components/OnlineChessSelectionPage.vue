@@ -38,6 +38,17 @@ export default {
     methods: {
         searchForOpponent(){
             this.isSearching = !this.isSearching;
+            if(this.isSearching){
+                setTimeout(
+                    ()=>{
+                        this.$router.push({
+                            name: 'OnlineChess',
+                            params: {orientation: 'black' },
+                        });
+                    },
+                    5000
+                );
+            }
         }
     },
 }

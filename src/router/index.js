@@ -19,6 +19,7 @@ import OfflineChess from '@/components/OfflineChess';
 import LandingPage from '@/components/LandingPage';
 import OnlineChessSelectionPage from '@/components/OnlineChessSelectionPage';
 import SignIn from '@/components/SignIn';
+import OnlineChess from '@/components/OnlineChess';
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,12 @@ const routes = [
     path: '/online',
     name: 'OnlineChessSelectionPage',
     component: OnlineChessSelectionPage,
+  },
+  {
+    path: '/online/play',
+    name: 'OnlineChess',
+    component: OnlineChess,
+    props: true
   },
   {
     path: '/signin',

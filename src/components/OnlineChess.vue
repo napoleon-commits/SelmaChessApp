@@ -10,9 +10,9 @@
         </div>
         <div :id="`${$store.state.school}-chess-board`">
             <OfflineChessExtended
-            :fen="''"
-            @onMove="''"
-            :orientation="'white'"
+                :fen="''"
+                @onMove="''"
+                :orientation="orientation"
             />
         </div>
         <div class="d-flex justify-center">
@@ -46,6 +46,7 @@ import OfflineChessExtended from '@/components/subcomponents/OfflineChessExtende
 
 export default {
     name: 'OnlineChess',
+    props: ['orientation'],
     components: {
         Timer,
         OfflineChessExtended,

@@ -1,5 +1,4 @@
 /* eslint no-bitwise: ["error", { "allow": ["&","^"] }] */
-import $ from 'jquery';
 import { INFINITE, BOOL, MATE, MAXDEPTH, NOMOVE, GameBoard, BRD_SQ_NUM, TOSQ, FROMSQ, PCEINDEX, MFLAGCAP, Kings, PVENTRIES, MoveStats } from './def';
 import { GenerateMoves, GenerateCaptures } from './movegen';
 import { SqAttacked } from './board';
@@ -53,7 +52,7 @@ function ClearPvTable() {
 }
 
 function CheckUp() {
-  if (($.now() - SearchController.start) > SearchController.time) {
+  if ((Date.now() - SearchController.start) > SearchController.time) {
     SearchController.stop = BOOL.TRUE;
   }
 }
@@ -279,7 +278,7 @@ function ClearForSearch() {
   SearchController.nodes = 0;
   SearchController.fh = 0;
   SearchController.fhf = 0;
-  SearchController.start = $.now();
+  SearchController.start = Date.now();
   SearchController.stop = BOOL.FALSE;
 }
 
@@ -293,7 +292,7 @@ function UpdateMoveStats(domScore, domDepth) {
   MoveStats.Depth = domDepth;
   MoveStats.Score = scoreText;
   MoveStats.Nodes = SearchController.nodes;
-  MoveStats.Time = `${(($.now() - SearchController.start) / 1000).toFixed(1)}s`;
+  MoveStats.Time = `${((Date.now() - SearchController.start) / 1000).toFixed(1)}s`;
   MoveStats.BestMove = PrMove(SearchController.best);
 }
 

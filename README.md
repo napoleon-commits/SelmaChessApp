@@ -44,7 +44,7 @@ Testing: <br />
 
 Backend:<br />
 &nbsp;&nbsp;&nbsp;&nbsp;AWS<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cognito, Lambda<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cognito, Lambda, DynamoDB<br />
 
 ```
 Notable Features:
@@ -56,13 +56,6 @@ This includes a dark/light mode and a secondary color that's relative to the fou
 <br />
 <br />
 <br />
-
-Online Chess:
-&nbsp;&nbsp;&nbsp;&nbsp;Implementation<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AWS Websockets/Lambda to communicate between users. To remember game ids: cookies for non registered users, AWS Cognito for registered users:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Number of websockets predicted: <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. For creating open invitations.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. For passing moves and game statuses between opponents.<br />
 
 ```
 Issues:

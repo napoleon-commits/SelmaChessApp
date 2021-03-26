@@ -28,8 +28,6 @@
                             </span>
                         </b-dropdown-item>
                     </b-nav-item-dropdown>
-                    <b-nav-item @click="goToOnlineChess">Online Chess</b-nav-item>
-                    <b-nav-item @click="goToSignIn">Sign In / Register</b-nav-item>
 
                     <!-- <b-nav-item-dropdown right>
                         <template #button-content>
@@ -70,16 +68,6 @@ export default {
         goToOfflineChess(){
             if(this.$route.name !== 'OfflineChess'){
                 this.$router.push({name: 'OfflineChess'});
-            }
-        },
-        goToOnlineChess(){
-            if(this.$route.name !== 'OnlineChessSelectionPage'){
-                this.$router.push({name: 'OnlineChessSelectionPage'});
-            }
-        },
-        goToSignIn(){
-            if(this.$route.name !== 'SignIn'){
-                this.$router.push({name: 'SignIn'});
             }
         },
     }

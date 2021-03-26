@@ -15,22 +15,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "OfflineChess" */ '@/components/OfflineChess'),
   },
   {
-    path: '/online',
-    name: 'OnlineChessSelectionPage',
-    component: () => import(/* webpackChunkName: "OnlineChessSelectionPage" */ '@/components/OnlineChessSelectionPage'),
-  },
-  {
-    path: '/online/play',
-    name: 'OnlineChess',
-    component: () => import(/* webpackChunkName: "OnlineChess" */ '@/components/OnlineChess'),
-    props: true
-  },
-  {
-    path: '/signin',
-    name: 'SignIn',
-    component: () => import(/* webpackChunkName: "SignIn" */ '@/components/SignIn'),
-  },
-  {
     path: '/introduction',
     name: 'Introduction',
     component: () => import(/* webpackChunkName: "Introduction" */ '@/components/Introduction'),

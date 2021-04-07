@@ -89,6 +89,7 @@ const routes = [
     name: 'OpeningVariations',
     component: () => import(/* webpackChunkName: "OpeningVariations" */ '@/components/OpeningVariations'),
   },
+  { path: '*', redirect: '/' }
   // {
   //   path: '/about',
   //   name: 'About',

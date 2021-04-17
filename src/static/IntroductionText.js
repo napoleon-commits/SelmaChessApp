@@ -109,7 +109,7 @@ export default {
                 {
                     fens: ['8/8/8/4P3/3pK3/5p2/8/8 w - - 0 1'],
                     text: `
-                        Here, only two squares are forbidden to the white King. The King cannot move to a square already occupied by its own pawn, and the King cannot move to the square marked with a red X. The white King is not permitted to move there because one of the black pawns controls that square (see page 16 to learn how the pawns move and capture).
+                        Here, only two squares are forbidden to the white King. The King cannot move to a square already occupied by its own pawn, and the King cannot move to the e3 square. The white King is not permitted to move there because one of the black pawns controls that square (see page 16 to learn how the pawns move and capture).
                         White has several interesting options. White can capture either black pawn (to capture, white would simply remove the pawn from the board, placing the King on the square that the pawn occupied). It's fun to practice such captures. Masters have become adept at moving and snatching a piece in one fluid motion.
                     `,
                 },

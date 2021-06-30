@@ -3,6 +3,9 @@ export default {
   body: `
         Like many other games, chess has some special moves. There are checks that attack the enemy King, checkmates that are checks from which the enemy King cannot escape, and stalemates—an end to the game in which the enemy is not in check but has no legal moves. There are discovered checks and double checks. You can transform (promote) your pawns into Queens or even under-promote your pawns to become Knights, Bishops, or Rooks. Castling permits you to move your King and Rook at the same time. And there's a special capture called en passant reserved just for the pawns. This chapter explains all these moves and helps you understand how you can use them to improve your play.
     `,
+  speech: `
+      Like many other games, chess has some special moves. There are checks that attack the enemy King, checkmates that are checks from which the enemy King cannot escape, and stalemates—an end to the game in which the enemy is not in check but has no legal moves. There are discovered checks and double checks. You can transform your pawns into Queens or even under-promote your pawns to become Knights, Bishops, or Rooks. Castling permits you to move your King and Rook at the same time. And there's a special capture called en passant reserved just for the pawns. This chapter explains all these moves and helps you understand how you can use them to improve your play.
+  `,
   items: [
     {
       lessonHeader: 'Checks and Checkmate',
@@ -25,8 +28,11 @@ export default {
             '8/8/1n6/8/8/8/8/b5k1 w - - 0 1'
           ],
           text: `
-                        Or black could end the attack by capturing the white Queen with the Knight (Nd5xb6).
-                    `
+            Or black could end the attack by capturing the white Queen with the Knight (Nd5xb6).
+          `,
+          speech: `
+            Or black could end the attack by capturing the white Queen with the Knight.
+          `
         },
         {
           fens: [
@@ -37,8 +43,11 @@ export default {
 
           ],
           text: `
-                        Or black could move a piece between the attacking Queen and the King in order to interrupt the direct attack. For example, black could move the Bishop to d4 (Ba1-d4) or the Knight to e3 (Nd5-e3).
-                    `
+            Or black could move a piece between the attacking Queen and the King in order to interrupt the direct attack. For example, black could move the Bishop to d4 (Ba1-d4) or the Knight to e3 (Nd5-e3).
+          `,
+          speech: `
+            Or black could move a piece between the attacking Queen and the King in order to interrupt the direct attack. For example, black could move the Bishop to d4 or the Knight to e3.
+          `
         },
         {
           fens: [
@@ -72,8 +81,11 @@ export default {
             '8/8/8/8/6p1/5n1k/R7/6rK w - - 0 1'
           ],
           text: `
-                        White appears to be well behind in this position. In fact, black is threatening to move the Rook on g3 to g1 (Rg3-g1#), checkmate. (The Knight on f3 would defend the Rook.)
-                    `
+            White appears to be well behind in this position. In fact, black is threatening to move the Rook on g3 to g1 (Rg3-g1#), checkmate. (The Knight on f3 would defend the Rook.)
+          `,
+          speech: `
+            White appears to be well behind in this position. In fact, black is threatening to move the Rook on g3 to g1, checkmate.
+          `
         },
         {
           fens: [
@@ -82,8 +94,11 @@ export default {
             '8/8/8/8/6p1/6rk/7n/7K w - - 0 1'
           ],
           text: `
-                        However, it is white's move. White surprises black by moving the Rook on a2 to h2, check (Ra2-h2+). At first glance, the move looks terrible because black can simply capture the white Rook with the Knight. But after the Knight on f3 captures the Rook (Nf3xh2), the result is a stalemate. The white King is not in check but cannot move.
-                    `
+            However, it is white's move. White surprises black by moving the Rook on a2 to h2, check (Ra2-h2+). At first glance, the move looks terrible because black can simply capture the white Rook with the Knight. But after the Knight on f3 captures the Rook (Nf3xh2), the result is a stalemate. The white King is not in check but cannot move.
+          `,
+          speech: `
+            However, it is white's move. White surprises black by moving the Rook on a2 to h2, check. At first glance, the move looks terrible because black can simply capture the white Rook with the Knight. But after the Knight on f3 captures the Rook, the result is a stalemate. The white King is not in check but cannot move.
+          `
         },
         {
           fens: [
@@ -106,32 +121,44 @@ export default {
             '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
           ],
           text: `
-                        The most spectacular is Qb8-h2 check because, after white captures the black Queen, the result is a stalemate!Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check (Qb8-g3+). White cannot capture the Queen or block the attack. White therefore must move the King into the corner at h1 (Kg1-h1).
-                    `
+            The most spectacular is Qb8-h2 check because, after white captures the black Queen, the result is a stalemate!Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check (Qb8-g3+). White cannot capture the Queen or block the attack. White therefore must move the King into the corner at h1 (Kg1-h1).
+          `,
+          speech: `
+            The most spectacular is Qb8-h2 check because, after white captures the black Queen, the result is a stalemate!Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check. White cannot capture the Queen or block the attack. White therefore must move the King into the corner at h1.
+          `
         },
         {
           fens: [
             '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
           ],
           text: `
-                        To draw, black will simply check the white King on h3 (Qg3-h3+) and then again on g3 (Qh3-g3+). Reaching the same position three times in a row is an automatic draw. For a play-by-play of this draw scenario, see the next page.
-                    `
+            To draw, black will simply check the white King on h3 (Qg3-h3+) and then again on g3 (Qh3-g3+). Reaching the same position three times in a row is an automatic draw. For a play-by-play of this draw scenario, see the next page.
+          `,
+          speech: `
+            To draw, black will simply check the white King on h3 and then again on g3. Reaching the same position three times in a row is an automatic draw. For a play-by-play of this draw scenario, see the next page.
+          `
         },
         {
           fens: [
             '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
           ],
           text: `
-                        Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check (Qb8-g3+). White cannot capture the Queen or block the attack. White therefore must move the King into the corner at h1 (Kg1-h1).
-                    `
+            Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check (Qb8-g3+). White cannot capture the Queen or block the attack. White therefore must move the King into the corner at h1 (Kg1-h1).
+          `,
+          speech: `
+            Black could also draw quickly with what is called a perpetual check, a never ending series of checks. Black moves the Queen from b8 to g3, check. White cannot capture the Queen or block the attack. White therefore must move the King into the corner at h1.
+          `
         },
         {
           fens: [
             '1q5k/5Q2/8/8/4R3/8/8/5RK1 w - - 0 1'
           ],
           text: `
-                        To draw, black will simply check the white King on h3 (Qg3-h3+) and then again on g3 (Qh3-g3+). Reaching the same position three times in a row is an automatic draw. For a play-by-play of this draw scenario, see the next page.
-                    `
+            To draw, black will simply check the white King on h3 (Qg3-h3+) and then again on g3 (Qh3-g3+). Reaching the same position three times in a row is an automatic draw. For a play-by-play of this draw scenario, see the next page.
+          `,
+          speech: `
+            To draw, black will simply check the white King on h3 and then again on g3. Reaching the same position three times in a row is an automatic draw. For a play-by-play of this draw scenario, see the next page.
+          `
         },
         {
           fens: [
@@ -147,8 +174,11 @@ export default {
             '7k/5Q2/8/8/4R3/6q1/8/5RK1 w - - 0 1'
           ],
           text: `
-                        Black moves its Queen from b8 to g3, check (Qb8-g3+).
-                    `
+            Black moves its Queen from b8 to g3, check (Qb8-g3+).
+          `,
+          speech: `
+            Black moves its Queen from b8 to g3, check.
+          `
         },
         {
           fens: [
@@ -157,8 +187,11 @@ export default {
             '7k/5Q2/8/8/4R3/6q1/8/5R1K w - - 0 1'
           ],
           text: `
-                        White moves its King to h1 to get out of check (Kg1-h1).
-                    `
+            White moves its King to h1 to get out of check (Kg1-h1).
+          `,
+          speech: `
+            White moves its King to h1 to get out of check.
+          `
         },
         {
           fens: [
@@ -168,16 +201,22 @@ export default {
             '7k/5Q2/8/8/4R3/7q/8/5R1K w - - 0 1'
           ],
           text: `
-                        Black moves its Queen to check white on h3 (Qg3-h3+), and can simply move back and forth between h3 and g3, keeping the King in perpetual check.
-                    `
+            Black moves its Queen to check white on h3 (Qg3-h3+), and can simply move back and forth between h3 and g3, keeping the King in perpetual check.
+          `,
+          speech: `
+            Black moves its Queen to check white on h3, and can simply move back and forth between h3 and g3, keeping the King in perpetual check.
+          `
         },
         {
           fens: [
             '8/8/8/8/8/8/8/8 w - - 0 1'
           ],
           text: `
-                        And then there's the merciful 50-move rule. If both players have made their last 50 consecutive moves without moving a pawn and without making a capture, either player can claim a draw. Obviously, you will need to have kept an accurate score sheet to make this claim! In this example from a real game, white just moved the Rook from e3 to e4 (Re3-e4) and used the 50-rule move to claim a draw. This particular game lasted a total of 170 moves.
-                    `
+            And then there's the merciful 50-move rule. If both players have made their last 50 consecutive moves without moving a pawn and without making a capture, either player can claim a draw. Obviously, you will need to have kept an accurate score sheet to make this claim! In this example from a real game, white just moved the Rook from e3 to e4 (Re3-e4) and used the 50-rule move to claim a draw. This particular game lasted a total of 170 moves.
+          `,
+          speech: `
+            And then there's the merciful 50-move rule. If both players have made their last 50 consecutive moves without moving a pawn and without making a capture, either player can claim a draw. Obviously, you will need to have kept an accurate score sheet to make this claim! In this example from a real game, white just moved the Rook from e3 to e4 and used the 50-rule move to claim a draw. This particular game lasted a total of 170 moves.
+          `
         }
       ]
     },
@@ -199,8 +238,11 @@ export default {
             'rnbqkb1r/pppp1ppp/2N2n2/8/8/8/PPPPQPPP/RNB1KB1R w KQkq - 0 1'
           ],
           text: `
-                        White could play the Knight to g6 check (Ne5-g6+), winning the h8-Rook on the next move. Better still, white selects the Knight to c6 check (Ne5-c6+), knowing that no matter what black does to block the check from the white Queen, the white Knight will capture the black Queen on the next move.
-                    `
+            White could play the Knight to g6 check (Ne5-g6+), winning the h8-Rook on the next move. Better still, white selects the Knight to c6 check (Ne5-c6+), knowing that no matter what black does to block the check from the white Queen, the white Knight will capture the black Queen on the next move.
+          `,
+          speech: `
+            White could play the Knight to g6 check, winning the h8-Rook on the next move. Better still, white selects the Knight to c6 check, knowing that no matter what black does to block the check from the white Queen, the white Knight will capture the black Queen on the next move.
+          `
         },
         {
           fens: [
@@ -215,8 +257,11 @@ export default {
             '1kr5/pp2nq2/8/8/5P2/6P1/6BP/1R3K2 w - - 0 1'
           ],
           text: `
-                        Therefore, under attack from the Rook, black has no choice but to retreat the King into the corner at a8 (Kb8-a8). White then continues with a powerful discovered check: The white Rook takes the black Knight on e7 (Rb7xe7), leaving the diagonal open, with the white Bishop now holding the black King in check. After black gets out of check by moving its King back to b8 (Ka8-b8), white will move the Rook (now on e7) to capture the black Queen on f7 (Re7xf7).
-                    `
+            Therefore, under attack from the Rook, black has no choice but to retreat the King into the corner at a8 (Kb8-a8). White then continues with a powerful discovered check: The white Rook takes the black Knight on e7 (Rb7xe7), leaving the diagonal open, with the white Bishop now holding the black King in check. After black gets out of check by moving its King back to b8 (Ka8-b8), white will move the Rook (now on e7) to capture the black Queen on f7 (Re7xf7).
+          `,
+          speech: `
+            Therefore, under attack from the Rook, black has no choice but to retreat the King into the corner at a8. White then continues with a powerful discovered check: The white Rook takes the black Knight on e7, leaving the diagonal open, with the white Bishop now holding the black King in check. After black gets out of check by moving its King back to b8, white will move the Rook (now on e7) to capture the black Queen on f7.
+          `
         },
         {
           fens: [
@@ -224,8 +269,11 @@ export default {
             '1kr5/pR2nq2/8/8/5P2/6P1/6BP/5K2 w - - 0 1'
           ],
           text: `
-                        The white Rook captures the black pawn on b7, putting the black King in check (Rb1-b7+).
-                    `
+            The white Rook captures the black pawn on b7, putting the black King in check (Rb1-b7+).
+          `,
+          speech: `
+            The white Rook captures the black pawn on b7, putting the black King in check.
+          `
         },
         {
           fens: [
@@ -234,8 +282,11 @@ export default {
             'k1r5/pR2nq2/8/8/5P2/6P1/6BP/5K2 w - - 0 1'
           ],
           text: `
-                        Black retreats its King to a8 (Kb8-a8).
-                    `
+            Black retreats its King to a8 (Kb8-a8).
+          `,
+          speech: `
+            Black retreats its King to a8.
+          `
         },
         {
           fens: [
@@ -245,8 +296,11 @@ export default {
             'k1r5/p3Rq2/8/8/5P2/6P1/6BP/5K2 w - - 0 1'
           ],
           text: `
-                        The white Rook captures the black Knight on e7, revealing the discovered check from the white Bishop (Rb7xe7).
-                    `
+            The white Rook captures the black Knight on e7, revealing the discovered check from the white Bishop (Rb7xe7).
+          `,
+          speech: `
+            The white Rook captures the black Knight on e7, revealing the discovered check from the white Bishop.
+          `
         },
         {
           fens: [
@@ -258,8 +312,11 @@ export default {
             '1kr5/p4R2/8/8/5P2/6P1/6BP/5K2 w - - 0 1'
           ],
           text: `
-                        Black moves its King back to b8 to get out of check (Ka8-b8). Then white moves its Rook to capture the black Queen on f7 (Re7xf7).
-                    `
+            Black moves its King back to b8 to get out of check (Ka8-b8). Then white moves its Rook to capture the black Queen on f7 (Re7xf7).
+          `,
+          speech: `
+            Black moves its King back to b8 to get out of check. Then white moves its Rook to capture the black Queen on f7.
+          `
         },
         {
           fens: [
@@ -276,8 +333,11 @@ export default {
             'rnbk1b1r/pp3ppp/2p5/4q1B1/8/8/PPP2nPP/2KR1BNR w Kkq - 0 1'
           ],
           text: `
-                        This is the position after the Queen sacrifice. White now moves the Bishop on d2 to g5 (Bd2-g5+), giving double check from both the Bishop and the Rook on d1. Note that black is attacking both of these white pieces, but it is not possible to capture both with one move.
-                    `
+            This is the position after the Queen sacrifice. White now moves the Bishop on d2 to g5 (Bd2-g5+), giving double check from both the Bishop and the Rook on d1. Note that black is attacking both of these white pieces, but it is not possible to capture both with one move.
+          `,
+          speech: `
+            This is the position after the Queen sacrifice. White now moves the Bishop on d2 to g5, giving double check from both the Bishop and the Rook on d1. Note that black is attacking both of these white pieces, but it is not possible to capture both with one move.
+          `
         },
         {
           fens: [
@@ -312,8 +372,11 @@ export default {
             '6QQ/8/1kp5/2q1p3/2PpP3/2nP2P1/8/q4BK1 w - - 0 1'
           ],
           text: `
-                        This position is from a game between former world chess champion Bobby Fischer (playing white) and the Russian Tigran Petrosian (playing black). Petrosian advanced the pawn on a2 to a1 (a2-a1=Q) and promoted it to a Queen. Fischer replied by advancing his h6 pawn to h7 (h6-h7). Petrosian was unable to prevent Fischer from promoting that pawn to a Queen on the next move (h7-h8=Q).
-                    `
+            This position is from a game between former world chess champion Bobby Fischer (playing white) and the Russian Tigran Petrosian (playing black). Petrosian advanced the pawn on a2 to a1 (a2-a1=Q) and promoted it to a Queen. Fischer replied by advancing his h6 pawn to h7 (h6-h7). Petrosian was unable to prevent Fischer from promoting that pawn to a Queen on the next move (h7-h8=Q).
+          `,
+          speech: `
+            This position is from a game between former world chess champion Bobby Fischer (playing white) and the Russian Tigran Petrosian (playing black). Petrosian advanced the pawn on a2 to a1 and promoted it to a Queen. Fischer replied by advancing his h6 pawn to h7. Petrosian was unable to prevent Fischer from promoting that pawn to a Queen on the next move.
+          `
         },
         {
           fens: [
@@ -331,8 +394,11 @@ export default {
             '2R5/8/8/4kpp1/8/1P3KP1/r3pP2/8 w - - 0 1'
           ],
           text: `
-                        Under-promotion is rare, but it's always fun when it occurs. Here, with black to move, black dares not promote the pawn on e2 to a Queen because white will quickly respond by moving its Rook on b8 to e8 (Rb8-e8+), checking the black King, and, on the next move, capturing the new Queen on e1.
-                    `
+            Under-promotion is rare, but it's always fun when it occurs. Here, with black to move, black dares not promote the pawn on e2 to a Queen because white will quickly respond by moving its Rook on b8 to e8 (Rb8-e8+), checking the black King, and, on the next move, capturing the new Queen on e1.
+          `,
+          speech: `
+            Under-promotion is rare, but it's always fun when it occurs. Here, with black to move, black dares not promote the pawn on e2 to a Queen because white will quickly respond by moving its Rook on b8 to e8, checking the black King, and, on the next move, capturing the new Queen on e1.
+          `
         },
         {
           fens: [
@@ -341,8 +407,11 @@ export default {
             '2R5/8/8/4kpp1/8/1P2K1P1/r4P2/4n3 w - - 0 1'
           ],
           text: `
-                        Instead, black under-promotes the e-pawn to a Knight! Suddenly, the white King is in check from the new Knight with only a single legal move: King from f3 to e3 (Kf3-e3). Note that on e3, the King no longer has any legal moves. The new Knight controls d3 and f3.
-                    `
+            Instead, black under-promotes the e-pawn to a Knight! Suddenly, the white King is in check from the new Knight with only a single legal move: King from f3 to e3 (Kf3-e3). Note that on e3, the King no longer has any legal moves. The new Knight controls d3 and f3.
+          `,
+          speech: `
+            Instead, black under-promotes the e-pawn to a Knight! Suddenly, the white King is in check from the new Knight with only a single legal move: King from f3 to e3. Note that on e3, the King no longer has any legal moves. The new Knight controls d3 and f3.
+          `
         },
         {
           fens: [
@@ -351,8 +420,11 @@ export default {
             '2R5/8/8/4kpp1/8/1P2K1P1/r4P2/4n3 w - - 0 1'
           ],
           text: `
-                        The Rook on a2 controls the squares on the 2nd rank. And the black King controls d4, e4, and f4. Black should therefore attack the trapped King by advancing the f-pawn from f5 to f4 (f5-f4). That's check, with mate to follow on the next move (after two pawn captures on f4)!
-                    `
+            The Rook on a2 controls the squares on the 2nd rank. And the black King controls d4, e4, and f4. Black should therefore attack the trapped King by advancing the f-pawn from f5 to f4 (f5-f4). That's check, with mate to follow on the next move (after two pawn captures on f4)!
+          `,
+          speech: `
+            The Rook on a2 controls the squares on the 2nd rank. And the black King controls d4, e4, and f4. Black should therefore attack the trapped King by advancing the f-pawn from f5 to f4. That's check, with mate to follow on the next move (after two pawn captures on f4)!
+          `
         }
       ]
     },

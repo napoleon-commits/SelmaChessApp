@@ -6,12 +6,12 @@
         <div class="text-body-1 mb-3">
             <span
                 :style="`cursor: pointer;`"
-                @click="textToSpeech(json.body)"
+                @click="textToSpeech(json)"
               >&#128264;</span>
             {{json.body}}
             <span
                 :style="`cursor: pointer;`"
-                @click="textToSpeech(json.body)"
+                @click="textToSpeech(json)"
               >&#128264;</span>
         </div>
         <v-pagination
@@ -50,8 +50,12 @@ export default {
     }
   },
   methods: {
-    textToSpeech (text) {
-      TextToSpeech(text)
+    textToSpeech (json) {
+      if (json.speech) {
+        TextToSpeech(json.speech)
+      } else {
+        TextToSpeech(json.body)
+      }
     }
   }
 }

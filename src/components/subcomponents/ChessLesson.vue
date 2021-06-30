@@ -29,7 +29,7 @@
         </v-col>
         <v-col>
             <div :id="`${$store.state.school}-chess-board`">
-                <StaticChessBoard 
+                <StaticChessBoard
                     :fen="demo[page-1].fens[fenIndex]"
                 />
             </div>
@@ -39,71 +39,69 @@
 </template>
 
 <script>
-import StaticChessBoard from '@/components/subcomponents/StaticChessBoard';
-import TextToSpeech from '@/utils/TextToSpeech';
+import StaticChessBoard from '@/components/subcomponents/StaticChessBoard'
+import TextToSpeech from '@/utils/TextToSpeech'
 
 export default {
-    name: 'ChessLesson',
-    props: ['header', 'demo',],
-    components: {
-        StaticChessBoard,
-    },
-    data() {
-        return {
-            page: 1,
-            fenIndex: 0,
-        };
-    },
-    methods: {
-        incrementFenIndex(){
-            if(this.fenIndex + 1 === this.demo[this.page-1].fens.length){
-                this.fenIndex = 0;
-            }
-            else {
-                this.fenIndex += 1;
-            }
-        },
-        pageChange(){
-            this.fenIndex = 0;
-        },
-        textToSpeech(text){
-            TextToSpeech(text);
-        },
-        determineAndPerformSpeech(demo){
-            if(demo.speech){
-                this.textToSpeech(demo.speech)
-            }
-            else{
-                this.textToSpeech(demo.text)
-            }
-        }
-    },
-    mounted() {
-        setInterval(this.incrementFenIndex, 1500);
-    },
-    beforeDestroy() {
-        clearInterval(this.incrementFenIndex);
-    },
-    watch: { 
-      demo() {
-        this.page = 1;
-        this.fenIndex = 0;
+  name: 'ChessLesson',
+  props: ['header', 'demo'],
+  components: {
+    StaticChessBoard
+  },
+  data () {
+    return {
+      page: 1,
+      fenIndex: 0
+    }
+  },
+  methods: {
+    incrementFenIndex () {
+      if (this.fenIndex + 1 === this.demo[this.page - 1].fens.length) {
+        this.fenIndex = 0
+      } else {
+        this.fenIndex += 1
       }
     },
-    computed: {
-        smallScreenBackgroundStyle(){
-            let style = '';
-            if(this.$vuetify.breakpoint.smAndUp === false){
-                if(this.$store.state.school === 'Selma' || this.$store.state.school === 'Keith'){
-                    style += 'color: rgba(0, 0, 0, 0.87) !important;';
-                } else {
-                    style += 'color: white !important;';
-                }
-                style += `background-color: rgb(${this.$store.state.customColor.red},${this.$store.state.customColor.green},${this.$store.state.customColor.blue});`;
-            }
-            return style;
-        }
+    pageChange () {
+      this.fenIndex = 0
     },
+    textToSpeech (text) {
+      TextToSpeech(text)
+    },
+    determineAndPerformSpeech (demo) {
+      if (demo.speech) {
+        this.textToSpeech(demo.speech)
+      } else {
+        this.textToSpeech(demo.text)
+      }
+    }
+  },
+  mounted () {
+    setInterval(this.incrementFenIndex, 1500)
+  },
+  beforeDestroy () {
+    clearInterval(this.incrementFenIndex)
+  },
+  watch: {
+    demo () {
+      this.page = 1
+      this.fenIndex = 0
+    }
+  },
+  computed: {
+    smallScreenBackgroundStyle () {
+      let style = ''
+      if (this.$vuetify.breakpoint.smAndUp === false) {
+        if (this.$store.state.school === 'Selma' || this.$store.state.school === 'Keith') {
+          style += 'color: rgba(0, 0, 0, 0.87) !important;'
+        } else {
+          style += 'color: white !important;'
+        }
+        style += `background-color: rgb(${this.$store.state.customColor.red},${this.$store.state.customColor.green},${this.$store.state.customColor.blue});`
+      }
+      return style
+    }
+  }
 }
 </script>
 

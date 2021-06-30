@@ -12,7 +12,7 @@
 
 <script>
 export default {
-    name: 'ComingSoonIcon',
+  name: 'ComingSoonIcon'
 }
 </script>
 

@@ -3,19 +3,19 @@
 </template>
 
 <script>
-import SpecialMovesText from '@/static/SpecialMovesText';
-import Training from '@/components/subcomponents/Training';
+import SpecialMovesText from '@/static/SpecialMovesText'
+import Training from '@/components/subcomponents/Training'
 
 export default {
   name: 'SpecialMoves',
   components: {
-    Training,
+    Training
   },
-  data(){
+  data () {
     return {
-      SpecialMovesText,
-    };
-  },
+      SpecialMovesText
+    }
+  }
 }
 </script>
 

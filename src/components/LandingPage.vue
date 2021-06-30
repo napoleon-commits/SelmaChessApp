@@ -15,15 +15,15 @@
 
 <script>
 export default {
-    name: 'LandingPage',
-    methods: {
-        goToOfflineChess(){
-            this.$router.push({name: 'OfflineChess'});
-        },
-        goToTraining(){
-            this.$router.push({name: 'Introduction'});
-        },
+  name: 'LandingPage',
+  methods: {
+    goToOfflineChess () {
+      this.$router.push({ name: 'OfflineChess' })
+    },
+    goToTraining () {
+      this.$router.push({ name: 'Introduction' })
     }
+  }
 }
 </script>
 

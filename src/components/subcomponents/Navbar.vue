@@ -43,34 +43,34 @@
 </template>
 
 <script>
-import TrainingLinks from '@/static/TrainingLinks';
+import TrainingLinks from '@/static/TrainingLinks'
 
 export default {
-    name: 'Navbar',
-    data() {
-        return {
-            TrainingLinks,
-        };
-    },
-    methods: {
-        goTo(index) {
-            if(this.$route.name !== TrainingLinks[index]){
-                this.$router.push({name: TrainingLinks[index]});
-                document.body.scrollTop = document.documentElement.scrollTop = 0;
-            }
-        },
-        goToHome(){
-            if(this.$route.name !== 'LandingPage'){
-                this.$router.push({name: 'LandingPage'});
-                document.body.scrollTop = document.documentElement.scrollTop = 0;
-            }
-        },
-        goToOfflineChess(){
-            if(this.$route.name !== 'OfflineChess'){
-                this.$router.push({name: 'OfflineChess'});
-            }
-        },
+  name: 'Navbar',
+  data () {
+    return {
+      TrainingLinks
     }
+  },
+  methods: {
+    goTo (index) {
+      if (this.$route.name !== TrainingLinks[index]) {
+        this.$router.push({ name: TrainingLinks[index] })
+        document.body.scrollTop = document.documentElement.scrollTop = 0
+      }
+    },
+    goToHome () {
+      if (this.$route.name !== 'LandingPage') {
+        this.$router.push({ name: 'LandingPage' })
+        document.body.scrollTop = document.documentElement.scrollTop = 0
+      }
+    },
+    goToOfflineChess () {
+      if (this.$route.name !== 'OfflineChess') {
+        this.$router.push({ name: 'OfflineChess' })
+      }
+    }
+  }
 }
 </script>
 

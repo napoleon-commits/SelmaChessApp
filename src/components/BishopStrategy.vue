@@ -3,19 +3,19 @@
 </template>
 
 <script>
-import BishopStrategyText from '@/static/BishopStrategyText';
-import Training from '@/components/subcomponents/Training';
+import BishopStrategyText from '@/static/BishopStrategyText'
+import Training from '@/components/subcomponents/Training'
 
 export default {
-    name: 'BishopStrategy',
-    components: {
-      Training,
-    },
-    data() {
-        return {
-            BishopStrategyText,
-        };
-    },
+  name: 'BishopStrategy',
+  components: {
+    Training
+  },
+  data () {
+    return {
+      BishopStrategyText
+    }
+  }
 }
 </script>
 

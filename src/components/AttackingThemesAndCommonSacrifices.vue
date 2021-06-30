@@ -3,19 +3,19 @@
 </template>
 
 <script>
-import AttackingThemesAndCommonSacrificesText from '@/static/AttackingThemesAndCommonSacrificesText';
-import Training from '@/components/subcomponents/Training';
+import AttackingThemesAndCommonSacrificesText from '@/static/AttackingThemesAndCommonSacrificesText'
+import Training from '@/components/subcomponents/Training'
 
 export default {
-    name: 'AttackingThemesAndCommonSacrifices',
-    components: {
-        Training,
-    },
-    data() {
-      return {
-        AttackingThemesAndCommonSacrificesText,
-      };
-    },
+  name: 'AttackingThemesAndCommonSacrifices',
+  components: {
+    Training
+  },
+  data () {
+    return {
+      AttackingThemesAndCommonSacrificesText
+    }
+  }
 }
 </script>
 

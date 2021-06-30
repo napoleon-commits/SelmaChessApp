@@ -7,16 +7,16 @@
 
 <script>
 export default {
-    name: 'Timer',
-    props: ['totalSeconds'],
-    computed: {
-        minutes(){
-            return Math.floor((this.totalSeconds)/60);
-        },
-        seconds(){
-            return this.totalSeconds-(this.minutes*60);
-        }
+  name: 'Timer',
+  props: ['totalSeconds'],
+  computed: {
+    minutes () {
+      return Math.floor((this.totalSeconds) / 60)
     },
+    seconds () {
+      return this.totalSeconds - (this.minutes * 60)
+    }
+  }
 }
 </script>
 

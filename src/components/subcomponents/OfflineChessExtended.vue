@@ -1,13 +1,13 @@
 <script>
-    import { chessboard }  from 'vue-chessboard';
+import { chessboard } from 'vue-chessboard'
 
-    export default {
-        name: 'OfflineChessExtended',
-        extends: chessboard,
-        // mounted() {
-        //     this.board.set({
-        //         viewOnly: true,
-        //     });
-        // },
-    };
+export default {
+  name: 'OfflineChessExtended',
+  extends: chessboard
+  // mounted() {
+  //     this.board.set({
+  //         viewOnly: true,
+  //     });
+  // },
+}
 </script>

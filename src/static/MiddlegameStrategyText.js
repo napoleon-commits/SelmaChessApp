@@ -1,6 +1,6 @@
 export default {
-    header: 'Middlegame Strategy',
-    body: `
+  header: 'Middlegame Strategy',
+  body: `
         Many players memorize long opening variations but have little or no
         idea how to proceed once they get to the middle of a game. You already
         know about having good and bad pieces, placing Rooks on open files,
@@ -27,13 +27,13 @@ export default {
         fourth section, I emphasize the importance of recapturing after someone
         captures one of your pieces.
     `,
-    items: [
+  items: [
+    {
+      lessonHeader: 'Five Steps to Victory',
+      demo: [
         {
-            lessonHeader: `Five Steps to Victory`,
-            demo: [
-                {
-                    fens: ['8/pp3ppp/3p4/4p3/4P3/8/PPP2PPP/8 w - - 0 1'],
-                    text: `
+          fens: ['8/pp3ppp/3p4/4p3/4P3/8/PPP2PPP/8 w - - 0 1'],
+          text: `
                     The first step is simple enough. You will win
                     many games if you train yourself to be aware
                     of and to quickly identify all of your opponent's
@@ -46,14 +46,14 @@ export default {
                     key weakness in the black pawn structure.
                     Having identified the key weakness on d6,
                     you are ready for step 2.
-                    `,
-                },
-                {
-                    fens: [
-                        '8/pp3ppp/3p4/4p3/4P3/4N3/PPP2PPP/8 w - - 0 1',
-                        '8/pp3ppp/3p4/3Np3/4P3/8/PPP2PPP/8 w - - 0 1',
-                    ],
-                    text: `
+                    `
+        },
+        {
+          fens: [
+            '8/pp3ppp/3p4/4p3/4P3/4N3/PPP2PPP/8 w - - 0 1',
+            '8/pp3ppp/3p4/3Np3/4P3/8/PPP2PPP/8 w - - 0 1'
+          ],
+          text: `
                         The second step is quite simple. To prevent
                         black from pushing the d6-pawn to d5, white
                         must fix black's weakness by occupying or
@@ -74,11 +74,11 @@ export default {
                         would be able to win it. With the Knight on
                         e3, the pawn on d6 has been fixed because
                         it can't successfully move without being lost.
-                    `,
-                },
-                {
-                    fens: ['8/pp3ppp/3p4/4p3/2P1P3/BP1R4/P2R1PPP/3Q4 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['8/pp3ppp/3p4/4p3/2P1P3/BP1R4/P2R1PPP/3Q4 w - - 0 1'],
+          text: `
                         Once you have identified and fixed the weakness,
                         it's time for step 3: Attack the weakness
                         with your pieces—not your pawns. In this
@@ -94,11 +94,11 @@ export default {
                         have the less valuable pieces lead the attack.
                         As they say in boxing, "Don't lead with your
                         nose."
-                    `,
-                },
-                {
-                    fens: ['1q1r2k1/pp1rbppp/3p4/4p3/2P1P3/BP1R4/P2R1PPP/3Q2K1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['1q1r2k1/pp1rbppp/3p4/4p3/2P1P3/BP1R4/P2R1PPP/3Q2K1 w - - 0 1'],
+          text: `
                         If you have successfully carried out the first
                         three steps, your opponent must carry out
                         step 4. For every one of your attacks on the
@@ -121,11 +121,11 @@ export default {
                         bad, stuck behind the fixed d6-pawn. Even
                         the white Queen on d1 is more active than its
                         black counterpart on b8.
-                    `,
-                },
-                {
-                    fens: ['1q1r2k1/pp1rbppp/3p4/2P1p3/4P3/BP1R4/P2R1PPP/3Q2K1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['1q1r2k1/pp1rbppp/3p4/2P1p3/4P3/BP1R4/P2R1PPP/3Q2K1 w - - 0 1'],
+          text: `
                         By the time your opponent has completed step 4, he'll know that there's trouble ahead. Most or all of your pieces will be
                         active by focusing their energy on a single fixed point. By contrast, your opponent's pieces will be relatively weak, defending
                         rather than attacking a weakness.
@@ -137,89 +137,89 @@ export default {
                         would lose a black Rook.
                         Black could do nothing, but white would still have five attacks on the d6-pawn, and black would have only four defenses. On
                         white's next move, white would continue with c5xd6, winning the key black pawn.
-                    `,
-                },
-                {
-                    fens: ['1rr5/4k2p/2npppp1/1Bp5/P5P1/1PR1P2P/5P2/2R2K2 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['1rr5/4k2p/2npppp1/1Bp5/P5P1/1PR1P2P/5P2/2R2K2 w - - 0 1'],
+          text: `
                         In this position, with black to move, black realizes that
                         the white b3-pawn is a weakness and is already fixed
                         by the black c5-pawn and the black Nc6. Black plays
                         Nc6-a7, threatening to capture Bb5 and, by forcing the
                         Bishop to move, gaining access for Rb8-b4. White
                         responds with Bb5-e2.
-                    `,
-                },
-                {
-                    fens: ['1rr5/n3k2p/3pppp1/2p5/P5P1/1PR1P2P/4BP2/2R2K2 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['1rr5/n3k2p/3pppp1/2p5/P5P1/1PR1P2P/4BP2/2R2K2 w - - 0 1'],
+          text: `
                         Black continues with the strategy by playing Rb8-b4,
                         helping to fix the pawn and preparing to bring the Rc8
                         into the strategy by doubling the Rooks on the b-file.
                         Understanding black's strategy, white attempts to bring
                         the King closer to the b-pawn by playing Kf1-e1.
-                    `,
-                },
-                {
-                    fens: ['2r5/n3k2p/3pppp1/2p5/Pr4P1/1PR1P2P/4BP2/2R1K3 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['2r5/n3k2p/3pppp1/2p5/Pr4P1/1PR1P2P/4BP2/2R1K3 w - - 0 1'],
+          text: `
                         Black continues with Rc8-b8, placing a second attack on
                         the white b3-pawn. For the moment, white has only one
                         defender, the Rc3. White therefore plays Be2-d1, using
                         the Bishop to defend b3. There are now two attacks and
                         two defenses. The third attack will require that the black
                         Knight reach the a5-square.
-                    `,
-                },
-                {
-                    fens: ['1r6/n3k2p/3pppp1/2p5/Pr4P1/1PR1P2P/5P2/2RBK3 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['1r6/n3k2p/3pppp1/2p5/Pr4P1/1PR1P2P/5P2/2RBK3 w - - 0 1'],
+          text: `
                         Black plays Na7-c6. Knowing there will soon be a third
                         attack, white could defend again with Rc1-b1, but Rb1
                         would be vulnerable after Rb4xa4 because the b3-pawn
                         would be pinned and unable to recapture on a4 without
                         losing Rb1. White therefore plays Rc1-a1 with the idea
                         of defending the b3-pawn with a Rook on a3.
-                    `,
-                },
-                {
-                    fens: ['1r6/4k2p/2npppp1/2p5/Pr4P1/1PR1P2P/5P2/R2BK3 w Q - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['1r6/4k2p/2npppp1/2p5/Pr4P1/1PR1P2P/5P2/R2BK3 w Q - 0 1'],
+          text: `
                         Black now continues with Nc6-a5, placing the b3-pawn
                         under a third attack. White has no choice but to defend
                         the pawn with its Rook and plays Ra1-a3.
-                    `,
-                },
-                {
-                    fens: ['1r6/4k2p/3pppp1/n1p5/Pr4P1/RPR1P2P/5P2/3BK3 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['1r6/4k2p/3pppp1/n1p5/Pr4P1/RPR1P2P/5P2/3BK3 w - - 0 1'],
+          text: `
                         The only step remaining is to attack b3 with the c5-pawn
                         (c5-c4). Black, in no rush, delayed for a moment
                         to fix another one of the white pawns on a dark square
                         with g6-g5. White responded with a bad move, Ke1-d2,
                         permitting the black Knight to move later toward the
                         center with a powerful check (Na5-c4+).
-                    `,
-                },
-                {
-                    fens: ['1r6/4k2p/3ppp2/n1p3p1/Pr4P1/RPR1P2P/3K1P2/3B4 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['1r6/4k2p/3ppp2/n1p3p1/Pr4P1/RPR1P2P/3K1P2/3B4 w - - 0 1'],
+          text: `
                         Finally, the fifth step. Black plays c5-c4, making the
                         fourth attack on the white b-pawn. A pawn capture on
                         c4 not only weakens the white pawn structure, but also
                         permits Na5xc4+: a Knight fork that attacks white's Kd2
                         and Ra3. If white does nothing, black will be able to
                         capture and win the b3-pawn.
-                    `,
-                },
-            ],
-        },
+                    `
+        }
+      ]
+    },
+    {
+      lessonHeader: 'Candidate Moves and Planning',
+      demo: [
         {
-            lessonHeader: `Candidate Moves and Planning`,
-            demo: [
-                {
-                    fens: ['r2q1rk1/pb2np1p/1p1b2p1/3P2N1/3P4/3B1Q2/P4PPP/R1B2RK1 w - - 0 1'],
-                    text: `
+          fens: ['r2q1rk1/pb2np1p/1p1b2p1/3P2N1/3P4/3B1Q2/P4PPP/R1B2RK1 w - - 0 1'],
+          text: `
                         Many beginners believe that the masters have trained themselves to think many moves ahead. The fact is that masters have
                         an advantage. Masters rarely calculate long forced sequences. Although some rely on intuition or an innate feel for the game,
                         most are able to plan ahead. They have a sense of where the strongest squares are and where each piece belongs. From
@@ -246,11 +246,11 @@ export default {
                         better than the other. In this case, white
                         plays Qf3-h3 in order to further weaken
                         the black Kingside.
-                    `,
-                },
-                {
-                    fens: ['r2q1rk1/pb2np2/1p1b2p1/3P2Np/3P4/3B3Q/P4PPP/R1B2RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r2q1rk1/pb2np2/1p1b2p1/3P2Np/3P4/3B3Q/P4PPP/R1B2RK1 w - - 0 1'],
+          text: `
                         As you can see, black has prevented the
                         immediate checkmate by advancing the h7-pawn to h5, but the pawn move has further
                         weakened the black Kingside. It would now
@@ -272,11 +272,11 @@ export default {
                         Ne7. The Nd5 will be well posted in the center
                         of the board where the white pawns will not
                         be able to attack it.
-                    `,
-                },
-                {
-                    fens: ['r2q1rk1/pb3p2/1p1b2p1/3n3p/3PN3/3B3Q/P4PPP/R1B2RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r2q1rk1/pb3p2/1p1b2p1/3n3p/3PN3/3B3Q/P4PPP/R1B2RK1 w - - 0 1'],
+          text: `
                         White has three candidate moves in this
                         next position. White could capture the Bd6
                         with the Ne4. White could develop the Bc1
@@ -298,11 +298,11 @@ export default {
                         playing the move Bc1-g5, attacking the black
                         Queen. To guard the Queen, black responds
                         with Bd6-e7.
-                    `,
-                },
-                {
-                    fens: ['r2q1rk1/pb2bp2/1p4p1/3n2Bp/3PN3/3B3Q/P4PPP/R4RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r2q1rk1/pb2bp2/1p4p1/3n2Bp/3PN3/3B3Q/P4PPP/R4RK1 w - - 0 1'],
+          text: `
                         After black's Bd6-e7, black is threatening
                         simply to capture the white Bg5. White therefore
                         has two options: capture the black Be7
@@ -316,11 +316,11 @@ export default {
                         of course, attacks the Rf8. Rather than move
                         the Rook, black plays Bb7-c8, attacking the
                         white Queen.
-                    `,
-                },
-                {
-                    fens: ['r1bq1rk1/p3bp2/1p4pB/3n3p/3PN3/3B3Q/P4PPP/R4RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bq1rk1/p3bp2/1p4pB/3n3p/3PN3/3B3Q/P4PPP/R4RK1 w - - 0 1'],
+          text: `
                         With the attack by the Bc8 on the Qh3, white
                         has two logical moves. To save the Qh3, white
                         can move it to f3 or to g3. On f3, the Queen
@@ -328,11 +328,11 @@ export default {
                         the Queen, in conjunction with the Bd3, is
                         generating pressure on the weakened g6-pawn. Black responds by moving Rf8-e8, out
                         of danger from the attack from the Bh6.
-                    `,
-                },
-                {
-                    fens: ['r1bqr1k1/p3bp2/1p4pB/3n3p/3PN3/3B2Q1/P4PPP/R4RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqr1k1/p3bp2/1p4pB/3n3p/3PN3/3B2Q1/P4PPP/R4RK1 w - - 0 1'],
+          text: `
                         White has many good moves in this position.
                         For example, white could activate the Ra1 to
                         c1 or the Rf1-e1. The Bd3 could move to b5
@@ -354,22 +354,22 @@ export default {
                         f7-pawn to f6, yet another weakening of the
                         black Kingside. In this case, the f7-f6 move
                         weakens the now undefended g6-pawn.
-                    `,
-                },
-                {
-                    fens: ['r1bqr1k1/p3b3/1p3ppB/3nQ2p/3PN3/3B4/P4PPP/R4RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqr1k1/p3b3/1p3ppB/3nQ2p/3PN3/3B4/P4PPP/R4RK1 w - - 0 1'],
+          text: `
                         Having forced yet another Kingside weakness,
                         the white Queen must now retreat. In this
                         instance, there is only one safe move: Qe5-g3.
                         Fortunately for white, the Qg3 will now attack
                         the black g6-pawn. To defend it, black decides
                         to push the g6-pawn to g5.
-                    `,
-                },
-                {
-                    fens: ['r1bqr1k1/p3b3/1p3p1B/3n2pp/3PN3/3B2Q1/P4PPP/R4RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqr1k1/p3b3/1p3p1B/3n2pp/3PN3/3B2Q1/P4PPP/R4RK1 w - - 0 1'],
+          text: `
                         White's strategy has worked very well. As a
                         result of carefully timed maneuvers, black's
                         Kingside is in shambles. However, black does
@@ -381,11 +381,11 @@ export default {
                         h4 represents the fourth attack on the black
                         g5-pawn. Under such pressure, black has no
                         choice but to push the g-pawn yet again.
-                    `,
-                },
-                {
-                    fens: ['r1bqr1k1/p3b3/1p3p1B/3n3p/3PN1pP/3B2Q1/P4PP1/R4RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqr1k1/p3b3/1p3p1B/3n3p/3PN1pP/3B2Q1/P4PP1/R4RK1 w - - 0 1'],
+          text: `
                         This position represents the culmination of
                         white's initial strategy of forcing the black
                         Kingside pawns to advance. Having caused
@@ -408,11 +408,11 @@ export default {
                         on the e6 and f7 squares. Black responds, as
                         masters often do, by moving the King in order
                         to break the pin (Kg8-h7).
-                    `,
-                },
-                {
-                    fens: ['r1bqr3/p3b2k/1p3p1B/3n3p/2BPN1pP/6Q1/P4PP1/R4RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqr3/p3b2k/1p3p1B/3n3p/2BPN1pP/6Q1/P4PP1/R4RK1 w - - 0 1'],
+          text: `
                         In this position, white faces the need to retreat
                         the Bh6. Retreating the Bishop to g5 would
                         lose the Bishop to the f6-pawn. Retreating
@@ -430,11 +430,11 @@ export default {
                         Bc8-f5, attacking the undefended Ne4 and
                         immediately taking control over the b1-h7
                         diagonal on which the black King is sitting.
-                    `,
-                },
-                {
-                    fens: ['r2qr3/p3b2k/1p3p2/3n1b1p/2BPN1pP/6Q1/P2B1PP1/R4RK1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r2qr3/p3b2k/1p3p2/3n1b1p/2BPN1pP/6Q1/P2B1PP1/R4RK1 w - - 0 1'],
+          text: `
                         With no reasonable retreat for the white Ne4,
                         white will need to defend it. Qg3-d3 is unacceptable
                         because white would not want to
@@ -449,11 +449,11 @@ export default {
                         White selects Rf1-e1 as the more flexible move.
                         Black responds with Bf5-g6 in an effort to fight
                         for control over the f7-square.
-                    `,
-                },
-                {
-                    fens: ['r2qr3/p3b2k/1p3pb1/3n3p/2BPN1pP/6Q1/P2B1PP1/R3R1K1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r2qr3/p3b2k/1p3pb1/3n3p/2BPN1pP/6Q1/P2B1PP1/R3R1K1 w - - 0 1'],
+          text: `
                         White's move is relatively easy this time, with
                         Qg3-b3—the most logical move. On b3, the
                         Queen augments the pressure along the a2-g8 diagonal. Black is simply unable to defend
@@ -465,11 +465,11 @@ export default {
                         Black therefore retreats the Nd5 to c7, three
                         squares away from the c4-Bishop, in an effort
                         to limit the Bishop's scope.
-                    `,
-                },
-                {
-                    fens: ['r2qr3/p1n1b2k/1p3pb1/7p/2BPN1pP/1Q6/P2B1PP1/R3R1K1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r2qr3/p1n1b2k/1p3pb1/7p/2BPN1pP/1Q6/P2B1PP1/R3R1K1 w - - 0 1'],
+          text: `
                         After 12 moves in this middlegame, white has
                         a substantial advantage. You might imagine
                         continuing with Ra1-c1 or Bc4-f7. Both are
@@ -495,18 +495,18 @@ export default {
                         37.Qe6-f7+ Ne8-g7
                         38.Nf4-h5 1–0
                         Black resigns.
-                    `,
-                }
-            ],
-        },
+                    `
+        }
+      ]
+    },
+    {
+      lessonHeader: 'Responding to Threats',
+      demo: [
         {
-            lessonHeader: `Responding to Threats`,
-            demo: [
-                {
-                    fens: [
-                        'r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 1',
-                    ],
-                    text: `
+          fens: [
+            'r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 1'
+          ],
+          text: `
                         This scenario occurred in the Sicilian Defense
                         after the moves 1.e2-e4 c7-c5, 2.Ng1-f3 Nb8-c6, 3.d2-d4 c5xd4, 4.Nf3xd4 Ng8-f6, 5.Nb1-c3
                         e7-e5. Black's last move, e7-e5, threatens on
@@ -525,11 +525,11 @@ export default {
                         play it by first moving Bc1-g5. The Bishop pins
                         the Nf6 to the black Queen and the threat of
                         Nc3-d5 is now real.
-                    `,
-                },
-                {
-                    fens: ['r1bqkb1r/pp3ppp/2np1n2/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqkb1r/pp3ppp/2np1n2/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 1'],
+          text: `
                         Strong players often say that "the threat
                         is stronger than the execution." They mean
                         that preparing the threat correctly (in this
@@ -543,11 +543,11 @@ export default {
                         prefers to meet the threat of Nc3-d5 with his
                         own threat, the move a7-a6 threatening to
                         capture the Nb5.
-                    `,
-                },
-                {
-                    fens: ['r1bqkb1r/1p3ppp/p1np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqkb1r/1p3ppp/p1np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 1'],
+          text: `
                         White's Nb5 is now under attack and has only
                         one logical retreat. White could play Bg5xf6,
                         meeting the threat on the Nb5 with a larger
@@ -556,11 +556,11 @@ export default {
                         Nb5-a3. Black responds with b7-b5, a move
                         that carries another threat, a pawn fork with
                         b5-b4.
-                    `,
-                },
-                {
-                    fens: ['r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 1'],
+          text: `
                         White stops the threat of the pawn fork on
                         b4 simply by moving the Nc3 powerfully to
                         the central hole on d5. The black Nf6 dare
@@ -569,11 +569,11 @@ export default {
                         responds with Bf8-e7, a move that carries
                         another threat, this time the move Nf6xNd5,
                         winning a piece!
-                    `,
-                },
-                {
-                    fens: ['r1bqk2r/4bppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R w KQkq - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1bqk2r/4bppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R w KQkq - 0 1'],
+          text: `
                         Responding to the threat, white now plays
                         Bg5xf6, giving up the Bg5 but stopping the
                         threat of Nf6xd5 and retaining the powerful
@@ -584,11 +584,11 @@ export default {
                         last move contain a threat?" If so, your move
                         should either stop the threat or, even better,
                         you should look for a threat that's even bigger.
-                    `,
-                },
-                {
-                    fens: ['r1b1k2r/ppp2pp1/2np1q1p/2bNp3/2B1P3/3P1N2/PPP2PPP/R2QK2R w KQkq - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1b1k2r/ppp2pp1/2np1q1p/2bNp3/2B1P3/3P1N2/PPP2PPP/R2QK2R w KQkq - 0 1'],
+          text: `
                         Sometimes, the best way to meet a threat is
                         with an even bigger threat. In this position,
                         white has just made the move Nc3-d5. The
@@ -600,56 +600,56 @@ export default {
                         the Queen to defend the c7-pawn.
                         Instead, black responds to the threat of
                         Nd5xc7 with a bigger threat: Qf6-g6.
-                    `,
-                },
-                {
-                    fens: ['r1b1k2r/ppp2pp1/2np2qp/2bNp3/2B1P3/3P1N2/PPP2PPP/R2QK2R w KQkq - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1b1k2r/ppp2pp1/2np2qp/2bNp3/2B1P3/3P1N2/PPP2PPP/R2QK2R w KQkq - 0 1'],
+          text: `
                         The move Qf6-g6 may surprise you, and you
                         might wonder where black's threat is. Let's
                         take a look. If white is insensitive to the danger,
                         white might continue with Nd5xc7 check.
                         In check, black would move the King to d8.
-                    `,
-                },
-                {
-                    fens: ['r1b1k2r/ppN2pp1/2np2qp/2b1p3/2B1P3/3P1N2/PPP2PPP/R2QK2R w KQkq - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['r1b1k2r/ppN2pp1/2np2qp/2b1p3/2B1P3/3P1N2/PPP2PPP/R2QK2R w KQkq - 0 1'],
+          text: `
                         With the Nc7 under attack from the King,
                         white would continue with Nc7xa8. But now,
                         black would be able to demonstrate that the
                         Qf6-g6 move had considerable bite. Black
                         continues with Qg6xg2.
-                    `,
-                },
-                {
-                    fens: ['N1b1k2r/pp3pp1/2np3p/2b1p3/2B1P3/3P1N2/PPP2PqP/R2QK2R w KQk - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['N1b1k2r/pp3pp1/2np3p/2b1p3/2B1P3/3P1N2/PPP2PqP/R2QK2R w KQk - 0 1'],
+          text: `
                         The power of black's idea is now clear. On g2,
                         the Queen threatens both the white Rh1 as
                         well as Qg2xf2 checkmate! To prevent both
                         threats, white must move the Rh1-f1. Black
                         would likely respond with the powerful move
                         Bc8-g4, pinning and soon winning white's Nf3.
-                    `,
-                },
-                {
-                    fens: ['N3k2r/pp3pp1/2np3p/2b1p3/2B1P1b1/3P1N2/PPP2PqP/R2QKR2 w Qk - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['N3k2r/pp3pp1/2np3p/2b1p3/2B1P1b1/3P1N2/PPP2PqP/R2QKR2 w Qk - 0 1'],
+          text: `
                         With the threats of Bg4xf3 and Nc6-d4 along
                         with the idea of capturing the Na8 by moving
                         the King and then playing Rh8xa8, black is
                         well ahead.
-                    `,
-                },
-            ],
-        },
+                    `
+        }
+      ]
+    },
+    {
+      lessonHeader: 'Recaptures',
+      demo: [
         {
-            lessonHeader: `Recaptures`,
-            demo: [
-                {
-                    fens: ['3b2rk/1p5p/p1p1p2q/2Pn1pr1/PPBPp3/4P1PP/3B1Q1K/3R2R1 w - - 0 1'],
-                    text: `
+          fens: ['3b2rk/1p5p/p1p1p2q/2Pn1pr1/PPBPp3/4P1PP/3B1Q1K/3R2R1 w - - 0 1'],
+          text: `
                         In this position, black's advantage is pronounced.
                         The Nd5 is in the center the board
                         where it can't be attacked by white's pawns.
@@ -666,11 +666,11 @@ export default {
                         with the e6-pawn in order to undouble the
                         black e-pawns. But black has a much stronger
                         response with the move Rg5-h5.
-                    `,
-                },
-                {
-                    fens: ['3b2rk/1p5p/p1p1p2q/2PB1p1r/PP1Pp3/4P1PP/3B1Q1K/3R2R1 w - - 0 1'],
-                    text: `
+                    `
+        },
+        {
+          fens: ['3b2rk/1p5p/p1p1p2q/2PB1p1r/PP1Pp3/4P1PP/3B1Q1K/3R2R1 w - - 0 1'],
+          text: `
                         Black suddenly has the huge threat of a check
                         with Rh5xh3+, forcing the white King to g2.
                         Then white can play Rh5-h2, checking the Kg2
@@ -678,9 +678,9 @@ export default {
                         when the King retreats to f1. Masters achieve
                         their strength in part because they consistently
                         look for such "in-between" moves.
-                    `,
-                }
-            ],
-        },
-    ],
-};
+                    `
+        }
+      ]
+    }
+  ]
+}

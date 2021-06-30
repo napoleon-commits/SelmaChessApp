@@ -3,7 +3,7 @@ import AttackingThemesAndCommonSacrifices from '@/components/AttackingThemesAndC
 
 describe('AttackingThemesAndCommonSacrifices.vue', () => {
   it('renders component', () => {
-    const wrapper = shallowMount(AttackingThemesAndCommonSacrifices);
-    expect(wrapper);
+    const wrapper = shallowMount(AttackingThemesAndCommonSacrifices)
+    expect(wrapper)
   })
 })

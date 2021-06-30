@@ -1,6 +1,7 @@
 /* eslint no-bitwise: ["error", { "allow": ["^=",">>","&","<<","|"] }] */
 
-export const PIECES = { EMPTY: 0,
+export const PIECES = {
+  EMPTY: 0,
   wP: 1,
   wN: 2,
   wB: 3,
@@ -12,11 +13,13 @@ export const PIECES = { EMPTY: 0,
   bB: 9,
   bR: 10,
   bQ: 11,
-  bK: 12 };
+  bK: 12
+}
 
-export const BRD_SQ_NUM = 120;
+export const BRD_SQ_NUM = 120
 
-export const FILES = { FILE_A: 0,
+export const FILES = {
+  FILE_A: 0,
   FILE_B: 1,
   FILE_C: 2,
   FILE_D: 3,
@@ -24,9 +27,11 @@ export const FILES = { FILE_A: 0,
   FILE_F: 5,
   FILE_G: 6,
   FILE_H: 7,
-  FILE_NONE: 8 };
+  FILE_NONE: 8
+}
 
-export const RANKS = { RANK_1: 0,
+export const RANKS = {
+  RANK_1: 0,
   RANK_2: 1,
   RANK_3: 2,
   RANK_4: 3,
@@ -34,11 +39,12 @@ export const RANKS = { RANK_1: 0,
   RANK_6: 5,
   RANK_7: 6,
   RANK_8: 7,
-  RANK_NONE: 8 };
+  RANK_NONE: 8
+}
 
-export const COLOURS = { WHITE: 0, BLACK: 1, BOTH: 2 };
+export const COLOURS = { WHITE: 0, BLACK: 1, BOTH: 2 }
 
-export const CASTLEBIT = { WKCA: 1, WQCA: 2, BKCA: 4, BQCA: 8 };
+export const CASTLEBIT = { WKCA: 1, WQCA: 2, BKCA: 4, BQCA: 8 }
 
 export const SQUARES = {
   A1: 21,
@@ -58,129 +64,129 @@ export const SQUARES = {
   G8: 97,
   H8: 98,
   NO_SQ: 99,
-  OFFBOARD: 100,
-};
+  OFFBOARD: 100
+}
 
-export const BOOL = { FALSE: 0, TRUE: 1 };
+export const BOOL = { FALSE: 0, TRUE: 1 }
 
-export const MAXGAMEMOVES = 2048;
-const MAXPOSITIONMOVES = 256;
-export const MAXDEPTH = 64;
-export const INFINITE = 30000;
-export const MATE = 29000;
-export const PVENTRIES = 10000;
+export const MAXGAMEMOVES = 2048
+const MAXPOSITIONMOVES = 256
+export const MAXDEPTH = 64
+export const INFINITE = 30000
+export const MATE = 29000
+export const PVENTRIES = 10000
 
-export const FilesBrd = new Array(BRD_SQ_NUM);
-export const RanksBrd = new Array(BRD_SQ_NUM);
+export const FilesBrd = new Array(BRD_SQ_NUM)
+export const RanksBrd = new Array(BRD_SQ_NUM)
 
-export const START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+export const START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
 
-export const PceChar = '.PNBRQKpnbrqk';
-export const SideChar = 'wb-';
-export const RankChar = '12345678';
-export const FileChar = 'abcdefgh';
+export const PceChar = '.PNBRQKpnbrqk'
+export const SideChar = 'wb-'
+export const RankChar = '12345678'
+export const FileChar = 'abcdefgh'
 
-export function FR2SQ(f, r) {
-  return ((21 + (f)) + ((r) * 10));
+export function FR2SQ (f, r) {
+  return ((21 + (f)) + ((r) * 10))
 }
 
 export const PieceBig = [
   BOOL.FALSE, BOOL.FALSE, BOOL.TRUE,
   BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE,
   BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE,
-  BOOL.TRUE, BOOL.TRUE,
-];
+  BOOL.TRUE, BOOL.TRUE
+]
 export const PieceMaj = [
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.TRUE,
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE,
-  BOOL.TRUE, BOOL.TRUE,
-];
+  BOOL.TRUE, BOOL.TRUE
+]
 export const PieceMin = [
   BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE,
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.TRUE, BOOL.TRUE, BOOL.FALSE, BOOL.FALSE,
-  BOOL.FALSE,
-];
-export const PieceVal = [0, 100, 325, 325, 550, 1000, 50000, 100, 325, 325, 550, 1000, 50000];
+  BOOL.FALSE
+]
+export const PieceVal = [0, 100, 325, 325, 550, 1000, 50000, 100, 325, 325, 550, 1000, 50000]
 export const PieceCol = [
   COLOURS.BOTH, COLOURS.WHITE,
   COLOURS.WHITE, COLOURS.WHITE, COLOURS.WHITE,
   COLOURS.WHITE, COLOURS.WHITE,
   COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK,
-  COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK,
-];
+  COLOURS.BLACK, COLOURS.BLACK, COLOURS.BLACK
+]
 
 export const PiecePawn = [
   BOOL.FALSE, BOOL.TRUE, BOOL.FALSE,
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.FALSE, BOOL.TRUE, BOOL.FALSE,
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
-  BOOL.FALSE,
-];
+  BOOL.FALSE
+]
 export const PieceKnight = [
   BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE,
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.TRUE, BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
-  BOOL.FALSE,
-];
+  BOOL.FALSE
+]
 export const PieceKing = [
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.TRUE, BOOL.FALSE, BOOL.FALSE,
-  BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE,
-];
+  BOOL.FALSE, BOOL.FALSE, BOOL.FALSE, BOOL.TRUE
+]
 export const PieceRookQueen = [
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.FALSE, BOOL.TRUE, BOOL.TRUE,
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
-  BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE,
-];
+  BOOL.FALSE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE
+]
 export const PieceBishopQueen = [
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.TRUE, BOOL.FALSE, BOOL.TRUE,
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
-  BOOL.TRUE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE,
-];
+  BOOL.TRUE, BOOL.FALSE, BOOL.TRUE, BOOL.FALSE
+]
 export const PieceSlides = [
   BOOL.FALSE, BOOL.FALSE, BOOL.FALSE,
   BOOL.TRUE, BOOL.TRUE, BOOL.TRUE, BOOL.FALSE,
   BOOL.FALSE, BOOL.FALSE, BOOL.TRUE, BOOL.TRUE,
-  BOOL.TRUE, BOOL.FALSE,
-];
+  BOOL.TRUE, BOOL.FALSE
+]
 
-export const KnDir = [-8, -19, -21, -12, 8, 19, 21, 12];
-export const RkDir = [-1, -10, 1, 10];
-export const BiDir = [-9, -11, 11, 9];
-export const KiDir = [-1, -10, 1, 10, -9, -11, 11, 9];
+export const KnDir = [-8, -19, -21, -12, 8, 19, 21, 12]
+export const RkDir = [-1, -10, 1, 10]
+export const BiDir = [-9, -11, 11, 9]
+export const KiDir = [-1, -10, 1, 10, -9, -11, 11, 9]
 
-export const DirNum = [0, 0, 8, 4, 4, 8, 8, 0, 8, 4, 4, 8, 8];
+export const DirNum = [0, 0, 8, 4, 4, 8, 8, 0, 8, 4, 4, 8, 8]
 export const PceDir = [
   0, 0, KnDir, BiDir, RkDir, KiDir, KiDir,
-  0, KnDir, BiDir, RkDir, KiDir, KiDir,
-];
-export const LoopNonSlidePce = [PIECES.wN, PIECES.wK, 0, PIECES.bN, PIECES.bK, 0];
-export const LoopNonSlideIndex = [0, 3];
+  0, KnDir, BiDir, RkDir, KiDir, KiDir
+]
+export const LoopNonSlidePce = [PIECES.wN, PIECES.wK, 0, PIECES.bN, PIECES.bK, 0]
+export const LoopNonSlideIndex = [0, 3]
 export const LoopSlidePce = [
   PIECES.wB, PIECES.wR, PIECES.wQ, 0, PIECES.bB,
-  PIECES.bR, PIECES.bQ, 0,
-];
-export const LoopSlideIndex = [0, 4];
+  PIECES.bR, PIECES.bQ, 0
+]
+export const LoopSlideIndex = [0, 4]
 
-export const PieceKeys = new Array(14 * 120);
-export const SideKey = [];
-export const CastleKeys = new Array(16);
+export const PieceKeys = new Array(14 * 120)
+export const SideKey = []
+export const CastleKeys = new Array(16)
 
-export const Sq120ToSq64 = new Array(BRD_SQ_NUM);
-export const Sq64ToSq120 = new Array(64);
+export const Sq120ToSq64 = new Array(BRD_SQ_NUM)
+export const Sq64ToSq120 = new Array(64)
 
-export function RAND_32() {
+export function RAND_32 () {
   return (
-    (Math.floor((Math.random() * 255) + 1) << 23)
-    | (Math.floor((Math.random() * 255) + 1) << 16)
-    | (Math.floor((Math.random() * 255) + 1) << 8)
-    | Math.floor((Math.random() * 255) + 1)
-  );
+    (Math.floor((Math.random() * 255) + 1) << 23) |
+    (Math.floor((Math.random() * 255) + 1) << 16) |
+    (Math.floor((Math.random() * 255) + 1) << 8) |
+    Math.floor((Math.random() * 255) + 1)
+  )
 }
 
 const Mirror64 = [
@@ -191,26 +197,26 @@ const Mirror64 = [
   24, 25, 26, 27, 28, 29, 30, 31,
   16, 17, 18, 19, 20, 21, 22, 23,
   8, 9, 10, 11, 12, 13, 14, 15,
-  0, 1, 2, 3, 4, 5, 6, 7,
-];
+  0, 1, 2, 3, 4, 5, 6, 7
+]
 
-export function SQ64(sq120) {
-  return Sq120ToSq64[(sq120)];
+export function SQ64 (sq120) {
+  return Sq120ToSq64[(sq120)]
 }
 
-export function SQ120(sq64) {
-  return Sq64ToSq120[(sq64)];
+export function SQ120 (sq64) {
+  return Sq64ToSq120[(sq64)]
 }
 
-export function PCEINDEX(pce, pceNum) {
-  return ((pce * 10) + pceNum);
+export function PCEINDEX (pce, pceNum) {
+  return ((pce * 10) + pceNum)
 }
 
-export function MIRROR64(sq) {
-  return Mirror64[sq];
+export function MIRROR64 (sq) {
+  return Mirror64[sq]
 }
 
-export const Kings = [PIECES.wK, PIECES.bK];
+export const Kings = [PIECES.wK, PIECES.bK]
 export const CastlePerm = [
   15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
   15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
@@ -223,8 +229,8 @@ export const CastlePerm = [
   15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
   15, 7, 15, 15, 15, 3, 15, 15, 11, 15,
   15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
-  15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
-];
+  15, 15, 15, 15, 15, 15, 15, 15, 15, 15
+]
 
 /*
 0000 0000 0000 0000 0000 0111 1111 -> From 0x7F
@@ -236,24 +242,23 @@ export const CastlePerm = [
 0001 0000 0000 0000 0000 0000 0000 -> Castle 0x1000000
 */
 
+export function FROMSQ (m) { return (m & 0x7F) }
+export function TOSQ (m) { return ((m >> 7) & 0x7F) }
+export function CAPTURED (m) { return ((m >> 14) & 0xF) }
+export function PROMOTED (m) { return ((m >> 20) & 0xF) }
 
-export function FROMSQ(m) { return (m & 0x7F); }
-export function TOSQ(m) { return ((m >> 7) & 0x7F); }
-export function CAPTURED(m) { return ((m >> 14) & 0xF); }
-export function PROMOTED(m) { return ((m >> 20) & 0xF); }
+export const MFLAGEP = 0x40000
+export const MFLAGPS = 0x80000
+export const MFLAGCA = 0x1000000
 
-export const MFLAGEP = 0x40000;
-export const MFLAGPS = 0x80000;
-export const MFLAGCA = 0x1000000;
+export const MFLAGCAP = 0x7C000
+export const MFLAGPROM = 0xF00000
 
-export const MFLAGCAP = 0x7C000;
-export const MFLAGPROM = 0xF00000;
+export const NOMOVE = 0
 
-export const NOMOVE = 0;
-
-export function SQOFFBOARD(sq) {
-  if (FilesBrd[sq] === SQUARES.OFFBOARD) return BOOL.TRUE;
-  return BOOL.FALSE;
+export function SQOFFBOARD (sq) {
+  if (FilesBrd[sq] === SQUARES.OFFBOARD) return BOOL.TRUE
+  return BOOL.FALSE
 }
 
 export const GameBoard = {
@@ -275,27 +280,27 @@ export const GameBoard = {
   PvTable: [],
   PvArray: new Array(MAXDEPTH),
   searchHistory: new Array(14 * BRD_SQ_NUM),
-  searchKillers: new Array(3 * MAXDEPTH),
-};
-
-export function HASH_PCE(pce, sq) {
-  GameBoard.posKey ^= PieceKeys[(pce * 120) + sq];
+  searchKillers: new Array(3 * MAXDEPTH)
 }
 
-export function HASH_CA() { GameBoard.posKey ^= CastleKeys[GameBoard.castlePerm]; }
-export function HASH_SIDE() { GameBoard.posKey ^= SideKey[0]; }
-export function HASH_EP() { GameBoard.posKey ^= PieceKeys[GameBoard.enPas]; }
+export function HASH_PCE (pce, sq) {
+  GameBoard.posKey ^= PieceKeys[(pce * 120) + sq]
+}
+
+export function HASH_CA () { GameBoard.posKey ^= CastleKeys[GameBoard.castlePerm] }
+export function HASH_SIDE () { GameBoard.posKey ^= SideKey[0] }
+export function HASH_EP () { GameBoard.posKey ^= PieceKeys[GameBoard.enPas] }
 
 export const GameController = {
   EngineSide: COLOURS.BOTH,
   PlayerSide: COLOURS.BOTH,
-  GameOver: BOOL.FALSE,
-};
+  GameOver: BOOL.FALSE
+}
 
 export const UserMove = {
   from: SQUARES.NO_SQ,
-  to: SQUARES.NO_SQ,
-};
+  to: SQUARES.NO_SQ
+}
 
 export const MoveStats = {
   Ordering: undefined,
@@ -303,5 +308,5 @@ export const MoveStats = {
   Score: undefined,
   Nodes: undefined,
   Time: undefined,
-  BestMove: undefined,
-};
+  BestMove: undefined
+}

@@ -1,58 +1,58 @@
-import { GameBoard, BOOL } from './def';
-import { MakeMove, TakeMove } from './makemove';
-import { GenerateMoves } from './movegen';
+import { GameBoard, BOOL } from './def'
+import { MakeMove, TakeMove } from './makemove'
+import { GenerateMoves } from './movegen'
 
-let perftLeafNodes;
+let perftLeafNodes
 
-function Perft(depth) {
+function Perft (depth) {
   if (depth === 0) {
-    perftLeafNodes += 1;
-    return;
+    perftLeafNodes += 1
+    return
   }
 
-  GenerateMoves();
+  GenerateMoves()
 
-  let index;
-  let move;
+  let index
+  let move
 
   for (
     index = GameBoard.moveListStart[GameBoard.ply];
     index < GameBoard.moveListStart[GameBoard.ply + 1];
     index += 1
   ) {
-    move = GameBoard.moveList[index];
+    move = GameBoard.moveList[index]
     if (MakeMove(move) === BOOL.FALSE) {
       // eslint-disable-next-line
       continue;
     }
-    Perft(depth - 1);
-    TakeMove();
+    Perft(depth - 1)
+    TakeMove()
   }
 }
 
-export default function PerftTest(depth) {
+export default function PerftTest (depth) {
   //   eslint-disable-next-line
   console.log(`Starting Test To Depth:${depth}`);
-  perftLeafNodes = 0;
+  perftLeafNodes = 0
 
-  let index;
-  let move;
-  let moveNum = 0;
+  let index
+  let move
+  let moveNum = 0
   for (
     index = GameBoard.moveListStart[GameBoard.ply];
     index < GameBoard.moveListStart[GameBoard.ply + 1];
     index += 1
   ) {
-    move = GameBoard.moveList[index];
+    move = GameBoard.moveList[index]
     if (MakeMove(move) === BOOL.FALSE) {
       // eslint-disable-next-line
       continue;
     }
-    moveNum += 1;
-    const cumnodes = perftLeafNodes;
-    Perft(depth - 1);
-    TakeMove();
-    const oldnodes = perftLeafNodes - cumnodes;
+    moveNum += 1
+    const cumnodes = perftLeafNodes
+    Perft(depth - 1)
+    TakeMove()
+    const oldnodes = perftLeafNodes - cumnodes
     // eslint-disable-next-line
     console.log(`move:${moveNum} ${PrMove(move)} ${oldnodes}`);
   }

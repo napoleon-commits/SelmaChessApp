@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import Footer from '@/components/subcomponents/Footer';
-import Toolbar from '@/components/subcomponents/Toolbar';
-import {setCookie, getCookie} from '@/utils/cookies';
-import Pagination from '@/components/subcomponents/Pagination';
-import LearnPagesPagination from '@/static/LearnPagesPagination';
-import Navbar from '@/components/subcomponents/Navbar';
+import Footer from '@/components/subcomponents/Footer'
+import Toolbar from '@/components/subcomponents/Toolbar'
+import { setCookie, getCookie } from '@/utils/cookies'
+import Pagination from '@/components/subcomponents/Pagination'
+import LearnPagesPagination from '@/static/LearnPagesPagination'
+import Navbar from '@/components/subcomponents/Navbar'
 
 export default {
   name: 'App',
@@ -30,47 +30,45 @@ export default {
     Footer,
     Toolbar,
     Pagination,
-    Navbar,
+    Navbar
   },
 
   data: () => ({
-    LearnPagesPagination,
+    LearnPagesPagination
   }),
 
-  mounted() {
-    const cookieTheme = getCookie('dark');
-    if(cookieTheme){
-      if(cookieTheme === 'true'){
-        this.$vuetify.theme.dark = true;
-        this.$store.commit('setTextColor', {dark: this.$vuetify.theme.dark})
+  mounted () {
+    const cookieTheme = getCookie('dark')
+    if (cookieTheme) {
+      if (cookieTheme === 'true') {
+        this.$vuetify.theme.dark = true
+        this.$store.commit('setTextColor', { dark: this.$vuetify.theme.dark })
+      } else if (cookieTheme === 'false') {
+        this.$vuetify.theme.dark = false
+        this.$store.commit('setTextColor', { dark: this.$vuetify.theme.dark })
       }
-      else if(cookieTheme === 'false'){
-        this.$vuetify.theme.dark = false;
-        this.$store.commit('setTextColor', {dark: this.$vuetify.theme.dark})
-      }
+    } else {
+      setCookie('dark', this.$vuetify.theme.dark)
     }
-    else {
-      setCookie('dark', this.$vuetify.theme.dark);
-    }
-    const customColorRed = getCookie('red');
-    const customColorGreen = getCookie('green');
-    const customColorBlue = getCookie('blue');
-    if(customColorRed && customColorGreen && customColorBlue){
-      this.$store.state.customColor.red = customColorRed;
-      this.$store.state.customColor.green = customColorGreen;
-      this.$store.state.customColor.blue = customColorBlue;
-      this.$store.commit('setBtnClass',{
+    const customColorRed = getCookie('red')
+    const customColorGreen = getCookie('green')
+    const customColorBlue = getCookie('blue')
+    if (customColorRed && customColorGreen && customColorBlue) {
+      this.$store.state.customColor.red = customColorRed
+      this.$store.state.customColor.green = customColorGreen
+      this.$store.state.customColor.blue = customColorBlue
+      this.$store.commit('setBtnClass', {
         red: this.$store.state.customColor.red,
         green: this.$store.state.customColor.green,
-        blue: this.$store.state.customColor.blue,
+        blue: this.$store.state.customColor.blue
       })
     } else {
-      setCookie('red', this.$store.state.customColor.red);
-      setCookie('green', this.$store.state.customColor.green);
-      setCookie('blue', this.$store.state.customColor.blue);
+      setCookie('red', this.$store.state.customColor.red)
+      setCookie('green', this.$store.state.customColor.green)
+      setCookie('blue', this.$store.state.customColor.blue)
     }
-  },
-};
+  }
+}
 </script>
 
 <style>
@@ -126,7 +124,7 @@ export default {
   #Keith-chess-board > div {
     background-color: initial !important;
   }
-  .merida .cg-board piece.rook.black, 
+  .merida .cg-board piece.rook.black,
   .merida .cg-board piece.knight.black,
   .merida .cg-board piece.bishop.black,
   .merida .cg-board piece.queen.black,

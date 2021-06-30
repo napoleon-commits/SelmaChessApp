@@ -3,19 +3,19 @@
 </template>
 
 <script>
-import PawnStrategyText from '@/static/PawnStrategyText';
-import Training from '@/components/subcomponents/Training';
+import PawnStrategyText from '@/static/PawnStrategyText'
+import Training from '@/components/subcomponents/Training'
 
 export default {
-    name: 'PawnStrategy',
-    components: {
-      Training,
-    },
-    data() {
-        return {
-            PawnStrategyText,
-        };
-    },
+  name: 'PawnStrategy',
+  components: {
+    Training
+  },
+  data () {
+    return {
+      PawnStrategyText
+    }
+  }
 }
 </script>
 

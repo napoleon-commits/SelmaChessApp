@@ -7,87 +7,87 @@ const routes = [
   {
     path: '/',
     name: 'LandingPage',
-    component: () => import(/* webpackChunkName: "LandingPage" */ '@/components/LandingPage'),
+    component: () => import(/* webpackChunkName: "LandingPage" */ '@/components/LandingPage')
   },
   {
     path: '/offline',
     name: 'OfflineChess',
-    component: () => import(/* webpackChunkName: "OfflineChess" */ '@/components/OfflineChess'),
+    component: () => import(/* webpackChunkName: "OfflineChess" */ '@/components/OfflineChess')
   },
   {
     path: '/introduction',
     name: 'Introduction',
-    component: () => import(/* webpackChunkName: "Introduction" */ '@/components/Introduction'),
+    component: () => import(/* webpackChunkName: "Introduction" */ '@/components/Introduction')
   },
   {
     path: '/special-moves',
     name: 'SpecialMoves',
-    component: () => import(/* webpackChunkName: "SpecialMoves" */ '@/components/SpecialMoves'),
+    component: () => import(/* webpackChunkName: "SpecialMoves" */ '@/components/SpecialMoves')
   },
   {
     path: '/elementary-checkmates',
     name: 'ElementaryCheckmates',
-    component: () => import(/* webpackChunkName: "ElementaryCheckmates" */ '@/components/ElementaryCheckmates'),
+    component: () => import(/* webpackChunkName: "ElementaryCheckmates" */ '@/components/ElementaryCheckmates')
   },
   {
     path: '/attacking-the-king',
     name: 'AttackingTheKing',
-    component: () => import(/* webpackChunkName: "AttackingTheKing" */ '@/components/AttackingTheKing'),
+    component: () => import(/* webpackChunkName: "AttackingTheKing" */ '@/components/AttackingTheKing')
   },
   {
     path: '/introduction-to-endgames',
     name: 'IntroductionToEndgames',
-    component: () => import(/* webpackChunkName: "IntroductionToEndgames" */ '@/components/IntroductionToEndgames'),
+    component: () => import(/* webpackChunkName: "IntroductionToEndgames" */ '@/components/IntroductionToEndgames')
   },
   {
     path: '/rook-strategy',
     name: 'RookStrategy',
-    component: () => import(/* webpackChunkName: "RookStrategy" */ '@/components/RookStrategy'),
+    component: () => import(/* webpackChunkName: "RookStrategy" */ '@/components/RookStrategy')
   },
   {
     path: '/knight-strategy',
     name: 'KnightStrategy',
-    component: () => import(/* webpackChunkName: "KnightStrategy" */ '@/components/KnightStrategy'),
+    component: () => import(/* webpackChunkName: "KnightStrategy" */ '@/components/KnightStrategy')
   },
   {
     path: '/bishop-strategy',
     name: 'BishopStrategy',
-    component: () => import(/* webpackChunkName: "BishopStrategy" */ '@/components/BishopStrategy'),
+    component: () => import(/* webpackChunkName: "BishopStrategy" */ '@/components/BishopStrategy')
   },
   {
     path: '/pawn-strategy',
     name: 'PawnStrategy',
-    component: () => import(/* webpackChunkName: "PawnStrategy" */ '@/components/PawnStrategy'),
+    component: () => import(/* webpackChunkName: "PawnStrategy" */ '@/components/PawnStrategy')
   },
   {
     path: '/king-and-queen-strategy',
     name: 'KingAndQueenStrategy',
-    component: () => import(/* webpackChunkName: "KingAndQueenStrategy" */ '@/components/KingAndQueenStrategy'),
+    component: () => import(/* webpackChunkName: "KingAndQueenStrategy" */ '@/components/KingAndQueenStrategy')
   },
   {
     path: '/middlegame-strategy',
     name: 'MiddlegameStrategy',
-    component: () => import(/* webpackChunkName: "MiddlegameStrategy" */ '@/components/MiddlegameStrategy'),
+    component: () => import(/* webpackChunkName: "MiddlegameStrategy" */ '@/components/MiddlegameStrategy')
   },
   {
     path: '/common-opening-formations',
     name: 'CommonOpeningFormations',
-    component: () => import(/* webpackChunkName: "CommonOpeningFormations" */ '@/components/CommonOpeningFormations'),
+    component: () => import(/* webpackChunkName: "CommonOpeningFormations" */ '@/components/CommonOpeningFormations')
   },
   {
     path: '/attacking-themes-and-common-sacrifices',
     name: 'AttackingThemesAndCommonSacrifices',
-    component: () => import(/* webpackChunkName: "AttackingThemesAndCommonSacrifices" */ '@/components/AttackingThemesAndCommonSacrifices'),
+    component: () => import(/* webpackChunkName: "AttackingThemesAndCommonSacrifices" */ '@/components/AttackingThemesAndCommonSacrifices')
   },
   {
     path: '/opening-strategy',
     name: 'OpeningStrategy',
-    component: () => import(/* webpackChunkName: "OpeningStrategy" */ '@/components/OpeningStrategy'),
+    component: () => import(/* webpackChunkName: "OpeningStrategy" */ '@/components/OpeningStrategy')
   },
   {
     path: '/opening-variations',
     name: 'OpeningVariations',
-    component: () => import(/* webpackChunkName: "OpeningVariations" */ '@/components/OpeningVariations'),
+    component: () => import(/* webpackChunkName: "OpeningVariations" */ '@/components/OpeningVariations')
   },
   { path: '*', redirect: '/' }
   // {

@@ -32,21 +32,21 @@
 
 <script>
 export default {
-    name: 'Footer',
-    data: () => ({
-        iconObjects: [
-            {
-                icon: 'mdi-email',
-                href: 'mailto: selmachessapp@gmail.com',
-                tooltip: 'Send An Email',
-            },
-            {
-                icon: 'mdi-github',
-                href: 'https://github.com/napoleon-commits/SelmaChessApp/tree/fivemonths',
-                tooltip: 'View GitHub Repository',
-            },
-        ],
-    }),
+  name: 'Footer',
+  data: () => ({
+    iconObjects: [
+      {
+        icon: 'mdi-email',
+        href: 'mailto: selmachessapp@gmail.com',
+        tooltip: 'Send An Email'
+      },
+      {
+        icon: 'mdi-github',
+        href: 'https://github.com/napoleon-commits/SelmaChessApp/tree/fivemonths',
+        tooltip: 'View GitHub Repository'
+      }
+    ]
+  })
 }
 </script>
 

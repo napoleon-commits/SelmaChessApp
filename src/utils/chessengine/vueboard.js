@@ -1,53 +1,53 @@
-import blackBishop from '@/images/bB.png';
-import blackKing from '@/images/bK.png';
-import blackKnight from '@/images/bN.png';
-import blackPawn from '@/images/bP.png';
-import blackQueen from '@/images/bQ.png';
-import blackRook from '@/images/bR.png';
-import whiteBishop from '@/images/wB.png';
-import whiteKing from '@/images/wK.png';
-import whitePawn from '@/images/wP.png';
-import whiteQueen from '@/images/wQ.png';
-import whiteKnight from '@/images/wN.png';
-import whiteRook from '@/images/wR.png';
-import blankSquare from '@/images/blankSquare.png';
-import { RANKS, FILES, FR2SQ, GameBoard, PceChar } from './def';
+import blackBishop from '@/images/bB.png'
+import blackKing from '@/images/bK.png'
+import blackKnight from '@/images/bN.png'
+import blackPawn from '@/images/bP.png'
+import blackQueen from '@/images/bQ.png'
+import blackRook from '@/images/bR.png'
+import whiteBishop from '@/images/wB.png'
+import whiteKing from '@/images/wK.png'
+import whitePawn from '@/images/wP.png'
+import whiteQueen from '@/images/wQ.png'
+import whiteKnight from '@/images/wN.png'
+import whiteRook from '@/images/wR.png'
+import blankSquare from '@/images/blankSquare.png'
+import { RANKS, FILES, FR2SQ, GameBoard, PceChar } from './def'
 
 export const getHTMLChessPiece = (letter) => {
   if (letter === 'o') {
-    return '<span class="text-dark" style="font-size: 16px;">&bull;</span>';
+    return '<span class="text-dark" style="font-size: 16px;">&bull;</span>'
   }
   if (letter === 'x') {
-    return '<span class="text-dark" style="font-size: 16px;">&times;</span>';
+    return '<span class="text-dark" style="font-size: 16px;">&times;</span>'
   }
-  let imageSrc = null;
+  let imageSrc = null
   switch (letter) {
     case 'r':
-      imageSrc = blackRook; break;
+      imageSrc = blackRook; break
     case 'n':
-      imageSrc = blackKnight; break;
+      imageSrc = blackKnight; break
     case 'b':
-      imageSrc = blackBishop; break;
+      imageSrc = blackBishop; break
     case 'q':
-      imageSrc = blackQueen; break;
+      imageSrc = blackQueen; break
     case 'k':
-      imageSrc = blackKing; break;
+      imageSrc = blackKing; break
     case 'p':
-      imageSrc = blackPawn; break;
+      imageSrc = blackPawn; break
     case 'R':
-      imageSrc = whiteRook; break;
+      imageSrc = whiteRook; break
     case 'N':
-      imageSrc = whiteKnight; break;
+      imageSrc = whiteKnight; break
     case 'B':
-      imageSrc = whiteBishop; break;
+      imageSrc = whiteBishop; break
     case 'Q':
-      imageSrc = whiteQueen; break;
+      imageSrc = whiteQueen; break
     case 'K':
-      imageSrc = whiteKing; break;
+      imageSrc = whiteKing; break
     case 'P':
-      imageSrc = whitePawn; break;
+      imageSrc = whitePawn; break
     case '.':
-      imageSrc = blankSquare; break;
+      imageSrc = blankSquare; break
     default:
   }
 
@@ -59,19 +59,19 @@ export const getHTMLChessPiece = (letter) => {
         src=${imageSrc}
       />
     `
-  );
-};
+  )
+}
 
 export const get2DBoard = () => {
-  const JSXBoard = [];
+  const JSXBoard = []
   for (let rank = RANKS.RANK_8; rank >= RANKS.RANK_1; rank -= 1) {
-    const row = [];
+    const row = []
     for (let file = FILES.FILE_A; file <= FILES.FILE_H; file += 1) {
-      const sq = FR2SQ(file, rank);
-      const piece = GameBoard.pieces[sq];
-      row.push(PceChar[piece]);
+      const sq = FR2SQ(file, rank)
+      const piece = GameBoard.pieces[sq]
+      row.push(PceChar[piece])
     }
-    JSXBoard.push(row);
+    JSXBoard.push(row)
   }
-  return (JSXBoard);
-};
+  return (JSXBoard)
+}

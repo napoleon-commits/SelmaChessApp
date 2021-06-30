@@ -51,45 +51,45 @@
 </template>
 
 <script>
-import SchoolColors from '@/static/SchoolColors.json';
-import {setCookie, getCookie} from '@/utils/cookies';
+import SchoolColors from '@/static/SchoolColors.json'
+import { setCookie, getCookie } from '@/utils/cookies'
 
 export default {
-    data(){
-        return {
-            SchoolColors,
-            school: '',
-        }
-    },
-    methods: {
-        toggleTheme(){
-            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-            setCookie('dark', this.$vuetify.theme.dark);
-            this.$store.commit('setTextColor', {dark: this.$vuetify.theme.dark});
-        },
-        updateColor(color){
-            this.$store.state.customColor = SchoolColors[color];
-            this.$store.state.school = color;
-            if(this.$store.state.customColor){
-                setCookie('red', this.$store.state.customColor.red);
-                setCookie('green', this.$store.state.customColor.green);
-                setCookie('blue', this.$store.state.customColor.blue);
-                this.$store.commit('setBtnClass', {
-                    red: this.$store.state.customColor.red,
-                    green: this.$store.state.customColor.green,
-                    blue: this.$store.state.customColor.blue,
-                });
-            }
-            setCookie('school', color);
-            return true;
-        }
-    },
-    mounted(){
-        if(getCookie('school')){
-            this.school = getCookie('school');
-            this.$store.state.school = getCookie('school');
-        }
+  data () {
+    return {
+      SchoolColors,
+      school: ''
     }
+  },
+  methods: {
+    toggleTheme () {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      setCookie('dark', this.$vuetify.theme.dark)
+      this.$store.commit('setTextColor', { dark: this.$vuetify.theme.dark })
+    },
+    updateColor (color) {
+      this.$store.state.customColor = SchoolColors[color]
+      this.$store.state.school = color
+      if (this.$store.state.customColor) {
+        setCookie('red', this.$store.state.customColor.red)
+        setCookie('green', this.$store.state.customColor.green)
+        setCookie('blue', this.$store.state.customColor.blue)
+        this.$store.commit('setBtnClass', {
+          red: this.$store.state.customColor.red,
+          green: this.$store.state.customColor.green,
+          blue: this.$store.state.customColor.blue
+        })
+      }
+      setCookie('school', color)
+      return true
+    }
+  },
+  mounted () {
+    if (getCookie('school')) {
+      this.school = getCookie('school')
+      this.$store.state.school = getCookie('school')
+    }
+  }
 }
 </script>
 

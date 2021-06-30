@@ -1,16 +1,19 @@
-const plugins = [];
-if(process.env.NODE_ENV === 'development'){
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const plugins = []
+if (process.env.NODE_ENV === 'development') {
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   plugins.push(
-    new BundleAnalyzerPlugin(),
-  );
+    new BundleAnalyzerPlugin()
+  )
 }
 module.exports = {
-  "transpileDependencies": [
-    "vuetify"
+  transpileDependencies: [
+    'vuetify'
   ],
-  "configureWebpack": {
-    "devtool": "source-map",
-    "plugins": plugins,
-  }
+
+  configureWebpack: {
+    devtool: 'source-map',
+    plugins: plugins
+  },
+
+  lintOnSave: false
 }

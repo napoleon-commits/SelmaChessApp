@@ -3,7 +3,7 @@ import Timer from '@/components/subcomponents/Timer.vue'
 
 describe('Timer.vue', () => {
   it('renders component', () => {
-    const wrapper = shallowMount(Timer);
-    expect(wrapper);
+    const wrapper = shallowMount(Timer)
+    expect(wrapper)
   })
 })

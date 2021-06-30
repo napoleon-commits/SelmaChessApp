@@ -19,71 +19,71 @@
 </template>
 
 <script>
-import OfflineChessExtended from '@/components/subcomponents/OfflineChessExtended';
-import {GameStatus} from '@/utils/GameStatus';
+import OfflineChessExtended from '@/components/subcomponents/OfflineChessExtended'
+import { GameStatus } from '@/utils/GameStatus'
 
 export default {
-    name: 'OfflineChess',
-    components: {
-        OfflineChessExtended,
-    },
-    data(){
-        return {
-            fens: [],
-            currentFen: '',
-            orientation: 'white',
-            moveCount: 0,
-            lastToMove: null,
-        };
-    },
-    methods: {
-        onMove(data){
-            if(this.fens[this.fens.length - 1] !== data.fen){
-                this.fens.push(data.fen);
-                this.currentFen = data.fen;
-                if(data.turn !== undefined){
-                    this.lastToMove = data.turn;
-                }
-                const gameStatus = GameStatus(
-                    this.lastToMove,
-                    data.turn,
-                    this.currentFen,
-                    this.fens,
-                );
-                if(gameStatus !== undefined){
-                    alert(gameStatus);
-                }
-            }
-            if(this.fens.length > 1 && this.fens.length - 1 > this.moveCount){
-                if(this.orientation === 'white'){
-                    this.orientation = 'black';
-                } else {
-                    this.orientation = 'white';
-                }
-                this.moveCount += 1;
-            }
-        },
-        takeBack(){
-            if(this.fens.length > 1){
-                this.fens.length -= 1;
-                if(this.fens.length + 1 > this.moveCount){
-                    if(this.orientation === 'white'){
-                        this.orientation = 'black';
-                    } else {
-                        this.orientation = 'white';
-                    }
-                    this.moveCount -= 1;
-                }
-            }
-            this.currentFen = this.fens[this.fens.length - 1];
-        },
-        reset(){
-            this.fens.length = 1;
-            this.currentFen = this.fens[this.fens.length - 1];
-            this.orientation = 'white';
-            this.moveCount = 0;
+  name: 'OfflineChess',
+  components: {
+    OfflineChessExtended
+  },
+  data () {
+    return {
+      fens: [],
+      currentFen: '',
+      orientation: 'white',
+      moveCount: 0,
+      lastToMove: null
+    }
+  },
+  methods: {
+    onMove (data) {
+      if (this.fens[this.fens.length - 1] !== data.fen) {
+        this.fens.push(data.fen)
+        this.currentFen = data.fen
+        if (data.turn !== undefined) {
+          this.lastToMove = data.turn
         }
+        const gameStatus = GameStatus(
+          this.lastToMove,
+          data.turn,
+          this.currentFen,
+          this.fens
+        )
+        if (gameStatus !== undefined) {
+          alert(gameStatus)
+        }
+      }
+      if (this.fens.length > 1 && this.fens.length - 1 > this.moveCount) {
+        if (this.orientation === 'white') {
+          this.orientation = 'black'
+        } else {
+          this.orientation = 'white'
+        }
+        this.moveCount += 1
+      }
     },
+    takeBack () {
+      if (this.fens.length > 1) {
+        this.fens.length -= 1
+        if (this.fens.length + 1 > this.moveCount) {
+          if (this.orientation === 'white') {
+            this.orientation = 'black'
+          } else {
+            this.orientation = 'white'
+          }
+          this.moveCount -= 1
+        }
+      }
+      this.currentFen = this.fens[this.fens.length - 1]
+    },
+    reset () {
+      this.fens.length = 1
+      this.currentFen = this.fens[this.fens.length - 1]
+      this.orientation = 'white'
+      this.moveCount = 0
+    }
+  }
 }
 </script>
 

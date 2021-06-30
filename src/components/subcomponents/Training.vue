@@ -22,7 +22,7 @@
         <CustomHR v-if="$vuetify.breakpoint.smAndUp === true" />
         <div class="my-3">
             <div v-if="json.items[page-1].demo" class="mb-3">
-                <ChessLesson 
+                <ChessLesson
                     :header="json.items[page-1].lessonHeader"
                     :demo="json.items[page-1].demo"
                 />
@@ -33,27 +33,27 @@
 </template>
 
 <script>
-import ChessLesson from '@/components/subcomponents/ChessLesson';
-import CustomHR from '@/components/subcomponents/CustomHR';
-import TextToSpeech from '@/utils/TextToSpeech';
+import ChessLesson from '@/components/subcomponents/ChessLesson'
+import CustomHR from '@/components/subcomponents/CustomHR'
+import TextToSpeech from '@/utils/TextToSpeech'
 
 export default {
-    name: 'Training',
-    props: ['json'],
-    components: {
-        ChessLesson,
-        CustomHR,
-    },
-    data(){
-        return{
-            page: 1,
-        };
-    },
-    methods: {
-        textToSpeech(text){
-            TextToSpeech(text);
-        }
+  name: 'Training',
+  props: ['json'],
+  components: {
+    ChessLesson,
+    CustomHR
+  },
+  data () {
+    return {
+      page: 1
     }
+  },
+  methods: {
+    textToSpeech (text) {
+      TextToSpeech(text)
+    }
+  }
 }
 </script>
 

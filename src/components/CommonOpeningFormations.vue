@@ -3,19 +3,19 @@
 </template>
 
 <script>
-import CommonOpeningFormationsText from '@/static/CommonOpeningFormationsText';
-import Training from '@/components/subcomponents/Training';
+import CommonOpeningFormationsText from '@/static/CommonOpeningFormationsText'
+import Training from '@/components/subcomponents/Training'
 
 export default {
-    name: 'CommonOpeningFormations',
-    components: {
-      Training,
-    },
-    data() {
-      return {
-        CommonOpeningFormationsText,
-      };
-    },
+  name: 'CommonOpeningFormations',
+  components: {
+    Training
+  },
+  data () {
+    return {
+      CommonOpeningFormationsText
+    }
+  }
 }
 </script>
 

@@ -14,13 +14,21 @@ export default {
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
                         This chessboard is typical of those on which you will play. To set up the board correctly, place it so that a dark square is in the lower-left corner. Or, as chess players like to say, "It's white on the right."
-                        Some boards are labeled with letters (a–h) and numbers (1–8) in the margins. Others are blank. It is perfectly fine to play with a board that does not have these letters and numbers in the margins. They are there to help you talk about the board, to name each square, and to emphasize certain features. In this book, we use a labeled board so you can easily identify the pieces and moves discussed.
+                        Some boards are labeled with letters (a–h) and numbers (1–8) in the margins. Others are blank. It is perfectly fine to play with a board that does not have these letters and numbers in the margins. They are there to help you talk about the board, to name each square, and to emphasize certain features. In this app, we use a labeled board so you can easily identify the pieces and moves discussed.
+                    `,
+                    speech: `
+                        This chessboard is typical of those on which you will play. To set up the board correctly, place it so that a dark square is in the lower-left corner. Or, as chess players like to say, "It's white on the right."
+                        Some boards are labeled with letters and numbers in the margins. Others are blank. It is perfectly fine to play with a board that does not have these letters and numbers in the margins. They are there to help you talk about the board, to name each square, and to emphasize certain features. In this app, we use a labeled board so you can easily identify the pieces and moves discussed.
                     `,
                 },
                 {
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
                         For example, every board has eight ranks (rows) and eight files (columns). The 1st rank consists of the eight squares directly in front of you. The 8th rank contains the eight squares that are farthest from you. As you can see, ranks are horizontal. Try to visualize each rank in turn: the 2nd rank, the 3rd rank, and so on.
+                        Files are vertical.
+                    `,
+                    speech: `
+                        For example, every board has eight ranks and eight files. The 1st rank consists of the eight squares directly in front of you. The 8th rank contains the eight squares that are farthest from you. As you can see, ranks are horizontal. Try to visualize each rank in turn: the 2nd rank, the 3rd rank, and so on.
                         Files are vertical.
                     `,
                 },
@@ -83,6 +91,10 @@ export default {
                         The Rooks begin the game in the corners. The Knights (many beginning players call them horses) are next. The Bishops start the game next to the Knights. Finally, the Queen and King fill in the remaining squares on the 1st and 8th ranks. The Queen will always start on its own color. Note that the white Queen is on a white square. The black Queen is on a dark square.
                         Don't forget the pawns; all eight of them are ready to start the charge. At the beginning of the game, the eight white and eight black pawns form a line just in front of the white and black pieces, across the 2nd and 7th ranks, respectively.
                     `,
+                    speech: `
+                        The Rooks begin the game in the corners. The Knights are next. The Bishops start the game next to the Knights. Finally, the Queen and King fill in the remaining squares on the 1st and 8th ranks. The Queen will always start on its own color. Note that the white Queen is on a white square. The black Queen is on a dark square.
+                        Don't forget the pawns; all eight of them are ready to start the charge. At the beginning of the game, the eight white and eight black pawns form a line just in front of the white and black pieces, across the 2nd and 7th ranks, respectively.
+                    `,
                 },
                 {
                     fens: [
@@ -109,8 +121,8 @@ export default {
                 {
                     fens: ['8/8/8/4P3/3pK3/5p2/8/8 w - - 0 1'],
                     text: `
-                        Here, only two squares are forbidden to the white King. The King cannot move to a square already occupied by its own pawn, and the King cannot move to the e3 square. The white King is not permitted to move there because one of the black pawns controls that square (see page 16 to learn how the pawns move and capture).
-                        White has several interesting options. White can capture either black pawn (to capture, white would simply remove the pawn from the board, placing the King on the square that the pawn occupied). It's fun to practice such captures. Masters have become adept at moving and snatching a piece in one fluid motion.
+                        Here, only two squares are forbidden to the white King. The King cannot move to a square already occupied by its own pawn, and the King cannot move to the e3 square. The white King is not permitted to move there because one of the black pawns controls that square.
+                        White has several interesting options. White can capture either black pawn. Masters have become adept at moving and snatching a piece in one fluid motion.
                     `,
                 },
                 {
@@ -209,8 +221,12 @@ export default {
                 {
                     fens: ['8/8/8/8/8/8/8/8 w - - 0 1'],
                     text: `
-                        Just as each piece has a name, so too does every square. In each chess diagram, you will notice that there are eight letters along the top and bottom of every board (a–h) and eight num- bers along each side (1–8). To identify any square, locate its letter and then its number.
-                        For example, the square in the bottom left corner is a1. The square in the upper-right corner is h8. The square indicated is d5.
+                        Just as each piece has a name, so too does every square. In each chess diagram, you will notice that there are eight letters along the top and bottom of every board (a–h) and eight numbers along each side (1–8). To identify any square, locate its letter and then its number.
+                        For example, the square in the bottom left corner is a1. The square in the upper-right corner is h8.
+                    `,
+                    speech: `
+                        Just as each piece has a name, so too does every square. In each chess diagram, you will notice that there are eight letters along the top and bottom of every board and eight numbers along each side. To identify any square, locate its letter and then its number.
+                        For example, the square in the bottom left corner is a1. The square in the upper-right corner is h8.
                     `,
                 },
                 {
@@ -218,6 +234,10 @@ export default {
                     text: `
                         Using the names of the squares helps us to discuss the board in a very simple, clear manner. For example, in this position, the white Queen is on b1, the black Queen is on e5, and a black Bishop is on d7. White has pawns on c3 and c4. Take a moment to locate them. As you will see, it's very easy.
                         A numeral and period at the beginning of a notation indicates the move number. For example, in the game shown here, white's first move was pawn e2 to e4. This is notated 1.e2-e4. You will see this type of notation starting in Chapter 8, "Opening Strategy."
+                    `,
+                    speech: `
+                        Using the names of the squares helps us to discuss the board in a very simple, clear manner. For example, in this position, the white Queen is on b1, the black Queen is on e5, and a black Bishop is on d7. White has pawns on c3 and c4. Take a moment to locate them. As you will see, it's very easy.
+                        A numeral and period at the beginning of a notation indicates the move number. For example, in the game shown here, white's first move was pawn e2 to e4. This is notated 1 e2 to e4. You will see this type of notation starting in Chapter 8, Opening Strategy.
                     `,
                 },
                 {
@@ -229,7 +249,10 @@ export default {
                 {
                     fens: ['4r3/3b2k1/pp3p2/2pPq1pp/2P1P3/2P5/P1BB2PP/1Q4K1 w - - 0 1'],
                     text: `
-                        For a refresher on these abbreviations, see "Pieces and Pawns at a Glance" on page 8. In this position, white has just moved the Queen from d1 to b1. In this book, I use the long form of the notation, "Qd1-b1," but many chess players abbreviate the move with "Qb1." As a result of white's move, the white Queen on b1 is suddenly attacking the black pawn on b6. As you can see, it's not very hard to find the black b6-pawn. To defend the b6-pawn, black might now play Re8-b8, moving the black Rook from the e8-square to b8.
+                        In this position, white has just moved the Queen from d1 to b1. In this app, the long form of the notation is used, "Qd1-b1," but many chess players abbreviate the move with "Qb1." As a result of white's move, the white Queen on b1 is suddenly attacking the black pawn on b6. As you can see, it's not very hard to find the black b6-pawn. To defend the b6-pawn, black might now play Re8-b8, moving the black Rook from the e8-square to b8.
+                    `,
+                    speech: `
+                        In this position, white has just moved the Queen from d1 to b1. In this app, the long form of the notation is used, Queen d1 to b1, but many chess players abbreviate the move with Q b1. As a result of white's move, the white Queen on b1 is suddenly attacking the black pawn on b6. As you can see, it's not very hard to find the black b6-pawn. To defend the b6-pawn, black might now play Rook e8 to b8, moving the black Rook from the e8-square to b8.
                     `,
                 },
                 {
@@ -237,6 +260,10 @@ export default {
                     text: `
                         Captures are simply recorded with an "x." And so in this position, if black were to move the black Queen on e5 to capture the white pawn on e4, you would write: Qe5xe4. Of course, that awful Queen move would result in losing the black Queen to the white Bishop (Bc2xe4).
                         When a move results in check, an attack on the enemy King, this is indicated with a "+" at the end of the notation. When a move results in checkmate, this is indicated with a "#" at the end of the move.
+                    `,
+                    speech: `
+                        Captures are simply recorded with an x. And so in this position, if black were to move the black Queen on e5 to capture the white pawn on e4, you would write: Qe5xe4. Of course, that awful Queen move would result in losing the black Queen to the white Bishop. Bishop c2 captures on e4.
+                        When a move results in check, an attack on the enemy King, this is indicated with a + at the end of the notation. When a move results in checkmate, this is indicated with a # at the end of the move.
                     `,
                 },
                 {
@@ -257,7 +284,7 @@ export default {
                         'rnbqkbnr/pp2pppp/2p5/8/3PN3/8/PPP2PPP/R1BQKBNR w KQkq - 0 1'
                     ],
                     text: `
-                        In this example, recapturing is illustrated with pawns. Black is about to move the pawn on d5 to capture the white pawn on e4. Not to fear. As long as white is alert, black will not "win" the pawn. Rather, white can simply move the Knight to e4 (following the arrow) to recapture the pawn.
+                        In this example, recapturing is illustrated with pawns. Black is about to move the pawn on d5 to capture the white pawn on e4. Not to fear. As long as white is alert, black will not "win" the pawn. Rather, white can simply move the Knight to e4 to recapture the pawn.
                     `,
                 },
                 {

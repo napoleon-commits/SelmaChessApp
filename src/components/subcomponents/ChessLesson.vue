@@ -18,12 +18,12 @@
           <div>
               <span
                 :style="`cursor: pointer;`"
-                @click="textToSpeech(demo[page-1].text)"
+                @click="determineAndPerformSpeech(demo[page-1])"
               >&#128264;</span>
               {{demo[page-1].text}}
               <span
                 :style="`cursor: pointer;`"
-                @click="textToSpeech(demo[page-1].text)"
+                @click="determineAndPerformSpeech(demo[page-1])"
               >&#128264;</span>
           </div>
         </v-col>
@@ -68,6 +68,14 @@ export default {
         },
         textToSpeech(text){
             TextToSpeech(text);
+        },
+        determineAndPerformSpeech(demo){
+            if(demo.speech){
+                this.textToSpeech(demo.speech)
+            }
+            else{
+                this.textToSpeech(demo.text)
+            }
         }
     },
     mounted() {

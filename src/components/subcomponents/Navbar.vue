@@ -18,6 +18,8 @@
                         <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
                     </b-nav-form> -->
                     <b-nav-item @click="goToOfflineChess">Offline Chess</b-nav-item>
+                    <b-nav-item>Daily Chess Opening</b-nav-item>
+                    <b-nav-item>Position Analyzer</b-nav-item>
                     <b-nav-item-dropdown text="Training" right>
                         <b-dropdown-item v-for="(object, index) in TrainingLinks" :key="index">
                             <span

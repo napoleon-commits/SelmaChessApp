@@ -6,6 +6,16 @@
         </v-btn>
       </div>
       <div class="col d-flex justify-center">
+        <v-btn block outlined :class="$store.state.btnClass">
+            Daily Chess Opening
+        </v-btn>
+      </div>
+      <div class="col d-flex justify-center">
+        <v-btn block outlined :class="$store.state.btnClass">
+            Position Analyzer
+        </v-btn>
+      </div>
+      <div class="col d-flex justify-center">
         <v-btn @click="goToTraining" block outlined :class="$store.state.btnClass">
             Training
         </v-btn>

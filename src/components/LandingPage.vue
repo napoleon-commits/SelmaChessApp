@@ -1,5 +1,10 @@
 <template>
   <div class="my-3 mx-3 row">
+    <div class="col d-flex justify-center">
+        <v-btn @click="goToLogin" block outlined :class="$store.state.btnClass">
+            Login/Register
+        </v-btn>
+      </div>
       <div class="col d-flex justify-center">
         <v-btn @click="goToOfflineChess" block outlined :class="$store.state.btnClass">
             Offline Chess
@@ -28,10 +33,19 @@ export default {
   name: 'LandingPage',
   methods: {
     goToOfflineChess () {
-      this.$router.push({ name: 'OfflineChess' })
+      if (this.$route.name !== 'OfflineChess') {
+        this.$router.push({ name: 'OfflineChess' })
+      }
     },
     goToTraining () {
-      this.$router.push({ name: 'Introduction' })
+      if (this.$route.name !== 'Introduction') {
+        this.$router.push({ name: 'Introduction' })
+      }
+    },
+    goToLogin () {
+      if (this.$route.name !== 'Login') {
+        this.$router.push({ name: 'Login' })
+      }
     }
   }
 }

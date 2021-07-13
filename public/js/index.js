@@ -30,5 +30,13 @@ new Vue({
 				} - a Byron J-Mil Hall production
 			`,
 		],
+		header: 'An Introduction to Chess',
+		body: `
+			Successfully lead an empire! Imagine soldiers on foot leading the charge.
+			Imagine the mounted troops on horseback.
+			Imagine the King with the Queen at its side.
+			In many battles, when the King dies or is captured the battle ends.
+			And so it is in the game of chess.
+		`,
 	},
 })

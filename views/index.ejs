@@ -85,7 +85,12 @@
 					<v-col
 						v-for="(text, index) in footerText"
 						:key="text"
-						class="py-4 text-center"
+						:class="`
+							py-4 text-center
+							text-xl-h5 text-lg-h6 text-md-subtitle-1
+							text-sm-subtitle-2
+							text-body-1
+						`"
 						cols="12"
 					>
 						<div class="mx-3">{{text}}</div>

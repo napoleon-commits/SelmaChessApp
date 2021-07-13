@@ -19,7 +19,7 @@ new Vue({
 		footerText: [
 			`
 				"${
-					"A book cannot by itself teach how to play" +
+					"A book cannot by itself teach how to play. " +
 					"It can only serve as a guide, " +
 					"and the rest must be learned by experience."
 				}"

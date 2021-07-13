@@ -1,29 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Selma Chess App</title>
-  <meta name="description" content="Think globally, act locally.">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+	<title>Selma Chess App</title>
+	<meta name="description" content="Think globally, act locally.">
+	<link
+		href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+		rel="stylesheet"
+	>
+	<link
+		href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+		rel="stylesheet"
+	>
+	<link
+		href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+		rel="stylesheet"
+	>
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1, minimal-ui"
+	>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"
+	></script>
 </head>
 <body>
-  <div id="app">
-    <v-app>
-      <v-main>
-        <v-container>Hello world</v-container>
-      </v-main>
-    </v-app>
-  </div>
-
-  <script>
-    new Vue({
-      el: '#app',
-      vuetify: new Vuetify(),
-    })
-  </script>
+	<div id="app">
+		<v-app>
+			<v-main>
+				<v-container>Hello world</v-container>
+			</v-main>
+			<v-footer padless>
+				<v-row justify="center" no-gutters>
+					<v-tooltip
+						bottom
+						v-for="object in iconObjects"
+						:key="object.icon"
+					>
+						<template
+							v-slot:activator="{on}"
+						>
+							<v-btn
+								class="m-4"
+								icon
+								:href="object.href"
+								target="_blank"
+								v-on="on"
+							>
+								<v-icon size="24px">
+									{{object.icon}}
+								</v-icon>
+							</v-btn>
+						</template>
+						<span>{{object.tooltip}}</span>
+					</v-tooltip>
+					<v-col
+						v-for="(text, index) in footerText"
+						:key="text"
+						class="py-4 text-center"
+						cols="12"
+					>
+						<div class="mx-3">{{text}}</div>
+					</v-col>
+				</v-row>
+			</v-footer>
+		</v-app>
+	</div>
+	
+	<script>
+		new Vue({
+			el: '#app',
+			vuetify: new Vuetify({
+				theme: {dark: true,},
+			}),
+			data: {
+				iconObjects: [
+					{
+						icon: 'mdi-email',
+						href: 'mailto: selmachessapp@gmail.com',
+						tooltip: 'Send An Email'
+					},
+					{
+						icon: 'mdi-github-face',
+						href: 'https://github.com/napoleon-commits/SelmaChessApp/tree/cdn-dev',
+						tooltip: 'View GitHub Repository'
+					},
+				],
+				footerText: [
+					`
+						"${
+							"A book cannot by itself teach how to play" +
+							"It can only serve as a guide, " +
+							"and the rest must be learned by experience."
+						}"
+					`,
+					`
+						${
+							new Date().getFullYear()
+						} - a Byron J-Mil Hall production
+					`,
+				],
+			},
+		})
+	</script>
 </body>
 </html>

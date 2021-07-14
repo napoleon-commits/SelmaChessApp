@@ -3,6 +3,22 @@ new Vue({
 	vuetify: new Vuetify({
 		theme: {dark: true,},
 	}),
+	methods: {
+		speak: function(text){
+			if(synth === undefined){
+				alert(`
+					Sorry, your browser doesn't support
+					text to speech!
+				`)
+			}
+			else{
+				const sentences = text.split(
+					new RegExp('[.!?]')
+				)
+				readSentences(sentences)
+			}
+		},
+	},
 	data: {
 		iconObjects: [
 			{

@@ -46,12 +46,14 @@
 					>
 						<span
 							style="cursor: pointer;"
+							@click="speak(body)"
 						>
 							&#128264;
 						</span>
 						<span>{{body}}</span>
 						<span
 							style="cursor: pointer;"
+							@click="speak(body)"
 						>
 							&#128264;
 						</span>
@@ -101,7 +103,8 @@
 			</v-footer>
 		</v-app>
 	</div>
-	
+
+	<script src="js/TextToSpeech.js"></script>
 	<script src="js/index.js"></script>
 </body>
 </html>

@@ -8,12 +8,14 @@ new Vue({
 			{
 				icon: 'mdi-email',
 				href: 'mailto: selmachessapp@gmail.com',
-				tooltip: 'Send An Email'
+				tooltip: 'Send An Email',
+				aria: 'Email',
 			},
 			{
 				icon: 'mdi-github-face',
 				href: 'https://github.com/napoleon-commits/SelmaChessApp/tree/cdn-dev',
-				tooltip: 'View GitHub Repository'
+				tooltip: 'View GitHub Repository',
+				aria: 'GitHub'
 			},
 		],
 		footerText: [
